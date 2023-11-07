@@ -3,7 +3,7 @@
 <head>
 </head>
 <body>
-    <h1># Physics Graduate with a Minor in Astronomy</h1>
+    <h1> Physics Graduate with a Minor in Astronomy</h1>
 
     <h2>Education</h2>
     <ul>
