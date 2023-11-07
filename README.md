@@ -2,12 +2,12 @@
 
 #### Technical Skills: 
 
-Programming Languages: Proficient in Python (Astropy, NumPy, SciPy, Matplotlib, Pandas,
+- Programming Languages: Proficient in Python (Astropy, NumPy, SciPy, Matplotlib, Pandas,
 Scikit-Learn), Julia, MATLAB, Wolfram Mathematica, R, with basic proficiency in C and C++
-Web Development: HTML/CSS, SCSS, JavaScript
-Database Management: SQL
-Operating Systems: Linux/Unix, Windows Software: LaTeX, GIMP, ImageJ
-Interactive Simulations and Virtual Labs: PhET Interactive Simulations, ExploreLearning,
+- Web Development: HTML/CSS, SCSS, JavaScript
+- Database Management: SQL
+- Operating Systems: Linux/Unix, Windows Software: LaTeX, GIMP, ImageJ
+- Interactive Simulations and Virtual Labs: PhET Interactive Simulations, ExploreLearning,
 Gizmos, Labster, ChemCollective, Stellarium, Tinkercad
 
 
