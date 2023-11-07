@@ -1,4 +1,4 @@
-# Data Scientist
+# Physics Graduate with a Minor in Astronomy
 
 #### Technical Skills: 
 
