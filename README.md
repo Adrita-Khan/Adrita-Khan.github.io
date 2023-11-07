@@ -3,9 +3,9 @@
 #### Technical Skills: Python, SQL, AWS, Snowflake, MATLAB
 
 ## Education
-- Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
-- M.S., Physics	| The University of Texas at Dallas (_December 2019_)	 			        		
-- B.S., Physics | The University of Texas at Dallas (_May 2017_)
+- Bachelor of Science (Hons.) | Major in Physics | Minor in Astronomy | Universiti Sains Malaysia (University of Science, Malaysia)	|	2019 - 2023				       		
+- Higher Secondary Certificate (HSC) | Discipline: Science | Govt. Sarda Sundari Mohila College, Faridpur | 2015 - 2017			        		
+- Secondary School Certificate (SSC) | Discipline: Science | Faridpur Govt. Girls’ High School, Faridpur | 2013 - 2015
 
 ## Work Experience
 **Data Scientist @ Toyota Financial Services (_June 2022 - Present_)**
