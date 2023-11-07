@@ -1,6 +1,6 @@
 # Physics Graduate with a Minor in Astronomy
 
-<!DOCTYPE html>
+
 <html>
 <head>
     <style>
@@ -35,8 +35,13 @@
             <li class="skills-item">Interactive Simulations and Virtual Labs: PhET Interactive Simulations, ExploreLearning, Gizmos, Labster, ChemCollective, Stellarium, Tinkercad</li>
         </ul>
     </div>
+    <hr> <!-- Horizontal line after the "Technical Skills" section -->
+    
+    <!-- Add more sections here with their respective content and horizontal lines -->
+    
 </body>
 </html>
+
 
 
 
