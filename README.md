@@ -90,8 +90,8 @@
     <div class="section-box">
         <h2 class="section-header">Talks & Lectures</h2>
         <ul class="section-list">
-            <li class="section-item">Causality: The new science of an old question - GSP Seminar, Fall 2021</li>
-            <li class="section-item">Guest Lecture: Dimensionality Reduction - Big Data and Machine Learning for Scientific Discovery (PHYS 5336), Spring 2021</li>
+            <li class="section-item"></li>
+            <li class="section-item"></li>
         </ul>
     </div>
 
