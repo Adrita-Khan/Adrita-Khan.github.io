@@ -1,14 +1,43 @@
 # Physics Graduate with a Minor in Astronomy
 
-#### Technical Skills: 
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Define the CSS for the boxed section */
+        .skills-box {
+            border: 2px solid #000; /* Border style, width, and color */
+            padding: 10px; /* Padding inside the box */
+            background-color: #f0f0f0; /* Background color */
+            width: 70%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the box horizontally */
+        }
 
-- Programming Languages: Proficient in Python (Astropy, NumPy, SciPy, Matplotlib, Pandas,
-Scikit-Learn), Julia, MATLAB, Wolfram Mathematica, R, with basic proficiency in C and C++
-- Web Development: HTML/CSS, SCSS, JavaScript
-- Database Management: SQL
-- Operating Systems: Linux/Unix, Windows Software: LaTeX, GIMP, ImageJ
-- Interactive Simulations and Virtual Labs: PhET Interactive Simulations, ExploreLearning,
-Gizmos, Labster, ChemCollective, Stellarium, Tinkercad
+        /* Define styles for the list within the box */
+        .skills-list {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+        }
+
+        .skills-item {
+            margin: 5px 0; /* Adjust spacing between items */
+        }
+    </style>
+</head>
+<body>
+    <div class="skills-box">
+        <h4>Technical Skills:</h4>
+        <ul class="skills-list">
+            <li class="skills-item">Programming Languages: Proficient in Python (Astropy, NumPy, SciPy, Matplotlib, Pandas, Scikit-Learn), Julia, MATLAB, Wolfram Mathematica, R, with basic proficiency in C and C++</li>
+            <li class="skills-item">Web Development: HTML/CSS, SCSS, JavaScript</li>
+            <li class="skills-item">Database Management: SQL</li>
+            <li class="skills-item">Operating Systems: Linux/Unix, Windows Software: LaTeX, GIMP, ImageJ</li>
+            <li class="skills-item">Interactive Simulations and Virtual Labs: PhET Interactive Simulations, ExploreLearning, Gizmos, Labster, ChemCollective, Stellarium, Tinkercad</li>
+        </ul>
+    </div>
+</body>
+</html>
+
 
 
 ## Education
