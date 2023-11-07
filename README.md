@@ -12,7 +12,20 @@ Gizmos, Labster, ChemCollective, Stellarium, Tinkercad
 
 
 ## Education
-- Bachelor of Science (Hons.) | Major in Physics | Minor in Astronomy | Universiti Sains Malaysia (University of Science, Malaysia)	|	(2019 - 2023)				       		
+- Bachelor of Science (Hons.) | Major in Physics | Minor in Astronomy | Universiti Sains Malaysia (University of Science, Malaysia)	|	(2019 - 2023)
+#### Relevant Courses
+Classical Mechanics I and II, Quantum Mechanics, Thermodynamics, Statistical Mechanics,
+Electricity and Magnetism I and II, Atomic and Nuclear Physics, Solid State Physics I and II,
+Modern Physics, Optics, Radiation Biophysics, Laser and Its Applications, Non-Destructive
+Testing, Vibrations, Waves and Optics, Electronics I and II, Physics practical I, II, III and IV,
+Introduction to Astronomy, Structure of the Universe, Principles and Practices in Astronomy,
+Introduction to Radio Astronomy, Calculus, Linear Algebra and Vector Analysis, Complex
+Analysis and Differential Equations, Mathematical Methods, Artificial Intelligence Literacy,
+Principles of Data Analytics, Writing for Professional Communication, Scientific and Medical
+English, Sustainability: Issues, Challenges, and Prospects, English Poetry, Speech Writing and
+Public Speaking, Spoken English.
+
+            
 - Higher Secondary Certificate (HSC) | Discipline: Science | Major Subject Concentration: Physics, Chemistry, Biology, Higher Mathematics, lnformation & Communication Technology | Govt. Sarda Sundari Mohila College, Faridpur | (2015 - 2017)			        		
 - Secondary School Certificate (SSC) | Discipline: Science | Faridpur Govt. Girls’ High School, Faridpur | (2013 - 2015)
 
