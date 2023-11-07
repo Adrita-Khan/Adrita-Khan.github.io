@@ -12,9 +12,9 @@ Gizmos, Labster, ChemCollective, Stellarium, Tinkercad
 
 
 ## Education
-- Bachelor of Science (Hons.) | Major in Physics | Minor in Astronomy | Universiti Sains Malaysia (University of Science, Malaysia)	|	2019 - 2023				       		
-- Higher Secondary Certificate (HSC) | Discipline: Science | Govt. Sarda Sundari Mohila College, Faridpur | 2015 - 2017			        		
-- Secondary School Certificate (SSC) | Discipline: Science | Faridpur Govt. Girls’ High School, Faridpur | 2013 - 2015
+- Bachelor of Science (Hons.) | Major in Physics | Minor in Astronomy | Universiti Sains Malaysia (University of Science, Malaysia)	|	(2019 - 2023)				       		
+- Higher Secondary Certificate (HSC) | Discipline: Science | Govt. Sarda Sundari Mohila College, Faridpur | (2015 - 2017)			        		
+- Secondary School Certificate (SSC) | Discipline: Science | Faridpur Govt. Girls’ High School, Faridpur | (2013 - 2015)
 
 ## Work Experience
 **Data Scientist @ Toyota Financial Services (_June 2022 - Present_)**
