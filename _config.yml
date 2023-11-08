@@ -1,43 +1,12 @@
 title: Adrita Khan
-description: Your brief description goes here
-show_downloads: true
-theme: jekyll-theme-minimal
 logo: /assets/img/headshot_circle.png
-# Change the logo path to the location of your logo image
+description: Text below the image
 
-# Additional options for customization:
-# Modify the color scheme
-color_scheme: dark
-# You can choose from 'light', 'dark', or other available color schemes
+theme: jekyll-theme-minimal
 
-# Customize the background color
-background_color: "#f6f8fa"
-# Use a hex color code or named color
-
-# Add links to your social media profiles
-social_links:
-  - name: LinkedIn
-    url: https://www.linkedin.com/in/adritakhan/
-  - name: GitHub
-    url: https://github.com/adritakhan
-  # Add more social media links as needed
-
-# Add links to your projects or external websites
-project_links:
-  - name: Project 1
-    url: https://github.com/adritakhan/project1
-    description: A description of your project
-  - name: Project 2
-    url: https://github.com/adritakhan/project2
-    description: Another project description
-  # Add more project links as needed
-
-# Set a custom domain (if applicable)
-custom_domain: www.adritakhan.com
-# Replace with your custom domain name
-
-# Custom CSS styles
-custom_css: /assets/css/custom.css
-# Link to your custom CSS file for additional styling
-
-# Add more options as needed to customize your GitHub portfolio
+# Add your social media links here
+linkedin: https://www.linkedin.com/in/your-linkedin
+twitter: https://twitter.com/your-twitter
+medium: https://medium.com/@your-medium
+github: https://github.com/your-github
+gitlab: https://gitlab.com/your-gitlab
