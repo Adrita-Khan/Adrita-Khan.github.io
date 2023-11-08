@@ -59,8 +59,8 @@
         <h2 class="section-header">Work Experience</h2>
         <p>Data Scientist @ Toyota Financial Services (June 2022 - Present)</p>
         <ul class="section-list">
-            <li class="section-item">Uncovered and corrected missing step in production data pipeline which impacted over 70% of active accounts</li>
-            <li class="section-item">Redeveloped loan originations model which resulted in 50% improvement in model performance and saving 1 million dollars in potential losses</li>
+            <li class="section-item">Uncovered </li>
+            <li class="section-item">Redeveloped </li>
         </ul>
 
         <p>Data Science Consultant @ Shawhin Talebi Ventures LLC (December 2020 - Present)</p>
