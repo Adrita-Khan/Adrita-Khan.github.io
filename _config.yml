@@ -1,5 +1,59 @@
-title: Adrita Khan
-#logo: /assets/img/headshot_circle.png
-#description: text below image
-#show_downloads: true
-theme: jekyll-theme-minimal
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Define CSS styles for the header section */
+        .header {
+            text-align: center;
+            background-color: #0366d6; /* Header background color */
+            padding: 20px;
+            color: #ffffff; /* Header text color */
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        /* Define CSS styles for the logo image */
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px; /* Adjust the logo width as needed */
+        }
+
+        /* Define CSS styles for the description section */
+        .description {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        /* Define CSS styles for the main content section */
+        .content {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Title: Adrita Khan</h1>
+        <img class="logo" src="/assets/img/headshot_circle.png" alt="Logo">
+        <p class="description">Description: text below image</p>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <h2>Welcome to my GitHub portfolio!</h2>
+        <p>This is where you can find information about my projects, work, and more.</p>
+        
+        <!-- Optional GitHub Portfolio Features -->
+        <h3>GitHub Portfolio Features:</h3>
+        <ul>
+            <li>Show Downloads: true</li>
+            <li>Theme: jekyll-theme-minimal</li>
+            <!-- Add more options as needed -->
+        </ul>
+    </div>
+</body>
+</html>
+
