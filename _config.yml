@@ -1,59 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        /* Define CSS styles for the header section */
-        .header {
-            text-align: center;
-            background-color: #0366d6; /* Header background color */
-            padding: 20px;
-            color: #ffffff; /* Header text color */
-        }
+title: Adrita Khan
+description: Your brief description goes here
+show_downloads: true
+theme: jekyll-theme-minimal
+logo: /assets/img/headshot_circle.png
+# Change the logo path to the location of your logo image
 
-        .header h1 {
-            margin: 0;
-        }
+# Additional options for customization:
+# Modify the color scheme
+color_scheme: dark
+# You can choose from 'light', 'dark', or other available color schemes
 
-        /* Define CSS styles for the logo image */
-        .logo {
-            display: block;
-            margin: 0 auto;
-            max-width: 150px; /* Adjust the logo width as needed */
-        }
+# Customize the background color
+background_color: "#f6f8fa"
+# Use a hex color code or named color
 
-        /* Define CSS styles for the description section */
-        .description {
-            text-align: center;
-            margin: 10px 0;
-        }
+# Add links to your social media profiles
+social_links:
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/adritakhan/
+  - name: GitHub
+    url: https://github.com/adritakhan
+  # Add more social media links as needed
 
-        /* Define CSS styles for the main content section */
-        .content {
-            margin: 20px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header Section -->
-    <div class="header">
-        <h1>Title: Adrita Khan</h1>
-        <img class="logo" src="/assets/img/headshot_circle.png" alt="Logo">
-        <p class="description">Description: text below image</p>
-    </div>
+# Add links to your projects or external websites
+project_links:
+  - name: Project 1
+    url: https://github.com/adritakhan/project1
+    description: A description of your project
+  - name: Project 2
+    url: https://github.com/adritakhan/project2
+    description: Another project description
+  # Add more project links as needed
 
-    <!-- Main Content Section -->
-    <div class="content">
-        <h2>Welcome to my GitHub portfolio!</h2>
-        <p>This is where you can find information about my projects, work, and more.</p>
-        
-        <!-- Optional GitHub Portfolio Features -->
-        <h3>GitHub Portfolio Features:</h3>
-        <ul>
-            <li>Show Downloads: true</li>
-            <li>Theme: jekyll-theme-minimal</li>
-            <!-- Add more options as needed -->
-        </ul>
-    </div>
-</body>
-</html>
+# Set a custom domain (if applicable)
+custom_domain: www.adritakhan.com
+# Replace with your custom domain name
 
+# Custom CSS styles
+custom_css: /assets/css/custom.css
+# Link to your custom CSS file for additional styling
+
+# Add more options as needed to customize your GitHub portfolio
