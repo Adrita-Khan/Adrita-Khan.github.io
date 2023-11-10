@@ -48,4 +48,4 @@ Thank you for visiting my academic website. I hope you find the information valu
 Best regards,
 
 Adrita Khan
-reach me: [Gmail](mailto:adrita.khan.official@gmail.com)
+- 📫 How to reach me: [Gmail](mailto:adrita.khan.official@gmail.com)
