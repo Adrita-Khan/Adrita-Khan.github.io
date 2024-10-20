@@ -1,0 +1,108 @@
+/* style.css */
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d7edf9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #33b5ff;
+    padding: 15px 0;
+}
+
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container a {
+    margin: 0 15px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-size: 32px;
+    color: #33b5ff;
+}
+
+/* Content Containers */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.subsection-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subsection-list li {
+    background-color: #33b5ff;
+    margin: 10px 0;
+    padding: 15px 30px;
+    border-radius: 5px;
+    width: 60%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.subsection-list li:hover {
+    background-color: #2892d7;
+}
+
+.subsection-list li a {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #33b5ff;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
