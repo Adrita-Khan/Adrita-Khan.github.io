@@ -1,5 +1,3 @@
-/* style.css */
-
 /* General Styles */
 body {
     margin: 0;
@@ -105,4 +103,17 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+/* About Me Section Customization */
+#about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+#about-me p {
+    text-align: justify;
+    width: 80%; /* Adjust the width for better appearance */
 }
