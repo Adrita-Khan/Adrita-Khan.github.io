@@ -67,7 +67,7 @@ a:hover {
 nav {
     position: relative;
     z-index: 100;
-    background: rgba(51, 181, 255, 0.9);
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
     backdrop-filter: blur(10px);
     padding: 15px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -271,7 +271,7 @@ header p {
 .section-line {
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #7877c6, #ff77c6);
+    background: linear-gradient(135deg, #8B5CF6, #EC4899);
     margin: 0 auto;
     border-radius: 2px;
 }
@@ -465,7 +465,7 @@ header p {
 
 .read-more-btn {
     position: relative;
-    background: linear-gradient(135deg, #7877c6, #ff77c6);
+    background: linear-gradient(135deg, #8B5CF6, #EC4899);
     border: none;
     border-radius: 50px;
     padding: 1rem 2rem;
@@ -479,7 +479,7 @@ header p {
 
 .read-more-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(120, 119, 198, 0.3);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
 }
 
 .btn-glow {
@@ -561,11 +561,11 @@ header p {
 }
 
 .subsection-list li:nth-child(7n+1) a {
-    border-left: 3px solid #7877c6;
+    border-left: 3px solid #8B5CF6;
 }
 
 .subsection-list li:nth-child(7n+2) a {
-    border-left: 3px solid #ff77c6;
+    border-left: 3px solid #EC4899;
 }
 
 .subsection-list li:nth-child(7n+3) a {
@@ -590,7 +590,7 @@ header p {
 
 /* Footer */
 footer {
-    background: rgba(51, 181, 255, 0.9);
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
     backdrop-filter: blur(10px);
     color: #ffffff;
     text-align: center;
