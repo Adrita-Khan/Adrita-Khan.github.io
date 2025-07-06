@@ -770,3 +770,53 @@
                             <div class="galaxy-ring ring-2"></div>
                             <div class="galaxy-ring ring-3"></div>
                         </div>
+
+<!-- Quick Links to Sections -->
+    <section id="quick-links">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore My Work</h2>
+                <div class="section-line"></div>
+            </div>
+            <ul class="subsection-list">
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="formal-research-experience.html">Research Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numStars = 100;
+            
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Initialize stars when page loads
+        window.addEventListener('load', createStars);
+
+        // Smooth scroll for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
