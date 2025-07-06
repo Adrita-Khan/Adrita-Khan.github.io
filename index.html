@@ -162,6 +162,41 @@
             transform: translateY(-2px);
         }
 
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: slideInLeft 1s ease-out 0.8s both;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(120, 119, 198, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-icon:hover {
+            background: rgba(120, 119, 198, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(120, 119, 198, 0.3);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
         .scroll-indicator {
             position: absolute;
             bottom: 2rem;
@@ -242,6 +277,10 @@
             }
 
             .interests-list {
+                justify-content: center;
+            }
+
+            .social-links {
                 justify-content: center;
             }
         }
@@ -653,6 +692,28 @@
                         <span class="interest-tag">Astrostatistics</span>
                         <span class="interest-tag">Machine Learning</span>
                     </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Adrita-Khan" target="_blank" class="social-icon" title="GitHub">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" class="social-icon" title="ResearchGate">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19.586 0H4.414A4.414 4.414 0 000 4.414v15.172A4.414 4.414 0 004.414 24h15.172A4.414 4.414 0 0024 19.586V4.414A4.414 4.414 0 0019.586 0zM8.063 18.744c-.837 0-1.332-.481-1.332-1.332V7.419c0-.837.481-1.332 1.332-1.332.837 0 1.332.481 1.332 1.332v10.007c0 .837-.481 1.318-1.332 1.318zm7.874-3.744c-.837 0-1.332-.481-1.332-1.332V9.412c0-.837.481-1.332 1.332-1.332.837 0 1.332.481 1.332 1.332v4.256c0 .837-.481 1.332-1.332 1.332z"/>
+                            </svg>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" class="social-icon" title="Google Scholar">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/>
+                            </svg>
+                        </a>
+                        <a href="https://orcid.org/0009-0000-9304-8895" target="_blank" class="social-icon" title="ORCID">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.525.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 4.068-1.472 4.068-3.722 0-2.016-1.247-3.722-4.068-3.722h-2.297z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="image-content">
@@ -709,66 +770,3 @@
                             <div class="galaxy-ring ring-2"></div>
                             <div class="galaxy-ring ring-3"></div>
                         </div>
-                    </div>
-                    <div class="work-info">
-                        <h3>Understanding Dark Matter Distribution</h3>
-                        <p>In my recent research, I investigated the distribution of dark matter in spiral galaxies using advanced computational models. This study provides new insights into the gravitational effects and rotational curves observed in these celestial structures.</p>
-                        <button class="read-more-btn">
-                            <span>Read More</span>
-                            <div class="btn-glow"></div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Links to Sections -->
-    <section id="quick-links">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Explore My Work</h2>
-                <div class="section-line"></div>
-            </div>
-            <ul class="subsection-list">
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="formal-research-experience.html">Research Experience</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <script>
-        // Create animated stars
-        function createStars() {
-            const starsContainer = document.querySelector('.stars');
-            const numStars = 100;
-            
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-        
-        // Initialize stars when page loads
-        window.addEventListener('load', createStars);
-
-        // Smooth scroll for scroll indicator
-        document.querySelector('.scroll-indicator').addEventListener('click', () => {
-            window.scrollTo({
-                top: window.innerHeight,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-</body>
-</html>
