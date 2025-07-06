@@ -245,6 +245,293 @@
                 justify-content: center;
             }
         }
+
+        /* About Me Section */
+        .about-section {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .section-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #7877c6, #ff77c6);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0ff;
+        }
+
+        .about-text .intro {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .about-text .intro::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: rgba(120, 119, 198, 0.3);
+            font-family: serif;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(120, 119, 198, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(120, 119, 198, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #b0b0d0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Featured Work Section */
+        .featured-section {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .work-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            background: rgba(120, 119, 198, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            background: rgba(120, 119, 198, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .work-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            position: relative;
+        }
+
+        .galaxy-animation {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .galaxy-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ffffff 0%, #a8a8ff 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .galaxy-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgba(120, 119, 198, 0.4);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .galaxy-ring:nth-child(2) {
+            width: 80px;
+            height: 80px;
+        }
+
+        .galaxy-ring.ring-2 {
+            width: 120px;
+            height: 120px;
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+
+        .galaxy-ring.ring-3 {
+            width: 160px;
+            height: 160px;
+            animation-duration: 40s;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .work-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .work-info p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e0e0ff;
+            margin-bottom: 2rem;
+        }
+
+        .read-more-btn {
+            position: relative;
+            background: linear-gradient(135deg, #7877c6, #ff77c6);
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .read-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(120, 119, 198, 0.3);
+        }
+
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .read-more-btn:hover .btn-glow {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .work-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .about-text .intro {
+                font-size: 1.1rem;
+                padding-left: 1.5rem;
+            }
+
+            .about-stats {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .stat-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .work-info h3 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -271,6 +558,67 @@
         </div>
         <div class="scroll-indicator">Scroll to explore</div>
     </header>
+
+    <!-- About Me Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="intro">Greetings, everyone, and welcome to my website! I am Adrita Khan, a graduate of the University of Science, Malaysia (USM), with a major in Physics and a minor in Astronomy. Currently, I am a research intern at the Center for Astronomy, Space Science, and Astrophysics (CASSA), as well as the Center for Computational and Data Sciences (CCDS) at the Independent University, Bangladesh (IUB).</p>
+                    
+                    <p>I am actively pursuing MSc and Ph.D. opportunities, particularly within the domains of Science, Technology, Engineering, and Mathematics (STEM). I am eager to engage in meaningful collaborations, contribute to impactful research, and advance knowledge in these fields. I am dedicated to expanding my knowledge and staying updated with the latest developments so I can make meaningful contributions to academia and beyond.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Research Centers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Curiosity</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Universe to Explore</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="featured-content">
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="galaxy-animation">
+                            <div class="galaxy-core"></div>
+                            <div class="galaxy-ring"></div>
+                            <div class="galaxy-ring ring-2"></div>
+                            <div class="galaxy-ring ring-3"></div>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Understanding Dark Matter Distribution</h3>
+                        <p>In my recent research, I investigated the distribution of dark matter in spiral galaxies using advanced computational models. This study provides new insights into the gravitational effects and rotational curves observed in these celestial structures.</p>
+                        <button class="read-more-btn">
+                            <span>Read More</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Create animated stars
