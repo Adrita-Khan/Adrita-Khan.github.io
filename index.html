@@ -4,7 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adrita Khan - BSc in Physics & Astronomy | PhD Candidate in Physics and Astronomy</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2e3450;
+            color: #ffffff;
+        }
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Navigation Bar */
+        nav {
+            background-color: #33b5ff;
+            padding: 15px 0;
+        }
+        .nav-container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-container a {
+            margin: 0 15px;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Profile Picture Styles */
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #33b5ff;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(51, 181, 255, 0.3);
+        }
+        
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px 0;
+            font-size: 32px;
+            color: #33b5ff;
+        }
+        /* Content Containers */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+        .subsection-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .subsection-list li {
+            background-color: #33b5ff;
+            margin: 10px 0;
+            padding: 15px 30px;
+            border-radius: 5px;
+            width: 60%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .subsection-list li:hover {
+            background-color: #2892d7;
+        }
+        .subsection-list li a {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        /* Footer */
+        footer {
+            background-color: #33b5ff;
+            color: #ffffff;
+            text-align: center;
+            padding: 9px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        /* About Me Section Customization */
+        #about-me {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+        #about-me p {
+            text-align: justify;
+            width: 80%; /* Adjust the width for better appearance */
+        }
+    </style>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -24,10 +142,10 @@
 
     <!-- Header Section -->
     <header>
+        <img src="your-profile-picture.jpg" alt="Adrita Khan" class="profile-picture">
         <h1>Adrita Khan</h1>
         <p>PhD Aspirant in Astronomy and Cosmology</p>
-       <p>Strong interest in Observational Cosmology, Astrostatistics, and Machine Learning</p>
-
+        <p>Strong interest in Observational Cosmology, Astrostatistics, and Machine Learning</p>
     </header>
 
     <!-- Main Content -->
@@ -43,7 +161,8 @@
             </p>
         </section>
 
-        <!-- Quick Links to Sections --<section id="quick-links">
+        <!-- Quick Links to Sections -->
+        <section id="quick-links">
             <h2 class="section-title">Explore My Work</h2>
             <ul class="subsection-list">
                 <li><a href="publications.html">Publications</a></li>
