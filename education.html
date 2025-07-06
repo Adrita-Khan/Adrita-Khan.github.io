@@ -75,17 +75,90 @@
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
-        /* Main Container */
-        .container {
-            max-width: 1000px;
+        /* Main Layout */
+        .main-content {
+            display: flex;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 3rem 2rem;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        /* Left Side Image */
+        .left-side {
+            flex: 0 0 400px;
+            position: sticky;
+            top: 120px;
+        }
+
+        .profile-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(243, 156, 18, 0.1), rgba(230, 126, 34, 0.1));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image-container:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .overlay-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .overlay-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Right Side Content */
+        .right-side {
+            flex: 1;
+            min-width: 0;
         }
 
         .section-title {
             font-size: 3rem;
             font-weight: 700;
-            text-align: center;
             margin-bottom: 1rem;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -96,8 +169,7 @@
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
             width: 80px;
             height: 4px;
             background: linear-gradient(90deg, #f39c12, #e67e22);
@@ -105,13 +177,10 @@
         }
 
         .intro-text {
-            text-align: center;
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 3rem;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* Education Timeline */
@@ -123,12 +192,11 @@
         .education-timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
+            left: 0;
             top: 0;
             bottom: 0;
             width: 3px;
             background: linear-gradient(180deg, #f39c12, #e67e22, #d35400);
-            transform: translateX(-50%);
             border-radius: 1.5px;
         }
 
@@ -145,7 +213,7 @@
             padding: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
-            width: 45%;
+            margin-left: 40px;
             transition: all 0.3s ease;
             overflow: hidden;
         }
@@ -172,22 +240,11 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        .education-item:nth-child(odd) .education-card {
-            margin-left: auto;
-            margin-right: 0;
-        }
-
-        .education-item:nth-child(even) .education-card {
-            margin-left: 0;
-            margin-right: auto;
-        }
-
         /* Timeline Dots */
         .timeline-dot {
             position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            left: -10px;
+            top: 3rem;
             width: 20px;
             height: 20px;
             background: linear-gradient(135deg, #f39c12, #e67e22);
@@ -407,6 +464,21 @@
             }
         }
 
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-image-container {
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
         .education-card {
             animation: fadeInUp 0.8s ease forwards;
         }
@@ -416,6 +488,33 @@
         .education-item:nth-child(3) .education-card { animation-delay: 0.6s; }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .left-side {
+                flex: none;
+                position: static;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .right-side {
+                width: 100%;
+            }
+
+            .section-title {
+                text-align: center;
+            }
+
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-container {
                 padding: 1rem;
@@ -428,12 +527,16 @@
                 padding: 0.4rem 0.8rem;
             }
 
-            .section-title {
-                font-size: 2.5rem;
+            .main-content {
+                padding: 2rem 1rem;
             }
 
-            .container {
-                padding: 2rem 1rem;
+            .left-side {
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
             }
 
             .education-timeline::before {
@@ -441,13 +544,11 @@
             }
 
             .education-card {
-                width: 100%;
-                margin-left: 40px !important;
-                margin-right: 0 !important;
+                margin-left: 60px;
             }
 
             .timeline-dot {
-                left: 20px;
+                left: 10px;
             }
 
             .education-header {
@@ -484,154 +585,170 @@
         </div>
     </nav>
 
-    <!-- Education Section -->
-    <div class="container">
-        <h2 class="section-title">Educational Journey</h2>
-        <p class="intro-text">My academic path and the foundations that shaped my research interests and expertise.</p>
-        
-        <div class="education-timeline">
-            <!-- Education Item 1 -->
-            <div class="education-item">
-                <div class="timeline-dot"></div>
-                <div class="education-card">
-                    <div class="education-header">
-                        <div class="education-icon">🎓</div>
-                        <div>
-                            <h3 class="education-degree">Bachelor of Science (Hons) in Physics (Major) and Astronomy (Minor)</h3>
-                            <p class="education-university">Universiti Sains Malaysia</p>
-                            <p class="education-location">School of Physics, 11800 Gelugor, Penang, Malaysia</p>
-                        </div>
-                    </div>
-                    
-                    <div class="education-meta">
-                        <div class="meta-item">
-                            <div class="meta-icon">📅</div>
-                            <span>Graduated: 2023</span>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-icon">🏆</div>
-                            <span>Honours Degree</span>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-icon">🔬</div>
-                            <span>Research Focus</span>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Side Image -->
+        <div class="left-side">
+            <div class="profile-image-container">
+                <img src="https://github.com/Adrita-Khan/Assets/blob/main/host/new.jpg?raw=true" 
+                     alt="Adrita Khan" 
+                     class="profile-image">
+                <div class="image-overlay">
+                    <div class="overlay-title">Adrita Khan</div>
+                    <div class="overlay-subtitle">Physics Graduate & Researcher</div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="education-details">
-                        <div class="details-grid">
-                            <div class="detail-item">
-                                <span class="detail-label">Major:</span>
-                                <span>Physics</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Minor:</span>
-                                <span>Astronomy</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Degree Type:</span>
-                                <span>Bachelor of Science (Hons)</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Institution:</span>
-                                <span>University of Science, Malaysia</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="achievements-section">
-                        <h4 class="achievements-title">
-                            <span>🏅</span>
-                            <span>Key Achievements</span>
-                        </h4>
-                        <div class="achievement-list">
-                            <div class="achievement-item">
-                                <div class="achievement-icon">✓</div>
-                                <span>Completed Honours research project in Physics</span>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon">✓</div>
-                                <span>Specialized in Astronomy as minor field</span>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon">✓</div>
-                                <span>Gained comprehensive understanding of theoretical and experimental physics</span>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon">✓</div>
-                                <span>Developed strong analytical and research skills</span>
+        <!-- Right Side Content -->
+        <div class="right-side">
+            <h2 class="section-title">Educational Journey</h2>
+            <p class="intro-text">My academic path and the foundations that shaped my research interests and expertise.</p>
+            
+            <div class="education-timeline">
+                <!-- Education Item 1 -->
+                <div class="education-item">
+                    <div class="timeline-dot"></div>
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div class="education-icon">🎓</div>
+                            <div>
+                                <h3 class="education-degree">Bachelor of Science (Hons) in Physics (Major) and Astronomy (Minor)</h3>
+                                <p class="education-university">Universiti Sains Malaysia</p>
+                                <p class="education-location">School of Physics, 11800 Gelugor, Penang, Malaysia</p>
                             </div>
                         </div>
-                    </div>
+                        
+                        <div class="education-meta">
+                            <div class="meta-item">
+                                <div class="meta-icon">📅</div>
+                                <span>Graduated: 2023</span>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">🏆</div>
+                                <span>Honours Degree</span>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">🔬</div>
+                                <span>Research Focus</span>
+                            </div>
+                        </div>
 
-                    <div class="skills-section">
-                        <h4 class="skills-title">
-                            <span>⚡</span>
-                            <span>Skills Developed</span>
-                        </h4>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-name">Quantum Mechanics</div>
+                        <div class="education-details">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Major:</span>
+                                    <span>Physics</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Minor:</span>
+                                    <span>Astronomy</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Degree Type:</span>
+                                    <span>Bachelor of Science (Hons)</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Institution:</span>
+                                    <span>University of Science, Malaysia</span>
+                                </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-name">Astrophysics</div>
+                        </div>
+
+                        <div class="achievements-section">
+                            <h4 class="achievements-title">
+                                <span>🏅</span>
+                                <span>Key Achievements</span>
+                            </h4>
+                            <div class="achievement-list">
+                                <div class="achievement-item">
+                                    <div class="achievement-icon">✓</div>
+                                    <span>Completed Honours research project in Physics</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-icon">✓</div>
+                                    <span>Specialized in Astronomy as minor field</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-icon">✓</div>
+                                    <span>Gained comprehensive understanding of theoretical and experimental physics</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-icon">✓</div>
+                                    <span>Developed strong analytical and research skills</span>
+                                </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-name">Mathematical Physics</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name">Laboratory Techniques</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name">Data Analysis</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name">Research Methodology</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name">Scientific Writing</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name">Computational Physics</div>
+                        </div>
+
+                        <div class="skills-section">
+                            <h4 class="skills-title">
+                                <span>⚡</span>
+                                <span>Skills Developed</span>
+                            </h4>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <div class="skill-name">Quantum Mechanics</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Astrophysics</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Mathematical Physics</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Laboratory Techniques</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Data Analysis</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Research Methodology</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Scientific Writing</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Computational Physics</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Placeholder for future education -->
-            <div class="education-item" style="opacity: 0.3;">
-                <div class="timeline-dot"></div>
-                <div class="education-card">
-                    <div class="education-header">
-                        <div class="education-icon">🎯</div>
-                        <div>
-                            <h3 class="education-degree">Future Educational Goals</h3>
-                            <p class="education-university">Graduate Studies</p>
-                            <p class="education-location">Research-focused advanced degree</p>
-                        </div>
-                    </div>
-                    
-                    <div class="education-meta">
-                        <div class="meta-item">
-                            <div class="meta-icon">🔮</div>
-                            <span>Future Plans</span>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-icon">📈</div>
-                            <span>Career Development</span>
-                        </div>
-                    </div>
-
-                    <div class="education-details">
-                        <div class="details-grid">
-                            <div class="detail-item">
-                                <span class="detail-label">Focus:</span>
-                                <span>Advanced Research</span>
+                <!-- Placeholder for future education -->
+                <div class="education-item" style="opacity: 0.3;">
+                    <div class="timeline-dot"></div>
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div class="education-icon">🎯</div>
+                            <div>
+                                <h3 class="education-degree">Future Educational Goals</h3>
+                                <p class="education-university">Graduate Studies</p>
+                                <p class="education-location">Research-focused advanced degree</p>
                             </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Goal:</span>
-                                <span>Specialized Expertise</span>
+                        </div>
+                        
+                        <div class="education-meta">
+                            <div class="meta-item">
+                                <div class="meta-icon">🔮</div>
+                                <span>Future Plans</span>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">📈</div>
+                                <span>Career Development</span>
+                            </div>
+                        </div>
+
+                        <div class="education-details">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Focus:</span>
+                                    <span>Advanced Research</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Goal:</span>
+                                    <span>Specialized Expertise</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -694,6 +811,17 @@
         document.querySelectorAll('.achievement-item').forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
             item.style.animation = 'fadeInUp 0.6s ease forwards';
+        });
+
+        // Profile image parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const imageContainer = document.querySelector('.profile-image-container');
+            const rate = scrolled * -0.5;
+            
+            if (window.innerWidth > 1024) {
+                imageContainer.style.transform = `translateY(${rate}px)`;
+            }
         });
     </script>
 </body>
