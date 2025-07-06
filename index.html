@@ -3,176 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrita Khan - BSc in Physics & Astronomy | PhD Candidate in Physics and Astronomy</title>
+    <title>Adrita Khan - Portfolio</title>
     <style>
-        /* General Styles */
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #2e3450;
-            color: #ffffff;
+            padding: 0;
+            box-sizing: border-box;
         }
-        a {
-            text-decoration: none;
-            color: #ffffff;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
-        /* Navigation Bar */
-        nav {
-            background-color: #33b5ff;
-            padding: 15px 0;
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
         }
-        .nav-container {
-            width: 90%;
-            margin: 0 auto;
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        header {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .text-content {
+            order: 1;
+        }
+
+        .image-content {
+            order: 2;
             display: flex;
             justify-content: center;
-        }
-        .nav-container a {
-            margin: 0 15px;
-            font-size: 18px;
-            color: #ffffff;
-            font-weight: bold;
-        }
-        /* Header */
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
             align-items: center;
         }
-        
-        /* Profile Picture Styles */
+
         .profile-picture {
-            width: 360px;
-            height: 360px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #33b5ff;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(51, 181, 255, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 0 0 8px rgba(120, 119, 198, 0.1),
+                0 0 0 16px rgba(255, 119, 198, 0.05),
+                0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: float 6s ease-in-out infinite;
         }
-        
-        header h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 0 8px rgba(120, 119, 198, 0.2),
+                0 0 0 16px rgba(255, 119, 198, 0.1),
+                0 30px 60px rgba(0, 0, 0, 0.4);
         }
-        header p {
-            font-size: 20px;
-            margin: 5px 0;
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            animation: slideInLeft 1s ease-out 0.2s both;
         }
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            margin: 40px 0 20px 0;
-            font-size: 32px;
-            color: #33b5ff;
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #e0e0ff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            animation: slideInLeft 1s ease-out 0.4s both;
         }
-        /* Content Containers */
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding-bottom: 40px;
+
+        .interests {
+            font-size: 1.1rem;
+            color: #b0b0d0;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
         }
-        .subsection-list {
-            list-style-type: none;
-            padding: 0;
+
+        .interests-list {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
         }
-        .subsection-list li {
-            background-color: #33b5ff;
-            margin: 10px 0;
-            padding: 15px 30px;
-            border-radius: 5px;
-            width: 60%;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-        .subsection-list li:hover {
-            background-color: #2892d7;
-        }
-        .subsection-list li a {
+
+        .interest-tag {
+            background: rgba(120, 119, 198, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
             color: #ffffff;
-            font-size: 24px;
-            font-weight: bold;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-        /* Footer */
-        footer {
-            background-color: #33b5ff;
-            color: #ffffff;
+
+        .interest-tag:hover {
+            background: rgba(120, 119, 198, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            display: block;
             text-align: center;
-            padding: 9px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
         }
-        /* About Me Section Customization */
-        #about-me {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 40px;
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        #about-me p {
-            text-align: justify;
-            width: 80%; /* Adjust the width for better appearance */
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .text-content {
+                order: 2;
+            }
+
+            .image-content {
+                order: 1;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .profile-picture {
+                width: 250px;
+                height: 250px;
+            }
+
+            .interests-list {
+                justify-content: center;
+            }
         }
     </style>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav aria-label="Main Navigation">
-        <div class="nav-container">
-            <a href="index.html">Home</a>
-            <a href="publications.html">Publications</a>
-            <a href="education.html">Education</a>
-            <a href="research.html">Research</a>
-            <a href="formal-research-experience.html">Formal Research Experience</a>
-            <a href="projects.html">Projects</a>
-            <a href="achievements.html">Achievements</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Header Section -->
+    <div class="cosmic-bg"></div>
+    <div class="stars"></div>
+    
     <header>
-        <h1>Adrita Khan</h1>
-        <p>PhD Aspirant in Astronomy and Cosmology</p>
-        <p>Strong interest in Observational Cosmology, Astrostatistics, and Machine Learning</p>
-        <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" alt="Adrita Khan" class="profile-picture">
+        <div class="header-content">
+            <div class="text-content">
+                <h1>Adrita Khan</h1>
+                <p class="subtitle">PhD Aspirant in Astronomy and Cosmology</p>
+                <div class="interests">
+                    <p>Exploring the cosmos through data and discovery</p>
+                    <div class="interests-list">
+                        <span class="interest-tag">Observational Cosmology</span>
+                        <span class="interest-tag">Astrostatistics</span>
+                        <span class="interest-tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" alt="Adrita Khan" class="profile-picture">
+            </div>
+        </div>
+        <div class="scroll-indicator">Scroll to explore</div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- About Me Section -->
-        <section id="about-me">
-            <h2 class="section-title">About Me</h2>
-            <p>
-                Greetings, everyone, and welcome to my website! I am Adrita Khan, a graduate of the University of Science, Malaysia (USM), with a major in Physics and a minor in Astronomy. Currently, I am a research intern at the Center for Astronomy, Space Science, and Astrophysics (CASSA), as well as the Center for Computational and Data Sciences (CCDS) at the Independent University, Bangladesh (IUB).
-            </p>
-            <p>
-                I am actively pursuing MSc and Ph.D. opportunities, particularly within the domains of Science, Technology, Engineering, and Mathematics (STEM). I am eager to engage in meaningful collaborations, contribute to impactful research, and advance knowledge in these fields. I am dedicated to expanding my knowledge and staying updated with the latest developments so I can make meaningful contributions to academia and beyond.
-            </p>
-        </section>
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numStars = 100;
+            
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Initialize stars when page loads
+        window.addEventListener('load', createStars);
 
-        <!-- Featured Publication or Project (Optional) -->
-        <section id="featured" class="featured-section">
-            <h2 class="section-title">Featured Work</h2>
-            <div class="featured-content">
-                <h3>Understanding Dark Matter Distribution</h3>
-                <p>
-                    In my recent research, I investigated the distribution of dark matter in spiral galaxies using advanced computational models. This study provides new insights into the gravitational effects and rotational curves observed in these celestial structures.
-                </p>
-                <a href="publications.html#featured">Read More</a>
-            </div>
-        </section>
-    </main>
+        // Smooth scroll for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
