@@ -5,6 +5,310 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research - Adrita Khan</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(195, 147, 137, 0.15);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(195, 147, 137, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-container a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(195, 147, 137, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-container a:hover::before {
+            left: 100%;
+        }
+
+        .nav-container a:hover {
+            background: rgba(195, 147, 137, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .nav-container a.active {
+            background: rgba(195, 147, 137, 0.35);
+            box-shadow: 0 4px 15px rgba(195, 147, 137, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #c39389, #b08377);
+            border-radius: 2px;
+        }
+
+        /* Research Content */
+        .research-intro {
+            background: rgba(195, 147, 137, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(195, 147, 137, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .research-intro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(195, 147, 137, 0.2);
+            background: rgba(195, 147, 137, 0.15);
+        }
+
+        .research-intro p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Research Items */
+        .research-list {
+            display: grid;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .research-item {
+            background: rgba(195, 147, 137, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(195, 147, 137, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c39389, #b08377, #9d7066);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .research-item:hover::before {
+            transform: translateX(0);
+        }
+
+        .research-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(195, 147, 137, 0.25);
+            background: rgba(195, 147, 137, 0.15);
+        }
+
+        .research-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #c39389, #b08377);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(195, 147, 137, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .research-item:hover .research-icon {
+            box-shadow: 0 8px 25px rgba(195, 147, 137, 0.6);
+            transform: scale(1.05);
+        }
+
+        .research-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #c39389;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #c39389;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid rgba(195, 147, 137, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(195, 147, 137, 0.1);
+        }
+
+        .research-link:hover {
+            background: rgba(195, 147, 137, 0.2);
+            border-color: #c39389;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(195, 147, 137, 0.3);
+        }
+
+        .research-link::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .research-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .research-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .research-item:nth-child(1) { animation-delay: 0.1s; }
+        .research-item:nth-child(2) { animation-delay: 0.2s; }
+        .research-item:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .nav-container a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .research-intro,
+            .research-item {
+                padding: 1.5rem;
+            }
+
+            .research-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .research-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Special styling for different research types */
+        .research-item[data-type="interference"] .research-icon {
+            background: linear-gradient(135deg, #c39389, #d4a596);
+        }
+
+        .research-item[data-type="classifier"] .research-icon {
+            background: linear-gradient(135deg, #c39389, #b08377);
+        }
+
+        .research-item[data-type="paper"] .research-icon {
+            background: linear-gradient(135deg, #c39389, #9d7066);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -13,7 +317,7 @@
             <a href="index.html">Home</a>
             <a href="publications.html">Publications</a>
             <a href="education.html">Education</a>
-            <a href="research.html">Research</a>
+            <a href="research.html" class="active">Research</a>
             <a href="formal_research_experience.html">Formal Research Experience</a>
             <a href="projects.html">Projects</a>
             <a href="achievements.html">Achievements</a>
@@ -21,20 +325,89 @@
         </div>
     </nav>
 
-<!-- Research Section -->
-<div class="container">
-    <h2 class="section-title">Research</h2>
-    <p>My research focuses on the intersection of computational methods and astrophysical phenomena. I am particularly interested in:</p>
-    <ul>
-        <li>
-            <strong>RiFInE:</strong> Radio Frequency Interference Identification and Elimination. <a href="https://cassa.site/entry/p2024002/" target="_blank">Read more</a>.
-        </li>
-        <li>
-            <strong>RGC:</strong> Radha Gobinda Chandra, a Radio Galaxy Classifier. <a href="https://cassa.site/entry/p2023001/" target="_blank">Explore</a>.
-        </li>
-        <li>
-            <strong>Conference Paper Preprint (Co-author):</strong> <a href="https://arxiv.org/pdf/2505.19249" target="_blank">Accepted in ICIP 2025</a>.
-        </li>
-    </ul>
-</div>
+    <!-- Research Section -->
+    <div class="container">
+        <h2 class="section-title">Research</h2>
+        
+        <div class="research-intro">
+            <p>My research focuses on the intersection of computational methods and astrophysical phenomena. I am particularly interested in:</p>
+        </div>
 
+        <ul class="research-list">
+            <li class="research-item" data-type="interference">
+                <div class="research-header">
+                    <div class="research-icon">📡</div>
+                    <div>
+                        <h3 class="research-title">RiFInE</h3>
+                        <p class="research-description">Radio Frequency Interference Identification and Elimination</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    A sophisticated system designed to identify and eliminate radio frequency interference in astronomical observations. This research addresses one of the most critical challenges in radio astronomy, where interference from human-made sources can significantly impact the quality of astronomical data.
+                </p>
+                <a href="https://cassa.site/entry/p2024002/" target="_blank" class="research-link">
+                    Read more
+                </a>
+            </li>
+
+            <li class="research-item" data-type="classifier">
+                <div class="research-header">
+                    <div class="research-icon">🌌</div>
+                    <div>
+                        <h3 class="research-title">RGC</h3>
+                        <p class="research-description">Radha Gobinda Chandra, a Radio Galaxy Classifier</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    An advanced machine learning-based classifier designed to identify and categorize radio galaxies from astronomical survey data. This tool leverages deep learning techniques to automatically classify different types of radio sources, significantly improving the efficiency of radio astronomy research.
+                </p>
+                <a href="https://cassa.site/entry/p2023001/" target="_blank" class="research-link">
+                    Explore
+                </a>
+            </li>
+
+            <li class="research-item" data-type="paper">
+                <div class="research-header">
+                    <div class="research-icon">📄</div>
+                    <div>
+                        <h3 class="research-title">Conference Paper Preprint</h3>
+                        <p class="research-description">Co-author - Accepted in ICIP 2025</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    A collaborative research paper that has been accepted for presentation at the International Conference on Image Processing (ICIP) 2025. This work represents cutting-edge research in image processing techniques applied to astronomical data analysis.
+                </p>
+                <a href="https://arxiv.org/pdf/2505.19249" target="_blank" class="research-link">
+                    View Paper
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add subtle parallax effect to research items
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const researchItems = document.querySelectorAll('.research-item');
+            
+            researchItems.forEach((item, index) => {
+                const rate = scrolled * -0.1 * (index + 1);
+                item.style.transform = `translateY(${rate}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
