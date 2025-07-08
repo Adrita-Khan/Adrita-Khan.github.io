@@ -707,85 +707,151 @@
 
 <style>
 #quick-links {
-    padding: 20px 0;
-    background-color: #f8f9fa;
+    position: relative;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 6rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 4rem;
 }
 
 .section-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin: 0 0 10px 0;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
 }
 
 .section-line {
-    width: 60px;
-    height: 2px;
-    background-color: #007bff;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #7877c6, #ff77c6);
     margin: 0 auto;
+    border-radius: 2px;
 }
 
 .subsection-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    margin-top: 2rem;
 }
 
 .subsection-list li {
-    margin: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .subsection-list a {
-    font-size: 14px;
-    color: #555;
+    display: block;
+    background: rgba(120, 119, 198, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    white-space: nowrap;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.subsection-list a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
 }
 
 .subsection-list a:hover {
-    color: #007bff;
+    transform: translateY(-5px);
+    background: rgba(120, 119, 198, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(120, 119, 198, 0.2);
+    color: #a8a8ff;
+}
+
+.subsection-list a:hover::before {
+    left: 100%;
+}
+
+.subsection-list a:nth-child(7n+1) {
+    border-left: 3px solid #7877c6;
+}
+
+.subsection-list a:nth-child(7n+2) {
+    border-left: 3px solid #ff77c6;
+}
+
+.subsection-list a:nth-child(7n+3) {
+    border-left: 3px solid #77c6ff;
+}
+
+.subsection-list a:nth-child(7n+4) {
+    border-left: 3px solid #c677ff;
+}
+
+.subsection-list a:nth-child(7n+5) {
+    border-left: 3px solid #77ffc6;
+}
+
+.subsection-list a:nth-child(7n+6) {
+    border-left: 3px solid #ffc677;
+}
+
+.subsection-list a:nth-child(7n+7) {
+    border-left: 3px solid #ff7777;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
     .subsection-list {
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .subsection-list a {
+        padding: 1.5rem;
+        font-size: 1rem;
     }
     
-    .subsection-list a {
-        font-size: 13px;
+    .section-title {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .subsection-list {
-        gap: 15px;
+    .subsection-list a {
+        padding: 1.2rem;
+        font-size: 0.9rem;
     }
     
-    .subsection-list a {
-        font-size: 12px;
+    .section-title {
+        font-size: 2rem;
     }
 }
 </style>
-
 
 
 
