@@ -215,11 +215,81 @@
             margin-top: 0.5rem;
         }
 
-        /* Quick Links Section - Moved to top */
-        #quick-links {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .text-content {
+                order: 2;
+            }
+
+            .image-content {
+                order: 1;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .profile-picture {
+                width: 250px;
+                height: 250px;
+            }
+
+            .interests-list {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* About Me Section */
+        .about-section {
             position: relative;
             z-index: 10;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             padding: 6rem 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -235,7 +305,7 @@
             margin-bottom: 4rem;
         }
 
-        .section-title {
+        .section-header h2 {
             font-size: 3rem;
             font-weight: 700;
             background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
@@ -251,97 +321,6 @@
             background: linear-gradient(135deg, #7877c6, #ff77c6);
             margin: 0 auto;
             border-radius: 2px;
-        }
-
-        .subsection-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .subsection-list li {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .subsection-list a {
-            display: block;
-            background: rgba(120, 119, 198, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-        }
-
-        .subsection-list a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .subsection-list a:hover {
-            transform: translateY(-5px);
-            background: rgba(120, 119, 198, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(120, 119, 198, 0.2);
-            color: #a8a8ff;
-        }
-
-        .subsection-list a:hover::before {
-            left: 100%;
-        }
-
-        .subsection-list li:nth-child(1) a {
-            border-left: 3px solid #7877c6;
-        }
-
-        .subsection-list li:nth-child(2) a {
-            border-left: 3px solid #ff77c6;
-        }
-
-        .subsection-list li:nth-child(3) a {
-            border-left: 3px solid #77c6ff;
-        }
-
-        .subsection-list li:nth-child(4) a {
-            border-left: 3px solid #c677ff;
-        }
-
-        .subsection-list li:nth-child(5) a {
-            border-left: 3px solid #77ffc6;
-        }
-
-        .subsection-list li:nth-child(6) a {
-            border-left: 3px solid #ffc677;
-        }
-
-        .subsection-list li:nth-child(7) a {
-            border-left: 3px solid #ff7777;
-        }
-
-        /* About Me Section */
-        .about-section {
-            position: relative;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 6rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .about-content {
@@ -554,75 +533,7 @@
             left: 100%;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
         @media (max-width: 768px) {
-            .header-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .text-content {
-                order: 2;
-            }
-
-            .image-content {
-                order: 1;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .profile-picture {
-                width: 250px;
-                height: 250px;
-            }
-
-            .interests-list {
-                justify-content: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -634,7 +545,7 @@
                 padding: 2rem;
             }
 
-            .section-header h2, .section-title {
+            .section-header h2 {
                 font-size: 2.5rem;
             }
 
@@ -659,29 +570,177 @@
             .work-info h3 {
                 font-size: 1.5rem;
             }
-
-            .subsection-list {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .subsection-list a {
-                padding: 1.5rem;
-                font-size: 1rem;
-            }
         }
 
-        @media (max-width: 480px) {
-            .subsection-list a {
-                padding: 1.2rem;
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+        
+
+<!-- Quick Links to Sections -->
+<section id="quick-links">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Explore My Work</h2>
+            <div class="section-line"></div>
+        </div>
+        <ul class="subsection-list">
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="research_experience.html">Research Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</section>
+
+<style>
+#quick-links {
+    position: relative;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 6rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.section-line {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #7877c6, #ff77c6);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.subsection-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.subsection-list li {
+    position: relative;
+    overflow: hidden;
+}
+
+.subsection-list a {
+    display: block;
+    background: rgba(120, 119, 198, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.subsection-list a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.subsection-list a:hover {
+    transform: translateY(-5px);
+    background: rgba(120, 119, 198, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(120, 119, 198, 0.2);
+    color: #a8a8ff;
+}
+
+.subsection-list a:hover::before {
+    left: 100%;
+}
+
+.subsection-list a:nth-child(7n+1) {
+    border-left: 3px solid #7877c6;
+}
+
+.subsection-list a:nth-child(7n+2) {
+    border-left: 3px solid #ff77c6;
+}
+
+.subsection-list a:nth-child(7n+3) {
+    border-left: 3px solid #77c6ff;
+}
+
+.subsection-list a:nth-child(7n+4) {
+    border-left: 3px solid #c677ff;
+}
+
+.subsection-list a:nth-child(7n+5) {
+    border-left: 3px solid #77ffc6;
+}
+
+.subsection-list a:nth-child(7n+6) {
+    border-left: 3px solid #ffc677;
+}
+
+.subsection-list a:nth-child(7n+7) {
+    border-left: 3px solid #ff7777;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .subsection-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .subsection-list a {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subsection-list a {
+        padding: 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
 
     
 <header>
