@@ -577,6 +577,7 @@
 <section id="quick-links">
     <div class="nav-container">
         <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="projects.html">Projects</a></li>
@@ -598,6 +599,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         justify-content: center;
+        overflow-x: auto; /* Enable horizontal scrolling if needed */
     }
 
     .nav-container {
@@ -608,12 +610,13 @@
 
     .nav-list {
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+        justify-content: flex-start; /* Changed from center to flex-start */
+        flex-wrap: nowrap; /* Prevent wrapping */
         gap: 0.8rem;
         list-style: none;
         padding: 0;
         margin: 0;
+        min-width: max-content; /* Ensure container is wide enough for all items */
     }
 
     .nav-list a {
@@ -630,6 +633,7 @@
         transition: all 0.3s ease;
         backdrop-filter: blur(5px);
         white-space: nowrap;
+        flex-shrink: 0; /* Prevent items from shrinking */
     }
 
     .nav-list a:hover {
@@ -641,33 +645,15 @@
     }
 
     /* Color coding */
-    .nav-list li:nth-child(7n+1) a { border-left: 3px solid #7877c6; }
-    .nav-list li:nth-child(7n+2) a { border-left: 3px solid #ff77c6; }
-    .nav-list li:nth-child(7n+3) a { border-left: 3px solid #77c6ff; }
-    .nav-list li:nth-child(7n+4) a { border-left: 3px solid #c677ff; }
-    .nav-list li:nth-child(7n+5) a { border-left: 3px solid #77ffc6; }
-    .nav-list li:nth-child(7n+6) a { border-left: 3px solid #ffc677; }
-    .nav-list li:nth-child(7n+7) a { border-left: 3px solid #ff7777; }
+    .nav-list li:nth-child(8n+1) a { border-left: 3px solid #7877c6; }
+    .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ff77c6; }
+    .nav-list li:nth-child(8n+3) a { border-left: 3px solid #77c6ff; }
+    .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c677ff; }
+    .nav-list li:nth-child(8n+5) a { border-left: 3px solid #77ffc6; }
+    .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ffc677; }
+    .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
+    .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
 
-    @media (max-width: 768px) {
-        .nav-list {
-            gap: 0.6rem;
-        }
-        .nav-list a {
-            padding: 0.6rem 1rem;
-            font-size: 0.85rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .nav-list {
-            gap: 0.5rem;
-        }
-        .nav-list a {
-            padding: 0.5rem 0.8rem;
-            font-size: 0.8rem;
-        }
-    }
 </style>
     
 
