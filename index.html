@@ -687,7 +687,6 @@
 
 
 
-
 <!-- Quick Links to Sections -->
 <section id="quick-links">
     <div class="container">
@@ -720,19 +719,25 @@
     }
 
     .quick-links-container {
-        max-width: 800px;
+        max-width: 100%;
         margin: 0 auto;
         padding: 0 1rem;
+        overflow-x: auto; /* Allows horizontal scrolling if needed */
+        white-space: nowrap; /* Prevents wrapping */
     }
 
     .subsection-list {
-        display: flex;
+        display: inline-flex; /* Changed to inline-flex */
         justify-content: center;
-        flex-wrap: wrap;
         gap: 0.8rem;
         list-style: none;
-        padding: 0;
+        padding: 0.5rem 0;
         margin: 1.5rem 0 0 0;
+        width: 100%;
+    }
+
+    .subsection-list li {
+        display: inline-block; /* Ensures items stay in line */
     }
 
     .subsection-list a {
@@ -768,7 +773,7 @@
     .subsection-list li:nth-child(7n+6) a { border-left: 3px solid #ffc677; }
     .subsection-list li:nth-child(7n+7) a { border-left: 3px solid #ff7777; }
 
-    /* Section header styling to match your theme */
+    /* Section header styling */
     .section-header h2 {
         font-size: 2.2rem;
         font-weight: 700;
@@ -788,9 +793,11 @@
         border-radius: 2px;
     }
 
+    /* Responsive adjustments */
     @media (max-width: 768px) {
         .subsection-list {
             gap: 0.6rem;
+            padding: 0.5rem 1rem;
         }
         
         .subsection-list a {
@@ -804,6 +811,10 @@
     }
 
     @media (max-width: 480px) {
+        .quick-links-container {
+            padding: 0 0.5rem;
+        }
+        
         .subsection-list {
             gap: 0.5rem;
         }
@@ -814,11 +825,6 @@
         }
     }
 </style>
-
-
-
-
-
 
 
     
