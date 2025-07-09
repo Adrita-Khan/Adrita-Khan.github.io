@@ -714,30 +714,40 @@
         z-index: 10;
         background: rgba(15, 15, 35, 0.6);
         backdrop-filter: blur(10px);
-        padding: 2rem 1rem;
+        padding: 2rem 0;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        width: 33.33%;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .quick-links-container {
-        max-width: 100%;
+        width: 100%;
         margin: 0 auto;
-        padding: 0 1rem;
-        overflow-x: auto; /* Allows horizontal scrolling if needed */
-        white-space: nowrap; /* Prevents wrapping */
+        overflow: hidden; /* Prevents scrolling */
     }
 
     .subsection-list {
-        display: inline-flex; /* Changed to inline-flex */
+        display: flex;
         justify-content: center;
-        gap: 0.8rem;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
         list-style: none;
-        padding: 0.5rem 0;
-        margin: 1.5rem 0 0 0;
+        padding: 0;
+        margin: 0;
         width: 100%;
     }
 
     .subsection-list li {
-        display: inline-block; /* Ensures items stay in line */
+        flex-shrink: 1; /* Allows items to shrink if needed */
+        min-width: fit-content; /* Ensures text stays on one line */
     }
 
     .subsection-list a {
@@ -745,10 +755,10 @@
         background: rgba(120, 119, 198, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 25px;
-        padding: 0.6rem 1.2rem;
+        padding: 0.5rem 0.8rem;
         text-decoration: none;
         color: #e0e0ff;
-        font-size: 0.9rem;
+        font-size: 0.8rem; /* Slightly smaller font */
         font-weight: 500;
         text-align: center;
         transition: all 0.3s ease;
@@ -756,6 +766,7 @@
         white-space: nowrap;
     }
 
+    /* Rest of your styles remain the same */
     .subsection-list a:hover {
         background: rgba(120, 119, 198, 0.3);
         border-color: rgba(255, 255, 255, 0.2);
@@ -764,7 +775,7 @@
         box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
     }
 
-    /* Color coding for different links */
+    /* Color coding */
     .subsection-list li:nth-child(7n+1) a { border-left: 3px solid #7877c6; }
     .subsection-list li:nth-child(7n+2) a { border-left: 3px solid #ff77c6; }
     .subsection-list li:nth-child(7n+3) a { border-left: 3px solid #77c6ff; }
@@ -773,59 +784,61 @@
     .subsection-list li:nth-child(7n+6) a { border-left: 3px solid #ffc677; }
     .subsection-list li:nth-child(7n+7) a { border-left: 3px solid #ff7777; }
 
-    /* Section header styling */
+    .section-header {
+        text-align: center;
+        width: 100%;
+    }
+
     .section-header h2 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         font-weight: 700;
         background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 1rem;
-        text-align: center;
+        margin-bottom: 0.8rem;
     }
 
     .section-line {
-        width: 80px;
+        width: 60px;
         height: 3px;
         background: linear-gradient(135deg, #7877c6, #ff77c6);
-        margin: 0 auto 1.5rem auto;
+        margin: 0 auto 1.2rem auto;
         border-radius: 2px;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .subsection-list {
-            gap: 0.6rem;
-            padding: 0.5rem 1rem;
+    @media (max-width: 1024px) {
+        .container {
+            width: 50%;
         }
-        
         .subsection-list a {
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.75rem;
         }
+    }
 
-        .section-header h2 {
-            font-size: 1.8rem;
+    @media (max-width: 768px) {
+        .container {
+            width: 70%;
         }
     }
 
     @media (max-width: 480px) {
-        .quick-links-container {
-            padding: 0 0.5rem;
+        .container {
+            width: 90%;
         }
-        
         .subsection-list {
-            gap: 0.5rem;
+            gap: 0.3rem;
         }
-        
         .subsection-list a {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
+            padding: 0.3rem 0.5rem;
+            font-size: 0.7rem;
+        }
+        .section-header h2 {
+            font-size: 1.5rem;
         }
     }
 </style>
-
 
     
 <header>
