@@ -297,6 +297,8 @@ header p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #e0e0ff;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .about-text .intro {
@@ -305,6 +307,14 @@ header p {
     margin-bottom: 2rem;
     position: relative;
     padding-left: 2rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.about-text p:not(.intro) {
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 1.5rem;
 }
 
 .about-text .intro::before {
@@ -461,6 +471,8 @@ header p {
     line-height: 1.7;
     color: #e0e0ff;
     margin-bottom: 2rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .read-more-btn {
@@ -600,22 +612,6 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* About Me Section ID Customization */
-#about-me {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
-}
-
-#about-me p {
-    text-align: justify;
-    width: 80%;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #e0e0ff;
-}
-
 /* Animation Keyframes */
 @keyframes fadeInUp {
     from {
@@ -651,6 +647,20 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .header-content {
+        gap: 3rem;
+    }
+    
+    .about-content {
+        gap: 3rem;
+    }
+    
+    .work-card {
+        gap: 3rem;
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
         grid-template-columns: 1fr;
@@ -690,6 +700,11 @@ footer {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .about-text,
+    .about-text .intro {
+        text-align: left; /* Switch to left-aligned on mobile */
     }
 
     .work-card {
@@ -746,9 +761,39 @@ footer {
     .nav-container a {
         margin: 5px 0;
     }
+}
 
-    #about-me p {
-        width: 95%;
-        font-size: 1rem;
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .profile-picture {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .about-stats {
+        flex-direction: column;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .work-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .subsection-list a {
+        padding: 1rem;
+    }
+    
+    .read-more-btn {
+        padding: 0.8rem 1.5rem;
     }
 }
