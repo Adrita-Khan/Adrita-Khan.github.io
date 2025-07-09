@@ -236,7 +236,7 @@ header p {
 /* Section Titles */
 .section-title {
     text-align: center;
-    margin: 40px 0 20px 0;
+    margin: 20px 0 15px 0; /* Reduced from 40px/20px */
     font-size: 3rem;
     font-weight: 700;
     background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
@@ -255,7 +255,7 @@ header p {
 /* Section Headers */
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reduced from 4rem */
 }
 
 .section-header h2 {
@@ -276,26 +276,27 @@ header p {
     border-radius: 2px;
 }
 
-/* About Me Section */
+/* About Me Section - Compact Version */
 .about-section {
     position: relative;
     z-index: 10;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
-    padding: 6rem 2rem;
+    padding: 2rem 2rem; /* Reduced from 6rem */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0.5rem 0; /* Added small margin */
 }
 
 .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 4rem;
+    gap: 3rem; /* Reduced from 4rem */
     align-items: center;
 }
 
 .about-text {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.7; /* Slightly tighter */
     color: #e0e0ff;
     text-align: justify;
     text-justify: inter-word;
@@ -304,7 +305,7 @@ header p {
 .about-text .intro {
     font-size: 1.2rem;
     color: #ffffff;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
     position: relative;
     padding-left: 2rem;
     text-align: justify;
@@ -314,7 +315,7 @@ header p {
 .about-text p:not(.intro) {
     text-align: justify;
     text-justify: inter-word;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem; /* Reduced from 1.5rem */
 }
 
 .about-text .intro::before {
@@ -330,12 +331,12 @@ header p {
 .about-stats {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem; /* Reduced from 2rem */
 }
 
 .stat-item {
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem; /* Reduced from 2rem */
     background: rgba(120, 119, 198, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -350,7 +351,7 @@ header p {
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Slightly smaller */
     font-weight: 700;
     background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 100%);
     background-clip: text;
@@ -360,7 +361,7 @@ header p {
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Slightly smaller */
     color: #b0b0d0;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -372,19 +373,19 @@ header p {
     z-index: 10;
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    padding: 6rem 2rem;
+    padding: 3rem 2rem; /* Reduced from 6rem */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .work-card {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 4rem;
+    gap: 3rem; /* Reduced from 4rem */
     align-items: center;
     background: rgba(120, 119, 198, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 30px;
-    padding: 3rem;
+    padding: 2rem; /* Reduced from 3rem */
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
@@ -400,14 +401,14 @@ header p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 280px; /* Slightly reduced */
     position: relative;
 }
 
 .galaxy-animation {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 180px; /* Slightly smaller */
+    height: 180px; /* Slightly smaller */
 }
 
 .galaxy-core {
@@ -415,11 +416,11 @@ header p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
+    width: 18px; /* Slightly smaller */
+    height: 18px; /* Slightly smaller */
     background: radial-gradient(circle, #ffffff 0%, #a8a8ff 100%);
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.8); /* Adjusted */
 }
 
 .galaxy-ring {
@@ -433,20 +434,20 @@ header p {
 }
 
 .galaxy-ring:nth-child(2) {
-    width: 80px;
-    height: 80px;
+    width: 70px; /* Adjusted */
+    height: 70px; /* Adjusted */
 }
 
 .galaxy-ring.ring-2 {
-    width: 120px;
-    height: 120px;
+    width: 110px; /* Adjusted */
+    height: 110px; /* Adjusted */
     animation-duration: 30s;
     animation-direction: reverse;
 }
 
 .galaxy-ring.ring-3 {
-    width: 160px;
-    height: 160px;
+    width: 150px; /* Adjusted */
+    height: 150px; /* Adjusted */
     animation-duration: 40s;
 }
 
@@ -456,10 +457,10 @@ header p {
 }
 
 .work-info h3 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Slightly smaller */
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem; /* Reduced */
     background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -468,9 +469,9 @@ header p {
 
 .work-info p {
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.6; /* Slightly tighter */
     color: #e0e0ff;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reduced */
     text-align: justify;
     text-justify: inter-word;
 }
@@ -480,8 +481,8 @@ header p {
     background: linear-gradient(135deg, #8B5CF6, #EC4899);
     border: none;
     border-radius: 50px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 0.9rem 1.8rem; /* Slightly smaller */
+    font-size: 0.95rem; /* Slightly smaller */
     font-weight: 600;
     color: #ffffff;
     cursor: pointer;
@@ -514,16 +515,16 @@ header p {
     z-index: 10;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
-    padding: 6rem 2rem;
+    padding: 3rem 2rem; /* Reduced from 6rem */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .subsection-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem; /* Reduced from 2rem */
     list-style: none;
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Reduced from 2rem */
     padding: 0;
 }
 
@@ -537,10 +538,10 @@ header p {
     background: rgba(120, 119, 198, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.5rem; /* Reduced from 2rem */
     text-decoration: none;
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: 1rem; /* Slightly smaller */
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
@@ -606,7 +607,7 @@ footer {
     backdrop-filter: blur(10px);
     color: #ffffff;
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0; /* Reduced from 20px */
     position: relative;
     z-index: 10;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -653,18 +654,18 @@ footer {
     }
     
     .about-content {
-        gap: 3rem;
+        gap: 2.5rem;
     }
     
     .work-card {
-        gap: 3rem;
+        gap: 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .header-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
         text-align: center;
     }
 
@@ -689,8 +690,8 @@ footer {
     }
 
     .profile-picture {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
     }
 
     .interests-list {
@@ -699,40 +700,46 @@ footer {
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .about-text,
     .about-text .intro {
-        text-align: left; /* Switch to left-aligned on mobile */
+        text-align: left;
+    }
+
+    .about-section {
+        padding: 1.5rem 1rem;
     }
 
     .work-card {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 2rem;
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
 
     .section-header h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .section-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .about-text .intro {
         font-size: 1.1rem;
         padding-left: 1.5rem;
+        margin-bottom: 1.2rem;
     }
 
     .about-stats {
         flex-direction: row;
         justify-content: space-between;
+        gap: 1rem;
     }
 
     .stat-item {
-        padding: 1.5rem 1rem;
+        padding: 1.2rem 0.8rem;
     }
 
     .stat-number {
@@ -740,26 +747,27 @@ footer {
     }
 
     .work-info h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .subsection-list {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .subsection-list a {
-        padding: 1.5rem;
-        font-size: 1rem;
+        padding: 1.2rem;
+        font-size: 0.95rem;
     }
 
     .nav-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .nav-container a {
-        margin: 5px 0;
+        margin: 4px 0;
+        padding: 6px 12px;
     }
 }
 
@@ -773,20 +781,21 @@ footer {
     }
     
     .profile-picture {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
     
     .about-stats {
         flex-direction: column;
+        gap: 0.8rem;
     }
     
     .section-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .work-info h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .subsection-list a {
@@ -794,6 +803,16 @@ footer {
     }
     
     .read-more-btn {
-        padding: 0.8rem 1.5rem;
+        padding: 0.7rem 1.3rem;
+        font-size: 0.9rem;
+    }
+    
+    .about-section {
+        padding: 1rem 0.8rem;
+    }
+    
+    .featured-section,
+    #quick-links {
+        padding: 2rem 1rem;
     }
 }
