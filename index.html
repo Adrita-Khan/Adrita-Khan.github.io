@@ -692,105 +692,128 @@
 <section id="quick-links">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title">Explore My Work</h2>
+            <h2>Explore My Work</h2>
             <div class="section-line"></div>
         </div>
-       <div class="subsection-wrapper">
-    <ul class="subsection-list">
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="research_experience.html">Research Experience</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</div>
-
+        <div class="quick-links-container">
+            <ul class="subsection-list">
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="research_experience.html">Research Exp.</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </div>
 </section>
 
 <style>
-#quick-links {
-    padding: 20px 0;
-    background-color: #f8f9fa;
-}
+    #quick-links {
+        position: relative;
+        z-index: 10;
+        background: rgba(15, 15, 35, 0.6);
+        backdrop-filter: blur(10px);
+        padding: 2rem 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+    .quick-links-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.section-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin: 0 0 10px 0;
-}
-
-.section-line {
-    width: 60px;
-    height: 2px;
-    background-color: #007bff;
-    margin: 0 auto;
-}
-
-.subsection-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.subsection-list li {
-    margin: 0;
-}
-
-.subsection-list a {
-    font-size: 14px;
-    color: #555;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    white-space: nowrap;
-}
-
-.subsection-list a:hover {
-    color: #007bff;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
     .subsection-list {
-        gap: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0 0 0;
     }
-    
-    .subsection-list a {
-        font-size: 13px;
-    }
-}
 
-@media (max-width: 480px) {
-    .subsection-list {
-        gap: 15px;
-    }
-    
     .subsection-list a {
-        font-size: 12px;
+        display: block;
+        background: rgba(120, 119, 198, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        padding: 0.6rem 1.2rem;
+        text-decoration: none;
+        color: #e0e0ff;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+        white-space: nowrap;
     }
-}
+
+    .subsection-list a:hover {
+        background: rgba(120, 119, 198, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        color: #ffffff;
+        box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
+    }
+
+    /* Color coding for different links */
+    .subsection-list li:nth-child(7n+1) a { border-left: 3px solid #7877c6; }
+    .subsection-list li:nth-child(7n+2) a { border-left: 3px solid #ff77c6; }
+    .subsection-list li:nth-child(7n+3) a { border-left: 3px solid #77c6ff; }
+    .subsection-list li:nth-child(7n+4) a { border-left: 3px solid #c677ff; }
+    .subsection-list li:nth-child(7n+5) a { border-left: 3px solid #77ffc6; }
+    .subsection-list li:nth-child(7n+6) a { border-left: 3px solid #ffc677; }
+    .subsection-list li:nth-child(7n+7) a { border-left: 3px solid #ff7777; }
+
+    /* Section header styling to match your theme */
+    .section-header h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .section-line {
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(135deg, #7877c6, #ff77c6);
+        margin: 0 auto 1.5rem auto;
+        border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+        .subsection-list {
+            gap: 0.6rem;
+        }
+        
+        .subsection-list a {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .subsection-list {
+            gap: 0.5rem;
+        }
+        
+        .subsection-list a {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+    }
 </style>
-
 
 
 
