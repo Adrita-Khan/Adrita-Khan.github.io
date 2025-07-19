@@ -13,8 +13,7 @@ I am **Adrita Khan**, and this is my collection of academic work, projects, and 
 - Research documentation
 - Learning resources and notes
 
-## Get in Touch
-Feel free to explore, ask questions, or share feedback. I'd love to connect with fellow learners and collaborators!
+
 
 ---
 
