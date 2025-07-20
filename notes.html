@@ -1,1 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes - Adrita Khan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #e0e0ff;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* Navigation */
+        #quick-links {
+            position: relative;
+            z-index: 10;
+            background: rgba(15, 15, 35, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            gap: 0.8rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: max-content;
+        }
+
+        .nav-list a {
+            display: block;
+            background: rgba(120, 119, 198, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.7rem 1.2rem;
+            text-decoration: none;
+            color: #e0e0ff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-list a:hover, .nav-list a.active {
+            background: rgba(120, 119, 198, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
+        }
+
+        .nav-list li:nth-child(8n+1) a { border-left: 3px solid #7877c6; }
+        .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ff77c6; }
+        .nav-list li:nth-child(8n+3) a { border-left: 3px solid #77c6ff; }
+        .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c677ff; }
+        .nav-list li:nth-child(8n+5) a { border-left: 3px solid #77ffc6; }
+        .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ffc677; }
+        .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
+        .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            padding: 4rem 2rem;
+            min-height: calc(100vh - 120px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #b0b0d0;
+            margin-bottom: 2rem;
+        }
+
+        .page-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0ff;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        .section-divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #7877c6, #ff77c6);
+            margin: 2rem auto;
+            border-radius: 2px;
+        }
+
+        /* Category Sections */
+        .category-section {
+            margin-bottom: 5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2rem;
+            font-size: 2rem;
+            background: rgba(120, 119, 198, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .category-title {
+            flex: 1;
+        }
+
+        .category-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-description {
+            font-size: 1.1rem;
+            color: #b0b0d0;
+        }
+
+        /* Notes Grid */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .note-card {
+            background: rgba(120, 119, 198, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .note-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .note-card:hover {
+            transform: translateY(-8px);
+            background: rgba(120, 119, 198, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .note-card:hover::before {
+            left: 100%;
+        }
+
+        .note-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .note-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7877c6, #ff77c6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .note-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+        }
+
+        .note-subtitle {
+            font-size: 0.9rem;
+            color: #b0b0d0;
+        }
+
+        .note-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0e0ff;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .note-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            color: #ffffff;
+            backdrop-filter: blur(5px);
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .note-btn {
+            flex: 1;
+            background: linear-gradient(135deg, #7877c6, #ff77c6);
+            border: none;
+            border-radius: 25px;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+
+        .note-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(120, 119, 198, 0.3);
+        }
+
+        .note-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .note-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Status badges */
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge.available {
+            background: rgba(119, 255, 198, 0.2);
+            color: #77ffc6;
+            border: 1px solid rgba(119, 255, 198, 0.3);
+        }
+
+        .status-badge.coming-soon {
+            background: rgba(255, 199, 119, 0.2);
+            color: #ffc777;
+            border: 1px solid rgba(255, 199, 119, 0.3);
+        }
+
+        .status-badge.in-progress {
+            background: rgba(119, 198, 255, 0.2);
+            color: #77c6ff;
+            border: 1px solid rgba(119, 198, 255, 0.3);
+        }
+
+        /* Category specific colors */
+        .math .category-icon {
+            background: linear-gradient(135deg, #7877c6, #a8a8ff);
+        }
+
+        .cosmology .category-icon {
+            background: linear-gradient(135deg, #ff77c6, #ff99dd);
+        }
+
+        .physics .category-icon {
+            background: linear-gradient(135deg, #77c6ff, #99ddff);
+        }
+
+        .miscellaneous .category-icon {
+            background: linear-gradient(135deg, #77ffc6, #99ffdd);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .category-title h2 {
+                font-size: 2rem;
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .note-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* Search and Filter */
+        .controls-section {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            color: #ffffff;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: #b0b0d0;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(120, 119, 198, 0.5);
+            box-shadow: 0 0 0 3px rgba(120, 119, 198, 0.1);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+            color: #e0e0ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(120, 119, 198, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-bg"></div>
+    <div class="stars"></div>
+
+    <!-- Navigation -->
+    <section id="quick-links">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="notes.html" class="active">Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Study Notes</h1>
+                <p class="page-subtitle">Comprehensive notes for understanding the universe through mathematics and physics</p>
+                <div class="section-divider"></div>
+                <p class="page-description">
+                    Welcome to my collection of study notes! Here you'll find comprehensive materials covering the mathematical foundations essential for physics, cosmology, computer science, and machine learning, along with detailed notes on cosmology, physics, and various other topics. These notes are designed to serve as both learning resources and quick references for advanced concepts.
+                </p>
+            </div>
+
+            <!-- Search and Filter Controls -->
+            <div class="controls-section">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search through notes..." id="searchInput">
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Notes</button>
+                    <button class="filter-btn" data-filter="math">Mathematics</button>
+                    <button class="filter-btn" data-filter="cosmology">Cosmology</button>
+                    <button class="filter-btn" data-filter="physics">Physics</button>
+                    <button class="filter-btn" data-filter="miscellaneous">Miscellaneous</button>
+                </div>
+            </div>
+
+            <!-- Mathematics Section -->
+            <div class="category-section math" data-category="math">
+                <div class="category-header">
+                    <div class="category-icon">∫</div>
+                    <div class="category-title">
+                        <h2>Mathematics</h2>
+                        <p class="category-description">Core mathematical foundations for physics, cosmology, computer science, and machine learning</p>
+                    </div>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">∇</div>
+                            <div>
+                                <div class="note-title">Vector Calculus & Tensor Analysis</div>
+                                <div class="note-subtitle">Essential for General Relativity</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Comprehensive coverage of vector operations, tensor algebra, differential geometry, and their applications in physics. Includes covariant derivatives, curvature tensors, and metric tensor manipulations.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Vectors</span>
+                            <span class="tag">Tensors</span>
+                            <span class="tag">Differential Geometry</span>
+                            <span class="tag">General Relativity</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge in-progress">In Progress</div>
+                        <div class="note-header">
+                            <div class="note-icon">∑</div>
+                            <div>
+                                <div class="note-title">Linear Algebra for ML/DL</div>
+                                <div class="note-subtitle">Matrix Operations & Eigenvalues</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Matrix operations, eigenvalue decomposition, singular value decomposition (SVD), principal component analysis (PCA), and their applications in machine learning algorithms.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Matrices</span>
+                            <span class="tag">Eigenvalues</span>
+                            <span class="tag">SVD</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <div class="note-header">
+                            <div class="note-icon">∞</div>
+                            <div>
+                                <div class="note-title">Complex Analysis</div>
+                                <div class="note-subtitle">Functions of Complex Variables</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Complex functions, contour integration, residue theorem, and conformal mapping. Essential for quantum mechanics and advanced physics applications.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Complex Numbers</span>
+                            <span class="tag">Contour Integration</span>
+                            <span class="tag">Residues</span>
+                            <span class="tag">Quantum Mechanics</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">∫</div>
+                            <div>
+                                <div class="note-title">Fourier Analysis</div>
+                                <div class="note-subtitle">Transform Methods</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Fourier series, Fourier transforms, and their applications in signal processing, cosmological data analysis, and solving partial differential equations.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Fourier Series</span>
+                            <span class="tag">Transforms</span>
+                            <span class="tag">Signal Processing</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cosmology Section -->
+            <div class="category-section cosmology" data-category="cosmology">
+                <div class="category-header">
+                    <div class="category-icon">🌌</div>
+                    <div class="category-title">
+                        <h2>Cosmology</h2>
+                        <p class="category-description">Understanding the universe at the largest scales</p>
+                    </div>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">Λ</div>
+                            <div>
+                                <div class="note-title">ΛCDM Model</div>
+                                <div class="note-subtitle">Standard Model of Cosmology</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Comprehensive overview of the Lambda-Cold Dark Matter model, including Friedmann equations, dark energy, dark matter, and cosmic microwave background physics.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Dark Matter</span>
+                            <span class="tag">Dark Energy</span>
+                            <span class="tag">Friedmann Equations</span>
+                            <span class="tag">CMB</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge in-progress">In Progress</div>
+                        <div class="note-header">
+                            <div class="note-icon">f</div>
+                            <div>
+                                <div class="note-title">Modified Gravity Theories</div>
+                                <div class="note-subtitle">f(R) Gravity & Beyond</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Detailed study of modified gravity theories including f(R) gravity, Horndeski theories, and their observational signatures in cosmological surveys.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">f(R) Gravity</span>
+                            <span class="tag">Horndeski Theory</span>
+                            <span class="tag">Modified Gravity</span>
+                            <span class="tag">Observational Tests</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">P</div>
+                            <div>
+                                <div class="note-title">Power Spectrum Analysis</div>
+                                <div class="note-subtitle">Statistical Cosmology</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Power spectrum fundamentals, correlation functions, galaxy clustering, CMB angular power spectra, and cross-correlation analysis methods.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Power Spectrum</span>
+                            <span class="tag">Correlation Functions</span>
+                            <span class="tag">Galaxy Clustering</span>
+                            <span class="tag">Statistical Methods</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <div class="note-header">
+                            <div class="note-icon">🔭</div>
+                            <div>
+                                <div class="note-title">Observational Cosmology</div>
+                                <div class="note-subtitle">LSST, Euclid & Future Surveys</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Overview of current and future cosmological surveys, data analysis techniques, systematic effects, and parameter estimation methods.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">LSST</span>
+                            <span class="tag">Euclid</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Parameter Estimation</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Physics Section -->
+            <div class="category-section physics" data-category="physics">
+                <div class="category-header">
+                    <div class="category-icon">⚛</div>
+                    <div class="category-title">
+                        <h2>Physics</h2>
+                        <p class="category-description">Fundamental physics concepts and advanced topics</p>
+                    </div>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">🌐</div>
+                            <div>
+                                <div class="note-title">General Relativity</div>
+                                <div class="note-subtitle">Einstein's Theory of Gravity</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Complete treatment of Einstein's field equations, spacetime geometry, black holes, gravitational waves, and cosmological applications. Includes problem-solving techniques and physical interpretations.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Einstein Field Equations</span>
+                            <span class="tag">Spacetime</span>
+                            <span class="tag">Black Holes</span>
+                            <span class="tag">Gravitational Waves</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">ψ</div>
+                            <div>
+                                <div class="note-title">Quantum Mechanics</div>
+                                <div class="note-subtitle">Wave Functions & Operators</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Schrödinger equation, quantum operators, uncertainty principle, quantum harmonic oscillator, and applications to atomic physics. Includes computational quantum mechanics methods.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Schrödinger Equation</span>
+                            <span class="tag">Operators</span>
+                            <span class="tag">Uncertainty Principle</span>
+                            <span class="tag">Atomic Physics</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge in-progress">In Progress</div>
+                        <div class="note-header">
+                            <div class="note-icon">🔬</div>
+                            <div>
+                                <div class="note-title">Statistical Mechanics</div>
+                                <div class="note-subtitle">Thermodynamics & Phase Transitions</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Boltzmann distribution, partition functions, phase transitions, critical phenomena, and applications to condensed matter physics and cosmology.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Boltzmann Distribution</span>
+                            <span class="tag">Partition Functions</span>
+                            <span class="tag">Phase Transitions</span>
+                            <span class="tag">Critical Phenomena</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <div class="note-header">
+                            <div class="note-icon">⚡</div>
+                            <div>
+                                <div class="note-title">Electromagnetism</div>
+                                <div class="note-subtitle">Maxwell's Equations & Applications</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Maxwell's equations, electromagnetic waves, relativistic electrodynamics, and applications to particle accelerators and astrophysical phenomena.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Maxwell Equations</span>
+                            <span class="tag">EM Waves</span>
+                            <span class="tag">Relativistic ED</span>
+                            <span class="tag">Astrophysics</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miscellaneous Section -->
+            <div class="category-section miscellaneous" data-category="miscellaneous">
+                <div class="category-header">
+                    <div class="category-icon">🧠</div>
+                    <div class="category-title">
+                        <h2>Miscellaneous</h2>
+                        <p class="category-description">Computer science, machine learning, and interdisciplinary topics</p>
+                    </div>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">🤖</div>
+                            <div>
+                                <div class="note-title">Machine Learning Fundamentals</div>
+                                <div class="note-subtitle">Algorithms & Implementation</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Supervised and unsupervised learning algorithms, neural networks, deep learning architectures, and applications to scientific data analysis and cosmological surveys.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Neural Networks</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Supervised Learning</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge in-progress">In Progress</div>
+                        <div class="note-header">
+                            <div class="note-icon">📊</div>
+                            <div>
+                                <div class="note-title">Scientific Computing</div>
+                                <div class="note-subtitle">Python, NumPy & Scientific Libraries</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Python programming for scientific applications, numerical methods, data visualization, and computational tools for physics and cosmology research.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">NumPy</span>
+                            <span class="tag">SciPy</span>
+                            <span class="tag">Matplotlib</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge available">Available</div>
+                        <div class="note-header">
+                            <div class="note-icon">📈</div>
+                            <div>
+                                <div class="note-title">Statistics & Data Analysis</div>
+                                <div class="note-subtitle">Bayesian Methods & MCMC</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Statistical inference, Bayesian analysis, Markov Chain Monte Carlo methods, and their applications to parameter estimation in cosmology and physics.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Bayesian Statistics</span>
+                            <span class="tag">MCMC</span>
+                            <span class="tag">Parameter Estimation</span>
+                            <span class="tag">Statistical Inference</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <div class="note-header">
+                            <div class="note-icon">🔗</div>
+                            <div>
+                                <div class="note-title">Research Methods</div>
+                                <div class="note-subtitle">Academic Writing & Collaboration</div>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            Academic writing techniques, research methodology, collaboration tools, version control with Git, and best practices for scientific research and publication.
+                        </div>
+                        <div class="note-tags">
+                            <span class="tag">Academic Writing</span>
+                            <span class="tag">Research Methods</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">Collaboration</span>
+                        </div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">View Notes</a>
+                            <a href="#" class="note-btn secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numStars = 100;
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Search functionality
+        function initSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const noteCards = document.querySelectorAll('.note-card');
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                noteCards.forEach(card => {
+                    const title = card.querySelector('.note-title').textContent.toLowerCase();
+                    const description = card.querySelector('.note-description').textContent.toLowerCase();
+                    const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                    
+                    const matches = title.includes(searchTerm) || 
+                                   description.includes(searchTerm) || 
+                                   tags.includes(searchTerm);
+                    
+                    card.style.display = matches ? 'block' : 'none';
+                });
+            });
+        }
+
+        // Filter functionality
+        function initFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const categorySections = document.querySelectorAll('.category-section');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active filter button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    // Show/hide category sections
+                    categorySections.forEach(section => {
+                        if (filter === 'all' || section.getAttribute('data-category') === filter) {
+                            section.style.display = 'block';
+                            // Add fade-in animation
+                            section.style.opacity = '0';
+                            setTimeout(() => {
+                                section.style.opacity = '1';
+                                section.style.transition = 'opacity 0.3s ease';
+                            }, 50);
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // Smooth scroll for navigation
+        function initSmoothScroll() {
+            const navLinks = document.querySelectorAll('.nav-list a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Initialize animations
+        function initAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0s';
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all note cards
+            document.querySelectorAll('.note-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Observe category sections
+            document.querySelectorAll('.category-section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            initSearch();
+            initFilters();
+            initSmoothScroll();
+            initAnimations();
+        });
+    </script>
+</body>
+</html>
