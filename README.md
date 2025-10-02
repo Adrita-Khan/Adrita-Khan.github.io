@@ -17,3 +17,8 @@ I’m **Adrita Khan**, and this is a curated collection of my academic achieveme
 
 Thank you for taking the time to explore my work! ✨
 
+---
+## Contact
+
+**Adrita Khan**  
+[Email](mailto:adrita.khan.official@gmail.com) | [LinkedIn](https://www.linkedin.com/in/adrita-khan) | [Twitter](https://x.com/Adrita_)
