@@ -12,7 +12,4 @@ I am **Adrita Khan**, and this is my collection of academic work, projects, and 
 - Learning resources and notes
 
 
-
----
-
 *Thanks for visiting!* ✨
