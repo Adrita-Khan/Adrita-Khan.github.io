@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Experience - Adrita Khan</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -18,61 +17,6 @@
             min-height: 100vh;
             color: #333;
             line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(227, 194, 151, 0.15);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(227, 194, 151, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-container a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-container a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(227, 194, 151, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .nav-container a:hover::before {
-            left: 100%;
-        }
-
-        .nav-container a:hover {
-            background: rgba(227, 194, 151, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .nav-container a.active {
-            background: rgba(227, 194, 151, 0.35);
-            box-shadow: 0 4px 15px rgba(227, 194, 151, 0.3);
         }
 
         /* Main Container */
@@ -230,6 +174,19 @@
             transform: translateX(5px);
         }
 
+        /* Links styling */
+        .container > ul > li > p a {
+            color: #77c6ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .container > ul > li > p a:hover {
+            color: #a8e0ff;
+            border-bottom-color: #77c6ff;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -249,6 +206,7 @@
         .container > ul > li:nth-child(1) { animation-delay: 0.1s; }
         .container > ul > li:nth-child(2) { animation-delay: 0.2s; }
         .container > ul > li:nth-child(3) { animation-delay: 0.3s; }
+        .container > ul > li:nth-child(4) { animation-delay: 0.4s; }
 
         /* Icon Animation */
         .container > ul > li::after {
@@ -271,22 +229,15 @@
         }
 
         .container > ul > li:nth-child(3)::after {
+            content: '🌌';
+        }
+
+        .container > ul > li:nth-child(4)::after {
             content: '🎓';
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem;
-                gap: 1rem;
-                justify-content: center;
-            }
-
-            .nav-container a {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
-            }
-
             .section-title {
                 font-size: 2.5rem;
             }
@@ -359,7 +310,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         justify-content: center;
-        overflow-x: hidden; 
+        overflow-x: hidden;
     }
 
     .nav-container {
@@ -370,13 +321,12 @@
 
     .nav-list {
         display: flex;
-        justify-content: flex-start; /* Changed from center to flex-start */
-        flex-wrap: nowrap; /* Prevent wrapping */
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 0.8rem;
         list-style: none;
         padding: 0;
         margin: 0;
-        min-width: max-content; /* Ensure container is wide enough for all items */
     }
 
     .nav-list a {
@@ -393,7 +343,7 @@
         transition: all 0.3s ease;
         backdrop-filter: blur(5px);
         white-space: nowrap;
-        flex-shrink: 0; /* Prevent items from shrinking */
+        flex-shrink: 0;
     }
 
     .nav-list a:hover {
@@ -413,97 +363,91 @@
     .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ffc677; }
     .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
     .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
-
 </style>
 
     
-    
-    <!-- Formal Research Experience Section -->
-    <div class="container">
-        <h2 class="section-title">Research Experience</h2>
-        <ul>
-            <li>
-    <h3>Research Intern</h3>
-    <p>Center for Astronomy, Space Science, and Astrophysics (CASSA), Independent University, Bangladesh (IUB)</p>
-    <p>Duration: June 2024 - Present</p>
-    <p>Responsibilities:</p>
-   
-    <p>More about CASSA: <a href="https://cassa.site/entry/p2024002/" target="_blank">Project Details</a> | <a href="https://cassa.site/entry/p2023001/" target="_blank">Additional Research</a> | <a href="https://cassa.site/people/students/" target="_blank">Student Roles</a></p>
-</li>
-
-<li>
-    <h3>Research Intern</h3>
-    <p>Center for Computational and Data Sciences (CCDS), Independent University, Bangladesh (IUB)</p>
-    <p>Duration: January 2025 - Present</p>
-    <p>Responsibilities:</p>
+<!-- Formal Research Experience Section -->
+<div class="container">
+    <h2 class="section-title">Research Experience</h2>
     <ul>
-        <li>Project: Jet tagging using PCN with interaction features.</li>
-        <!-- You can add more list items here if there are more responsibilities -->
+        <li>
+            <h3>Research Intern</h3>
+            <p>Center for Astronomy, Space Science, and Astrophysics (CASSA), Independent University, Bangladesh (IUB)</p>
+            <p>Duration: June 2024 - Present</p>
+            <p>Responsibilities:</p>
+            <p>More about CASSA: <a href="https://cassa.site/entry/p2024002/" target="_blank">Project Details</a> | <a href="https://cassa.site/entry/p2023001/" target="_blank">Additional Research</a> | <a href="https://cassa.site/people/students/" target="_blank">Student Roles</a></p>
+        </li>
+
+        <li>
+            <h3>Research Intern</h3>
+            <p>Center for Computational and Data Sciences (CCDS), Independent University, Bangladesh (IUB)</p>
+            <p>Duration: January 2025 - Present</p>
+            <p>Responsibilities:</p>
+            <ul>
+                <li>Project: Jet tagging using PCN with interaction features.</li>
+            </ul>
+        </li>
+
+        <li>
+            <h3>Summer Intern</h3>
+            <p>Institute of Space Research, ABC Labs</p>
+            <p>Duration: June 2022 - August 2022</p>
+            <p>Responsibilities:</p>
+            <ul>
+                <li>Assisted in developing computational models for galaxy formation.</li>
+                <li>Presented research findings at the annual institute conference.</li>
+                <li>Managed data analysis using Python and MATLAB.</li>
+            </ul>
+        </li>
+
+        <li>
+            <h3>Teaching Assistant</h3>
+            <p>North South University (NSU), Department of Mathematics and Physics</p>
+            <p>Duration: January 2025 - April 2025</p>
+            <p>Courses and Responsibilities:</p>
+            <ul>
+                <li>Supported undergraduate courses (PHY 107: Physics I and PHY 108: Physics II) in Physics.</li>
+                <li>Mentored students during weekly consultation hours.</li>
+                <li>Checked and assessed assignments and quizzes (scripts).</li>
+            </ul>
+        </li>
     </ul>
-</li>
+</div>
 
-            <li>
-                <h3>Summer Intern</h3>
-                <p>Institute of Space Research, ABC Labs</p>
-                <p>Duration: June 2022 - August 2022</p>
-                <p>Responsibilities:</p>
-                <ul>
-                    <li>Assisted in developing computational models for galaxy formation.</li>
-                    <li>Presented research findings at the annual institute conference.</li>
-                    <li>Managed data analysis using Python and MATLAB.</li>
-                </ul>
-            </li>
-<li>
-    <h3>Teaching Assistant</h3>
-    <p>North South University (NSU), Department of Mathematics and Physics</p>
-    <p>Duration: January 2025 - April 2025</p>
-    <p>Courses and Responsibilities:</p>
-    <ul>
-        <li>Supported undergraduate courses (PHY 107: Physics I and PHY 108: Physics II) in Physics.</li>
-        <li>Mentored students during weekly consultation hours.</li>
-        <li>Checked and assessed assignments and quizzes (scripts).</li> <!-- Fixed spelling and grammar -->
-    </ul>
-</li>
-
-
-            <!-- Add more research experiences as needed -->
-        </ul>
-    </div>
-
-    <script>
-        // Add smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
+<script>
+    // Add smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
+    });
 
-        // Add interactive hover effects
-        document.querySelectorAll('.container > ul > li').forEach(item => {
-            item.addEventListener('mouseenter', function() {
+    // Add interactive hover effects
+    document.querySelectorAll('.container > ul > li').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Add click effect for experience items
+    document.querySelectorAll('.container > ul > li').forEach(item => {
+        item.addEventListener('click', function() {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
                 this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            }, 100);
         });
-
-        // Add click effect for experience items
-        document.querySelectorAll('.container > ul > li').forEach(item => {
-            item.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
-                }, 100);
-            });
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
