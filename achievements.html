@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achievements - Adrita Khan</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -18,61 +17,6 @@
             min-height: 100vh;
             color: #333;
             line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(159, 226, 191, 0.15);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(159, 226, 191, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-container a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-container a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(159, 226, 191, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .nav-container a:hover::before {
-            left: 100%;
-        }
-
-        .nav-container a:hover {
-            background: rgba(159, 226, 191, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .nav-container a.active {
-            background: rgba(159, 226, 191, 0.35);
-            box-shadow: 0 4px 15px rgba(159, 226, 191, 0.3);
         }
 
         /* Main Container */
@@ -172,6 +116,10 @@
             color: #9FE2BF;
         }
 
+        .filter-tag.active {
+            box-shadow: 0 4px 15px rgba(159, 226, 191, 0.3);
+        }
+
         /* Statistics */
         .stats-section {
             display: grid;
@@ -268,6 +216,10 @@
             box-shadow: 0 4px 15px rgba(159, 226, 191, 0.4);
         }
 
+        .achievement-card:hover .achievement-icon {
+            box-shadow: 0 8px 25px rgba(159, 226, 191, 0.6);
+        }
+
         .achievement-content {
             flex: 1;
         }
@@ -348,17 +300,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem;
-                gap: 1rem;
-                justify-content: center;
-            }
-
-            .nav-container a {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
-            }
-
             .section-title {
                 font-size: 2.5rem;
             }
@@ -401,18 +342,13 @@
             opacity: 0.5;
         }
 
-        /* Add some glowing effects for enhanced visual appeal */
-        .achievement-card:hover .achievement-icon {
-            box-shadow: 0 8px 25px rgba(159, 226, 191, 0.6);
-        }
-
-        .filter-tag.active {
-            box-shadow: 0 4px 15px rgba(159, 226, 191, 0.3);
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-
 
 <!-- Quick Links Navigation -->
 <section id="quick-links">
@@ -441,7 +377,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         justify-content: center;
-        overflow-x: hidden; 
+        overflow-x: hidden;
     }
 
     .nav-container {
@@ -452,13 +388,12 @@
 
     .nav-list {
         display: flex;
-        justify-content: flex-start; /* Changed from center to flex-start */
-        flex-wrap: nowrap; /* Prevent wrapping */
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 0.8rem;
         list-style: none;
         padding: 0;
         margin: 0;
-        min-width: max-content; /* Ensure container is wide enough for all items */
     }
 
     .nav-list a {
@@ -475,7 +410,7 @@
         transition: all 0.3s ease;
         backdrop-filter: blur(5px);
         white-space: nowrap;
-        flex-shrink: 0; /* Prevent items from shrinking */
+        flex-shrink: 0;
     }
 
     .nav-list a:hover {
@@ -495,275 +430,271 @@
     .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ffc677; }
     .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
     .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
-
-    /* Remove media queries that would make items wrap or shrink too much */
 </style>
 
+<!-- Achievements Section -->
+<div class="container">
+    <h2 class="section-title">Achievements</h2>
+    <p class="intro-text">Recognition and honors received throughout my academic and research journey.</p>
     
-
-    <!-- Achievements Section -->
-    <div class="container">
-        <h2 class="section-title">Achievements</h2>
-        <p class="intro-text">Recognition and honors received throughout my academic and research journey.</p>
-        
-        <!-- Statistics -->
-        <div class="stats-section">
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Total Awards</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Academic Honors</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">1</div>
-                <div class="stat-label">Research Grants</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2023</div>
-                <div class="stat-label">Latest Award</div>
-            </div>
+    <!-- Statistics -->
+    <div class="stats-section">
+        <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Total Awards</div>
         </div>
-
-        <!-- Filter and Search -->
-        <div class="filter-section">
-            <input type="text" class="search-box" placeholder="Search achievements..." id="searchInput">
-            <div class="filter-tags">
-                <span class="filter-tag active" data-filter="all">All</span>
-                <span class="filter-tag" data-filter="academic">Academic</span>
-                <span class="filter-tag" data-filter="research">Research</span>
-                <span class="filter-tag" data-filter="2023">2023</span>
-                <span class="filter-tag" data-filter="2022">2022</span>
-                <span class="filter-tag" data-filter="2020">2020</span>
-                <span class="filter-tag" data-filter="2019">2019</span>
-            </div>
+        <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Academic Honors</div>
         </div>
-
-        <!-- Achievements List -->
-        <div class="achievements-list" id="achievementsList">
-            <!-- Achievement 1 -->
-            <div class="achievement-card" data-type="research" data-year="2023" data-keywords="best paper award astrophysics conference dark matter">
-                <div class="achievement-header">
-                    <div class="achievement-icon">🏆</div>
-                    <div class="achievement-content">
-                        <h3 class="achievement-title">Best Paper Award</h3>
-                        <p class="achievement-organization">International Conference on Astrophysics, 2023</p>
-                        <div class="achievement-meta">
-                            <span class="meta-item">
-                                <span>📅</span>
-                                <span>2023</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>🏛️</span>
-                                <span>Conference</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>🌟</span>
-                                <span>Research Excellence</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <p class="achievement-description">
-                    Awarded for the paper titled "Modeling Dark Matter in Spiral Galaxies." This recognition highlights significant contributions to the field of astrophysics and innovative approaches to understanding dark matter distribution in galactic structures.
-                </p>
-                <div class="achievement-tags">
-                    <span class="tag">Astrophysics</span>
-                    <span class="tag">Dark Matter</span>
-                    <span class="tag">Research</span>
-                    <span class="tag">Best Paper</span>
-                </div>
-            </div>
-
-            <!-- Achievement 2 -->
-            <div class="achievement-card" data-type="academic" data-year="2022" data-keywords="graduate fellowship university research potential">
-                <div class="achievement-header">
-                    <div class="achievement-icon">🎓</div>
-                    <div class="achievement-content">
-                        <h3 class="achievement-title">Graduate Fellowship</h3>
-                        <p class="achievement-organization">University of XYZ, 2022-2026</p>
-                        <div class="achievement-meta">
-                            <span class="meta-item">
-                                <span>📅</span>
-                                <span>2022-2026</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>🏛️</span>
-                                <span>University</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>💰</span>
-                                <span>Fellowship</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <p class="achievement-description">
-                    Received for outstanding academic performance and research potential. This prestigious fellowship provides comprehensive support for graduate studies and research activities, recognizing exceptional scholarly achievement and future promise in the field.
-                </p>
-                <div class="achievement-tags">
-                    <span class="tag">Graduate School</span>
-                    <span class="tag">Fellowship</span>
-                    <span class="tag">Academic Excellence</span>
-                    <span class="tag">Research</span>
-                </div>
-            </div>
-
-            <!-- Achievement 3 -->
-            <div class="achievement-card" data-type="academic" data-year="2020" data-keywords="deans list university gpa academic excellence">
-                <div class="achievement-header">
-                    <div class="achievement-icon">⭐</div>
-                    <div class="achievement-content">
-                        <h3 class="achievement-title">Dean's List</h3>
-                        <p class="achievement-organization">University of ABC, 2018-2020</p>
-                        <div class="achievement-meta">
-                            <span class="meta-item">
-                                <span>📅</span>
-                                <span>2018-2020</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>🏛️</span>
-                                <span>University</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>📊</span>
-                                <span>GPA Excellence</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <p class="achievement-description">
-                    Recognized for maintaining a GPA above 3.8 throughout undergraduate studies. This consistent academic excellence demonstrates dedication to scholarly pursuits and exceptional performance across diverse coursework.
-                </p>
-                <div class="achievement-tags">
-                    <span class="tag">Academic Honor</span>
-                    <span class="tag">GPA 3.8+</span>
-                    <span class="tag">Undergraduate</span>
-                    <span class="tag">Excellence</span>
-                </div>
-            </div>
-
-            <!-- Achievement 4 -->
-            <div class="achievement-card" data-type="research" data-year="2019" data-keywords="undergraduate research grant quantum mechanics applications">
-                <div class="achievement-header">
-                    <div class="achievement-icon">🔬</div>
-                    <div class="achievement-content">
-                        <h3 class="achievement-title">Undergraduate Research Grant</h3>
-                        <p class="achievement-organization">Institute of DEF, 2019</p>
-                        <div class="achievement-meta">
-                            <span class="meta-item">
-                                <span>📅</span>
-                                <span>2019</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>🏛️</span>
-                                <span>Institute</span>
-                            </span>
-                            <span class="meta-item">
-                                <span>💡</span>
-                                <span>Research Grant</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <p class="achievement-description">
-                    Granted for research on quantum mechanics and its applications. This competitive funding supported independent research projects exploring fundamental principles of quantum physics and their practical applications in modern technology.
-                </p>
-                <div class="achievement-tags">
-                    <span class="tag">Quantum Mechanics</span>
-                    <span class="tag">Research Grant</span>
-                    <span class="tag">Undergraduate</span>
-                    <span class="tag">Physics</span>
-                </div>
-            </div>
+        <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Research Grants</div>
         </div>
-
-        <!-- No Results Message -->
-        <div class="no-results" id="noResults" style="display: none;">
-            <div class="no-results-icon">🔍</div>
-            <p>No achievements found matching your search criteria.</p>
+        <div class="stat-card">
+            <div class="stat-number">2023</div>
+            <div class="stat-label">Latest Award</div>
         </div>
     </div>
 
-    <script>
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        const achievementsList = document.getElementById('achievementsList');
-        const noResults = document.getElementById('noResults');
-        const filterTags = document.querySelectorAll('.filter-tag');
+    <!-- Filter and Search -->
+    <div class="filter-section">
+        <input type="text" class="search-box" placeholder="Search achievements..." id="searchInput">
+        <div class="filter-tags">
+            <span class="filter-tag active" data-filter="all">All</span>
+            <span class="filter-tag" data-filter="academic">Academic</span>
+            <span class="filter-tag" data-filter="research">Research</span>
+            <span class="filter-tag" data-filter="2023">2023</span>
+            <span class="filter-tag" data-filter="2022">2022</span>
+            <span class="filter-tag" data-filter="2020">2020</span>
+            <span class="filter-tag" data-filter="2019">2019</span>
+        </div>
+    </div>
 
-        let currentFilter = 'all';
+    <!-- Achievements List -->
+    <div class="achievements-list" id="achievementsList">
+        <!-- Achievement 1 -->
+        <div class="achievement-card" data-type="research" data-year="2023" data-keywords="best paper award astrophysics conference dark matter">
+            <div class="achievement-header">
+                <div class="achievement-icon">🏆</div>
+                <div class="achievement-content">
+                    <h3 class="achievement-title">Best Paper Award</h3>
+                    <p class="achievement-organization">International Conference on Astrophysics, 2023</p>
+                    <div class="achievement-meta">
+                        <span class="meta-item">
+                            <span>📅</span>
+                            <span>2023</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>🏛️</span>
+                            <span>Conference</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>🌟</span>
+                            <span>Research Excellence</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <p class="achievement-description">
+                Awarded for the paper titled "Modeling Dark Matter in Spiral Galaxies." This recognition highlights significant contributions to the field of astrophysics and innovative approaches to understanding dark matter distribution in galactic structures.
+            </p>
+            <div class="achievement-tags">
+                <span class="tag">Astrophysics</span>
+                <span class="tag">Dark Matter</span>
+                <span class="tag">Research</span>
+                <span class="tag">Best Paper</span>
+            </div>
+        </div>
 
-        // Search function
-        function searchAchievements() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const achievements = document.querySelectorAll('.achievement-card');
-            let visibleCount = 0;
+        <!-- Achievement 2 -->
+        <div class="achievement-card" data-type="academic" data-year="2022" data-keywords="graduate fellowship university research potential">
+            <div class="achievement-header">
+                <div class="achievement-icon">🎓</div>
+                <div class="achievement-content">
+                    <h3 class="achievement-title">Graduate Fellowship</h3>
+                    <p class="achievement-organization">University of XYZ, 2022-2026</p>
+                    <div class="achievement-meta">
+                        <span class="meta-item">
+                            <span>📅</span>
+                            <span>2022-2026</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>🏛️</span>
+                            <span>University</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>💰</span>
+                            <span>Fellowship</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <p class="achievement-description">
+                Received for outstanding academic performance and research potential. This prestigious fellowship provides comprehensive support for graduate studies and research activities, recognizing exceptional scholarly achievement and future promise in the field.
+            </p>
+            <div class="achievement-tags">
+                <span class="tag">Graduate School</span>
+                <span class="tag">Fellowship</span>
+                <span class="tag">Academic Excellence</span>
+                <span class="tag">Research</span>
+            </div>
+        </div>
 
-            achievements.forEach(achievement => {
-                const keywords = achievement.dataset.keywords.toLowerCase();
-                const title = achievement.querySelector('.achievement-title').textContent.toLowerCase();
-                const organization = achievement.querySelector('.achievement-organization').textContent.toLowerCase();
-                const description = achievement.querySelector('.achievement-description').textContent.toLowerCase();
-                
-                const matchesSearch = keywords.includes(searchTerm) || 
-                                    title.includes(searchTerm) || 
-                                    organization.includes(searchTerm) ||
-                                    description.includes(searchTerm);
-                
-                const matchesFilter = currentFilter === 'all' || 
-                                    achievement.dataset.type === currentFilter || 
-                                    achievement.dataset.year === currentFilter;
+        <!-- Achievement 3 -->
+        <div class="achievement-card" data-type="academic" data-year="2020" data-keywords="deans list university gpa academic excellence">
+            <div class="achievement-header">
+                <div class="achievement-icon">⭐</div>
+                <div class="achievement-content">
+                    <h3 class="achievement-title">Dean's List</h3>
+                    <p class="achievement-organization">University of ABC, 2018-2020</p>
+                    <div class="achievement-meta">
+                        <span class="meta-item">
+                            <span>📅</span>
+                            <span>2018-2020</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>🏛️</span>
+                            <span>University</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>📊</span>
+                            <span>GPA Excellence</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <p class="achievement-description">
+                Recognized for maintaining a GPA above 3.8 throughout undergraduate studies. This consistent academic excellence demonstrates dedication to scholarly pursuits and exceptional performance across diverse coursework.
+            </p>
+            <div class="achievement-tags">
+                <span class="tag">Academic Honor</span>
+                <span class="tag">GPA 3.8+</span>
+                <span class="tag">Undergraduate</span>
+                <span class="tag">Excellence</span>
+            </div>
+        </div>
 
-                if (matchesSearch && matchesFilter) {
-                    achievement.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    achievement.style.display = 'none';
-                }
-            });
+        <!-- Achievement 4 -->
+        <div class="achievement-card" data-type="research" data-year="2019" data-keywords="undergraduate research grant quantum mechanics applications">
+            <div class="achievement-header">
+                <div class="achievement-icon">🔬</div>
+                <div class="achievement-content">
+                    <h3 class="achievement-title">Undergraduate Research Grant</h3>
+                    <p class="achievement-organization">Institute of DEF, 2019</p>
+                    <div class="achievement-meta">
+                        <span class="meta-item">
+                            <span>📅</span>
+                            <span>2019</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>🏛️</span>
+                            <span>Institute</span>
+                        </span>
+                        <span class="meta-item">
+                            <span>💡</span>
+                            <span>Research Grant</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <p class="achievement-description">
+                Granted for research on quantum mechanics and its applications. This competitive funding supported independent research projects exploring fundamental principles of quantum physics and their practical applications in modern technology.
+            </p>
+            <div class="achievement-tags">
+                <span class="tag">Quantum Mechanics</span>
+                <span class="tag">Research Grant</span>
+                <span class="tag">Undergraduate</span>
+                <span class="tag">Physics</span>
+            </div>
+        </div>
+    </div>
 
-            // Show/hide no results message
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
+    <!-- No Results Message -->
+    <div class="no-results" id="noResults" style="display: none;">
+        <div class="no-results-icon">🔍</div>
+        <p>No achievements found matching your search criteria.</p>
+    </div>
+</div>
 
-        // Filter function
-        function filterAchievements(filterType) {
-            currentFilter = filterType;
+<script>
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const achievementsList = document.getElementById('achievementsList');
+    const noResults = document.getElementById('noResults');
+    const filterTags = document.querySelectorAll('.filter-tag');
+
+    let currentFilter = 'all';
+
+    // Search function
+    function searchAchievements() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const achievements = document.querySelectorAll('.achievement-card');
+        let visibleCount = 0;
+
+        achievements.forEach(achievement => {
+            const keywords = achievement.dataset.keywords.toLowerCase();
+            const title = achievement.querySelector('.achievement-title').textContent.toLowerCase();
+            const organization = achievement.querySelector('.achievement-organization').textContent.toLowerCase();
+            const description = achievement.querySelector('.achievement-description').textContent.toLowerCase();
             
-            // Update active filter tag
-            filterTags.forEach(tag => {
-                tag.classList.remove('active');
-                if (tag.dataset.filter === filterType) {
-                    tag.classList.add('active');
-                }
-            });
+            const matchesSearch = keywords.includes(searchTerm) || 
+                                title.includes(searchTerm) || 
+                                organization.includes(searchTerm) ||
+                                description.includes(searchTerm);
+            
+            const matchesFilter = currentFilter === 'all' || 
+                                achievement.dataset.type === currentFilter || 
+                                achievement.dataset.year === currentFilter;
 
-            searchAchievements();
-        }
+            if (matchesSearch && matchesFilter) {
+                achievement.style.display = 'block';
+                visibleCount++;
+            } else {
+                achievement.style.display = 'none';
+            }
+        });
 
-        // Event listeners
-        searchInput.addEventListener('input', searchAchievements);
+        // Show/hide no results message
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
 
+    // Filter function
+    function filterAchievements(filterType) {
+        currentFilter = filterType;
+        
+        // Update active filter tag
         filterTags.forEach(tag => {
-            tag.addEventListener('click', () => {
-                filterAchievements(tag.dataset.filter);
-            });
+            tag.classList.remove('active');
+            if (tag.dataset.filter === filterType) {
+                tag.classList.add('active');
+            }
         });
 
-        // Smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        searchAchievements();
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', searchAchievements);
+
+    filterTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            filterAchievements(tag.dataset.filter);
         });
-    </script>
+    });
+
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
