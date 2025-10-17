@@ -56,17 +56,17 @@
             z-index: 0;
         }
 
-        /* Navigation */
+        /* Navigation - Updated from Code 1 */
         #quick-links {
             position: relative;
             z-index: 10;
             background: rgba(15, 15, 35, 0.6);
             backdrop-filter: blur(10px);
             padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: center;
-            overflow-x: auto;
+            overflow-x: hidden;
         }
 
         .nav-container {
@@ -77,13 +77,12 @@
 
         .nav-list {
             display: flex;
-            justify-content: flex-start;
-            flex-wrap: nowrap;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 0.8rem;
             list-style: none;
             padding: 0;
             margin: 0;
-            min-width: max-content;
         }
 
         .nav-list a {
@@ -103,7 +102,7 @@
             flex-shrink: 0;
         }
 
-        .nav-list a:hover, .nav-list a.active {
+        .nav-list a:hover {
             background: rgba(120, 119, 198, 0.3);
             border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
@@ -111,6 +110,7 @@
             box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
         }
 
+        /* Color coding */
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #7877c6; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ff77c6; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #77c6ff; }
@@ -508,7 +508,7 @@
     <div class="cosmic-bg"></div>
     <div class="stars"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation - Updated from Code 1 -->
     <section id="quick-links">
         <div class="nav-container">
             <ul class="nav-list">
@@ -519,7 +519,7 @@
                 <li><a href="achievements.html">Achievements</a></li>
                 <li><a href="academic_experience.html">Academic Experience</a></li>
                 <li><a href="education.html">Education</a></li>
-                <li><a href="notes.html" class="active">Study Notes</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
