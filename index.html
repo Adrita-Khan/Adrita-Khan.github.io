@@ -55,62 +55,69 @@
             z-index: 0;
         }
 
-        /* Navigation Bar */
-        nav {
-            position: sticky;
-            top: 0;
+        /* Quick Links Navigation */
+        #quick-links {
+            position: relative;
             z-index: 100;
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(15, 15, 35, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
         }
 
         .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 1rem;
         }
 
-        .nav-brand {
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
+        .nav-list {
             display: flex;
-            gap: 0.5rem;
-            list-style: none;
+            justify-content: center;
             flex-wrap: wrap;
+            gap: 0.8rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .nav-links a {
+        .nav-list a {
             display: block;
             background: rgba(120, 119, 198, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            padding: 0.7rem 1.2rem;
             text-decoration: none;
             color: #e0e0ff;
             font-size: 0.9rem;
             font-weight: 500;
+            text-align: center;
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        .nav-links a:hover {
+        .nav-list a:hover {
             background: rgba(120, 119, 198, 0.3);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             color: #ffffff;
+            box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
         }
+
+        /* Color coding */
+        .nav-list li:nth-child(8n+1) a { border-left: 3px solid #7877c6; }
+        .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ff77c6; }
+        .nav-list li:nth-child(8n+3) a { border-left: 3px solid #77c6ff; }
+        .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c677ff; }
+        .nav-list li:nth-child(8n+5) a { border-left: 3px solid #77ffc6; }
+        .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ffc677; }
+        .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
+        .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
 
         /* Hero Section */
         .hero {
@@ -489,10 +496,6 @@
 
         /* Responsive Design */
         @media (max-width: 968px) {
-            .nav-links {
-                display: none;
-            }
-
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -524,23 +527,22 @@
     <div class="cosmic-bg"></div>
     <div class="stars"></div>
 
-    <!-- Navigation -->
-    <nav>
+    <!-- Quick Links Navigation -->
+    <section id="quick-links">
         <div class="nav-container">
-            <div class="nav-brand">Adrita Khan</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="academic_experience.html">Experience</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
                 <li><a href="education.html">Education</a></li>
-                <li><a href="notes.html">Notes</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
-    </nav>
+    </section>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
