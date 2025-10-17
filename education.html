@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education - Adrita Khan</title>
     <style>
+        /* ========================================
+           BASE STYLES
+           ======================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -20,7 +27,9 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
+        /* ========================================
+           ANIMATED BACKGROUND
+           ======================================== */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -69,7 +78,9 @@
             75% { transform: translateY(-20px) rotate(270deg); }
         }
 
-        /* Quick Links Navigation - Updated from Publications */
+        /* ========================================
+           NAVIGATION
+           ======================================== */
         #quick-links {
             position: relative;
             z-index: 10;
@@ -123,7 +134,7 @@
             box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
         }
 
-        /* Color coding */
+        /* Navigation Color Coding */
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #7877c6; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ff77c6; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #77c6ff; }
@@ -133,7 +144,9 @@
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
 
-        /* Main Content */
+        /* ========================================
+           MAIN LAYOUT
+           ======================================== */
         .main-content {
             display: flex;
             max-width: 1400px;
@@ -143,13 +156,20 @@
             align-items: flex-start;
         }
 
-        /* Left Side Profile */
         .left-side {
             flex: 0 0 400px;
             position: sticky;
             top: 150px;
         }
 
+        .right-side {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* ========================================
+           PROFILE CARD (LEFT SIDE)
+           ======================================== */
         .profile-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -241,12 +261,9 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Right Side Content */
-        .right-side {
-            flex: 1;
-            min-width: 0;
-        }
-
+        /* ========================================
+           PAGE HEADER (RIGHT SIDE)
+           ======================================== */
         .page-header {
             margin-bottom: 3rem;
         }
@@ -280,7 +297,9 @@
             line-height: 1.6;
         }
 
-        /* Education Timeline */
+        /* ========================================
+           EDUCATION TIMELINE
+           ======================================== */
         .education-timeline {
             position: relative;
             margin-top: 3rem;
@@ -308,13 +327,6 @@
         .education-item:nth-child(2) { animation-delay: 0.4s; }
         .education-item:nth-child(3) { animation-delay: 0.6s; }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .timeline-dot {
             position: absolute;
             left: 20px;
@@ -340,6 +352,9 @@
             border-radius: 50%;
         }
 
+        /* ========================================
+           EDUCATION CARDS
+           ======================================== */
         .education-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -374,6 +389,7 @@
             background: rgba(255, 255, 255, 0.08);
         }
 
+        /* Education Card Header */
         .education-header {
             display: flex;
             align-items: flex-start;
@@ -413,6 +429,7 @@
             font-size: 1rem;
         }
 
+        /* Education Meta Badges */
         .education-meta {
             display: flex;
             flex-wrap: wrap;
@@ -442,7 +459,9 @@
             font-size: 1.1rem;
         }
 
-        /* Details Section */
+        /* ========================================
+           EDUCATION DETAILS SECTION
+           ======================================== */
         .education-details {
             background: rgba(120, 119, 198, 0.05);
             border-radius: 15px;
@@ -474,7 +493,9 @@
             font-size: 1rem;
         }
 
-        /* Achievements Section */
+        /* ========================================
+           ACHIEVEMENTS SECTION
+           ======================================== */
         .achievements-section {
             background: rgba(255, 119, 198, 0.05);
             border-radius: 15px;
@@ -532,7 +553,9 @@
             line-height: 1.5;
         }
 
-        /* Skills Section */
+        /* ========================================
+           SKILLS SECTION
+           ======================================== */
         .skills-section {
             background: rgba(119, 198, 255, 0.05);
             border-radius: 15px;
@@ -589,22 +612,19 @@
             font-size: 1rem;
         }
 
-        /* Future Plans Section */
-        .future-plans {
-            opacity: 0.7;
-            background: rgba(199, 119, 255, 0.05);
-            border: 2px dashed rgba(199, 119, 255, 0.3);
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .future-plans .education-icon {
-            background: linear-gradient(135deg, #c677ff, #7877c6);
-        }
-
-        .future-plans .section-title {
-            color: #c677ff;
-        }
-
-        /* Responsive Design */
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
         @media (max-width: 1024px) {
             .main-content {
                 flex-direction: column;
@@ -684,11 +704,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
@@ -699,7 +714,7 @@
         <div class="floating-shape"></div>
     </div>
 
-    <!-- Quick Links Navigation -->
+    <!-- Navigation -->
     <section id="quick-links">
         <div class="nav-container">
             <ul class="nav-list">
@@ -718,7 +733,7 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <!-- Left Side Profile -->
+        <!-- Left Side: Profile Card -->
         <div class="left-side">
             <div class="profile-card">
                 <img src="https://github.com/Adrita-Khan/Assets/blob/main/host/new.jpg?raw=true" 
@@ -748,121 +763,33 @@
             </div>
         </div>
 
-        <!-- Right Side Content -->
+        <!-- Right Side: Education Timeline -->
         <div class="right-side">
+            <!-- Page Header -->
             <div class="page-header">
                 <h1 class="page-title">Educational Journey</h1>
                 <p class="page-subtitle">Exploring the academic foundations that shaped my research interests and scientific expertise in physics and astronomy.</p>
             </div>
             
+            <!-- Timeline -->
             <div class="education-timeline">
                 <div class="timeline-line"></div>
                 
-                <!-- Primary Education -->
+                <!-- Bachelor's Degree -->
                 <div class="education-item">
                     <div class="timeline-dot"></div>
                     <div class="education-card">
+                        <!-- Header -->
                         <div class="education-header">
                             <div class="education-icon">🎓</div>
                             <div class="education-content">
-                                <h3>Future Educational Goals</h3>
-                                <p class="education-university">Graduate Studies</p>
-                                <p class="education-location">Research-focused advanced degree</p>
-                            </div>
-                        </div>
-                        
-                        <div class="education-meta">
-                            <div class="meta-badge">
-                                <span class="meta-icon">🔮</span>
-                                <span>Future Plans</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span class="meta-icon">📈</span>
-                                <span>Career Development</span>
-                            </div>
-                        </div>
-
-                        <div class="education-details">
-                            <div class="details-grid">
-                                <div class="detail-item">
-                                    <span class="detail-label">Focus</span>
-                                    <span class="detail-value">Advanced Research</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Goal</span>
-                                    <span class="detail-value">Specialized Expertise</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all education cards
-        document.querySelectorAll('.education-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Timeline dot animation on scroll
-        const timelineDots = document.querySelectorAll('.timeline-dot');
-        
-        const dotObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.transform = 'scale(1.2)';
-                    setTimeout(() => {
-                        entry.target.style.transform = 'scale(1)';
-                    }, 300);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        timelineDots.forEach(dot => {
-            dotObserver.observe(dot);
-        });
-
-        // Skill items hover effect
-        document.querySelectorAll('.skill-item').forEach(skill => {
-            skill.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.05)';
-            });
-            
-            skill.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Achievement items animation
-        document.querySelectorAll('.achievement-item').forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.1}s`;
-            item.style.animation = 'fadeInUp 0.6s ease forwards';
-        });
-    </script>
-</body>
-</html><h3>Bachelor of Science (Honours) in Physics</h3>
+                                <h3>Bachelor of Science (Honours) in Physics</h3>
                                 <p class="education-university">Universiti Sains Malaysia</p>
                                 <p class="education-location">School of Physics, Penang, Malaysia</p>
                             </div>
                         </div>
                         
+                        <!-- Meta Information -->
                         <div class="education-meta">
                             <div class="meta-badge">
                                 <span class="meta-icon">📅</span>
@@ -882,6 +809,7 @@
                             </div>
                         </div>
 
+                        <!-- Details -->
                         <div class="education-details">
                             <div class="details-grid">
                                 <div class="detail-item">
@@ -903,6 +831,7 @@
                             </div>
                         </div>
 
+                        <!-- Achievements -->
                         <div class="achievements-section">
                             <h4 class="section-title">
                                 <span>🏅</span>
@@ -928,6 +857,7 @@
                             </div>
                         </div>
 
+                        <!-- Skills -->
                         <div class="skills-section">
                             <h4 class="section-title">
                                 <span>⚡</span>
@@ -963,10 +893,7 @@
                     </div>
                 </div>
 
-                <!-- Placeholder for future education -->
+                <!-- Future Education (Placeholder) -->
                 <div class="education-item" style="opacity: 0.3;">
                     <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <div class="education-header">
-                            <div class="education-icon">🎯</div>
-                            <div class="education-content">
+                    <div class="education-car
