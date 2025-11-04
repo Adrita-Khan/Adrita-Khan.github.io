@@ -197,6 +197,12 @@
             color: #3498db;
         }
 
+        .publication-authors {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
         .publication-journal {
             color: rgba(255, 255, 255, 0.8);
             font-style: italic;
@@ -239,6 +245,7 @@
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
         .action-btn {
@@ -459,24 +466,24 @@
 <!-- Publications Section -->
 <div class="container">
     <h2 class="section-title">Publications</h2>
-    <p class="intro-text">Explore my research contributions and academic publications across various fields of study.</p>
+    <p class="intro-text">Explore my research contributions and academic publications in radio astronomy and machine learning.</p>
     
     <!-- Statistics -->
     <div class="stats-section">
         <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Total Publications</div>
-        </div>
-        <div class="stat-card">
             <div class="stat-number">2</div>
-            <div class="stat-label">Journal Articles</div>
+            <div class="stat-label">Total Publications</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">1</div>
             <div class="stat-label">Conference Papers</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">2023</div>
+            <div class="stat-number">1</div>
+            <div class="stat-label">Preprints</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">2025</div>
             <div class="stat-label">Latest Publication</div>
         </div>
     </div>
@@ -486,71 +493,30 @@
         <input type="text" class="search-box" placeholder="Search publications..." id="searchInput">
         <div class="filter-tags">
             <span class="filter-tag active" data-filter="all">All</span>
-            <span class="filter-tag" data-filter="journal">Journal Articles</span>
             <span class="filter-tag" data-filter="conference">Conference Papers</span>
-            <span class="filter-tag" data-filter="2023">2023</span>
-            <span class="filter-tag" data-filter="2022">2022</span>
-            <span class="filter-tag" data-filter="2021">2021</span>
+            <span class="filter-tag" data-filter="preprint">Preprints</span>
+            <span class="filter-tag" data-filter="2025">2025</span>
         </div>
     </div>
 
     <!-- Publications List -->
     <div class="publications-list" id="publicationsList">
-        <!-- Publication 1 -->
-        <div class="publication-card" data-type="journal" data-year="2023" data-keywords="astrophysics journal publication">
+        <!-- Publication 1: ICASSP 2025 -->
+        <div class="publication-card" data-type="conference" data-year="2025" data-keywords="bent radio agn dataset machine learning deep learning radio astronomy classification nat wat">
             <div class="publication-header">
-                <div class="publication-icon">📄</div>
+                <div class="publication-icon">📊</div>
                 <div class="publication-content">
                     <h3 class="publication-title">
-                        <a href="https://doi.org/10.1234/example1" target="_blank">Title of Publication 1</a>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank">RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification</a>
                     </h3>
-                    <p class="publication-journal">Journal of Astrophysics, 2023</p>
+                    <p class="publication-authors">
+                        <strong>Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman
+                    </p>
+                    <p class="publication-journal">2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2025), Hyderabad, India</p>
                     <div class="publication-meta">
                         <span class="meta-item">
                             <span>📅</span>
-                            <span>2023</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>📖</span>
-                            <span>Journal Article</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>🔗</span>
-                            <span>DOI Available</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="publication-tags">
-                <span class="tag">Astrophysics</span>
-                <span class="tag">Research</span>
-                <span class="tag">Peer-reviewed</span>
-            </div>
-            <div class="publication-actions">
-                <a href="https://doi.org/10.1234/example1" target="_blank" class="action-btn">
-                    <span>📄</span>
-                    <span>Read Paper</span>
-                </a>
-                <a href="#" class="action-btn">
-                    <span>📋</span>
-                    <span>Cite</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Publication 2 -->
-        <div class="publication-card" data-type="conference" data-year="2022" data-keywords="astronomy conference international">
-            <div class="publication-header">
-                <div class="publication-icon">🎯</div>
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="https://doi.org/10.1234/example2" target="_blank">Title of Publication 2</a>
-                    </h3>
-                    <p class="publication-journal">International Conference on Astronomy, 2022</p>
-                    <div class="publication-meta">
-                        <span class="meta-item">
-                            <span>📅</span>
-                            <span>2022</span>
+                            <span>2025</span>
                         </span>
                         <span class="meta-item">
                             <span>🎤</span>
@@ -564,58 +530,78 @@
                 </div>
             </div>
             <div class="publication-tags">
-                <span class="tag">Astronomy</span>
-                <span class="tag">Conference</span>
-                <span class="tag">International</span>
+                <span class="tag">Radio Astronomy</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">Dataset</span>
+                <span class="tag">AGN Classification</span>
             </div>
             <div class="publication-actions">
-                <a href="https://doi.org/10.1234/example2" target="_blank" class="action-btn">
+                <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="action-btn">
                     <span>📄</span>
-                    <span>Read Paper</span>
+                    <span>IEEE Xplore</span>
                 </a>
-                <a href="#" class="action-btn">
+                <a href="https://arxiv.org/pdf/2505.19249" target="_blank" class="action-btn">
+                    <span>📄</span>
+                    <span>arXiv PDF</span>
+                </a>
+                <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="action-btn">
+                    <span>💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification,&quot; in 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Hyderabad, India, 2025, doi: 10.1109/ICASSP48485.2025.11084387.">
                     <span>📋</span>
                     <span>Cite</span>
                 </a>
             </div>
         </div>
 
-        <!-- Publication 3 -->
-        <div class="publication-card" data-type="journal" data-year="2021" data-keywords="physics letters journal">
+        <!-- Publication 2: arXiv Preprint -->
+        <div class="publication-card" data-type="preprint" data-year="2025" data-keywords="radio agn classifier deep learning semi-supervised vla bent radio galaxies wat nat">
             <div class="publication-header">
-                <div class="publication-icon">⚛️</div>
+                <div class="publication-icon">🤖</div>
                 <div class="publication-content">
                     <h3 class="publication-title">
-                        <a href="https://doi.org/10.1234/example3" target="_blank">Title of Publication 3</a>
+                        <a href="https://arxiv.org/pdf/2510.22190" target="_blank">RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs</a>
                     </h3>
-                    <p class="publication-journal">Physics Letters B, 2021</p>
+                    <p class="publication-authors">
+                        <strong>M.S. Hossain, M.S.H. Shahal, A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A.A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman
+                    </p>
+                    <p class="publication-journal">arXiv preprint arXiv:2510.22190 (Submitted to Astronomy & Astrophysics)</p>
                     <div class="publication-meta">
                         <span class="meta-item">
                             <span>📅</span>
-                            <span>2021</span>
+                            <span>2025</span>
                         </span>
                         <span class="meta-item">
                             <span>📖</span>
-                            <span>Journal Article</span>
+                            <span>Preprint</span>
                         </span>
                         <span class="meta-item">
                             <span>🔗</span>
-                            <span>DOI Available</span>
+                            <span>arXiv DOI</span>
                         </span>
                     </div>
                 </div>
             </div>
             <div class="publication-tags">
-                <span class="tag">Physics</span>
-                <span class="tag">Letters</span>
-                <span class="tag">Research</span>
+                <span class="tag">Radio AGN</span>
+                <span class="tag">Semi-supervised Learning</span>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">VLA</span>
+                <span class="tag">BYOL</span>
+                <span class="tag">E2CNN</span>
             </div>
             <div class="publication-actions">
-                <a href="https://doi.org/10.1234/example3" target="_blank" class="action-btn">
+                <a href="https://arxiv.org/pdf/2510.22190" target="_blank" class="action-btn">
                     <span>📄</span>
-                    <span>Read Paper</span>
+                    <span>arXiv PDF</span>
                 </a>
-                <a href="#" class="action-btn">
+                <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251022190H/abstract" target="_blank" class="action-btn">
+                    <span>🔭</span>
+                    <span>ADS</span>
+                </a>
+                <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs,&quot; arXiv preprint arXiv:2510.22190, 2025.">
                     <span>📋</span>
                     <span>Cite</span>
                 </a>
@@ -648,10 +634,12 @@
         publications.forEach(publication => {
             const keywords = publication.dataset.keywords.toLowerCase();
             const title = publication.querySelector('.publication-title').textContent.toLowerCase();
+            const authors = publication.querySelector('.publication-authors').textContent.toLowerCase();
             const journal = publication.querySelector('.publication-journal').textContent.toLowerCase();
             
             const matchesSearch = keywords.includes(searchTerm) || 
                                 title.includes(searchTerm) || 
+                                authors.includes(searchTerm) ||
                                 journal.includes(searchTerm);
             
             const matchesFilter = currentFilter === 'all' || 
@@ -708,32 +696,24 @@
     });
 
     // Copy citation functionality
-    document.querySelectorAll('.action-btn').forEach(btn => {
-        if (btn.textContent.includes('Cite')) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
+    document.querySelectorAll('.cite-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const citation = this.dataset.citation;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(citation).then(() => {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span>✓</span><span>Copied!</span>';
                 
-                // Get publication details
-                const card = this.closest('.publication-card');
-                const title = card.querySelector('.publication-title a').textContent;
-                const journal = card.querySelector('.publication-journal').textContent;
-                
-                // Create citation (simple format)
-                const citation = `${title}. ${journal}`;
-                
-                // Copy to clipboard
-                navigator.clipboard.writeText(citation).then(() => {
-                    const originalText = this.innerHTML;
-                    this.innerHTML = '<span>✓</span><span>Copied!</span>';
-                    
-                    setTimeout(() => {
-                        this.innerHTML = originalText;
-                    }, 2000);
-                }).catch(() => {
-                    alert('Citation: ' + citation);
-                });
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert('Citation: ' + citation);
             });
-        }
+        });
     });
 </script>
 </body>
