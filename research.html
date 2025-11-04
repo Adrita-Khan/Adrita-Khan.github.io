@@ -203,6 +203,9 @@
         .research-item:nth-child(1) { animation-delay: 0.1s; }
         .research-item:nth-child(2) { animation-delay: 0.2s; }
         .research-item:nth-child(3) { animation-delay: 0.3s; }
+        .research-item:nth-child(4) { animation-delay: 0.4s; }
+        .research-item:nth-child(5) { animation-delay: 0.5s; }
+        .research-item:nth-child(6) { animation-delay: 0.6s; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -236,6 +239,18 @@
 
         .research-item[data-type="classifier"] .research-icon {
             background: linear-gradient(135deg, #c39389, #b08377);
+        }
+
+        .research-item[data-type="gravity"] .research-icon {
+            background: linear-gradient(135deg, #8b7ba8, #a89bc4);
+        }
+
+        .research-item[data-type="jets"] .research-icon {
+            background: linear-gradient(135deg, #a8a884, #c4c4a0);
+        }
+
+        .research-item[data-type="grb"] .research-icon {
+            background: linear-gradient(135deg, #d4a8a8, #e8bcbc);
         }
 
         .research-item[data-type="paper"] .research-icon {
@@ -388,6 +403,54 @@
                 View Paper
             </a>
         </li>
+
+        <li class="research-item" data-type="gravity">
+            <div class="research-header">
+                <div class="research-icon">🌌</div>
+                <div>
+                    <h3 class="research-title">Modified Gravity with Cross-Correlation</h3>
+                    <p class="research-description">Testing Modified Gravity theories via galaxy clustering and CMB lensing data</p>
+                </div>
+            </div>
+            <p class="research-description">
+                This project forecasts signatures of modified gravity (including f(R) and DGP gravity) using cross-correlation analyses between galaxy clustering and CMB lensing. Incorporates simulation and survey specifications (LSST/DESC, Simons Observatory), Fisher matrix forecasting, and fast emulators for theoretical predictions.
+            </p>
+            <a href="https://github.com/Adrita-Khan/Modified-Gravity" target="_blank" class="research-link">
+                GitHub Repo #1
+            </a>
+        </li>
+
+        <li class="research-item" data-type="jets">
+            <div class="research-header">
+                <div class="research-icon">⚛️</div>
+                <div>
+                    <h3 class="research-title">Interaction Feature Guided Jet Tagging (E-PCN)</h3>
+                    <p class="research-description">Machine Learning for High-Energy Physics Jet Classification</p>
+                </div>
+            </div>
+            <p class="research-description">
+                The Jet-Tagging-Experiments repository develops an explainable Particle Chebyshev Network that uses physics-motivated interaction features (ln Δ, ln kT, ln z, ln m²) to classify jets on CERN Open Data (JetClass), advancing QCD-informed machine learning for particle physics.
+            </p>
+            <a href="https://github.com/Adrita-Khan/Jet-Tagging-Experiments" target="_blank" class="research-link">
+                GitHub Repo #5
+            </a>
+        </li>
+
+        <li class="research-item" data-type="grb">
+            <div class="research-header">
+                <div class="research-icon">💥</div>
+                <div>
+                    <h3 class="research-title">Gamma-Ray Burst ML (GRB-ML)</h3>
+                    <p class="research-description">Machine Learning for GRB Data & Redshift Estimation</p>
+                </div>
+            </div>
+            <p class="research-description">
+                Contains tools and experiments focused on using machine learning to estimate redshifts and classify gamma-ray bursts using Fermi and other astrophysical data. Explores advanced algorithms and astrophysical feature engineering for transient phenomena.
+            </p>
+            <a href="https://github.com/Adrita-Khan/GRB-ML" target="_blank" class="research-link">
+                GitHub Repo #6
+            </a>
+        </li>
     </ul>
 </div>
 
@@ -416,5 +479,6 @@
         });
     });
 </script>
+
 </body>
 </html>
