@@ -48,6 +48,18 @@
             border-radius: 2px;
         }
 
+        .section-subtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 4px solid #9FE2BF;
+        }
+
         .intro-text {
             text-align: center;
             font-size: 1.2rem;
@@ -159,7 +171,7 @@
         /* Achievements List */
         .achievements-list {
             display: grid;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .achievement-card {
@@ -225,18 +237,18 @@
         }
 
         .achievement-title {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: white;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             line-height: 1.3;
         }
 
         .achievement-organization {
             color: rgba(255, 255, 255, 0.8);
             font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
         }
 
         .achievement-description {
@@ -277,6 +289,112 @@
             font-weight: 500;
         }
 
+        /* Compact Achievement Item */
+        .achievement-item {
+            background: rgba(159, 226, 191, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            border-left: 3px solid #9FE2BF;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .achievement-item:hover {
+            background: rgba(159, 226, 191, 0.12);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(159, 226, 191, 0.15);
+        }
+
+        .achievement-item strong {
+            color: #9FE2BF;
+            font-weight: 600;
+        }
+
+        .achievement-item a {
+            color: #7DD3A0;
+            text-decoration: none;
+            border-bottom: 1px dotted #7DD3A0;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item a:hover {
+            color: #9FE2BF;
+            border-bottom-style: solid;
+        }
+
+        /* Membership Cards */
+        .membership-card {
+            background: rgba(159, 226, 191, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.8rem;
+            border: 1px solid rgba(159, 226, 191, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .membership-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(159, 226, 191, 0.2);
+            background: rgba(159, 226, 191, 0.15);
+        }
+
+        .membership-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #9FE2BF;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .membership-role {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(159, 226, 191, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .membership-role:last-of-type {
+            border-bottom: none;
+        }
+
+        .membership-role-title {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .membership-role-date {
+            font-weight: 600;
+            color: #9FE2BF;
+        }
+
+        .membership-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(159, 226, 191, 0.2);
+        }
+
+        .membership-detail-item {
+            color: rgba(255, 255, 255, 0.85);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .membership-detail-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #9FE2BF;
+            font-weight: bold;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -289,19 +407,19 @@
             }
         }
 
-        .achievement-card {
+        .achievement-card,
+        .achievement-item {
             animation: fadeInUp 0.6s ease forwards;
         }
-
-        .achievement-card:nth-child(1) { animation-delay: 0.1s; }
-        .achievement-card:nth-child(2) { animation-delay: 0.2s; }
-        .achievement-card:nth-child(3) { animation-delay: 0.3s; }
-        .achievement-card:nth-child(4) { animation-delay: 0.4s; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .section-title {
                 font-size: 2.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.6rem;
             }
 
             .container {
@@ -325,6 +443,12 @@
 
             .stats-section {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .membership-role {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
             }
         }
 
@@ -434,26 +558,26 @@
 
 <!-- Achievements Section -->
 <div class="container">
-    <h2 class="section-title">Achievements</h2>
-    <p class="intro-text">Recognition and honors received throughout my academic and research journey.</p>
+    <h2 class="section-title">Achievements & Recognition</h2>
+    <p class="intro-text">Awards, honors, participations, and memberships throughout my academic and research journey.</p>
     
     <!-- Statistics -->
     <div class="stats-section">
         <div class="stat-card">
-            <div class="stat-number">4</div>
-            <div class="stat-label">Total Awards</div>
+            <div class="stat-number">13</div>
+            <div class="stat-label">Awards & Participations</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Dean's List Honors</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">2</div>
-            <div class="stat-label">Academic Honors</div>
+            <div class="stat-label">Professional Memberships</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Research Grants</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">2023</div>
-            <div class="stat-label">Latest Award</div>
+            <div class="stat-number">2025</div>
+            <div class="stat-label">Latest Recognition</div>
         </div>
     </div>
 
@@ -463,149 +587,119 @@
         <div class="filter-tags">
             <span class="filter-tag active" data-filter="all">All</span>
             <span class="filter-tag" data-filter="academic">Academic</span>
-            <span class="filter-tag" data-filter="research">Research</span>
-            <span class="filter-tag" data-filter="2023">2023</span>
-            <span class="filter-tag" data-filter="2022">2022</span>
-            <span class="filter-tag" data-filter="2020">2020</span>
-            <span class="filter-tag" data-filter="2019">2019</span>
+            <span class="filter-tag" data-filter="workshop">Workshop</span>
+            <span class="filter-tag" data-filter="olympiad">Olympiad</span>
+            <span class="filter-tag" data-filter="membership">Membership</span>
         </div>
     </div>
 
-    <!-- Achievements List -->
+    <!-- Awards and Participations -->
+    <h3 class="section-subtitle">Awards & Participations</h3>
     <div class="achievements-list" id="achievementsList">
-        <!-- Achievement 1 -->
-        <div class="achievement-card" data-type="research" data-year="2023" data-keywords="best paper award astrophysics conference dark matter">
-            <div class="achievement-header">
-                <div class="achievement-icon">🏆</div>
-                <div class="achievement-content">
-                    <h3 class="achievement-title">Best Paper Award</h3>
-                    <p class="achievement-organization">International Conference on Astrophysics, 2023</p>
-                    <div class="achievement-meta">
-                        <span class="meta-item">
-                            <span>📅</span>
-                            <span>2023</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>🏛️</span>
-                            <span>Conference</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>🌟</span>
-                            <span>Research Excellence</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <p class="achievement-description">
-                Awarded for the paper titled "Modeling Dark Matter in Spiral Galaxies." This recognition highlights significant contributions to the field of astrophysics and innovative approaches to understanding dark matter distribution in galactic structures.
-            </p>
-            <div class="achievement-tags">
-                <span class="tag">Astrophysics</span>
-                <span class="tag">Dark Matter</span>
-                <span class="tag">Research</span>
-                <span class="tag">Best Paper</span>
-            </div>
+        
+        <!-- Dean's List -->
+        <div class="achievement-item" data-type="academic" data-keywords="deans list academic achievement semesters II III VI outstanding">
+            <strong>Dean's List</strong> awardee for outstanding academic achievement in Semesters <strong>II</strong>, <strong>III</strong>, and <strong>VI</strong>.
         </div>
 
-        <!-- Achievement 2 -->
-        <div class="achievement-card" data-type="academic" data-year="2022" data-keywords="graduate fellowship university research potential">
-            <div class="achievement-header">
-                <div class="achievement-icon">🎓</div>
-                <div class="achievement-content">
-                    <h3 class="achievement-title">Graduate Fellowship</h3>
-                    <p class="achievement-organization">University of XYZ, 2022-2026</p>
-                    <div class="achievement-meta">
-                        <span class="meta-item">
-                            <span>📅</span>
-                            <span>2022-2026</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>🏛️</span>
-                            <span>University</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>💰</span>
-                            <span>Fellowship</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <p class="achievement-description">
-                Received for outstanding academic performance and research potential. This prestigious fellowship provides comprehensive support for graduate studies and research activities, recognizing exceptional scholarly achievement and future promise in the field.
-            </p>
-            <div class="achievement-tags">
-                <span class="tag">Graduate School</span>
-                <span class="tag">Fellowship</span>
-                <span class="tag">Academic Excellence</span>
-                <span class="tag">Research</span>
-            </div>
+        <!-- ICTP PWF Bangladesh 2025 -->
+        <div class="achievement-item" data-type="workshop" data-keywords="ictp pwf bangladesh school general relativity cosmology 2025 participant">
+            <strong>ICTP</strong> PWF Bangladesh: School On General Relativity and Cosmology <strong>(2025)</strong>, <strong>Participant</strong>
         </div>
 
-        <!-- Achievement 3 -->
-        <div class="achievement-card" data-type="academic" data-year="2020" data-keywords="deans list university gpa academic excellence">
-            <div class="achievement-header">
-                <div class="achievement-icon">⭐</div>
-                <div class="achievement-content">
-                    <h3 class="achievement-title">Dean's List</h3>
-                    <p class="achievement-organization">University of ABC, 2018-2020</p>
-                    <div class="achievement-meta">
-                        <span class="meta-item">
-                            <span>📅</span>
-                            <span>2018-2020</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>🏛️</span>
-                            <span>University</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>📊</span>
-                            <span>GPA Excellence</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <p class="achievement-description">
-                Recognized for maintaining a GPA above 3.8 throughout undergraduate studies. This consistent academic excellence demonstrates dedication to scholarly pursuits and exceptional performance across diverse coursework.
-            </p>
-            <div class="achievement-tags">
-                <span class="tag">Academic Honor</span>
-                <span class="tag">GPA 3.8+</span>
-                <span class="tag">Undergraduate</span>
-                <span class="tag">Excellence</span>
-            </div>
+        <!-- CERN Summer Workshop 2024 -->
+        <div class="achievement-item" data-type="workshop" data-keywords="cern summer particle astrophysics workshop 2024 participant">
+            <strong>CERN</strong> Summer Particle Astrophysics Workshop 2024, <strong>Participant</strong> <a href="https://indico.cern.ch/event/1394318/registrations/participants" target="_blank">(View)</a>
         </div>
 
-        <!-- Achievement 4 -->
-        <div class="achievement-card" data-type="research" data-year="2019" data-keywords="undergraduate research grant quantum mechanics applications">
-            <div class="achievement-header">
-                <div class="achievement-icon">🔬</div>
-                <div class="achievement-content">
-                    <h3 class="achievement-title">Undergraduate Research Grant</h3>
-                    <p class="achievement-organization">Institute of DEF, 2019</p>
-                    <div class="achievement-meta">
-                        <span class="meta-item">
-                            <span>📅</span>
-                            <span>2019</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>🏛️</span>
-                            <span>Institute</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>💡</span>
-                            <span>Research Grant</span>
-                        </span>
-                    </div>
-                </div>
+        <!-- CCDS Workshop 2024 -->
+        <div class="achievement-item" data-type="workshop" data-keywords="ccds deep learning code management iub 2024 research intern candidate">
+            <strong>CCDS</strong> 2nd Workshop on Deep Learning Code Management, IUB (<strong>2024</strong>): <strong>Research Intern Candidate</strong>
+        </div>
+
+        <!-- Bangladesh Olympiad Volunteer 2024 -->
+        <div class="achievement-item" data-type="olympiad" data-keywords="bangladesh olympiad astronomy astrophysics 2024 academic volunteer iub">
+            Bangladesh Olympiad on Astronomy and Astrophysics (<strong>2024</strong>), <strong>Academic Volunteer</strong>, IUB
+        </div>
+
+        <!-- ICTP QFT School 2024 -->
+        <div class="achievement-item" data-type="workshop" data-keywords="ictp school quantum field theory 2024 pwf bangladesh participant">
+            <strong>ICTP</strong> School on <strong>Quantum Field Theory</strong> 2024, PWF Bangladesh, <strong>Participant</strong>
+        </div>
+
+        <!-- DPS IUB Summer School 2024 -->
+        <div class="achievement-item" data-type="workshop" data-keywords="dps iub summer school 2024 quantum world information technology applications">
+            <strong>DPS IUB Summer School 2024</strong>: Glimpses into the Quantum World - Information, Technology, and Applications
+        </div>
+
+        <!-- Decoding the Universe 2023 -->
+        <div class="achievement-item" data-type="workshop" data-keywords="workshop decoding universe 2023 radio cosmology research laboratory university malaya">
+            Workshop on "Decoding the Universe" 2023: Organized by the Radio Cosmology Research Laboratory, University of Malaya
+        </div>
+
+        <!-- 9th Astro Olympiad National 2014 -->
+        <div class="achievement-item" data-type="olympiad" data-keywords="9th bangladesh astro olympiad national round participant 2014 faridpur">
+            The <strong>9th</strong> Bangladesh <strong>Astro</strong> Olympiad <strong>National</strong> Round, <strong>Participant</strong> (<strong>2014</strong>), representing <strong>Faridpur</strong>
+        </div>
+
+        <!-- 9th Astro Olympiad Regional 2014 -->
+        <div class="achievement-item" data-type="olympiad" data-keywords="9th bangladesh astro olympiad regional round champion organizing member 2014">
+            The <strong>9th</strong> Bangladesh <strong>Astro</strong> Olympiad <strong>Regional</strong> Round, <strong>Champion</strong> and <strong>Organizing Member</strong> (<strong>2014</strong>)
+        </div>
+
+        <!-- 36th Science Fair 2015 -->
+        <div class="achievement-item" data-type="academic" data-keywords="36th national science technology fair college representative 2015">
+            The <strong>36th</strong> National Science and Technology Fair, <strong>College Representative</strong> (<strong>2015</strong>)
+        </div>
+
+        <!-- 35th Science Fair Runner-up 2014 -->
+        <div class="achievement-item" data-type="academic" data-keywords="35th national science technology fair runner-up science public speaking 2014">
+            The <strong>35th</strong> National Science and Technology Fair, <strong>Runner-up</strong> in Science Public Speaking (<strong>2014</strong>)
+        </div>
+
+        <!-- 35th Science Fair Representative 2014 -->
+        <div class="achievement-item" data-type="academic" data-keywords="35th national science technology fair school representative 2014">
+            The <strong>35th</strong> National Science and Technology Fair, <strong>School Representative</strong> (<strong>2014</strong>)
+        </div>
+
+    </div>
+
+    <!-- Memberships Section -->
+    <h3 class="section-subtitle">Professional Memberships</h3>
+    
+    <!-- American Physical Society -->
+    <div class="membership-card" data-type="membership" data-keywords="american physical society aps member 2023 present">
+        <div class="membership-header">
+            🔬 American Physical Society (APS)
+        </div>
+        <div class="membership-role">
+            <span class="membership-role-title">Member</span>
+            <span class="membership-role-date">2023 - Present</span>
+        </div>
+    </div>
+
+    <!-- Astronomy Club USM -->
+    <div class="membership-card" data-type="membership" data-keywords="astronomy club universiti sains malaysia usm exco student representative member 2019 2020">
+        <div class="membership-header">
+            🌟 Astronomy Club, Universiti Sains Malaysia
+        </div>
+        <div class="membership-role">
+            <span class="membership-role-title">Elected Student Representative (Exco)</span>
+            <span class="membership-role-date">2019 - 2020</span>
+        </div>
+        <div class="membership-role">
+            <span class="membership-role-title">Member</span>
+            <span class="membership-role-date">2019 - Present</span>
+        </div>
+        <div class="membership-details">
+            <div class="membership-detail-item">
+                Represented and coordinated activities among students from over 10 nationalities, fostering inclusivity and cross-cultural collaboration.
             </div>
-            <p class="achievement-description">
-                Granted for research on quantum mechanics and its applications. This competitive funding supported independent research projects exploring fundamental principles of quantum physics and their practical applications in modern technology.
-            </p>
-            <div class="achievement-tags">
-                <span class="tag">Quantum Mechanics</span>
-                <span class="tag">Research Grant</span>
-                <span class="tag">Undergraduate</span>
-                <span class="tag">Physics</span>
+            <div class="membership-detail-item">
+                Actively participated in stargazing sessions, public outreach programs, workshops, and valuable training sessions.
+            </div>
+            <div class="membership-detail-item">
+                Attended Physics colloquia, workshops, coffee talks, and various engaging activities as part of the community.
             </div>
         </div>
     </div>
@@ -629,23 +723,17 @@
     // Search function
     function searchAchievements() {
         const searchTerm = searchInput.value.toLowerCase();
-        const achievements = document.querySelectorAll('.achievement-card');
+        const achievements = document.querySelectorAll('.achievement-item, .membership-card');
         let visibleCount = 0;
 
         achievements.forEach(achievement => {
-            const keywords = achievement.dataset.keywords.toLowerCase();
-            const title = achievement.querySelector('.achievement-title').textContent.toLowerCase();
-            const organization = achievement.querySelector('.achievement-organization').textContent.toLowerCase();
-            const description = achievement.querySelector('.achievement-description').textContent.toLowerCase();
+            const keywords = (achievement.dataset.keywords || '').toLowerCase();
+            const text = achievement.textContent.toLowerCase();
             
-            const matchesSearch = keywords.includes(searchTerm) || 
-                                title.includes(searchTerm) || 
-                                organization.includes(searchTerm) ||
-                                description.includes(searchTerm);
+            const matchesSearch = keywords.includes(searchTerm) || text.includes(searchTerm);
             
             const matchesFilter = currentFilter === 'all' || 
-                                achievement.dataset.type === currentFilter || 
-                                achievement.dataset.year === currentFilter;
+                                achievement.dataset.type === currentFilter;
 
             if (matchesSearch && matchesFilter) {
                 achievement.style.display = 'block';
