@@ -82,6 +82,15 @@
         .container > ul > li > p a:hover {
             color: #a8e0ff; border-bottom-color: #77c6ff;
         }
+        .position-subsection {
+            margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(227, 194, 151, 0.2);
+        }
+        .position-subsection h4 {
+            font-size: 1.5rem; color: #f0d9b5; margin-bottom: 0.5rem;
+        }
+        .position-subsection p {
+            color: #e3c297; font-weight: 500; font-style: italic; margin-bottom: 0.8rem;
+        }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -91,13 +100,15 @@
         .container > ul > li:nth-child(2) { animation-delay: 0.2s; }
         .container > ul > li:nth-child(3) { animation-delay: 0.3s; }
         .container > ul > li:nth-child(4) { animation-delay: 0.4s; }
+        .container > ul > li:nth-child(5) { animation-delay: 0.5s; }
         .container > ul > li::after {
             content: '🔬'; position: absolute; top: 2rem; right: 2rem; font-size: 2rem; opacity: 0.3; transition: all 0.3s ease;
         }
         .container > ul > li:hover::after { opacity: 0.6; transform: scale(1.2) rotate(15deg); }
-        .container > ul > li:nth-child(2)::after { content: '🚀'; }
-        .container > ul > li:nth-child(3)::after { content: '🌌'; }
-        .container > ul > li:nth-child(4)::after { content: '🎓'; }
+        .container > ul > li:nth-child(2)::after { content: '🌌'; }
+        .container > ul > li:nth-child(3)::after { content: '🚀'; }
+        .container > ul > li:nth-child(4)::after { content: '🌍'; }
+        .container > ul > li:nth-child(5)::after { content: '🎓'; }
         @media (max-width: 768px) {
             .section-title { font-size: 2.5rem; }
             .container { padding: 2rem 1rem; }
@@ -168,48 +179,72 @@
     <h2 class="section-title">Research Experience</h2>
     <ul>
         <li>
-            <h3>Full-time Research Assistant</h3>
-            <p>Center for Computational and Data Sciences (CCDS), Independent University, Bangladesh</p>
-            <p>August 2025 – Present</p>
-            <p>Responsibilities:</p>
-            <ul>
-                <li>Cosmological data analysis and pipeline development for radio astronomical sources.</li>
-                <li>Project: Jet tagging using PCN with interaction features (previously as intern).</li>
-                <li>Scientific code benchmarking and validation, including ML applications in astrophysics.</li>
-            </ul>
+            <h3>Center for Computational and Data Sciences (CCDS)</h3>
+            <p>Independent University, Bangladesh</p>
+            <p>January 2025 – Present</p>
+            
+            <div class="position-subsection">
+                <h4>Full-time Research Assistant</h4>
+                <p>August 2025 – Present</p>
+                <p style="color: #e3c297; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <ul>
+                    <li>Cosmological data analysis and pipeline development for radio astronomical sources.</li>
+                    <li>Project: Jet tagging using PCN with interaction features (previously as intern).</li>
+                    <li>Scientific code benchmarking and validation, including ML applications in astrophysics.</li>
+                </ul>
+            </div>
+
+            <div class="position-subsection">
+                <h4>Research Intern</h4>
+                <p>January 2025 – July 2025</p>
+                <p style="color: #e3c297; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <ul>
+                    <li>Assisted with jet tagging research and initial methodology design for ML in particle physics.</li>
+                    <li>Developed scripts for preprocessing and feature engineering.</li>
+                </ul>
+            </div>
         </li>
+
         <li>
-            <h3>Research Intern</h3>
-            <p>Center for Computational and Data Sciences (CCDS), Independent University, Bangladesh</p>
-            <p>January 2025 – July 2025</p>
-            <p>Responsibilities:</p>
-            <ul>
-                <li>Assisted with jet tagging research and initial methodology design for ML in particle physics.</li>
-                <li>Developed scripts for preprocessing and feature engineering.</li>
-            </ul>
+            <h3>Center for Astronomy, Space Science, and Astrophysics (CASSA)</h3>
+            <p>Independent University, Bangladesh</p>
+            <p>June 2024 – Present</p>
+            
+            <div class="position-subsection">
+                <h4>Part-time Research Assistant</h4>
+                <p>October 2025 – Present</p>
+                <p style="color: #e3c297; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <ul>
+                    <li>Development of astrophysical simulation models.</li>
+                    <li>Continuation of previous intern research; extension to observational studies and analytic methods.</li>
+                    <li>Collaboration on institutional research projects and student mentoring.</li>
+                </ul>
+                <p style="margin-top: 1rem;">More about CASSA: <a href="https://cassa.site/entry/p2024002/" target="_blank">Project Details</a> | <a href="https://cassa.site/entry/p2023001/" target="_blank">Additional Research</a> | <a href="https://cassa.site/people/students/" target="_blank">Student Roles</a></p>
+            </div>
+
+            <div class="position-subsection">
+                <h4>Research Intern</h4>
+                <p>June 2024 – September 2025</p>
+                <p style="color: #e3c297; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <ul>
+                    <li>Initiated radio astronomy classification projects for galaxy morphologies.</li>
+                    <li>Contributed to data curation and preliminary analysis for source identification.</li>
+                </ul>
+            </div>
         </li>
+
         <li>
-            <h3>Part-time Research Assistant</h3>
-            <p>Center for Astronomy, Space Science, and Astrophysics (CASSA), Independent University, Bangladesh</p>
-            <p>October 2025 – Present</p>
+            <h3>Remote Research Assistant</h3>
+            <p>Centre for Astro-Particle Physics (CAPP), University of Johannesburg, South Africa</p>
+            <p>June 2025 – Present</p>
             <p>Responsibilities:</p>
             <ul>
-                <li>Development of astrophysical simulation models.</li>
-                <li>Continuation of previous intern research; extension to observational studies and analytic methods.</li>
-                <li>Collaboration on institutional research projects and student mentoring.</li>
-            </ul>
-            <p>More about CASSA: <a href="https://cassa.site/entry/p2024002/" target="_blank">Project Details</a> | <a href="https://cassa.site/entry/p2023001/" target="_blank">Additional Research</a> | <a href="https://cassa.site/people/students/" target="_blank">Student Roles</a></p>
-        </li>
-        <li>
-            <h3>Research Intern</h3>
-            <p>Center for Astronomy, Space Science, and Astrophysics (CASSA), Independent University, Bangladesh</p>
-            <p>June 2024 – September 2025</p>
-            <p>Responsibilities:</p>
-            <ul>
-                <li>Initiated radio astronomy classification projects for galaxy morphologies.</li>
-                <li>Contributed to data curation and preliminary analysis for source identification.</li>
+                <li>Remote collaboration on astro-particle physics and cosmology research projects.</li>
+                <li>Data analysis and computational modeling for high-energy astrophysics studies.</li>
+                <li>Contributing to international research collaborations and publications.</li>
             </ul>
         </li>
+
         <li>
             <h3>Student Research Collaborator</h3>
             <p>Dunlap Institute for Astronomy & Astrophysics, University of Toronto</p>
@@ -220,6 +255,7 @@
                 <li>Active participation in research discussions and joint data analysis tasks.</li>
             </ul>
         </li>
+
         <li>
             <h3>Graduate Teaching Assistant</h3>
             <p>North South University (NSU), Department of Mathematics and Physics</p>
