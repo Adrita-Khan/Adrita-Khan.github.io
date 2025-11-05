@@ -162,6 +162,7 @@
             line-height: 1.7;
             color: #b0b0d0;
             margin-bottom: 2rem;
+            text-align: justify;
         }
 
         .profile-image-wrapper {
@@ -303,6 +304,23 @@
             border-radius: 2px;
         }
 
+        /* About Section */
+        .about-content {
+            background: rgba(120, 119, 198, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #e0e0ff;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
         /* Current Positions */
         .positions-grid {
             display: grid;
@@ -438,6 +456,49 @@
             box-shadow: 0 10px 20px rgba(120, 119, 198, 0.3);
         }
 
+        /* Research Interests Detail Section */
+        .interests-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .interest-category {
+            background: rgba(120, 119, 198, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .interest-category h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(120, 119, 198, 0.3);
+        }
+
+        .interest-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .interest-category li {
+            font-size: 0.95rem;
+            color: #e0e0ff;
+            padding: 0.5rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .interest-category li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #a8a8ff;
+        }
+
         /* Stats Section */
         .stats-grid {
             display: grid;
@@ -517,6 +578,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .interests-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -551,18 +616,17 @@
                 <h1>Adrita Khan</h1>
                 <p class="subtitle">PhD Aspirant in Astronomy & Cosmology</p>
                 <p class="bio">
-                    Graduate from the University of Science, Malaysia (USM) with a major in Physics and minor in Astronomy. 
-                    Currently working across multiple research centers exploring the frontiers of cosmology and astrophysics.
+                    Graduate from the University of Science Malaysia (USM) with a major in Physics and a minor in Astronomy. Currently focused on observational cosmology, particularly in the areas of large-scale structure, dark matter, dark energy, and astroparticle physics. Working across multiple research centers exploring the frontiers of cosmology and astrophysics through advanced computational methodologies, including machine learning, Bayesian inference, and cosmological emulation.
                 </p>
 
                 <div class="interests-section">
-                    <div class="interests-label">Research Interests</div>
+                    <div class="interests-label">Key Research Areas</div>
                     <div class="interests-grid">
                         <span class="interest-tag">Observational Cosmology</span>
                         <span class="interest-tag">Large Scale Structure</span>
                         <span class="interest-tag">Dark Energy</span>
                         <span class="interest-tag">Dark Matter</span>
-                        <span class="interest-tag">Astrostatistics</span>
+                        <span class="interest-tag">Modified Gravity</span>
                         <span class="interest-tag">Machine Learning</span>
                     </div>
                 </div>
@@ -592,8 +656,35 @@
         </div>
     </section>
 
-    <!-- Current Positions -->
+    <!-- About Section -->
     <section class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <p>
+                    Greetings, my name is Adrita Khan, a graduate of the University of Science Malaysia, with a major in Physics and a minor in Astronomy. I am currently a researcher focused on observational cosmology, particularly in the areas of large-scale structure, dark matter, dark energy, and astroparticle physics. My ongoing research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data, advancing our understanding of gravitational phenomena on cosmological scales.
+                </p>
+                <p>
+                    Additionally, I am developing novel methodologies for gamma-ray burst redshift estimation and designing the Explainable Polynomial Chebyshev Network (EPCN)—a neural architecture that incorporates interpretable interaction features into Chebyshev-based frameworks, providing enhanced physical insight. My work also includes radio frequency interference (RFI) detection and mitigation using machine learning techniques.
+                </p>
+                <p>
+                    My long-term research agenda is centered on advancing precision cosmology at the intersection of theoretical frameworks and empirical observations, particularly within the context of next-generation surveys such as the Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST), the Euclid mission, and the Dark Energy Spectroscopic Instrument (DESI). I employ advanced computational methodologies, including machine learning, Bayesian inference, and cosmological emulation, to extract empirical constraints on fundamental cosmological questions related to the universe's origin, evolution, and matter-energy composition.
+                </p>
+                <p>
+                    My research spans a broad range of areas, including modified gravity parameter constraints, machine learning applications in high-energy particle physics, gamma-ray burst parameter inference, RFI mitigation in radio astronomy, and signal processing methodologies in observational radio astronomy.
+                </p>
+                <p>
+                    Beyond my research endeavors, I am deeply committed to fostering scientific diversity, equity, and inclusion within the academic community. I firmly believe that collaborative, interdisciplinary approaches are crucial for addressing the most profound questions in cosmology and for democratizing access to knowledge within and beyond academia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Positions -->
+    <section class="section-dark">
         <div class="container">
             <div class="section-header">
                 <h2>Current Positions</h2>
@@ -624,12 +715,18 @@
                     <div class="position-org">University of Toronto</div>
                     <span class="position-type">Collaborative</span>
                 </div>
+                <div class="position-card">
+                    <div class="position-title">Graduate Teaching Assistant</div>
+                    <div class="position-org">North South University, Bangladesh</div>
+                    <div class="position-org">Teaching PHY107 and PHY108 in Spring 2025</div>
+                    <span class="position-type">Teaching</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Research -->
-    <section class="section-dark">
+    <section class="section-alt">
         <div class="container">
             <div class="section-header">
                 <h2>Featured Research</h2>
@@ -646,8 +743,67 @@
                 </div>
                 <div class="research-content">
                     <h3>Testing Modified Gravity Theories</h3>
-                    <p>My research focuses on testing modified gravity theories, specifically f(R) gravity and Horndeski theories, by analyzing cross-correlated power spectra. The primary objective is to examine the Galaxy-Galaxy power spectrum, Galaxy-CMB lensing cross-power spectrum, and CMB lensing auto-power spectrum to detect signatures of modified gravity that deviate from the standard ΛCDM model.</p>
+                    <p>My research focuses on testing modified gravity theories, specifically f(R) gravity and Horndeski theories, by analyzing cross-correlated power spectra. The primary objective is to examine the Galaxy-Galaxy power spectrum, Galaxy-CMB lensing cross-power spectrum, and CMB lensing auto-power spectrum to detect signatures of modified gravity that deviate from the standard ΛCDM model. This work contributes to advancing our understanding of gravitational phenomena on cosmological scales.</p>
                     <a href="https://github.com/Adrita-Khan/Modified-Gravity" target="_blank" class="btn-primary">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Research Interests -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Interests</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="interests-detail-grid">
+                <div class="interest-category">
+                    <h3>Cosmology</h3>
+                    <ul>
+                        <li>Observational and Theoretical Cosmology</li>
+                        <li>Large-Scale Structure (LSS)</li>
+                        <li>Dark Matter</li>
+                        <li>Dark Energy</li>
+                        <li>Modified Gravity Models</li>
+                        <li>Precision Cosmology</li>
+                        <li>Universe's Origin</li>
+                        <li>Evolution of the Universe</li>
+                        <li>Cosmological Simulations</li>
+                        <li>Computational Modeling of the Universe</li>
+                    </ul>
+                </div>
+                <div class="interest-category">
+                    <h3>Astrophysics</h3>
+                    <ul>
+                        <li>Stellar Astrophysics</li>
+                        <li>Star Formation</li>
+                        <li>Star Evolution</li>
+                        <li>Stellar Properties</li>
+                        <li>Radio Astronomy</li>
+                        <li>Optical Astronomy</li>
+                        <li>Multiwavelength Astronomy</li>
+                        <li>Astro-Particle Physics</li>
+                    </ul>
+                </div>
+                <div class="interest-category">
+                    <h3>Data Science & Statistics</h3>
+                    <ul>
+                        <li>Astrostatistics</li>
+                        <li>Statistical Methods in Astronomy</li>
+                        <li>Astronomical Data Analysis</li>
+                        <li>Machine Learning in Astrophysics</li>
+                        <li>Astrophysical Data Modeling</li>
+                    </ul>
+                </div>
+                <div class="interest-category">
+                    <h3>Computational Physics</h3>
+                    <ul>
+                        <li>Nuclear Physics Simulations</li>
+                        <li>Computational Methods in Nuclear Physics</li>
+                        <li>Astro-Particle Physics Simulations</li>
+                        <li>Universe Evolution Models</li>
+                    </ul>
                 </div>
             </div>
         </div>
