@@ -463,47 +463,240 @@
             box-shadow: 0 10px 20px rgba(120, 119, 198, 0.3);
         }
 
-        /* Research Interests Detail Section */
-        .interests-detail-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        /* Enhanced Research Interests Detail Section */
+        .research-interests-main {
+            position: relative;
+            padding: 4rem 2rem;
+            overflow-x: hidden;
         }
 
-        .interest-category {
-            background: rgba(120, 119, 198, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .interest-category h3 {
-            font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(120, 119, 198, 0.3);
-        }
-
-        .interest-category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .interest-category li {
-            font-size: 0.95rem;
-            color: #e0e0ff;
-            padding: 0.5rem 0;
-            padding-left: 1.2rem;
+        .research-container {
+            max-width: 1400px;
+            margin: 0 auto;
             position: relative;
         }
 
-        .interest-category li:before {
-            content: "▸";
+        .research-section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .research-section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8ff 50%, #ff77c6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .research-section-header .section-line {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #7877c6, #ff77c6, #77c6ff);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .research-section-header p {
+            font-size: 1.1rem;
+            color: #b0b0d0;
+            margin-top: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .research-interests-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .research-interest-card {
+            background: rgba(120, 119, 198, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-interest-card::before {
+            content: '';
             position: absolute;
+            top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(120, 119, 198, 0.05) 0%, 
+                rgba(255, 119, 198, 0.05) 50%, 
+                rgba(120, 219, 255, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .research-interest-card:hover {
+            transform: translateY(-10px);
+            background: rgba(120, 119, 198, 0.15);
+            box-shadow: 
+                0 20px 40px rgba(120, 119, 198, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .research-interest-card:hover::before {
+            opacity: 1;
+        }
+
+        .research-interest-card:nth-child(1) {
+            border-left: 4px solid #7877c6;
+        }
+
+        .research-interest-card:nth-child(2) {
+            border-left: 4px solid #ff77c6;
+        }
+
+        .research-interest-card:nth-child(3) {
+            border-left: 4px solid #77c6ff;
+        }
+
+        .research-interest-card:nth-child(4) {
+            border-left: 4px solid #c677ff;
+        }
+
+        .research-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .research-interest-card:nth-child(1) .research-card-icon {
+            background: linear-gradient(135deg, #7877c6, #a8a8ff);
+        }
+
+        .research-interest-card:nth-child(2) .research-card-icon {
+            background: linear-gradient(135deg, #ff77c6, #ffa8d8);
+        }
+
+        .research-interest-card:nth-child(3) .research-card-icon {
+            background: linear-gradient(135deg, #77c6ff, #a8d8ff);
+        }
+
+        .research-interest-card:nth-child(4) .research-card-icon {
+            background: linear-gradient(135deg, #c677ff, #d8a8ff);
+        }
+
+        .research-card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .research-topics-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .research-topic-item {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 0;
+            color: #e0e0ff;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .research-topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .research-topic-item:hover {
+            color: #ffffff;
+            padding-left: 0.5rem;
+        }
+
+        .research-topic-item::before {
+            content: "▸";
+            margin-right: 0.8rem;
             color: #a8a8ff;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .research-topic-item:hover::before {
+            color: #ffffff;
+            transform: translateX(3px);
+        }
+
+        /* Floating particles animation */
+        .research-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .research-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(120, 119, 198, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        .research-particle:nth-child(2n) {
+            background: rgba(255, 119, 198, 0.4);
+            animation-duration: 20s;
+        }
+
+        .research-particle:nth-child(3n) {
+            background: rgba(120, 219, 255, 0.5);
+            animation-duration: 25s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* Stats Section */
@@ -563,6 +756,13 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .research-interests-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -585,12 +785,43 @@
                 grid-template-columns: 1fr;
             }
 
-            .interests-detail-grid {
+            .research-interests-grid {
                 grid-template-columns: 1fr;
             }
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .research-section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-list {
+                gap: 0.5rem;
+            }
+
+            .nav-list a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -767,59 +998,78 @@
         </div>
     </section>
 
-    <!-- Detailed Research Interests -->
-    <section class="section-dark">
-        <div class="container">
-            <div class="section-header">
+    <!-- Enhanced Research Interests Section -->
+    <section class="research-interests-main section-dark">
+        <div class="research-container">
+            <div class="research-particles"></div>
+            
+            <div class="research-section-header">
                 <h2>Research Interests</h2>
                 <div class="section-line"></div>
+                <p>Exploring the cosmos through interdisciplinary approaches combining theoretical frameworks with cutting-edge computational methods</p>
             </div>
-            <div class="interests-detail-grid">
-                <div class="interest-category">
-                    <h3>Cosmology</h3>
-                    <ul>
-                        <li>Observational and Theoretical Cosmology</li>
-                        <li>Large-Scale Structure (LSS)</li>
-                        <li>Dark Matter</li>
-                        <li>Dark Energy</li>
-                        <li>Modified Gravity Models</li>
-                        <li>Precision Cosmology</li>
-                        <li>Universe's Origin</li>
-                        <li>Evolution of the Universe</li>
-                        <li>Cosmological Simulations</li>
-                        <li>Computational Modeling of the Universe</li>
+            
+            <div class="research-interests-grid">
+                <div class="research-interest-card">
+                    <div class="research-card-header">
+                        <div class="research-card-icon">🌌</div>
+                        <h3 class="research-card-title">Cosmology</h3>
+                    </div>
+                    <ul class="research-topics-list">
+                        <li class="research-topic-item">Observational and Theoretical Cosmology</li>
+                        <li class="research-topic-item">Large-Scale Structure (LSS)</li>
+                        <li class="research-topic-item">Dark Matter</li>
+                        <li class="research-topic-item">Dark Energy</li>
+                        <li class="research-topic-item">Modified Gravity Models</li>
+                        <li class="research-topic-item">Precision Cosmology</li>
+                        <li class="research-topic-item">Universe's Origin</li>
+                        <li class="research-topic-item">Evolution of the Universe</li>
+                        <li class="research-topic-item">Cosmological Simulations</li>
+                        <li class="research-topic-item">Computational Modeling of the Universe</li>
                     </ul>
                 </div>
-                <div class="interest-category">
-                    <h3>Astrophysics</h3>
-                    <ul>
-                        <li>Stellar Astrophysics</li>
-                        <li>Star Formation</li>
-                        <li>Star Evolution</li>
-                        <li>Stellar Properties</li>
-                        <li>Radio Astronomy</li>
-                        <li>Optical Astronomy</li>
-                        <li>Multiwavelength Astronomy</li>
-                        <li>Astro-Particle Physics</li>
+                
+                <div class="research-interest-card">
+                    <div class="research-card-header">
+                        <div class="research-card-icon">⭐</div>
+                        <h3 class="research-card-title">Astrophysics</h3>
+                    </div>
+                    <ul class="research-topics-list">
+                        <li class="research-topic-item">Stellar Astrophysics</li>
+                        <li class="research-topic-item">Star Formation</li>
+                        <li class="research-topic-item">Star Evolution</li>
+                        <li class="research-topic-item">Stellar Properties</li>
+                        <li class="research-topic-item">Radio Astronomy</li>
+                        <li class="research-topic-item">Optical Astronomy</li>
+                        <li class="research-topic-item">Multiwavelength Astronomy</li>
+                        <li class="research-topic-item">Astro-Particle Physics</li>
                     </ul>
                 </div>
-                <div class="interest-category">
-                    <h3>Data Science & Statistics</h3>
-                    <ul>
-                        <li>Astrostatistics</li>
-                        <li>Statistical Methods in Astronomy</li>
-                        <li>Astronomical Data Analysis</li>
-                        <li>Machine Learning in Astrophysics</li>
-                        <li>Astrophysical Data Modeling</li>
+                
+                <div class="research-interest-card">
+                    <div class="research-card-header">
+                        <div class="research-card-icon">📊</div>
+                        <h3 class="research-card-title">Data Science & Statistics</h3>
+                    </div>
+                    <ul class="research-topics-list">
+                        <li class="research-topic-item">Astrostatistics</li>
+                        <li class="research-topic-item">Statistical Methods in Astronomy</li>
+                        <li class="research-topic-item">Astronomical Data Analysis</li>
+                        <li class="research-topic-item">Machine Learning in Astrophysics</li>
+                        <li class="research-topic-item">Astrophysical Data Modeling</li>
                     </ul>
                 </div>
-                <div class="interest-category">
-                    <h3>Computational Physics</h3>
-                    <ul>
-                        <li>Nuclear Physics Simulations</li>
-                        <li>Computational Methods in Nuclear Physics</li>
-                        <li>Astro-Particle Physics Simulations</li>
-                        <li>Universe Evolution Models</li>
+                
+                <div class="research-interest-card">
+                    <div class="research-card-header">
+                        <div class="research-card-icon">💻</div>
+                        <h3 class="research-card-title">Computational Physics</h3>
+                    </div>
+                    <ul class="research-topics-list">
+                        <li class="research-topic-item">Nuclear Physics Simulations</li>
+                        <li class="research-topic-item">Computational Methods in Nuclear Physics</li>
+                        <li class="research-topic-item">Astro-Particle Physics Simulations</li>
+                        <li class="research-topic-item">Universe Evolution Models</li>
                     </ul>
                 </div>
             </div>
@@ -876,9 +1126,29 @@
                 starsContainer.appendChild(star);
             }
         }
+
+        // Create floating particles for research interests section
+        function createResearchParticles() {
+            const particlesContainer = document.querySelector('.research-particles');
+            if (!particlesContainer) return;
+            
+            const numParticles = 15;
+            
+            for (let i = 0; i < numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'research-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
         
-        // Initialize stars when page loads
-        window.addEventListener('load', createStars);
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            createStars();
+            createResearchParticles();
+        });
 
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -891,6 +1161,27 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Mouse tracking effect for research interest cards
+        document.querySelectorAll('.research-interest-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
             });
         });
     </script>
