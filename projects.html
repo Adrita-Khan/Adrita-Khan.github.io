@@ -19,6 +19,71 @@
             line-height: 1.6;
         }
 
+        /* Navigation Styles */
+        #quick-links {
+            position: relative;
+            z-index: 10;
+            background: rgba(15, 15, 35, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-list a {
+            display: block;
+            background: rgba(120, 119, 198, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.7rem 1.2rem;
+            text-decoration: none;
+            color: #e0e0ff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-list a:hover {
+            background: rgba(120, 119, 198, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
+        }
+
+        /* Color coding */
+        .nav-list li:nth-child(9n+1) a { border-left: 3px solid #7877c6; }
+        .nav-list li:nth-child(9n+2) a { border-left: 3px solid #ff77c6; }
+        .nav-list li:nth-child(9n+3) a { border-left: 3px solid #77c6ff; }
+        .nav-list li:nth-child(9n+4) a { border-left: 3px solid #c677ff; }
+        .nav-list li:nth-child(9n+5) a { border-left: 3px solid #77ffc6; }
+        .nav-list li:nth-child(9n+6) a { border-left: 3px solid #ffc677; }
+        .nav-list li:nth-child(9n+7) a { border-left: 3px solid #ff7777; }
+        .nav-list li:nth-child(9n+8) a { border-left: 3px solid #77ff77; }
+        .nav-list li:nth-child(9n+9) a { border-left: 3px solid #ffaa77; }
+
         /* Main Container */
         .container {
             max-width: 1000px;
@@ -230,6 +295,7 @@
 
         .project-item {
             animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
         }
 
         .project-item:nth-child(1) { animation-delay: 0.1s; }
@@ -241,6 +307,10 @@
         .project-item:nth-child(7) { animation-delay: 0.7s; }
         .project-item:nth-child(8) { animation-delay: 0.8s; }
         .project-item:nth-child(9) { animation-delay: 0.9s; }
+        .project-item:nth-child(10) { animation-delay: 1.0s; }
+        .project-item:nth-child(11) { animation-delay: 1.1s; }
+        .project-item:nth-child(12) { animation-delay: 1.2s; }
+        .project-item:nth-child(13) { animation-delay: 1.3s; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -308,6 +378,14 @@
             background: linear-gradient(135deg, #30cfd0, #330867);
         }
 
+        .project-item[data-type="resources"] .project-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .project-item[data-type="cosmology"] .project-icon {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
@@ -315,290 +393,222 @@
     </style>
 </head>
 <body>
-
     <!-- Quick Links Navigation -->
     <section id="quick-links">
         <div class="nav-container">
-          <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li> <!-- Move Education after Home -->
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="academic_experience.html">Academic Experience</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="notes.html">Study Notes</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </section>
 
-<style>
-    #quick-links {
-        position: relative;
-        z-index: 10;
-        background: rgba(15, 15, 35, 0.6);
-        backdrop-filter: blur(10px);
-        padding: 1.5rem 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        justify-content: center;
-        overflow-x: hidden;
-    }
+    <!-- Projects Section -->
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="projects-intro">
+            <p>Explore my computational projects and software development work in astrophysics, machine learning, and interdisciplinary data analysis:</p>
+        </div>
 
-    .nav-container {
-        width: 100%;
-        max-width: 1200px;
-        padding: 0 1rem;
-    }
-
-    .nav-list {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-list a {
-        display: block;
-        background: rgba(120, 119, 198, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 25px;
-        padding: 0.7rem 1.2rem;
-        text-decoration: none;
-        color: #e0e0ff;
-        font-size: 0.9rem;
-        font-weight: 500;
-        text-align: center;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(5px);
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-
-    .nav-list a:hover {
-        background: rgba(120, 119, 198, 0.3);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-3px);
-        color: #ffffff;
-        box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
-    }
-
-    /* Color coding */
-    .nav-list li:nth-child(8n+1) a { border-left: 3px solid #7877c6; }
-    .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ff77c6; }
-    .nav-list li:nth-child(8n+3) a { border-left: 3px solid #77c6ff; }
-    .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c677ff; }
-    .nav-list li:nth-child(8n+5) a { border-left: 3px solid #77ffc6; }
-    .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ffc677; }
-    .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
-    .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
-</style>
-
-<!-- Projects Section -->
-<div class="container">
-    <h2 class="section-title">Projects</h2>
-    
-    <div class="projects-intro">
-        <p>Explore my computational projects and software development work in astrophysics, machine learning, and interdisciplinary data analysis:</p>
-    </div>
-
-    <ul class="projects-list">
-        <li class="project-item" data-type="photometry">
-            <div class="project-header">
-                <div class="project-icon">🔭</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank">
-                            AstroPhotoZ: Photometric Redshift Estimation
-                        </a>
-                    </h3>
+        <ul class="projects-list">
+            <li class="project-item" data-type="photometry">
+                <div class="project-header">
+                    <div class="project-icon">🔭</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank">
+                                AstroPhotoZ: Photometric Redshift Estimation
+                            </a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
-            <p class="project-description">
-                A comprehensive framework for estimating photometric redshifts using Gaussian processes and machine learning techniques. This project validates methodologies on datasets with known redshifts (Stripe 82X) before applying them to wide X-ray fields with incomplete redshift data such as XMM XXL. The pipeline includes data preprocessing, model training, evaluation, and benchmarking to enhance accuracy in redshift prediction for large-scale cosmic structure studies and X-ray AGN research.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
-
-        <li class="project-item" data-type="health">
-            <div class="project-header">
-                <div class="project-icon">🏥</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" target="_blank">
-                            Tremor Activity Recognition for Parkinson's Disease
-                        </a>
-                    </h3>
+                <p class="project-description">
+                    A comprehensive framework for estimating photometric redshifts using Gaussian processes and machine learning techniques. This project validates methodologies on datasets with known redshifts (Stripe 82X) before applying them to wide X-ray fields with incomplete redshift data such as XMM XXL. The pipeline includes data preprocessing, model training, evaluation, and benchmarking to enhance accuracy in redshift prediction for large-scale cosmic structure studies and X-ray AGN research.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
                 </div>
-            </div>
-            <p class="project-description">
-                Developed for the ABC Challenge 2025, this project focuses on recognizing normal versus unusual activities related to Parkinson's disease using multimodal sensor data from wearables and mobile devices. The system classifies ten distinct activity classes including tremors, gait abnormalities, and freezing episodes, supporting early diagnosis, treatment personalization, and ongoing patient care through advanced machine learning models applied to accelerometer time-series data.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
+            </li>
 
-        <li class="project-item" data-type="radio">
-            <div class="project-header">
-                <div class="project-icon">📡</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/RGC-Data-Curation" target="_blank">
-                            Radio Galaxy Classification Data Curation
-                        </a>
-                    </h3>
+            <li class="project-item" data-type="health">
+                <div class="project-header">
+                    <div class="project-icon">🏥</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" target="_blank">
+                                Tremor Activity Recognition for Parkinson's Disease
+                            </a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
-            <p class="project-description">
-                A specialized repository for curating and managing radio galaxy datasets, particularly focusing on the FIRST radio survey data with labeled morphological classifications (FRI, FRII, compact, and bent sources). This project implements systematic data curation workflows, quality control procedures, and preprocessing pipelines essential for training robust machine learning models in radio astronomy classification tasks.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/RGC-Data-Curation" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
-
-        <li class="project-item" data-type="exoplanet">
-            <div class="project-header">
-                <div class="project-icon">🪐</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/ExoplanetDetectionML" target="_blank">
-                            Exoplanet Detection with Machine Learning
-                        </a>
-                    </h3>
+                <p class="project-description">
+                    Developed for the ABC Challenge 2025, this project focuses on recognizing normal versus unusual activities related to Parkinson's disease using multimodal sensor data from wearables and mobile devices. The system classifies ten distinct activity classes including tremors, gait abnormalities, and freezing episodes, supporting early diagnosis, treatment personalization, and ongoing patient care through advanced machine learning models applied to accelerometer time-series data.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
                 </div>
-            </div>
-            <p class="project-description">
-                An advanced machine learning pipeline for detecting exoplanets in large astronomical datasets obtained from space telescopes such as Kepler and TESS. This project employs multiple classification algorithms including logistic regression, k-nearest neighbors, and random forest models, with sophisticated data augmentation techniques to address dataset imbalances and improve detection accuracy while minimizing false positives in the search for potentially habitable worlds.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/ExoplanetDetectionML" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
+            </li>
 
-        <li class="project-item" data-type="materials">
-            <div class="project-header">
-                <div class="project-icon">⚛️</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/BandGapAlign" target="_blank">
-                            BandGapAlign: Semiconductor Band Gap Prediction
-                        </a>
-                    </h3>
+            <li class="project-item" data-type="radio">
+                <div class="project-header">
+                    <div class="project-icon">📡</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/RGC-Data-Curation" target="_blank">
+                                Radio Galaxy Classification Data Curation
+                            </a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
-            <p class="project-description">
-                A computational materials science project leveraging machine learning to predict semiconductor band gaps from crystal structure data. Utilizing libraries such as Pymatgen and Matminer, this project extracts relevant features from crystal structures and applies regression models including linear regression and random forest to predict electronic properties of semiconductors, facilitating materials discovery and optimization for applications in optoelectronics and photovoltaics.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/BandGapAlign" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
-
-        <li class="project-item" data-type="signal">
-            <div class="project-header">
-                <div class="project-icon">📶</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/AstroSignal" target="_blank">
-                            AstroSignal: Radio Frequency Interference Detection
-                        </a>
-                    </h3>
+                <p class="project-description">
+                    A specialized repository for curating and managing radio galaxy datasets, particularly focusing on the FIRST radio survey data with labeled morphological classifications (FRI, FRII, compact, and bent sources). This project implements systematic data curation workflows, quality control procedures, and preprocessing pipelines essential for training robust machine learning models in radio astronomy classification tasks.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/RGC-Data-Curation" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
                 </div>
-            </div>
-            <p class="project-description">
-                A signal processing and machine learning framework designed to detect and mitigate radio frequency interference (RFI) in radio astronomy observations. This project integrates traditional signal processing techniques with modern deep learning approaches including GANs to address class imbalance issues, enabling more accurate astronomical signal extraction and supporting the advancement of next-generation radio telescopes and surveys.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/AstroSignal" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
+            </li>
 
-        <li class="project-item" data-type="informatics">
-            <div class="project-header">
-                <div class="project-icon">🌌</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/Astroinformatics" target="_blank">
-                            Astroinformatics: Computational Astronomy Toolkit
-                        </a>
-                    </h3>
+            <li class="project-item" data-type="exoplanet">
+                <div class="project-header">
+                    <div class="project-icon">🪐</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/ExoplanetDetectionML" target="_blank">
+                                Exoplanet Detection with Machine Learning
+                            </a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
-            <p class="project-description">
-                A comprehensive educational and research repository integrating computational techniques with data-driven approaches for astronomical analysis. This toolkit addresses the challenges of managing and analyzing petabyte-scale astronomical datasets through data mining, machine learning, and statistical methods. It includes Jupyter notebooks, Python scripts for automated data processing, visualization tools, and hands-on exercises using real datasets from SDSS and NASA archives, fostering interdisciplinary collaboration at the intersection of astronomy, computer science, and statistics.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/Astroinformatics" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
-
-        <li class="project-item" data-type="neural">
-            <div class="project-header">
-                <div class="project-icon">🧠</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/neural-differential-models" target="_blank">
-                            Neural Differential Equation Models
-                        </a>
-                    </h3>
+                <p class="project-description">
+                    An advanced machine learning pipeline for detecting exoplanets in large astronomical datasets obtained from space telescopes such as Kepler and TESS. This project employs multiple classification algorithms including logistic regression, k-nearest neighbors, and random forest models, with sophisticated data augmentation techniques to address dataset imbalances and improve detection accuracy while minimizing false positives in the search for potentially habitable worlds.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/ExoplanetDetectionML" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
                 </div>
-            </div>
-            <p class="project-description">
-                An exploration of neural ordinary differential equations (Neural ODEs) and their applications in physics and astrophysics. This project implements continuous-depth neural networks that model dynamical systems, offering advantages in memory efficiency and the ability to handle irregular time series data. Applications include modeling stellar evolution, gravitational dynamics, and other time-dependent astrophysical phenomena with enhanced physical interpretability and mathematical rigor.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/neural-differential-models" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
+            </li>
 
-        <li class="project-item" data-type="tutorials">
-            <div class="project-header">
-                <div class="project-icon">📚</div>
-                <div>
-                    <h3 class="project-title">
-                        <a href="https://github.com/Adrita-Khan/radio-astro-tutorials" target="_blank">
-                            Radio Astronomy Tutorials
-                        </a>
-                    </h3>
+            <li class="project-item" data-type="materials">
+                <div class="project-header">
+                    <div class="project-icon">⚛️</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/BandGapAlign" target="_blank">
+                                BandGapAlign: Semiconductor Band Gap Prediction
+                            </a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
-            <p class="project-description">
-                A curated collection of educational tutorials and practical examples for radio astronomy data analysis, combining radio-astro-tools packages with the broader Astropy ecosystem. Topics include spectral cube analysis, position-velocity diagram creation, signal masking, moment map calculations, and parallel processing with Dask. These resources provide hands-on guidance for analyzing spectral-line data cubes and radio/mm/sub-mm astronomical observations, serving as an accessible entry point for researchers and students in the field.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/Adrita-Khan/radio-astro-tutorials" target="_blank" class="project-link primary github">
-                    GitHub Repository
-                </a>
-            </div>
-        </li>
- 
+                <p class="project-description">
+                    A computational materials science project leveraging machine learning to predict semiconductor band gaps from crystal structure data. Utilizing libraries such as Pymatgen and Matminer, this project extracts relevant features from crystal structures and applies regression models including linear regression and random forest to predict electronic properties of semiconductors, facilitating materials discovery and optimization for applications in optoelectronics and photovoltaics.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/BandGapAlign" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
+                </div>
+            </li>
 
+            <li class="project-item" data-type="signal">
+                <div class="project-header">
+                    <div class="project-icon">📶</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/AstroSignal" target="_blank">
+                                AstroSignal: Radio Frequency Interference Detection
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <p class="project-description">
+                    A signal processing and machine learning framework designed to detect and mitigate radio frequency interference (RFI) in radio astronomy observations. This project integrates traditional signal processing techniques with modern deep learning approaches including GANs to address class imbalance issues, enabling more accurate astronomical signal extraction and supporting the advancement of next-generation radio telescopes and surveys.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/AstroSignal" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
+                </div>
+            </li>
 
- <li class="project-item" data-type="resources">
+            <li class="project-item" data-type="informatics">
+                <div class="project-header">
+                    <div class="project-icon">🌌</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/Astroinformatics" target="_blank">
+                                Astroinformatics: Computational Astronomy Toolkit
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <p class="project-description">
+                    A comprehensive educational and research repository integrating computational techniques with data-driven approaches for astronomical analysis. This toolkit addresses the challenges of managing and analyzing petabyte-scale astronomical datasets through data mining, machine learning, and statistical methods. It includes Jupyter notebooks, Python scripts for automated data processing, visualization tools, and hands-on exercises using real datasets from SDSS and NASA archives, fostering interdisciplinary collaboration at the intersection of astronomy, computer science, and statistics.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/Astroinformatics" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
+                </div>
+            </li>
+
+            <li class="project-item" data-type="neural">
+                <div class="project-header">
+                    <div class="project-icon">🧠</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/neural-differential-models" target="_blank">
+                                Neural Differential Equation Models
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <p class="project-description">
+                    An exploration of neural ordinary differential equations (Neural ODEs) and their applications in physics and astrophysics. This project implements continuous-depth neural networks that model dynamical systems, offering advantages in memory efficiency and the ability to handle irregular time series data. Applications include modeling stellar evolution, gravitational dynamics, and other time-dependent astrophysical phenomena with enhanced physical interpretability and mathematical rigor.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/neural-differential-models" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
+                </div>
+            </li>
+
+            <li class="project-item" data-type="tutorials">
+                <div class="project-header">
+                    <div class="project-icon">📚</div>
+                    <div>
+                        <h3 class="project-title">
+                            <a href="https://github.com/Adrita-Khan/radio-astro-tutorials" target="_blank">
+                                Radio Astronomy Tutorials
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <p class="project-description">
+                    A curated collection of educational tutorials and practical examples for radio astronomy data analysis, combining radio-astro-tools packages with the broader Astropy ecosystem. Topics include spectral cube analysis, position-velocity diagram creation, signal masking, moment map calculations, and parallel processing with Dask. These resources provide hands-on guidance for analyzing spectral-line data cubes and radio/mm/sub-mm astronomical observations, serving as an accessible entry point for researchers and students in the field.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/Adrita-Khan/radio-astro-tutorials" target="_blank" class="project-link primary github">
+                        GitHub Repository
+                    </a>
+                </div>
+            </li>
+
+            <li class="project-item" data-type="resources">
                 <div class="project-header">
                     <div class="project-icon">📖</div>
                     <div>
@@ -613,7 +623,7 @@
                     A comprehensive collection of astronomy resources, tutorials, and reference materials for students and researchers. This repository serves as a curated guide to essential astronomical tools, datasets, and learning materials across various subdisciplines of astronomy.
                 </p>
                 <div class="project-links">
-                    <a href="https://github.com/Adrita-Khan/Astro_Resources" target="_blank" class="project-link">
+                    <a href="https://github.com/Adrita-Khan/Astro_Resources" target="_blank" class="project-link primary">
                         GitHub Repository
                     </a>
                 </div>
@@ -634,7 +644,7 @@
                     Educational materials and computational tools for cosmology research and study. This repository includes lecture notes, problem sets, and code implementations covering fundamental topics in modern cosmology, from the cosmic microwave background to large-scale structure formation.
                 </p>
                 <div class="project-links">
-                    <a href="https://github.com/Adrita-Khan/Cosmology-Materials" target="_blank" class="project-link">
+                    <a href="https://github.com/Adrita-Khan/Cosmology-Materials" target="_blank" class="project-link primary">
                         GitHub Repository
                     </a>
                 </div>
@@ -655,7 +665,7 @@
                     A comparative study of various signal denoising techniques applied to astronomical and scientific data. This project evaluates classical signal processing methods alongside modern machine learning approaches, providing benchmarks and practical implementations for noise reduction in time-series and spectroscopic observations.
                 </p>
                 <div class="project-links">
-                    <a href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison" target="_blank" class="project-link">
+                    <a href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison" target="_blank" class="project-link primary">
                         GitHub Repository
                     </a>
                 </div>
@@ -676,7 +686,7 @@
                     A benchmarking framework for analyzing radio decay phenomena in transient astronomical sources. This project provides standardized methods for characterizing the temporal evolution of radio emissions from sources such as supernovae, gamma-ray bursts, and other transient events, enabling systematic comparison of decay models and observation strategies across different radio surveys.
                 </p>
                 <div class="project-links">
-                    <a href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays" target="_blank" class="project-link">
+                    <a href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays" target="_blank" class="project-link primary">
                         GitHub Repository
                     </a>
                 </div>
@@ -684,34 +694,30 @@
         </ul>
     </div>
 
-
-
-
-    
-<script>
-    // Add smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+    <script>
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
-    });
 
-    // Add interactive hover effects
-    document.querySelectorAll('.project-item').forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
+        // Add interactive hover effects
+        document.querySelectorAll('.project-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-</script>
+    </script>
 </body>
 </html>
