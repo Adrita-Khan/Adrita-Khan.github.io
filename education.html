@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #252541 25%, #2d2d54 50%, #1f1f3a 100%);
+            background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
             min-height: 100vh;
             color: #fff;
             line-height: 1.6;
@@ -43,7 +43,7 @@
         .floating-shape {
             position: absolute;
             border-radius: 50%;
-            background: linear-gradient(45deg, rgba(147, 112, 219, 0.1), rgba(100, 181, 246, 0.1));
+            background: linear-gradient(45deg, rgba(201, 169, 97, 0.1), rgba(212, 181, 109, 0.1));
             animation: float 20s infinite ease-in-out;
         }
 
@@ -84,10 +84,10 @@
         #quick-links {
             position: relative;
             z-index: 10;
-            background: rgba(26, 26, 46, 0.6);
+            background: rgba(10, 14, 20, 0.6);
             backdrop-filter: blur(10px);
             padding: 1.5rem 0;
-            border-top: 1px solid rgba(147, 112, 219, 0.2);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
             display: flex;
             justify-content: center;
             overflow-x: hidden;
@@ -111,12 +111,12 @@
 
         .nav-list a {
             display: block;
-            background: rgba(147, 112, 219, 0.15);
-            border: 1px solid rgba(147, 112, 219, 0.2);
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             border-radius: 25px;
             padding: 0.7rem 1.2rem;
             text-decoration: none;
-            color: #e0e0ff;
+            color: #ffffff;
             font-size: 0.9rem;
             font-weight: 500;
             text-align: center;
@@ -127,22 +127,22 @@
         }
 
         .nav-list a:hover {
-            background: rgba(147, 112, 219, 0.3);
-            border-color: rgba(147, 112, 219, 0.4);
+            background: rgba(201, 169, 97, 0.2);
+            border-color: rgba(201, 169, 97, 0.4);
             transform: translateY(-3px);
-            color: #ffffff;
-            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
+            color: #c9a961;
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
 
         /* Navigation Color Coding */
-        .nav-list li:nth-child(8n+1) a { border-left: 3px solid #9370db; }
-        .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ba68c8; }
-        .nav-list li:nth-child(8n+3) a { border-left: 3px solid #64b5f6; }
-        .nav-list li:nth-child(8n+4) a { border-left: 3px solid #7e57c2; }
-        .nav-list li:nth-child(8n+5) a { border-left: 3px solid #5c6bc0; }
-        .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ff8a65; }
-        .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ab47bc; }
-        .nav-list li:nth-child(8n+8) a { border-left: 3px solid #42a5f5; }
+        .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
+        .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
+        .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+5) a { border-left: 3px solid #d4b56d; }
+        .nav-list li:nth-child(8n+6) a { border-left: 3px solid #b89d55; }
+        .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
         /* ========================================
            MAIN LAYOUT
@@ -171,10 +171,10 @@
            PROFILE CARD (LEFT SIDE)
            ======================================== */
         .profile-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(20px);
             border-radius: 25px;
-            border: 1px solid rgba(147, 112, 219, 0.3);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             padding: 2rem;
             text-align: center;
             position: relative;
@@ -189,14 +189,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #9370db, #ba68c8, #64b5f6, #7e57c2);
+            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55, #c9a961);
             border-radius: 25px 25px 0 0;
         }
 
         .profile-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(147, 112, 219, 0.3);
-            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.12);
         }
 
         .profile-image {
@@ -204,28 +204,25 @@
             height: 280px;
             border-radius: 50%;
             margin: 0 auto 1.5rem;
-            border: 4px solid rgba(147, 112, 219, 0.4);
+            border: 4px solid rgba(201, 169, 97, 0.3);
             object-fit: cover;
             transition: all 0.3s ease;
         }
 
         .profile-card:hover .profile-image {
             transform: scale(1.05);
-            border-color: rgba(147, 112, 219, 0.6);
+            border-color: rgba(201, 169, 97, 0.5);
         }
 
         .profile-name {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #9370db, #ba68c8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
         }
 
         .profile-title {
-            color: rgba(255, 255, 255, 0.8);
+            color: #c9a961;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
         }
@@ -238,27 +235,27 @@
         }
 
         .stat-item {
-            background: rgba(147, 112, 219, 0.1);
+            background: rgba(201, 169, 97, 0.1);
             padding: 1rem;
             border-radius: 15px;
-            border: 1px solid rgba(147, 112, 219, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             transition: all 0.3s ease;
         }
 
         .stat-item:hover {
-            background: rgba(147, 112, 219, 0.2);
+            background: rgba(201, 169, 97, 0.2);
             transform: translateY(-2px);
         }
 
         .stat-number {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #9370db;
+            color: #c9a961;
         }
 
         .stat-label {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: #b8c5d0;
         }
 
         /* ========================================
@@ -272,10 +269,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #9370db, #ba68c8, #64b5f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
             position: relative;
         }
 
@@ -286,13 +280,13 @@
             left: 0;
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, #9370db, #ba68c8);
+            background: linear-gradient(90deg, #c9a961, #d4b56d);
             border-radius: 2px;
         }
 
         .page-subtitle {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: #b8c5d0;
             max-width: 600px;
             line-height: 1.6;
         }
@@ -311,7 +305,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, #9370db, #ba68c8, #64b5f6);
+            background: linear-gradient(180deg, #c9a961, #d4b56d, #b89d55);
             border-radius: 1.5px;
         }
 
@@ -333,9 +327,9 @@
             top: 2rem;
             width: 24px;
             height: 24px;
-            background: linear-gradient(135deg, #9370db, #ba68c8);
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
             border-radius: 50%;
-            border: 4px solid rgba(26, 26, 46, 1);
+            border: 4px solid #0f1923;
             z-index: 2;
             transition: all 0.3s ease;
         }
@@ -356,10 +350,10 @@
            EDUCATION CARDS
            ======================================== */
         .education-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(20px);
             border-radius: 20px;
-            border: 1px solid rgba(147, 112, 219, 0.3);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             padding: 2.5rem;
             margin-left: 70px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -374,7 +368,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #9370db, #ba68c8, #64b5f6);
+            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
             transform: translateX(-100%);
             transition: transform 0.3s ease;
         }
@@ -385,8 +379,8 @@
 
         .education-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(147, 112, 219, 0.3);
-            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.12);
         }
 
         /* Education Card Header */
@@ -400,32 +394,32 @@
         .education-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #9370db, #ba68c8);
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
             flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.4);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
         }
 
         .education-content h3 {
             font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: #fff;
+            color: #ffffff;
         }
 
         .education-university {
             font-size: 1.2rem;
-            color: #9370db;
+            color: #c9a961;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .education-location {
-            color: rgba(255, 255, 255, 0.7);
+            color: #b8c5d0;
             font-size: 1rem;
         }
 
@@ -441,17 +435,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(147, 112, 219, 0.15);
+            background: rgba(201, 169, 97, 0.15);
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            border: 1px solid rgba(147, 112, 219, 0.3);
+            border: 1px solid rgba(201, 169, 97, 0.3);
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #ffffff;
             transition: all 0.3s ease;
         }
 
         .meta-badge:hover {
-            background: rgba(147, 112, 219, 0.25);
+            background: rgba(201, 169, 97, 0.25);
             transform: translateY(-2px);
         }
 
@@ -463,11 +457,11 @@
            EDUCATION DETAILS SECTION
            ======================================== */
         .education-details {
-            background: rgba(147, 112, 219, 0.08);
+            background: rgba(201, 169, 97, 0.1);
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
-            border: 1px solid rgba(147, 112, 219, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .details-grid {
@@ -484,12 +478,12 @@
 
         .detail-label {
             font-weight: 600;
-            color: #9370db;
+            color: #c9a961;
             font-size: 0.9rem;
         }
 
         .detail-value {
-            color: rgba(255, 255, 255, 0.9);
+            color: #ffffff;
             font-size: 1rem;
         }
 
@@ -497,17 +491,17 @@
            ACHIEVEMENTS SECTION
            ======================================== */
         .achievements-section {
-            background: rgba(186, 104, 200, 0.08);
+            background: rgba(201, 169, 97, 0.1);
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
-            border: 1px solid rgba(186, 104, 200, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .section-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #ba68c8;
+            color: #c9a961;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -524,21 +518,21 @@
             align-items: center;
             gap: 1rem;
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(201, 169, 97, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(186, 104, 200, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             transition: all 0.3s ease;
         }
 
         .achievement-item:hover {
-            background: rgba(186, 104, 200, 0.15);
+            background: rgba(201, 169, 97, 0.15);
             transform: translateX(10px);
         }
 
         .achievement-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #ba68c8, #ab47bc);
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -548,7 +542,7 @@
         }
 
         .achievement-text {
-            color: rgba(255, 255, 255, 0.9);
+            color: #b8c5d0;
             font-size: 1rem;
             line-height: 1.5;
         }
@@ -557,15 +551,15 @@
            SKILLS SECTION
            ======================================== */
         .skills-section {
-            background: rgba(100, 181, 246, 0.08);
+            background: rgba(201, 169, 97, 0.1);
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
-            border: 1px solid rgba(100, 181, 246, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .skills-section .section-title {
-            color: #64b5f6;
+            color: #c9a961;
         }
 
         .skills-grid {
@@ -575,8 +569,8 @@
         }
 
         .skill-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(100, 181, 246, 0.3);
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.3);
             border-radius: 12px;
             padding: 1.2rem;
             text-align: center;
@@ -592,7 +586,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 181, 246, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.15), transparent);
             transition: left 0.5s ease;
         }
 
@@ -601,13 +595,13 @@
         }
 
         .skill-item:hover {
-            background: rgba(100, 181, 246, 0.15);
+            background: rgba(201, 169, 97, 0.15);
             transform: translateY(-5px) scale(1.02);
-            border-color: rgba(100, 181, 246, 0.4);
+            border-color: rgba(201, 169, 97, 0.4);
         }
 
         .skill-name {
-            color: #64b5f6;
+            color: #c9a961;
             font-weight: 600;
             font-size: 1rem;
         }
@@ -719,7 +713,7 @@
         <div class="nav-container">
           <ul class="nav-list">
             <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li> <!-- Move Education after Home -->
+            <li><a href="education.html">Education</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="projects.html">Projects</a></li>
@@ -838,10 +832,9 @@
                                 <span>Academic Achievements</span>
                             </h4>
                             <div class="achievement-grid">
-                                <!-- ✅ ADDED ITEM -->
                                 <div class="achievement-item">
                                     <div class="achievement-icon">✓</div>
-                                    <div>Dean's List recipient for Semesters II, III, and VI</div>
+                                    <div class="achievement-text">Dean's List recipient for Semesters II, III, and VI</div>
                                 </div>
                                 <div class="achievement-item">
                                     <div class="achievement-icon">✓</div>
@@ -926,7 +919,7 @@
 
                         <!-- Details -->
                         <div class="education-details">
-                            <p style="color: rgba(255, 255, 255, 0.7); text-align: center; padding: 1rem;">
+                            <p style="color: #b8c5d0; text-align: center; padding: 1rem;">
                                 Currently exploring opportunities for graduate studies in Physics and Astronomy. Interested in research areas including astrophysics, cosmology, and theoretical physics.
                             </p>
                         </div>
