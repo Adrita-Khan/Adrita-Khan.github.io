@@ -466,7 +466,7 @@
         /* Enhanced Research Interests Detail Section */
         .research-interests-main {
             position: relative;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             overflow-x: hidden;
         }
 
@@ -478,28 +478,28 @@
 
         .research-section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
         }
 
         .research-section-header h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .research-section-header .section-line {
-            width: 120px;
-            height: 4px;
+            width: 100px;
+            height: 3px;
             background: linear-gradient(135deg, #c9a961, #d4b56d, #b89d55);
             margin: 0 auto;
             border-radius: 2px;
         }
 
         .research-section-header p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #b8c5d0;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -508,15 +508,15 @@
         .research-interests-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .research-interest-card {
             background: rgba(201, 169, 97, 0.08);
             border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 15px;
+            padding: 1.5rem;
             backdrop-filter: blur(15px);
             transition: all 0.4s ease;
             position: relative;
@@ -540,10 +540,10 @@
         }
 
         .research-interest-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             background: rgba(201, 169, 97, 0.12);
             box-shadow: 
-                0 20px 40px rgba(201, 169, 97, 0.2),
+                0 10px 25px rgba(201, 169, 97, 0.2),
                 0 0 0 1px rgba(201, 169, 97, 0.3),
                 inset 0 1px 0 rgba(201, 169, 97, 0.2);
         }
@@ -553,36 +553,36 @@
         }
 
         .research-interest-card:nth-child(1) {
-            border-left: 4px solid #c9a961;
+            border-left: 3px solid #c9a961;
         }
 
         .research-interest-card:nth-child(2) {
-            border-left: 4px solid #d4b56d;
+            border-left: 3px solid #d4b56d;
         }
 
         .research-interest-card:nth-child(3) {
-            border-left: 4px solid #b89d55;
+            border-left: 3px solid #b89d55;
         }
 
         .research-interest-card:nth-child(4) {
-            border-left: 4px solid #c9a961;
+            border-left: 3px solid #c9a961;
         }
 
         .research-card-header {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .research-card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.5rem;
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #0f1923;
         }
@@ -604,7 +604,7 @@
         }
 
         .research-card-title {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #c9a961;
             margin: 0;
@@ -614,20 +614,18 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem 1rem;
         }
 
         .research-topic-item {
             display: flex;
             align-items: center;
-            padding: 0.7rem 0;
+            padding: 0.5rem 0;
             color: #b8c5d0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.1);
-        }
-
-        .research-topic-item:last-child {
-            border-bottom: none;
         }
 
         .research-topic-item:hover {
@@ -637,10 +635,10 @@
 
         .research-topic-item::before {
             content: "▸";
-            margin-right: 0.8rem;
+            margin-right: 0.6rem;
             color: #c9a961;
             transition: all 0.3s ease;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
         .research-topic-item:hover::before {
@@ -818,6 +816,10 @@
             }
 
             .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-topics-list {
                 grid-template-columns: 1fr;
             }
         }
@@ -1164,7 +1166,7 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                 const rotateX = (y - centerY) / 20;
                 const rotateY = (centerX - x) / 20;
                 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
             });
             
             card.addEventListener('mouseleave', () => {
