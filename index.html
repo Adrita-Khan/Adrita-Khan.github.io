@@ -264,7 +264,7 @@
         section {
             position: relative;
             z-index: 10;
-            padding: 5rem 2rem;
+            padding: 3rem 2rem;
             border-top: 1px solid rgba(201, 169, 97, 0.15);
         }
 
@@ -285,14 +285,14 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .section-line {
@@ -646,7 +646,7 @@
             transform: translateX(3px);
         }
 
-        /* Floating particles animation */
+        /* Shooting stars and astronomical objects animation */
         .research-particles {
             position: absolute;
             top: 0;
@@ -658,38 +658,435 @@
             z-index: 1;
         }
 
+        /* Base shooting star */
         .research-particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(201, 169, 97, 0.4);
+            width: 1.5px;
+            height: 1.5px;
+            background: white;
             border-radius: 50%;
-            animation: float 15s infinite linear;
+            box-shadow: 
+                0 0 6px 2px rgba(255, 255, 255, 0.7),
+                0 0 12px 3px rgba(201, 169, 97, 0.5),
+                0 0 18px 4px rgba(201, 169, 97, 0.3);
+            animation: shootingStar 4s ease-in infinite;
+            opacity: 0;
+        }
+
+        .research-particle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 1.5px;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 1.5px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(201, 169, 97, 0.1) 0%,
+                rgba(212, 181, 109, 0.4) 20%, 
+                rgba(232, 220, 196, 0.6) 40%,
+                rgba(255, 255, 255, 0.8) 70%,
+                white 100%);
+            filter: blur(0.5px);
+        }
+
+        .research-particle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 1.5px;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 0.5px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(255, 255, 255, 0.3) 30%,
+                rgba(255, 255, 255, 0.8) 60%,
+                white 100%);
+        }
+
+        /* Comet - with dust tail */
+        .research-particle.comet {
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, white, #c9a961);
+            box-shadow: 
+                0 0 8px 3px rgba(201, 169, 97, 0.8),
+                0 0 16px 5px rgba(201, 169, 97, 0.5);
+        }
+
+        .research-particle.comet::before {
+            width: 90px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(201, 169, 97, 0.2) 0%,
+                rgba(201, 169, 97, 0.4) 20%,
+                rgba(232, 220, 196, 0.5) 40%,
+                rgba(255, 255, 255, 0.6) 70%,
+                rgba(255, 255, 255, 0.8) 100%);
+            filter: blur(1px);
+        }
+
+        .research-particle.comet::after {
+            width: 100px;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(201, 169, 97, 0.1) 20%,
+                rgba(232, 220, 196, 0.2) 50%,
+                transparent 100%);
+            filter: blur(2px);
+        }
+
+        /* Asteroid - tumbling rocky object */
+        .research-particle.asteroid {
+            width: 3px;
+            height: 2px;
+            background: linear-gradient(135deg, #8b7355, #a0826d);
+            border-radius: 30%;
+            box-shadow: 
+                0 0 4px 1px rgba(139, 115, 85, 0.5),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+            animation: asteroidTumble 5s ease-in infinite;
+        }
+
+        .research-particle.asteroid::before {
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(139, 115, 85, 0.2) 30%,
+                rgba(160, 130, 109, 0.3) 60%,
+                transparent 100%);
+            filter: blur(1px);
+        }
+
+        .research-particle.asteroid::after {
+            display: none;
+        }
+
+        /* Satellite - blinking metallic object */
+        .research-particle.satellite {
+            width: 2.5px;
+            height: 1.5px;
+            background: linear-gradient(90deg, #a8b8c8, white, #a8b8c8);
+            border-radius: 20%;
+            box-shadow: 
+                0 0 6px 2px rgba(168, 184, 200, 0.6),
+                0 0 2px 1px white;
+            animation: satelliteBlink 4.5s ease-in infinite;
+        }
+
+        .research-particle.satellite::before {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(168, 184, 200, 0.4) 40%,
+                rgba(255, 255, 255, 0.6) 70%,
+                white 100%);
+        }
+
+        .research-particle.satellite::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 0.5px;
+            background: rgba(168, 184, 200, 0.8);
+            left: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Pulsar - pulsating neutron star */
+        .research-particle.pulsar {
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, #4d9fff, #1e5f99);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 8px 3px rgba(77, 159, 255, 0.7),
+                0 0 16px 5px rgba(30, 95, 153, 0.4);
+            animation: pulsarPulse 4s ease-in infinite;
+        }
+
+        .research-particle.pulsar::before {
+            width: 50px;
+            height: 1.5px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(77, 159, 255, 0.3) 20%,
+                rgba(77, 159, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.7) 80%,
+                white 100%);
+        }
+
+        .research-particle.pulsar::after {
+            width: 50px;
+            height: 0.5px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(77, 159, 255, 0.4) 40%,
+                white 100%);
         }
 
         .research-particle:nth-child(2n) {
-            background: rgba(212, 181, 109, 0.3);
-            animation-duration: 20s;
+            animation-duration: 5s;
+            width: 2px;
+            height: 2px;
+            box-shadow: 
+                0 0 8px 2.5px rgba(255, 255, 255, 0.8),
+                0 0 16px 4px rgba(212, 181, 109, 0.6),
+                0 0 24px 6px rgba(212, 181, 109, 0.4);
+            animation-name: shootingStarArc2;
+        }
+
+        .research-particle:nth-child(2n)::before {
+            width: 70px;
+            height: 1.8px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(212, 181, 109, 0.1) 0%,
+                rgba(232, 220, 196, 0.5) 20%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.9) 80%,
+                white 100%);
         }
 
         .research-particle:nth-child(3n) {
-            background: rgba(232, 220, 196, 0.3);
-            animation-duration: 25s;
+            animation-duration: 6s;
+            width: 1px;
+            height: 1px;
+            box-shadow: 
+                0 0 5px 1.5px rgba(255, 255, 255, 0.6),
+                0 0 10px 3px rgba(184, 157, 85, 0.4),
+                0 0 15px 4px rgba(184, 157, 85, 0.25);
+            animation-name: shootingStarArc3;
         }
 
-        @keyframes float {
+        .research-particle:nth-child(3n)::before {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(184, 157, 85, 0.2) 0%,
+                rgba(201, 169, 97, 0.5) 30%,
+                rgba(255, 255, 255, 0.7) 60%,
+                white 100%);
+        }
+
+        .research-particle:nth-child(4n) {
+            animation-duration: 4.5s;
+            box-shadow: 
+                0 0 10px 3px rgba(255, 255, 255, 0.9),
+                0 0 20px 5px rgba(201, 169, 97, 0.7),
+                0 0 30px 7px rgba(201, 169, 97, 0.5);
+            animation-name: shootingStarArc4;
+        }
+
+        .research-particle:nth-child(4n)::before {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(201, 169, 97, 0.2) 0%,
+                rgba(232, 220, 196, 0.6) 15%,
+                rgba(255, 255, 255, 0.8) 40%,
+                rgba(255, 255, 255, 0.95) 70%,
+                white 100%);
+        }
+
+        @keyframes shootingStarArc2 {
             0% {
-                transform: translateY(100vh) rotate(0deg);
+                transform: translate(0, 0) rotate(-40deg) scale(0.9);
                 opacity: 0;
             }
-            10% {
+            5% {
                 opacity: 1;
+                transform: translate(-25px, 15px) rotate(-42deg) scale(1.1);
             }
-            90% {
+            25% {
+                transform: translate(-110px, 70px) rotate(-48deg) scale(1.2);
+            }
+            50% {
+                transform: translate(-220px, 160px) rotate(-53deg) scale(1.1);
+            }
+            75% {
                 opacity: 1;
+                transform: translate(-330px, 270px) rotate(-58deg) scale(0.95);
             }
             100% {
-                transform: translateY(-100px) rotate(360deg);
+                transform: translate(-440px, 400px) rotate(-63deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shootingStarArc3 {
+            0% {
+                transform: translate(0, 0) rotate(-50deg) scale(0.7);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+                transform: translate(-15px, 25px) rotate(-51deg) scale(0.9);
+            }
+            25% {
+                transform: translate(-90px, 90px) rotate(-54deg) scale(1);
+            }
+            50% {
+                transform: translate(-180px, 200px) rotate(-58deg) scale(0.95);
+            }
+            75% {
+                opacity: 1;
+                transform: translate(-270px, 330px) rotate(-62deg) scale(0.85);
+            }
+            100% {
+                transform: translate(-360px, 480px) rotate(-67deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shootingStarArc4 {
+            0% {
+                transform: translate(0, 0) rotate(-43deg) scale(1);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+                transform: translate(-30px, 18px) rotate(-44deg) scale(1.15);
+            }
+            25% {
+                transform: translate(-120px, 75px) rotate(-47deg) scale(1.25);
+            }
+            50% {
+                transform: translate(-240px, 170px) rotate(-51deg) scale(1.15);
+            }
+            75% {
+                opacity: 1;
+                transform: translate(-360px, 285px) rotate(-56deg) scale(1);
+            }
+            100% {
+                transform: translate(-480px, 420px) rotate(-61deg) scale(0.85);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shootingStar {
+            0% {
+                transform: translate(0, 0) rotate(-45deg) scale(0.8);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+                transform: translate(-20px, 20px) rotate(-45deg) scale(1);
+            }
+            25% {
+                transform: translate(-100px, 80px) rotate(-50deg) scale(1.1);
+            }
+            50% {
+                transform: translate(-200px, 180px) rotate(-55deg) scale(1);
+            }
+            75% {
+                opacity: 1;
+                transform: translate(-300px, 300px) rotate(-60deg) scale(0.9);
+            }
+            100% {
+                transform: translate(-400px, 440px) rotate(-65deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        @keyframes asteroidTumble {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(0.9);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            25% {
+                transform: translate(-90px, 70px) rotate(180deg) scale(1);
+            }
+            50% {
+                transform: translate(-180px, 160px) rotate(360deg) scale(1.1);
+            }
+            75% {
+                opacity: 1;
+                transform: translate(-270px, 270px) rotate(540deg) scale(0.95);
+            }
+            100% {
+                transform: translate(-360px, 400px) rotate(720deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        @keyframes satelliteBlink {
+            0% {
+                transform: translate(0, 0) rotate(-45deg) scale(1);
+                opacity: 0;
+                box-shadow: 0 0 6px 2px rgba(168, 184, 200, 0.6), 0 0 2px 1px white;
+            }
+            5% {
+                opacity: 1;
+            }
+            15%, 18% {
+                box-shadow: 0 0 10px 3px rgba(168, 184, 200, 0.9), 0 0 4px 2px white;
+            }
+            20%, 23% {
+                box-shadow: 0 0 6px 2px rgba(168, 184, 200, 0.6), 0 0 2px 1px white;
+            }
+            35%, 38% {
+                box-shadow: 0 0 10px 3px rgba(168, 184, 200, 0.9), 0 0 4px 2px white;
+            }
+            50% {
+                transform: translate(-200px, 170px) rotate(-50deg) scale(1);
+            }
+            55%, 58% {
+                box-shadow: 0 0 10px 3px rgba(168, 184, 200, 0.9), 0 0 4px 2px white;
+            }
+            75% {
+                opacity: 1;
+                transform: translate(-300px, 280px) rotate(-55deg) scale(1);
+            }
+            100% {
+                transform: translate(-400px, 400px) rotate(-60deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulsarPulse {
+            0% {
+                transform: translate(0, 0) rotate(-45deg) scale(0.8);
+                opacity: 0;
+                box-shadow: 0 0 8px 3px rgba(77, 159, 255, 0.7), 0 0 16px 5px rgba(30, 95, 153, 0.4);
+            }
+            5% {
+                opacity: 1;
+            }
+            12%, 14% {
+                box-shadow: 0 0 12px 5px rgba(77, 159, 255, 1), 0 0 24px 8px rgba(30, 95, 153, 0.7);
+            }
+            25% {
+                transform: translate(-100px, 80px) rotate(-48deg) scale(1);
+                box-shadow: 0 0 8px 3px rgba(77, 159, 255, 0.7), 0 0 16px 5px rgba(30, 95, 153, 0.4);
+            }
+            32%, 34% {
+                box-shadow: 0 0 12px 5px rgba(77, 159, 255, 1), 0 0 24px 8px rgba(30, 95, 153, 0.7);
+            }
+            50% {
+                transform: translate(-200px, 180px) rotate(-53deg) scale(0.9);
+            }
+            52%, 54% {
+                box-shadow: 0 0 12px 5px rgba(77, 159, 255, 1), 0 0 24px 8px rgba(30, 95, 153, 0.7);
+            }
+            75% {
+                opacity: 1;
+                transform: translate(-300px, 300px) rotate(-58deg) scale(0.85);
+            }
+            100% {
+                transform: translate(-400px, 440px) rotate(-63deg) scale(0.7);
                 opacity: 0;
             }
         }
@@ -698,16 +1095,16 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .stat-card {
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             background: rgba(201, 169, 97, 0.08);
             border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 20px;
+            border-radius: 15px;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
@@ -718,17 +1115,17 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             background: linear-gradient(135deg, #c9a961 0%, #d4b56d 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #b8c5d0;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -1116,19 +1513,57 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
             }
         }
 
-        // Create floating particles for research interests section
+        // Create shooting stars and astronomical objects for research interests section
         function createResearchParticles() {
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
             
             const numParticles = 15;
+            const objectTypes = ['star', 'star', 'star', 'comet', 'comet', 'asteroid', 'satellite', 'pulsar'];
             
             for (let i = 0; i < numParticles; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'research-particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                
+                // Assign different astronomical object types
+                const objectType = objectTypes[i % objectTypes.length];
+                if (objectType !== 'star') {
+                    particle.classList.add(objectType);
+                }
+                
+                // Random starting position along the top and right edges
+                const startFromTop = Math.random() > 0.3;
+                if (startFromTop) {
+                    particle.style.left = (Math.random() * 120) + '%';
+                    particle.style.top = -(Math.random() * 100) + 'px';
+                } else {
+                    particle.style.left = 'calc(100% + ' + (Math.random() * 100) + 'px)';
+                    particle.style.top = (Math.random() * 60) + '%';
+                }
+                
+                // Stagger the delays for continuous effect
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                
+                // Vary duration based on object type
+                let baseDuration;
+                switch(objectType) {
+                    case 'comet':
+                        baseDuration = 5;
+                        break;
+                    case 'asteroid':
+                        baseDuration = 5;
+                        break;
+                    case 'satellite':
+                        baseDuration = 4.5;
+                        break;
+                    case 'pulsar':
+                        baseDuration = 4;
+                        break;
+                    default:
+                        baseDuration = 4 + (i % 4);
+                }
+                particle.style.animationDuration = (baseDuration + Math.random() * 2) + 's';
+                
                 particlesContainer.appendChild(particle);
             }
         }
