@@ -669,7 +669,6 @@
                 0 0 3px 1px rgba(255, 255, 255, 0.9),
                 0 0 8px 2px rgba(201, 169, 97, 0.6),
                 0 0 12px 3px rgba(201, 169, 97, 0.3);
-            animation: shootingStar 5s ease-out infinite;
             opacity: 0;
         }
 
@@ -704,109 +703,41 @@
                 rgba(255, 255, 255, 0.6) 100%);
         }
 
-        /* Variation 1 - longer elegant trail */
-        .research-particle:nth-child(2n) {
-            animation-duration: 6s;
-            width: 2.5px;
-            height: 2.5px;
-            box-shadow: 
-                0 0 4px 1px rgba(255, 255, 255, 0.95),
-                0 0 10px 3px rgba(212, 181, 109, 0.5),
-                0 0 16px 4px rgba(212, 181, 109, 0.25);
+        /* Different animation paths */
+        @keyframes shootingStar1 {
+            0% { transform: translate(0, 0) rotate(-35deg) scale(0); opacity: 0; }
+            3% { opacity: 1; transform: translate(-8px, 5px) rotate(-35deg) scale(1); }
+            100% { transform: translate(-320px, 230px) rotate(-38deg) scale(0.4); opacity: 0; }
         }
 
-        .research-particle:nth-child(2n)::before {
-            width: 60px;
-            height: 1.5px;
-            background: linear-gradient(90deg, 
-                transparent 0%,
-                rgba(212, 181, 109, 0.1) 15%,
-                rgba(232, 220, 196, 0.35) 40%,
-                rgba(255, 255, 255, 0.65) 75%,
-                white 100%);
+        @keyframes shootingStar2 {
+            0% { transform: translate(0, 0) rotate(-50deg) scale(0); opacity: 0; }
+            3% { opacity: 1; transform: translate(-6px, 8px) rotate(-50deg) scale(1); }
+            100% { transform: translate(-250px, 320px) rotate(-55deg) scale(0.3); opacity: 0; }
         }
 
-        .research-particle:nth-child(2n)::after {
-            width: 60px;
+        @keyframes shootingStar3 {
+            0% { transform: translate(0, 0) rotate(-25deg) scale(0); opacity: 0; }
+            3% { opacity: 1; transform: translate(-10px, 4px) rotate(-25deg) scale(1); }
+            100% { transform: translate(-380px, 180px) rotate(-28deg) scale(0.5); opacity: 0; }
         }
 
-        /* Variation 2 - smaller quick star */
-        .research-particle:nth-child(3n) {
-            animation-duration: 4s;
-            width: 1.5px;
-            height: 1.5px;
-            box-shadow: 
-                0 0 2px 1px rgba(255, 255, 255, 0.85),
-                0 0 6px 2px rgba(184, 157, 85, 0.5);
+        @keyframes shootingStar4 {
+            0% { transform: translate(0, 0) rotate(-42deg) scale(0); opacity: 0; }
+            3% { opacity: 1; transform: translate(-7px, 6px) rotate(-42deg) scale(1); }
+            100% { transform: translate(-300px, 270px) rotate(-48deg) scale(0.35); opacity: 0; }
         }
 
-        .research-particle:nth-child(3n)::before {
-            width: 30px;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent 0%,
-                rgba(184, 157, 85, 0.2) 30%,
-                rgba(255, 255, 255, 0.5) 70%,
-                white 100%);
+        @keyframes shootingStar5 {
+            0% { transform: translate(0, 0) rotate(-60deg) scale(0); opacity: 0; }
+            3% { opacity: 1; transform: translate(-5px, 10px) rotate(-60deg) scale(1); }
+            100% { transform: translate(-200px, 380px) rotate(-65deg) scale(0.3); opacity: 0; }
         }
 
-        .research-particle:nth-child(3n)::after {
-            width: 30px;
-        }
-
-        /* Variation 3 - bright prominent star */
-        .research-particle:nth-child(5n) {
-            animation-duration: 7s;
-            width: 3px;
-            height: 3px;
-            box-shadow: 
-                0 0 4px 2px rgba(255, 255, 255, 1),
-                0 0 12px 4px rgba(201, 169, 97, 0.6),
-                0 0 20px 6px rgba(201, 169, 97, 0.3);
-        }
-
-        .research-particle:nth-child(5n)::before {
-            width: 70px;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                transparent 0%,
-                rgba(201, 169, 97, 0.15) 15%,
-                rgba(232, 220, 196, 0.4) 40%,
-                rgba(255, 255, 255, 0.75) 75%,
-                white 100%);
-        }
-
-        .research-particle:nth-child(5n)::after {
-            width: 70px;
-            height: 1px;
-        }
-
-        /* Main shooting star animation - smooth arc */
-        @keyframes shootingStar {
-            0% {
-                transform: translate(0, 0) rotate(-40deg) scale(0);
-                opacity: 0;
-            }
-            3% {
-                opacity: 1;
-                transform: translate(-8px, 6px) rotate(-40deg) scale(1);
-            }
-            20% {
-                opacity: 0.9;
-                transform: translate(-80px, 60px) rotate(-43deg) scale(1);
-            }
-            50% {
-                opacity: 0.6;
-                transform: translate(-180px, 140px) rotate(-46deg) scale(0.9);
-            }
-            80% {
-                opacity: 0.25;
-                transform: translate(-280px, 220px) rotate(-48deg) scale(0.7);
-            }
-            100% {
-                transform: translate(-350px, 280px) rotate(-50deg) scale(0.5);
-                opacity: 0;
-            }
+        @keyframes shootingStar6 {
+            0% { transform: translate(0, 0) rotate(-30deg) scale(0); opacity: 0; }
+            3% { opacity: 1; transform: translate(-9px, 5px) rotate(-30deg) scale(1); }
+            100% { transform: translate(-360px, 210px) rotate(-33deg) scale(0.45); opacity: 0; }
         }
 
         /* Stats Section */
@@ -1231,29 +1162,61 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
             }
         }
 
-        // Create elegant shooting stars for research interests section
+        // Create randomized shooting stars for research interests section
         function createResearchParticles() {
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
             
-            const numParticles = 12; // Good balance of visibility
+            const numParticles = 14;
+            const animations = ['shootingStar1', 'shootingStar2', 'shootingStar3', 'shootingStar4', 'shootingStar5', 'shootingStar6'];
             
             for (let i = 0; i < numParticles; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'research-particle';
                 
-                // Random starting position along the top and right edges
-                const startFromTop = Math.random() > 0.3;
+                // Randomize starting position
+                const startFromTop = Math.random() > 0.35;
                 if (startFromTop) {
-                    particle.style.left = (20 + Math.random() * 80) + '%';
-                    particle.style.top = -(Math.random() * 30 + 10) + 'px';
+                    particle.style.left = (10 + Math.random() * 85) + '%';
+                    particle.style.top = -(Math.random() * 40 + 5) + 'px';
                 } else {
-                    particle.style.left = 'calc(100% + ' + (Math.random() * 30 + 10) + 'px)';
-                    particle.style.top = (Math.random() * 50) + '%';
+                    particle.style.left = 'calc(100% + ' + (Math.random() * 40 + 5) + 'px)';
+                    particle.style.top = (Math.random() * 60) + '%';
                 }
                 
-                // Stagger delays for continuous flow
-                particle.style.animationDelay = (i * 2.5 + Math.random() * 3) + 's';
+                // Randomize animation
+                const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+                const randomDuration = (3.5 + Math.random() * 4).toFixed(1); // 3.5s to 7.5s
+                const randomDelay = (Math.random() * 15).toFixed(1); // 0 to 15s delay
+                
+                particle.style.animation = `${randomAnim} ${randomDuration}s ease-out ${randomDelay}s infinite`;
+                
+                // Randomize size and glow
+                const sizeVariant = Math.random();
+                if (sizeVariant < 0.3) {
+                    // Small star
+                    particle.style.width = '1.5px';
+                    particle.style.height = '1.5px';
+                    particle.style.boxShadow = '0 0 2px 1px rgba(255,255,255,0.85), 0 0 6px 2px rgba(184,157,85,0.5)';
+                } else if (sizeVariant < 0.7) {
+                    // Medium star (default)
+                    particle.style.width = '2px';
+                    particle.style.height = '2px';
+                } else if (sizeVariant < 0.9) {
+                    // Larger star
+                    particle.style.width = '2.5px';
+                    particle.style.height = '2.5px';
+                    particle.style.boxShadow = '0 0 4px 1px rgba(255,255,255,0.95), 0 0 10px 3px rgba(212,181,109,0.5), 0 0 16px 4px rgba(212,181,109,0.25)';
+                } else {
+                    // Bright prominent star
+                    particle.style.width = '3px';
+                    particle.style.height = '3px';
+                    particle.style.boxShadow = '0 0 4px 2px rgba(255,255,255,1), 0 0 12px 4px rgba(201,169,97,0.6), 0 0 20px 6px rgba(201,169,97,0.3)';
+                }
+                
+                // Randomize trail length
+                const trailLength = 25 + Math.random() * 50; // 25px to 75px
+                particle.style.setProperty('--trail-length', trailLength + 'px');
                 
                 particlesContainer.appendChild(particle);
             }
