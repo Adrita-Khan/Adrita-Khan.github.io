@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
             min-height: 100vh;
             color: #333;
             line-height: 1.6;
@@ -31,7 +31,7 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 2rem;
-            color: white;
+            color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
         }
@@ -44,30 +44,30 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, #c39389, #b08377);
+            background: linear-gradient(90deg, #c9a961, #d4b56d);
             border-radius: 2px;
         }
 
         /* Research Content */
         .research-intro {
-            background: rgba(195, 147, 137, 0.1);
+            background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2rem;
             margin-bottom: 3rem;
-            border: 1px solid rgba(195, 147, 137, 0.3);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             transition: all 0.3s ease;
         }
 
         .research-intro:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(195, 147, 137, 0.2);
-            background: rgba(195, 147, 137, 0.15);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.12);
         }
 
         .research-intro p {
             font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #b8c5d0;
             text-align: center;
             margin-bottom: 1.5rem;
         }
@@ -80,11 +80,11 @@
         }
 
         .research-item {
-            background: rgba(195, 147, 137, 0.1);
+            background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2.5rem;
-            border: 1px solid rgba(195, 147, 137, 0.3);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -97,7 +97,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #c39389, #b08377, #9d7066);
+            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
             transform: translateX(-100%);
             transition: transform 0.3s ease;
         }
@@ -108,8 +108,8 @@
 
         .research-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(195, 147, 137, 0.25);
-            background: rgba(195, 147, 137, 0.15);
+            box-shadow: 0 20px 50px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.12);
         }
 
         .research-header {
@@ -122,7 +122,7 @@
         .research-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #c39389, #b08377);
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -130,24 +130,24 @@
             font-size: 1.5rem;
             color: white;
             flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(195, 147, 137, 0.4);
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
             transition: all 0.3s ease;
         }
 
         .research-item:hover .research-icon {
-            box-shadow: 0 8px 25px rgba(195, 147, 137, 0.6);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.6);
             transform: scale(1.05);
         }
 
         .research-title {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #c39389;
+            color: #c9a961;
             margin-bottom: 0.5rem;
         }
 
         .research-description {
-            color: rgba(255, 255, 255, 0.9);
+            color: #b8c5d0;
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 1.5rem;
@@ -157,21 +157,23 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #c39389;
+            color: #c9a961;
             text-decoration: none;
             font-weight: 500;
             padding: 0.8rem 1.5rem;
-            border: 2px solid rgba(195, 147, 137, 0.3);
+            border: 2px solid rgba(201, 169, 97, 0.3);
             border-radius: 25px;
             transition: all 0.3s ease;
-            background: rgba(195, 147, 137, 0.1);
+            background: rgba(201, 169, 97, 0.1);
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .research-link:hover {
-            background: rgba(195, 147, 137, 0.2);
-            border-color: #c39389;
+            background: rgba(201, 169, 97, 0.2);
+            border-color: #c9a961;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(195, 147, 137, 0.3);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
         }
 
         .research-link::after {
@@ -234,33 +236,97 @@
 
         /* Special styling for different research types */
         .research-item[data-type="interference"] .research-icon {
-            background: linear-gradient(135deg, #c39389, #d4a596);
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
         }
 
         .research-item[data-type="classifier"] .research-icon {
-            background: linear-gradient(135deg, #c39389, #b08377);
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
         }
 
         .research-item[data-type="gravity"] .research-icon {
-            background: linear-gradient(135deg, #8b7ba8, #a89bc4);
+            background: linear-gradient(135deg, #b89d55, #c9a961);
         }
 
         .research-item[data-type="jets"] .research-icon {
-            background: linear-gradient(135deg, #a8a884, #c4c4a0);
+            background: linear-gradient(135deg, #d4b56d, #e8c484);
         }
 
         .research-item[data-type="grb"] .research-icon {
-            background: linear-gradient(135deg, #d4a8a8, #e8bcbc);
+            background: linear-gradient(135deg, #c9a961, #d9b875);
         }
 
         .research-item[data-type="paper"] .research-icon {
-            background: linear-gradient(135deg, #c39389, #9d7066);
+            background: linear-gradient(135deg, #c9a961, #b89d55);
         }
 
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
         }
+
+        /* Navigation Styles */
+        #quick-links {
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 14, 20, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-list a {
+            display: block;
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 25px;
+            padding: 0.7rem 1.2rem;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-list a:hover {
+            background: rgba(201, 169, 97, 0.2);
+            border-color: rgba(201, 169, 97, 0.4);
+            transform: translateY(-3px);
+            color: #c9a961;
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Color coding */
+        .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
+        .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
+        .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+5) a { border-left: 3px solid #d4b56d; }
+        .nav-list li:nth-child(8n+6) a { border-left: 3px solid #b89d55; }
+        .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
     </style>
 </head>
 <body>
@@ -270,7 +336,7 @@
         <div class="nav-container">
           <ul class="nav-list">
             <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li> <!-- Move Education after Home -->
+            <li><a href="education.html">Education</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="projects.html">Projects</a></li>
@@ -281,71 +347,6 @@
         </ul>
         </div>
     </section>
-
-<style>
-    #quick-links {
-        position: relative;
-        z-index: 10;
-        background: rgba(15, 15, 35, 0.6);
-        backdrop-filter: blur(10px);
-        padding: 1.5rem 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        justify-content: center;
-        overflow-x: hidden;
-    }
-
-    .nav-container {
-        width: 100%;
-        max-width: 1200px;
-        padding: 0 1rem;
-    }
-
-    .nav-list {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-list a {
-        display: block;
-        background: rgba(120, 119, 198, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 25px;
-        padding: 0.7rem 1.2rem;
-        text-decoration: none;
-        color: #e0e0ff;
-        font-size: 0.9rem;
-        font-weight: 500;
-        text-align: center;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(5px);
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-
-    .nav-list a:hover {
-        background: rgba(120, 119, 198, 0.3);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-3px);
-        color: #ffffff;
-        box-shadow: 0 5px 15px rgba(120, 119, 198, 0.2);
-    }
-
-    /* Color coding */
-    .nav-list li:nth-child(8n+1) a { border-left: 3px solid #7877c6; }
-    .nav-list li:nth-child(8n+2) a { border-left: 3px solid #ff77c6; }
-    .nav-list li:nth-child(8n+3) a { border-left: 3px solid #77c6ff; }
-    .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c677ff; }
-    .nav-list li:nth-child(8n+5) a { border-left: 3px solid #77ffc6; }
-    .nav-list li:nth-child(8n+6) a { border-left: 3px solid #ffc677; }
-    .nav-list li:nth-child(8n+7) a { border-left: 3px solid #ff7777; }
-    .nav-list li:nth-child(8n+8) a { border-left: 3px solid #77ff77; }
-</style>
 
 <!-- Research Section -->
 <div class="container">
@@ -373,9 +374,6 @@
             <a href="https://github.com/Adrita-Khan/RFI_Mitigation_Review" target="_blank" class="research-link">
                 GitHub Repo 
             </a>
-
-
-            
         </li>
 
         <li class="research-item" data-type="classifier">
@@ -393,8 +391,6 @@
                 Explore
             </a>
         </li>
-
-        
 
         <li class="research-item" data-type="gravity">
             <div class="research-header">
