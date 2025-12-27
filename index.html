@@ -669,6 +669,76 @@
             letter-spacing: 0.5px;
         }
 
+        /* Compact Positions Layout */
+        .positions-compact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .position-compact-item {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-compact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .position-compact-item:hover::before {
+            opacity: 1;
+        }
+
+        .position-compact-item:hover {
+            transform: translateX(4px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(201, 169, 97, 0.1);
+            border-left-color: var(--gold-light);
+        }
+
+        .position-compact-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .position-compact-org {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .position-compact-type {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15), rgba(201, 169, 97, 0.08));
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 0.25rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
         /* Research Highlight */
         .research-card {
             background: rgba(201, 169, 97, 0.05);
@@ -1458,6 +1528,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .positions-compact {
+                grid-template-columns: 1fr;
+            }
+
             .research-card {
                 grid-template-columns: 1fr;
             }
@@ -1758,42 +1832,36 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                 <h2>Research and Teaching Affiliations</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="positions-grid">
-                <div class="position-card reveal">
-                    <div class="position-title">Research Assistant</div>
-                    <div class="position-org">Center for Computational and Data Sciences (CCDS)</div>
-                    <div class="position-org">Independent University, Bangladesh</div>
-                    <span class="position-type">Full-time</span>
+            <div class="positions-compact reveal">
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Research Assistant</div>
+                    <div class="position-compact-org">Center for Computational and Data Sciences (CCDS), Independent University, Bangladesh</div>
+                    <span class="position-compact-type">Full-time</span>
                 </div>
-                <div class="position-card reveal">
-                    <div class="position-title">Research Assistant</div>
-                    <div class="position-org">Center for Astronomy, Space Science, and Astrophysics (CASSA)</div>
-                    <div class="position-org">Independent University, Bangladesh</div>
-                    <span class="position-type">Part-time</span>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Research Assistant</div>
+                    <div class="position-compact-org">Center for Astronomy, Space Science, and Astrophysics (CASSA), Independent University, Bangladesh</div>
+                    <span class="position-compact-type">Part-time</span>
                 </div>
-                <div class="position-card reveal">
-                    <div class="position-title">Research Assistant</div>
-                    <div class="position-org">Centre for Astro-Particle Physics (CAPP)</div>
-                    <div class="position-org">University of Johannesburg, South Africa</div>
-                    <span class="position-type">Remote</span>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Research Assistant</div>
+                    <div class="position-compact-org">Centre for Astro-Particle Physics (CAPP), University of Johannesburg, South Africa</div>
+                    <span class="position-compact-type">Remote</span>
                 </div>
-                <div class="position-card reveal">
-                    <div class="position-title">Student Research Collaborator</div>
-                    <div class="position-org">Dunlap Institute for Astronomy & Astrophysics</div>
-                    <div class="position-org">University of Toronto</div>
-                    <span class="position-type">Collaborative</span>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Student Research Collaborator</div>
+                    <div class="position-compact-org">Dunlap Institute for Astronomy & Astrophysics, University of Toronto</div>
+                    <span class="position-compact-type">Collaborative</span>
                 </div>
-                <div class="position-card reveal">
-                    <div class="position-title">Teaching Assistant</div>
-                    <div class="position-org">North South University, Bangladesh</div>
-                    <div class="position-org">Responsible for PHY107 and PHY108 in Spring 2025</div>
-                    <span class="position-type">Part-time</span>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Teaching Assistant</div>
+                    <div class="position-compact-org">North South University, Bangladesh (PHY107 & PHY108, Spring 2025)</div>
+                    <span class="position-compact-type">Part-time</span>
                 </div>
-                <div class="position-card reveal">
-                    <div class="position-title">Wi-STEM Bangladesh Mentee</div>
-                    <div class="project-name"><strong>Project Name:</strong> Photometric Redshift Estimation Using Machine Learning</div>
-                    <div class="position-org"><strong>Organization:</strong> Wi-STEM Bangladesh</div>
-                    <span class="position-type"><strong>Role:</strong> Summer Research Intern</span>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Wi-STEM Bangladesh Mentee</div>
+                    <div class="position-compact-org">Photometric Redshift Estimation Using Machine Learning</div>
+                    <span class="position-compact-type">Summer Research Intern</span>
                 </div>
             </div>
         </div>
