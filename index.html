@@ -829,76 +829,140 @@
             align-items: center;
         }
 
-        .galaxy-animation {
+        .cmb-animation {
             position: relative;
             width: 220px;
             height: 220px;
-        }
-
-        .galaxy-core {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 24px;
-            height: 24px;
-            background: radial-gradient(circle, #fff 0%, var(--gold-primary) 40%, var(--gold-dark) 100%);
             border-radius: 50%;
+            overflow: hidden;
             box-shadow: 
-                0 0 20px rgba(201, 169, 97, 0.8),
-                0 0 40px rgba(201, 169, 97, 0.5),
-                0 0 60px rgba(201, 169, 97, 0.3);
-            animation: pulseCore 3s ease-in-out infinite;
+                0 0 30px rgba(201, 169, 97, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.2),
+                inset 0 0 40px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes pulseCore {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(201, 169, 97, 0.8), 0 0 40px rgba(201, 169, 97, 0.5); }
-            50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 30px rgba(201, 169, 97, 1), 0 0 60px rgba(201, 169, 97, 0.6); }
-        }
-
-        .galaxy-ring {
+        .cmb-core {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            border: 2px solid;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            animation: rotate 20s linear infinite;
+            background: 
+                radial-gradient(ellipse at 30% 40%, rgba(255, 200, 100, 0.4) 0%, transparent 25%),
+                radial-gradient(ellipse at 70% 60%, rgba(200, 150, 255, 0.3) 0%, transparent 30%),
+                radial-gradient(ellipse at 50% 70%, rgba(255, 180, 120, 0.35) 0%, transparent 25%),
+                radial-gradient(ellipse at 40% 30%, rgba(180, 200, 255, 0.3) 0%, transparent 20%),
+                radial-gradient(ellipse at 60% 80%, rgba(255, 190, 110, 0.3) 0%, transparent 25%),
+                radial-gradient(ellipse at 20% 60%, rgba(190, 160, 255, 0.25) 0%, transparent 20%),
+                radial-gradient(circle at center, rgba(201, 169, 97, 0.4) 0%, rgba(201, 169, 97, 0.2) 30%, rgba(150, 130, 100, 0.3) 60%, rgba(100, 80, 60, 0.2) 100%);
+            animation: cmbFluctuation 8s ease-in-out infinite;
         }
 
-        .ring-1 { 
-            width: 80px; 
-            height: 80px; 
-            border-color: rgba(201, 169, 97, 0.4);
-            border-style: dashed;
-        }
-        .ring-2 { 
-            width: 130px; 
-            height: 130px; 
-            animation-duration: 30s; 
-            animation-direction: reverse; 
-            border-color: rgba(201, 169, 97, 0.25);
-        }
-        .ring-3 { 
-            width: 180px; 
-            height: 180px; 
-            animation-duration: 40s; 
-            border-color: rgba(201, 169, 97, 0.15);
-            border-style: dotted;
-        }
-
-        .orbit-dot {
+        .cmb-core::before {
+            content: '';
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background: var(--gold-light);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--gold-primary);
+            background: 
+                radial-gradient(ellipse at 80% 40%, rgba(255, 210, 130, 0.25) 0%, transparent 20%),
+                radial-gradient(ellipse at 25% 75%, rgba(170, 180, 255, 0.2) 0%, transparent 25%),
+                radial-gradient(ellipse at 55% 25%, rgba(255, 195, 115, 0.3) 0%, transparent 18%);
+            animation: cmbFluctuation 10s ease-in-out infinite reverse;
         }
 
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+        .cmb-core::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: repeating-conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(201, 169, 97, 0.05) 30deg,
+                transparent 60deg
+            );
+            animation: cmbRotate 30s linear infinite;
+        }
+
+        @keyframes cmbFluctuation {
+            0%, 100% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                opacity: 0.85;
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        @keyframes cmbRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cmb-temperature-spots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .cmb-hot-spot, .cmb-cold-spot {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(8px);
+            animation: spotPulse 6s ease-in-out infinite;
+        }
+
+        .cmb-hot-spot {
+            background: radial-gradient(circle, rgba(255, 200, 100, 0.4) 0%, transparent 70%);
+        }
+
+        .cmb-cold-spot {
+            background: radial-gradient(circle, rgba(150, 170, 255, 0.35) 0%, transparent 70%);
+        }
+
+        @keyframes spotPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .cmb-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 50%;
+        }
+
+        .ring-outer-1 { 
+            width: 240px; 
+            height: 240px;
+            border-style: dashed;
+            animation: ringPulse 4s ease-in-out infinite;
+        }
+
+        .ring-outer-2 { 
+            width: 260px; 
+            height: 260px;
+            border-style: dotted;
+            animation: ringPulse 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
         }
 
         .research-content h3 {
@@ -1905,11 +1969,11 @@
             </div>
             <div class="research-card reveal">
                 <div class="research-visual">
-                    <div class="galaxy-animation">
-                        <div class="galaxy-core"></div>
-                        <div class="galaxy-ring ring-1"></div>
-                        <div class="galaxy-ring ring-2"></div>
-                        <div class="galaxy-ring ring-3"></div>
+                    <div class="cmb-animation">
+                        <div class="cmb-core"></div>
+                        <div class="cmb-temperature-spots" id="cmbSpots"></div>
+                        <div class="cmb-ring ring-outer-1"></div>
+                        <div class="cmb-ring ring-outer-2"></div>
                     </div>
                 </div>
                 <div class="research-content">
@@ -2174,6 +2238,40 @@
             }
         }
 
+        // Create CMB temperature fluctuation spots
+        function createCMBSpots() {
+            const cmbSpotsContainer = document.getElementById('cmbSpots');
+            if (!cmbSpotsContainer) return;
+
+            const spots = [
+                // Hot spots (warmer regions - yellow/orange)
+                { type: 'hot', size: 35, top: 25, left: 30, delay: 0 },
+                { type: 'hot', size: 28, top: 65, left: 70, delay: 1.5 },
+                { type: 'hot', size: 32, top: 50, left: 15, delay: 3 },
+                { type: 'hot', size: 25, top: 80, left: 45, delay: 4.5 },
+                { type: 'hot', size: 30, top: 15, left: 75, delay: 2 },
+                
+                // Cold spots (cooler regions - blue/purple)
+                { type: 'cold', size: 38, top: 40, left: 60, delay: 0.5 },
+                { type: 'cold', size: 30, top: 70, left: 25, delay: 2.5 },
+                { type: 'cold', size: 33, top: 20, left: 50, delay: 1 },
+                { type: 'cold', size: 27, top: 55, left: 85, delay: 3.5 },
+                { type: 'cold', size: 35, top: 85, left: 65, delay: 2 },
+            ];
+
+            spots.forEach(spot => {
+                const spotElement = document.createElement('div');
+                spotElement.className = `cmb-${spot.type}-spot`;
+                spotElement.style.width = spot.size + 'px';
+                spotElement.style.height = spot.size + 'px';
+                spotElement.style.top = spot.top + '%';
+                spotElement.style.left = spot.left + '%';
+                spotElement.style.animationDelay = spot.delay + 's';
+                spotElement.style.transform = 'translate(-50%, -50%)';
+                cmbSpotsContainer.appendChild(spotElement);
+            });
+        }
+
         // Create pulsating stars for research interests section
         function createPulsatingStars() {
             const particlesContainer = document.querySelector('.research-particles');
@@ -2325,6 +2423,7 @@
             createStars();
             createPulsatingStars();
             createResearchParticles();
+            createCMBSpots();
             revealOnScroll();
         });
 
