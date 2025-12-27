@@ -849,6 +849,144 @@
                 0 0 40px rgba(201, 169, 97, 0.2);
         }
 
+        /* Publications Section */
+        .publications-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .publication-card {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold-primary), var(--gold-light));
+            transition: height 0.4s ease;
+            border-radius: 0 0 4px 0;
+        }
+
+        .publication-card:hover::before {
+            height: 100%;
+        }
+
+        .publication-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .publication-card:hover::after {
+            opacity: 1;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-8px) translateX(4px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.1);
+            border-color: rgba(201, 169, 97, 0.3);
+        }
+
+        .publication-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .publication-venue {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .publication-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .pub-link:hover {
+            background: rgba(201, 169, 97, 0.2);
+            border-color: rgba(201, 169, 97, 0.4);
+            transform: translateY(-2px);
+            color: var(--gold-primary);
+        }
+
+        .pub-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(201, 169, 97, 0.1));
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            padding: 0.35rem 0.9rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
         /* Enhanced Research Interests Detail Section */
         .research-interests-main {
             position: relative;
@@ -1539,8 +1677,87 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
         </div>
     </section>
 
+    <!-- Publications Section -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Publications</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="publications-grid">
+                <div class="publication-card reveal">
+                    <div class="publication-header">
+                        <h3 class="publication-title">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</h3>
+                        <p class="publication-authors">Md Raqibul Islam†, <strong>Adrita Khan†</strong>, Mir Sazzat Hossain*, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
+                        <p class="publication-venue">Preprint</p>
+                        <p class="publication-date">arXiv:2512.07420 | December 2025</p>
+                    </div>
+                    <p class="publication-description">
+                        We introduce the Explainable Particle Chebyshev Network (E-PCN), a graph neural network extending the Particle Chebyshev Network (PCN) for interpretable jet classification in high-energy collider experiments. E-PCN integrates kinematic variables by constructing four graph representations per jet, each weighted by a distinct variable: angular separation (Δ), transverse momentum (k_T), momentum fraction (z), and invariant mass squared (m²). Using Gradient-weighted Class Activation Mapping (Grad-CAM), we determine which kinematic variables dominate classification outcomes. Analysis reveals that angular separation and transverse momentum collectively account for approximately 76% of classification decisions (40.72% and 35.67%, respectively), with momentum fraction and invariant mass contributing the remaining 24%. Evaluated on the JetClass dataset with 10 signal classes, E-PCN achieves a macro-accuracy of 94.67%, macro-AUC of 96.78%, and macro-AUPR of 86.79%, representing improvements of 2.36%, 4.13%, and 24.88% respectively over the baseline PCN implementation, while demonstrating physically interpretable feature learning.
+                    </p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/abs/2512.07420" target="_blank" class="pub-link">
+                            📄 arXiv
+                        </a>
+                        <span class="pub-tag">Preprint</span>
+                        <span class="pub-tag">High Energy Physics</span>
+                        <span class="pub-tag">Graph Neural Networks</span>
+                        <span class="pub-tag">Explainable AI</span>
+                    </div>
+                </div>
+
+                <div class="publication-card reveal">
+                    <div class="publication-header">
+                        <h3 class="publication-title">RGC: A Radio AGN Classifier Based on Deep Learning. I. A Semi-Supervised Model for the VLA Images of Bent Radio AGNs</h3>
+                        <p class="publication-authors">M.S. Hossain, M.S.H. Shahal, <strong>A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman</p>
+                        <p class="publication-venue">Preprint</p>
+                        <p class="publication-date">arXiv:2510.22190 | October 2025</p>
+                    </div>
+                    <p class="publication-description">
+                        We present RGC (Radio Galaxy Classifier), a deep learning-based semi-supervised model designed for classifying bent radio active galactic nuclei (AGN) from Very Large Array (VLA) images. Out of the estimated few trillion galaxies, only around a million have been detected through radio frequencies, and only a tiny fraction have been manually classified. We address this disparity between labeled and unlabeled images of radio galaxies by employing a semi-supervised learning approach. The model leverages both labeled and unlabeled data to improve classification performance and generalization. This work represents an important step toward automated classification of radio AGN, enabling more efficient processing of large-scale radio surveys and advancing our understanding of AGN physics and galaxy evolution in cluster environments.
+                    </p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/abs/2510.22190" target="_blank" class="pub-link">
+                            📄 arXiv
+                        </a>
+                        <span class="pub-tag">Preprint</span>
+                        <span class="pub-tag">Radio Astronomy</span>
+                        <span class="pub-tag">Semi-Supervised Learning</span>
+                        <span class="pub-tag">Deep Learning</span>
+                    </div>
+                </div>
+
+                <div class="publication-card reveal">
+                    <div class="publication-header">
+                        <h3 class="publication-title">RGC-Bent: A Novel Dataset for Bent Radio Galaxy Classification</h3>
+                        <p class="publication-authors">Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, <strong>Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
+                        <p class="publication-venue">2025 IEEE International Conference on Image Processing (ICIP 2025)</p>
+                        <p class="publication-date">arXiv:2505.19249 | May 2025</p>
+                    </div>
+                    <p class="publication-description">
+                        We introduce RGC-Bent, a curated dataset of 639 radio galaxy images designed to support machine learning-based classification of bent radio AGN into Wide-Angle Tailed (WAT) and Narrow-Angle Tailed (NAT) types. Bent radio AGN, distinguished by their curved jet structures, provide critical insights into galaxy cluster dynamics, interactions within the intracluster medium, and the broader physics of AGN. Despite their astrophysical significance, classification of bent radio AGN remains challenging due to the scarcity of specialized datasets and benchmarks. We present detailed data processing steps and evaluate state-of-the-art deep learning models including CNNs and transformer-based architectures. ConvNeXT achieves the highest F1-scores for both NAT and WAT sources, demonstrating the effectiveness of advanced machine learning models in classifying bent radio AGN. By sharing this dataset and benchmarks, we facilitate the advancement of research in AGN classification, galaxy cluster environments, and galaxy evolution.
+                    </p>
+                    <div class="publication-links">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="pub-link">
+                            📘 IEEE Xplore
+                        </a>
+                        <a href="https://arxiv.org/abs/2505.19249" target="_blank" class="pub-link">
+                            📄 arXiv
+                        </a>
+                        <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="pub-link">
+                            💻 GitHub
+                        </a>
+                        <span class="pub-tag">Conference Paper</span>
+                        <span class="pub-tag">Machine Learning</span>
+                        <span class="pub-tag">Radio Astronomy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Enhanced Research Interests Section -->
-    <section class="research-interests-main section-dark">
+    <section class="research-interests-main section-alt">
         <div class="research-container">
             <div class="research-particles"></div>
             
@@ -1618,7 +1835,7 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
     </section>
 
     <!-- Quick Stats -->
-    <section class="section-alt">
+    <section class="section-dark">
         <div class="container">
             <div class="section-header">
                 <h2>At A Glance</h2>
