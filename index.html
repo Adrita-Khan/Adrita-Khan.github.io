@@ -11,11 +11,79 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --gold-primary: #c9a961;
+            --gold-light: #d4b56d;
+            --gold-dark: #b89d55;
+            --bg-dark: #0a0e14;
+            --bg-mid: #0f1923;
+            --bg-light: #152232;
+            --text-light: #ffffff;
+            --text-muted: #b8c5d0;
+            --glow-gold: rgba(201, 169, 97, 0.4);
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-light) 100%);
             min-height: 100vh;
             overflow-x: hidden;
+            color: var(--text-light);
+        }
+
+        /* Enhanced Cosmic Background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 80%, rgba(201, 169, 97, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 60% at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* Nebula Effect */
+        .nebula {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .nebula::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: nebulaDrift 30s ease-in-out infinite;
+        }
+
+        .nebula::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(ellipse at center, rgba(150, 130, 80, 0.1) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: nebulaDrift 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
         }
 
         .stars {
@@ -25,7 +93,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
         }
 
         .star {
@@ -37,32 +105,26 @@
             animation: twinkle 3s infinite;
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.3);
         }
 
-        .cosmic-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            z-index: 0;
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         /* Quick Links Navigation */
         #quick-links {
             position: relative;
             z-index: 100;
-            background: rgba(10, 14, 20, 0.6);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 20, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.15);
             display: flex;
             justify-content: center;
             overflow-x: hidden;
@@ -86,27 +148,46 @@
 
         .nav-list a {
             display: block;
-            background: rgba(201, 169, 97, 0.1);
+            background: rgba(201, 169, 97, 0.08);
             border: 1px solid rgba(201, 169, 97, 0.2);
             border-radius: 25px;
             padding: 0.7rem 1.2rem;
             text-decoration: none;
-            color: #ffffff;
+            color: var(--text-light);
             font-size: 0.9rem;
             font-weight: 500;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(5px);
             white-space: nowrap;
             flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-list a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-list a:hover::before {
+            left: 100%;
         }
 
         .nav-list a:hover {
             background: rgba(201, 169, 97, 0.2);
-            border-color: rgba(201, 169, 97, 0.4);
+            border-color: rgba(201, 169, 97, 0.5);
             transform: translateY(-3px);
-            color: #c9a961;
-            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
+            color: var(--gold-primary);
+            box-shadow: 
+                0 5px 20px rgba(201, 169, 97, 0.3),
+                0 0 40px rgba(201, 169, 97, 0.1);
         }
 
         /* Color coding */
@@ -139,25 +220,61 @@
             align-items: center;
         }
 
+        .hero-text {
+            opacity: 0;
+            animation: fadeSlideUp 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .hero-text h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-light);
             margin-bottom: 1rem;
             line-height: 1.1;
+            position: relative;
+        }
+
+        .hero-text h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light), transparent);
+            animation: lineExpand 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes lineExpand {
+            to { width: 60%; }
         }
 
         .hero-text .subtitle {
             font-size: 1.3rem;
-            color: #c9a961;
+            color: var(--gold-primary);
             margin-bottom: 2rem;
             font-weight: 500;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 30px rgba(201, 169, 97, 0.3);
         }
 
         .hero-text .bio {
             font-size: 1rem;
             line-height: 1.7;
-            color: #b8c5d0;
+            color: var(--text-muted);
             margin-bottom: 2rem;
             text-align: justify;
         }
@@ -166,6 +283,58 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            animation: fadeScale 1s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .profile-picture-container {
+            position: relative;
+        }
+
+        .profile-picture-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-primary), transparent, var(--gold-light)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: orbitRing 10s linear infinite;
+        }
+
+        .profile-picture-container::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 50%;
+            animation: orbitRing 15s linear infinite reverse;
+        }
+
+        @keyframes orbitRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .profile-picture {
@@ -176,16 +345,16 @@
             border: 4px solid rgba(201, 169, 97, 0.3);
             box-shadow: 
                 0 0 0 8px rgba(201, 169, 97, 0.1),
-                0 0 0 16px rgba(201, 169, 97, 0.05),
+                0 0 60px rgba(201, 169, 97, 0.2),
                 0 20px 40px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .profile-picture:hover {
             transform: scale(1.05);
             box-shadow: 
                 0 0 0 8px rgba(201, 169, 97, 0.2),
-                0 0 0 16px rgba(201, 169, 97, 0.1),
+                0 0 80px rgba(201, 169, 97, 0.3),
                 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
@@ -196,7 +365,7 @@
 
         .interests-label {
             font-size: 1rem;
-            color: #c9a961;
+            color: var(--gold-primary);
             font-weight: 600;
             margin-bottom: 1rem;
             text-transform: uppercase;
@@ -210,24 +379,46 @@
         }
 
         .interest-tag {
-            background: rgba(201, 169, 97, 0.15);
-            border: 1px solid rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.25);
             padding: 0.6rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
-            color: #ffffff;
+            color: var(--text-light);
             text-align: center;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.3) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .interest-tag:hover::before {
+            width: 200%;
+            height: 200%;
         }
 
         .interest-tag:hover {
-            background: rgba(201, 169, 97, 0.25);
-            transform: translateY(-2px);
-            color: #c9a961;
+            background: rgba(201, 169, 97, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            color: var(--gold-primary);
+            border-color: rgba(201, 169, 97, 0.5);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.2);
         }
 
-        /* Social Links - Modified to remove yellow tint */
+        /* Social Links */
         .social-links {
             display: flex;
             gap: 1rem;
@@ -239,26 +430,55 @@
             height: 45px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
+            color: var(--text-light);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .social-icon:hover::before {
+            width: 150%;
+            height: 150%;
         }
 
         .social-icon:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px) rotate(5deg);
+            box-shadow: 
+                0 10px 30px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         .social-icon svg {
             width: 22px;
             height: 22px;
             fill: currentColor;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover svg {
+            transform: scale(1.1);
         }
 
         /* Section Styling */
@@ -266,17 +486,17 @@
             position: relative;
             z-index: 10;
             padding: 3rem 2rem;
-            border-top: 1px solid rgba(201, 169, 97, 0.15);
+            border-top: 1px solid rgba(201, 169, 97, 0.1);
         }
 
         .section-alt {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(10px);
         }
 
         .section-dark {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(15px);
         }
 
         .container {
@@ -286,37 +506,73 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-header h2 {
             font-size: 2rem;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
         .section-line {
             width: 80px;
             height: 4px;
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
             margin: 0 auto;
             border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s ease infinite;
+        }
+
+        @keyframes shimmer {
+            to { left: 100%; }
         }
 
         /* About Section */
         .about-content {
-            background: rgba(201, 169, 97, 0.08);
-            border: 1px solid rgba(201, 169, 97, 0.2);
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
             border-radius: 25px;
             padding: 3rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .about-content:hover {
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .about-content p {
             font-size: 1rem;
-            line-height: 1.8;
-            color: #b8c5d0;
+            line-height: 1.85;
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
             text-align: justify;
         }
@@ -325,66 +581,129 @@
         .positions-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .position-card {
-            background: rgba(201, 169, 97, 0.08);
-            border: 1px solid rgba(201, 169, 97, 0.2);
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
             border-radius: 20px;
             padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold-primary), var(--gold-light));
+            transition: height 0.4s ease;
+            border-radius: 0 0 4px 0;
+        }
+
+        .position-card:hover::before {
+            height: 100%;
+        }
+
+        .position-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .position-card:hover::after {
+            opacity: 1;
         }
 
         .position-card:hover {
-            transform: translateY(-5px);
-            background: rgba(201, 169, 97, 0.12);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.2);
+            transform: translateY(-8px) translateX(4px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.1);
+            border-color: rgba(201, 169, 97, 0.3);
         }
 
         .position-title {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #c9a961;
+            color: var(--gold-primary);
             margin-bottom: 0.5rem;
         }
 
         .position-org {
             font-size: 1rem;
-            color: #b8c5d0;
+            color: var(--text-muted);
             margin-bottom: 0.5rem;
         }
 
         .project-name {
             font-size: 0.95rem;
-            color: #b8c5d0;
+            color: var(--text-muted);
             margin-bottom: 0.5rem;
             font-style: italic;
         }
 
         .position-type {
             display: inline-block;
-            background: rgba(201, 169, 97, 0.2);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(201, 169, 97, 0.1));
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            padding: 0.35rem 0.9rem;
             border-radius: 15px;
             font-size: 0.75rem;
-            color: #ffffff;
-            margin-top: 0.5rem;
+            color: var(--text-light);
+            margin-top: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         /* Research Highlight */
         .research-card {
-            background: rgba(201, 169, 97, 0.08);
-            border: 1px solid rgba(201, 169, 97, 0.2);
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
             border-radius: 25px;
             padding: 3rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 3rem;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .research-card:hover::before {
+            opacity: 1;
+        }
+
+        .research-card:hover {
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
         }
 
         .research-visual {
@@ -395,8 +714,8 @@
 
         .galaxy-animation {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
         }
 
         .galaxy-core {
@@ -404,11 +723,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, #c9a961 0%, #d4b56d 100%);
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle, #fff 0%, var(--gold-primary) 40%, var(--gold-dark) 100%);
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(201, 169, 97, 0.8);
+            box-shadow: 
+                0 0 20px rgba(201, 169, 97, 0.8),
+                0 0 40px rgba(201, 169, 97, 0.5),
+                0 0 60px rgba(201, 169, 97, 0.3);
+            animation: pulseCore 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseCore {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(201, 169, 97, 0.8), 0 0 40px rgba(201, 169, 97, 0.5); }
+            50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 30px rgba(201, 169, 97, 1), 0 0 60px rgba(201, 169, 97, 0.6); }
         }
 
         .galaxy-ring {
@@ -416,14 +744,40 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            border: 2px solid rgba(201, 169, 97, 0.3);
+            border: 2px solid;
             border-radius: 50%;
             animation: rotate 20s linear infinite;
         }
 
-        .ring-1 { width: 80px; height: 80px; }
-        .ring-2 { width: 120px; height: 120px; animation-duration: 30s; animation-direction: reverse; }
-        .ring-3 { width: 160px; height: 160px; animation-duration: 40s; }
+        .ring-1 { 
+            width: 80px; 
+            height: 80px; 
+            border-color: rgba(201, 169, 97, 0.4);
+            border-style: dashed;
+        }
+        .ring-2 { 
+            width: 130px; 
+            height: 130px; 
+            animation-duration: 30s; 
+            animation-direction: reverse; 
+            border-color: rgba(201, 169, 97, 0.25);
+        }
+        .ring-3 { 
+            width: 180px; 
+            height: 180px; 
+            animation-duration: 40s; 
+            border-color: rgba(201, 169, 97, 0.15);
+            border-style: dotted;
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold-primary);
+        }
 
         @keyframes rotate {
             from { transform: translate(-50%, -50%) rotate(0deg); }
@@ -432,36 +786,67 @@
 
         .research-content h3 {
             font-size: 1.8rem;
-            color: #c9a961;
+            color: var(--gold-primary);
             margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .research-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
         }
 
         .research-content p {
             font-size: 1rem;
-            line-height: 1.7;
-            color: #b8c5d0;
+            line-height: 1.75;
+            color: var(--text-muted);
             text-align: justify;
             margin-bottom: 2rem;
         }
 
         .btn-primary {
             display: inline-block;
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
             border: none;
             border-radius: 25px;
             padding: 0.9rem 2rem;
             font-size: 1rem;
             font-weight: 600;
-            color: #0f1923;
+            color: var(--bg-dark);
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(201, 169, 97, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 15px 35px rgba(201, 169, 97, 0.4),
+                0 0 40px rgba(201, 169, 97, 0.2);
         }
 
         /* Enhanced Research Interests Detail Section */
@@ -485,22 +870,22 @@
         .research-section-header h2 {
             font-size: 2.2rem;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-light);
             margin-bottom: 0.3rem;
         }
 
         .research-section-header .section-line {
             width: 80px;
             height: 2px;
-            background: linear-gradient(135deg, #c9a961, #d4b56d, #b89d55);
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light), var(--gold-dark));
             margin: 0 auto;
             border-radius: 2px;
         }
 
         .research-section-header p {
             font-size: 0.9rem;
-            color: #b8c5d0;
-            margin-top: 0.4rem;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -509,17 +894,17 @@
         .research-interests-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
         .research-interest-card {
-            background: rgba(201, 169, 97, 0.08);
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 12px;
-            padding: 1.2rem;
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
             backdrop-filter: blur(15px);
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
@@ -532,82 +917,88 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, 
-                rgba(201, 169, 97, 0.05) 0%, 
-                rgba(212, 181, 109, 0.05) 50%, 
-                rgba(184, 157, 85, 0.05) 100%);
+                rgba(201, 169, 97, 0.08) 0%, 
+                transparent 50%);
             opacity: 0;
             transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .research-interest-card:hover {
-            transform: translateY(-5px);
-            background: rgba(201, 169, 97, 0.12);
-            box-shadow: 
-                0 10px 25px rgba(201, 169, 97, 0.2),
-                0 0 0 1px rgba(201, 169, 97, 0.3),
-                inset 0 1px 0 rgba(201, 169, 97, 0.2);
+            z-index: 0;
         }
 
         .research-interest-card:hover::before {
             opacity: 1;
         }
 
-        .research-interest-card:nth-child(1) {
-            border-left: 3px solid #c9a961;
+        .research-interest-card:hover {
+            transform: translateY(-8px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(201, 169, 97, 0.1),
+                inset 0 1px 0 rgba(201, 169, 97, 0.2);
+            border-color: rgba(201, 169, 97, 0.35);
         }
 
-        .research-interest-card:nth-child(2) {
-            border-left: 3px solid #d4b56d;
-        }
-
-        .research-interest-card:nth-child(3) {
-            border-left: 3px solid #b89d55;
-        }
-
-        .research-interest-card:nth-child(4) {
-            border-left: 3px solid #c9a961;
-        }
+        .research-interest-card:nth-child(1) { border-left: 3px solid #c9a961; }
+        .research-interest-card:nth-child(2) { border-left: 3px solid #d4b56d; }
+        .research-interest-card:nth-child(3) { border-left: 3px solid #b89d55; }
+        .research-interest-card:nth-child(4) { border-left: 3px solid #c9a961; }
 
         .research-card-header {
             display: flex;
             align-items: center;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .research-card-icon {
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 0.7rem;
-            font-size: 1.1rem;
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #0f1923;
+            color: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card-icon::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+            animation: iconShine 3s ease infinite;
+        }
+
+        @keyframes iconShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
 
         .research-interest-card:nth-child(1) .research-card-icon {
             background: linear-gradient(135deg, #c9a961, #d4b56d);
         }
-
         .research-interest-card:nth-child(2) .research-card-icon {
             background: linear-gradient(135deg, #d4b56d, #e8dcc4);
         }
-
         .research-interest-card:nth-child(3) .research-card-icon {
             background: linear-gradient(135deg, #b89d55, #c9a961);
         }
-
         .research-interest-card:nth-child(4) .research-card-icon {
             background: linear-gradient(135deg, #c9a961, #d4b56d);
         }
 
         .research-card-title {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            color: #c9a961;
+            color: var(--gold-primary);
             margin: 0;
         }
 
@@ -617,34 +1008,38 @@
             margin: 0;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0.3rem 0.8rem;
+            gap: 0.4rem 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .research-topic-item {
             display: flex;
             align-items: center;
-            padding: 0.4rem 0;
-            color: #b8c5d0;
+            padding: 0.45rem 0;
+            color: var(--text-muted);
             font-size: 0.85rem;
             transition: all 0.3s ease;
         }
 
         .research-topic-item:hover {
-            color: #ffffff;
-            padding-left: 0.5rem;
+            color: var(--text-light);
+            padding-left: 0.6rem;
         }
 
         .research-topic-item::before {
-            content: "▸";
-            margin-right: 0.5rem;
-            color: #c9a961;
+            content: "◆";
+            margin-right: 0.6rem;
+            color: var(--gold-primary);
             transition: all 0.3s ease;
-            font-size: 0.7rem;
+            font-size: 0.5rem;
+            opacity: 0.7;
         }
 
         .research-topic-item:hover::before {
-            color: #d4b56d;
-            transform: translateX(3px);
+            color: var(--gold-light);
+            transform: scale(1.3);
+            opacity: 1;
         }
 
         /* Research particles container */
@@ -659,7 +1054,7 @@
             z-index: 1;
         }
 
-        /* Pulsating stars - stationary twinkling stars */
+        /* Pulsating stars */
         .pulsating-star {
             position: absolute;
             width: 2px;
@@ -682,7 +1077,7 @@
             }
         }
 
-        /* Shooting stars - elegant with visible glow */
+        /* Shooting stars */
         .research-particle {
             position: absolute;
             width: 2px;
@@ -727,7 +1122,6 @@
                 rgba(255, 255, 255, 0.6) 100%);
         }
 
-        /* Different animation paths for shooting stars */
         @keyframes shootingStar1 {
             0% { transform: translate(0, 0) rotate(-35deg) scale(0); opacity: 0; }
             3% { opacity: 1; transform: translate(-8px, 5px) rotate(-35deg) scale(1); }
@@ -774,34 +1168,78 @@
 
         .stat-card {
             text-align: center;
-            padding: 1.5rem;
-            background: rgba(201, 169, 97, 0.08);
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            padding: 2rem 1.5rem;
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            transition: width 0.4s ease;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .stat-card:hover::before {
+            width: 60%;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(201, 169, 97, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-card:hover::after {
+            opacity: 1;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            background: rgba(201, 169, 97, 0.12);
+            transform: translateY(-10px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.1);
+            border-color: rgba(201, 169, 97, 0.3);
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #c9a961 0%, #d4b56d 100%);
+            background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .stat-label {
             font-size: 0.85rem;
-            color: #b8c5d0;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
 
         /* Footer */
@@ -809,22 +1247,49 @@
             position: relative;
             z-index: 10;
             background: rgba(10, 14, 20, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 2rem;
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
             text-align: center;
-            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            border-top: 1px solid rgba(201, 169, 97, 0.15);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
         }
 
         footer p {
-            color: #b8c5d0;
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        footer p:first-child {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
             .research-interests-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
         }
 
@@ -838,8 +1303,17 @@
                 font-size: 2.5rem;
             }
 
+            .hero-text h1::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
             .interests-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .social-links {
+                justify-content: center;
             }
 
             .positions-grid {
@@ -859,7 +1333,7 @@
             }
 
             .research-section-header h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
         }
 
@@ -881,6 +1355,11 @@
                 font-size: 2rem;
             }
 
+            .profile-picture {
+                width: 280px;
+                height: 280px;
+            }
+
             .interests-grid {
                 grid-template-columns: 1fr;
             }
@@ -897,6 +1376,7 @@
 </head>
 <body>
     <div class="cosmic-bg"></div>
+    <div class="nebula"></div>
     <div class="stars"></div>
 
     <!-- Quick Links Navigation -->
@@ -960,7 +1440,9 @@
             </div>
 
             <div class="profile-image-wrapper">
-                <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" alt="Adrita Khan" class="profile-picture">
+                <div class="profile-picture-container">
+                    <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" alt="Adrita Khan" class="profile-picture">
+                </div>
             </div>
         </div>
     </section>
@@ -972,7 +1454,7 @@
                 <h2>About Me</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="about-content">
+            <div class="about-content reveal">
 <p>
 Greetings, everyone! I am Adrita Khan, a graduate of the University of Science, Malaysia, with a major in Physics and a minor in Astronomy. I am an early career researcher focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, high energy astroparticle physics, and statistical and machine learning applications in astrophysics.
 My research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data, advancing our understanding of gravitational phenomena on cosmological scales. I am developing machine learning and deep learning methodologies for radio astronomy, with expertise in automated classification of bent radio active galactic nuclei and semi-supervised learning approaches to advance bent radio active galactic nuclei (AGN) detection and characterization.
@@ -992,37 +1474,37 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                 <div class="section-line"></div>
             </div>
             <div class="positions-grid">
-                <div class="position-card">
+                <div class="position-card reveal">
                     <div class="position-title">Research Assistant</div>
                     <div class="position-org">Center for Computational and Data Sciences (CCDS)</div>
                     <div class="position-org">Independent University, Bangladesh</div>
                     <span class="position-type">Full-time</span>
                 </div>
-                <div class="position-card">
+                <div class="position-card reveal">
                     <div class="position-title">Research Assistant</div>
                     <div class="position-org">Center for Astronomy, Space Science, and Astrophysics (CASSA)</div>
                     <div class="position-org">Independent University, Bangladesh</div>
                     <span class="position-type">Part-time</span>
                 </div>
-                <div class="position-card">
+                <div class="position-card reveal">
                     <div class="position-title">Research Assistant</div>
                     <div class="position-org">Centre for Astro-Particle Physics (CAPP)</div>
                     <div class="position-org">University of Johannesburg, South Africa</div>
                     <span class="position-type">Remote</span>
                 </div>
-                <div class="position-card">
+                <div class="position-card reveal">
                     <div class="position-title">Student Research Collaborator</div>
                     <div class="position-org">Dunlap Institute for Astronomy & Astrophysics</div>
                     <div class="position-org">University of Toronto</div>
                     <span class="position-type">Collaborative</span>
                 </div>
-                <div class="position-card">
+                <div class="position-card reveal">
                     <div class="position-title">Teaching Assistant</div>
                     <div class="position-org">North South University, Bangladesh</div>
                     <div class="position-org">Responsible for PHY107 and PHY108 in Spring 2025</div>
                     <span class="position-type">Part-time</span>
                 </div>
-                <div class="position-card">
+                <div class="position-card reveal">
                     <div class="position-title">Wi-STEM Bangladesh Mentee</div>
                     <div class="project-name"><strong>Project Name:</strong> Photometric Redshift Estimation Using Machine Learning</div>
                     <div class="position-org"><strong>Organization:</strong> Wi-STEM Bangladesh</div>
@@ -1039,7 +1521,7 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                 <h2>Featured Research</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="research-card">
+            <div class="research-card reveal">
                 <div class="research-visual">
                     <div class="galaxy-animation">
                         <div class="galaxy-core"></div>
@@ -1069,7 +1551,7 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
             </div>
             
             <div class="research-interests-grid">
-                <div class="research-interest-card">
+                <div class="research-interest-card reveal">
                     <div class="research-card-header">
                         <div class="research-card-icon">🌌</div>
                         <h3 class="research-card-title">Cosmology</h3>
@@ -1088,7 +1570,7 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                     </ul>
                 </div>
                 
-                <div class="research-interest-card">
+                <div class="research-interest-card reveal">
                     <div class="research-card-header">
                         <div class="research-card-icon">⭐</div>
                         <h3 class="research-card-title">Astrophysics</h3>
@@ -1105,7 +1587,7 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                     </ul>
                 </div>
                 
-                <div class="research-interest-card">
+                <div class="research-interest-card reveal">
                     <div class="research-card-header">
                         <div class="research-card-icon">📊</div>
                         <h3 class="research-card-title">Data Science & Statistics</h3>
@@ -1119,7 +1601,7 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                     </ul>
                 </div>
                 
-                <div class="research-interest-card">
+                <div class="research-interest-card reveal">
                     <div class="research-card-header">
                         <div class="research-card-icon">💻</div>
                         <h3 class="research-card-title">Computational Physics</h3>
@@ -1143,19 +1625,19 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                 <div class="section-line"></div>
             </div>
             <div class="stats-grid">
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <div class="stat-number">4</div>
                     <div class="stat-label">Research Centers</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <div class="stat-number">3</div>
                     <div class="stat-label">Countries</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <div class="stat-number">∞</div>
                     <div class="stat-label">Curiosity</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <div class="stat-number">1</div>
                     <div class="stat-label">Universe to Explore</div>
                 </div>
@@ -1170,14 +1652,14 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
     </footer>
 
     <script>
-        // Create animated stars
+        // Create animated stars with variety
         function createStars() {
             const starsContainer = document.querySelector('.stars');
-            const numStars = 100;
+            const numStars = 120;
             
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
-                star.className = 'star';
+                star.className = 'star' + (Math.random() > 0.85 ? ' large' : '');
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 star.style.animationDelay = Math.random() * 3 + 's';
@@ -1191,33 +1673,26 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
             
-            const numPulsatingStars = 40; // Number of stationary pulsating stars
+            const numPulsatingStars = 50;
             
             for (let i = 0; i < numPulsatingStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'pulsating-star';
-                
-                // Random position across the entire section
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 
-                // Random animation duration and delay for varied pulsing
-                const duration = (2 + Math.random() * 4).toFixed(1); // 2s to 6s
-                const delay = (Math.random() * 5).toFixed(1); // 0 to 5s delay
+                const duration = (2 + Math.random() * 4).toFixed(1);
+                const delay = (Math.random() * 5).toFixed(1);
                 star.style.animation = `pulsate ${duration}s ease-in-out ${delay}s infinite`;
                 
-                // Randomize star sizes
                 const sizeVariant = Math.random();
                 if (sizeVariant < 0.4) {
-                    // Small stars
                     star.style.width = '1.5px';
                     star.style.height = '1.5px';
                 } else if (sizeVariant < 0.8) {
-                    // Medium stars
                     star.style.width = '2px';
                     star.style.height = '2px';
                 } else {
-                    // Larger stars
                     star.style.width = '2.5px';
                     star.style.height = '2.5px';
                 }
@@ -1226,19 +1701,18 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
             }
         }
 
-        // Create randomized shooting stars for research interests section
+        // Create shooting stars
         function createResearchParticles() {
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
             
-            const numParticles = 14;
+            const numParticles = 16;
             const animations = ['shootingStar1', 'shootingStar2', 'shootingStar3', 'shootingStar4', 'shootingStar5', 'shootingStar6'];
             
             for (let i = 0; i < numParticles; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'research-particle';
                 
-                // Randomize starting position
                 const startFromTop = Math.random() > 0.35;
                 if (startFromTop) {
                     particle.style.left = (10 + Math.random() * 85) + '%';
@@ -1248,50 +1722,62 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                     particle.style.top = (Math.random() * 60) + '%';
                 }
                 
-                // Randomize animation
                 const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-                const randomDuration = (3.5 + Math.random() * 4).toFixed(1); // 3.5s to 7.5s
-                const randomDelay = (Math.random() * 15).toFixed(1); // 0 to 15s delay
+                const randomDuration = (3.5 + Math.random() * 4).toFixed(1);
+                const randomDelay = (Math.random() * 15).toFixed(1);
                 
                 particle.style.animation = `${randomAnim} ${randomDuration}s ease-out ${randomDelay}s infinite`;
                 
-                // Randomize size and glow
                 const sizeVariant = Math.random();
                 if (sizeVariant < 0.3) {
-                    // Small star
                     particle.style.width = '1.5px';
                     particle.style.height = '1.5px';
                     particle.style.boxShadow = '0 0 2px 1px rgba(255,255,255,0.85), 0 0 6px 2px rgba(184,157,85,0.5)';
                 } else if (sizeVariant < 0.7) {
-                    // Medium star (default)
                     particle.style.width = '2px';
                     particle.style.height = '2px';
                 } else if (sizeVariant < 0.9) {
-                    // Larger star
                     particle.style.width = '2.5px';
                     particle.style.height = '2.5px';
                     particle.style.boxShadow = '0 0 4px 1px rgba(255,255,255,0.95), 0 0 10px 3px rgba(212,181,109,0.5), 0 0 16px 4px rgba(212,181,109,0.25)';
                 } else {
-                    // Bright prominent star
                     particle.style.width = '3px';
                     particle.style.height = '3px';
                     particle.style.boxShadow = '0 0 4px 2px rgba(255,255,255,1), 0 0 12px 4px rgba(201,169,97,0.6), 0 0 20px 6px rgba(201,169,97,0.3)';
                 }
                 
-                // Randomize trail length
-                const trailLength = 25 + Math.random() * 50; // 25px to 75px
+                const trailLength = 25 + Math.random() * 50;
                 particle.style.setProperty('--trail-length', trailLength + 'px');
                 
                 particlesContainer.appendChild(particle);
             }
         }
-        
-        // Initialize animations when page loads
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach((element, index) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.style.transitionDelay = (index % 4) * 0.1 + 's';
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize
         window.addEventListener('load', function() {
             createStars();
-            createPulsatingStars(); // Add pulsating stars
-            createResearchParticles(); // Add shooting stars
+            createPulsatingStars();
+            createResearchParticles();
+            revealOnScroll();
         });
+
+        window.addEventListener('scroll', revealOnScroll);
 
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1317,15 +1803,24 @@ Beyond research, I am committed to fostering scientific diversity, equity, and i
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
                 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
             });
             
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
             });
+        });
+
+        // Parallax effect for cosmic background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const nebula = document.querySelector('.nebula');
+            if (nebula) {
+                nebula.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
     </script>
 </body>
