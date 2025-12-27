@@ -1497,6 +1497,58 @@
             z-index: 1;
         }
 
+        /* Inline Stats Layout */
+        .stats-inline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            flex-wrap: wrap;
+        }
+
+        .stats-inline:hover {
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateX(4px);
+        }
+
+        .stat-inline-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .stat-inline-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .stat-inline-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .stat-inline-divider {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
+        }
+
         /* Footer */
         footer {
             position: relative;
@@ -1591,6 +1643,17 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .stats-inline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-inline-divider {
+                width: 60%;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
+            }
+
             .research-section-header h2 {
                 font-size: 2rem;
             }
@@ -1625,6 +1688,17 @@
 
             .stats-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-inline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-inline-divider {
+                width: 60%;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
             }
 
             .research-topics-list {
@@ -2001,22 +2075,25 @@
                 <h2>At A Glance</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card reveal">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Research Centers</div>
+            <div class="stats-inline reveal">
+                <div class="stat-inline-item">
+                    <div class="stat-inline-number">4</div>
+                    <div class="stat-inline-label">Research Centers</div>
                 </div>
-                <div class="stat-card reveal">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Countries</div>
+                <div class="stat-inline-divider"></div>
+                <div class="stat-inline-item">
+                    <div class="stat-inline-number">3</div>
+                    <div class="stat-inline-label">Countries</div>
                 </div>
-                <div class="stat-card reveal">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Curiosity</div>
+                <div class="stat-inline-divider"></div>
+                <div class="stat-inline-item">
+                    <div class="stat-inline-number">∞</div>
+                    <div class="stat-inline-label">Curiosity</div>
                 </div>
-                <div class="stat-card reveal">
-                    <div class="stat-number">1</div>
-                    <div class="stat-label">Universe to Explore</div>
+                <div class="stat-inline-divider"></div>
+                <div class="stat-inline-item">
+                    <div class="stat-inline-number">1</div>
+                    <div class="stat-inline-label">Universe to Explore</div>
                 </div>
             </div>
         </div>
