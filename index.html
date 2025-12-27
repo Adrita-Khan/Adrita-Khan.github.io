@@ -1373,108 +1373,121 @@
             z-index: 1;
         }
 
-        /* Pulsating stars */
+        /* Distant stars - static with subtle twinkle */
         .pulsating-star {
             position: absolute;
-            width: 2px;
-            height: 2px;
+            width: 1.5px;
+            height: 1.5px;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 2px 0.5px rgba(255, 255, 255, 0.6);
         }
 
         @keyframes pulsate {
             0%, 100% { 
-                opacity: 0.2;
-                transform: scale(0.8);
+                opacity: 0.4;
+                transform: scale(1);
                 box-shadow: 0 0 2px 0.5px rgba(255, 255, 255, 0.4);
             }
             50% { 
-                opacity: 1;
-                transform: scale(1.2);
-                box-shadow: 0 0 6px 2px rgba(201, 169, 97, 0.8);
+                opacity: 0.9;
+                transform: scale(1.1);
+                box-shadow: 0 0 3px 1px rgba(201, 169, 97, 0.6);
             }
         }
 
-        /* Shooting stars */
-        .research-particle {
+        /* Distant galaxies - small glowing ellipses */
+        .distant-galaxy {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
+            width: 8px;
+            height: 4px;
             border-radius: 50%;
-            box-shadow: 
-                0 0 3px 1px rgba(255, 255, 255, 0.9),
-                0 0 8px 2px rgba(201, 169, 97, 0.6),
-                0 0 12px 3px rgba(201, 169, 97, 0.3);
+            background: radial-gradient(ellipse, rgba(201, 169, 97, 0.3) 0%, rgba(201, 169, 97, 0.1) 50%, transparent 100%);
+            opacity: 0;
+            filter: blur(1px);
+        }
+
+        @keyframes galaxyFade {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Nebula-like glows - large diffuse clouds */
+        .nebula-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
             opacity: 0;
         }
 
-        .research-particle::before {
-            content: '';
+        @keyframes nebulaFloat {
+            0% { 
+                opacity: 0;
+                transform: translate(0, 0) scale(0.8);
+            }
+            50% { 
+                opacity: 0.15;
+                transform: translate(20px, -15px) scale(1);
+            }
+            100% { 
+                opacity: 0;
+                transform: translate(40px, -30px) scale(0.8);
+            }
+        }
+
+        /* Cosmic dust particles - very subtle drift */
+        .cosmic-dust {
             position: absolute;
-            top: 50%;
-            right: 2px;
-            transform: translateY(-50%);
-            width: 45px;
-            height: 1.5px;
-            background: linear-gradient(90deg, 
-                transparent 0%,
-                rgba(201, 169, 97, 0.15) 20%,
-                rgba(212, 181, 109, 0.4) 50%,
-                rgba(255, 255, 255, 0.7) 80%,
-                white 100%);
-            filter: blur(0.3px);
+            width: 1px;
+            height: 1px;
+            background: rgba(201, 169, 97, 0.3);
+            border-radius: 50%;
+            opacity: 0;
         }
 
-        .research-particle::after {
-            content: '';
+        @keyframes dustDrift {
+            0% { 
+                opacity: 0;
+                transform: translate(0, 0);
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% { 
+                opacity: 0;
+                transform: translate(-100px, 50px);
+            }
+        }
+
+        /* Satellite/spacecraft - slow moving light */
+        .satellite {
             position: absolute;
-            top: 50%;
-            right: 2px;
-            transform: translateY(-50%);
-            width: 45px;
-            height: 0.5px;
-            background: linear-gradient(90deg, 
-                transparent 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(255, 255, 255, 0.6) 100%);
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.6);
+            opacity: 0;
         }
 
-        @keyframes shootingStar1 {
-            0% { transform: translate(0, 0) rotate(-35deg) scale(0); opacity: 0; }
-            3% { opacity: 1; transform: translate(-8px, 5px) rotate(-35deg) scale(1); }
-            100% { transform: translate(-320px, 230px) rotate(-38deg) scale(0.4); opacity: 0; }
-        }
-
-        @keyframes shootingStar2 {
-            0% { transform: translate(0, 0) rotate(-50deg) scale(0); opacity: 0; }
-            3% { opacity: 1; transform: translate(-6px, 8px) rotate(-50deg) scale(1); }
-            100% { transform: translate(-250px, 320px) rotate(-55deg) scale(0.3); opacity: 0; }
-        }
-
-        @keyframes shootingStar3 {
-            0% { transform: translate(0, 0) rotate(-25deg) scale(0); opacity: 0; }
-            3% { opacity: 1; transform: translate(-10px, 4px) rotate(-25deg) scale(1); }
-            100% { transform: translate(-380px, 180px) rotate(-28deg) scale(0.5); opacity: 0; }
-        }
-
-        @keyframes shootingStar4 {
-            0% { transform: translate(0, 0) rotate(-42deg) scale(0); opacity: 0; }
-            3% { opacity: 1; transform: translate(-7px, 6px) rotate(-42deg) scale(1); }
-            100% { transform: translate(-300px, 270px) rotate(-48deg) scale(0.35); opacity: 0; }
-        }
-
-        @keyframes shootingStar5 {
-            0% { transform: translate(0, 0) rotate(-60deg) scale(0); opacity: 0; }
-            3% { opacity: 1; transform: translate(-5px, 10px) rotate(-60deg) scale(1); }
-            100% { transform: translate(-200px, 380px) rotate(-65deg) scale(0.3); opacity: 0; }
-        }
-
-        @keyframes shootingStar6 {
-            0% { transform: translate(0, 0) rotate(-30deg) scale(0); opacity: 0; }
-            3% { opacity: 1; transform: translate(-9px, 5px) rotate(-30deg) scale(1); }
-            100% { transform: translate(-360px, 210px) rotate(-33deg) scale(0.45); opacity: 0; }
+        @keyframes satellitePass {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0);
+            }
+            5% {
+                opacity: 0.8;
+            }
+            95% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-400px, 200px);
+            }
         }
 
         /* Stats Section */
@@ -2272,89 +2285,163 @@
             });
         }
 
-        // Create pulsating stars for research interests section
+        // Create pulsating stars for research interests section (distant stars)
         function createPulsatingStars() {
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
             
-            const numPulsatingStars = 50;
+            const numStars = 60; // Reduced for more realistic stellar density
             
-            for (let i = 0; i < numPulsatingStars; i++) {
+            for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'pulsating-star';
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 
-                const duration = (2 + Math.random() * 4).toFixed(1);
-                const delay = (Math.random() * 5).toFixed(1);
+                const duration = (4 + Math.random() * 6).toFixed(1);
+                const delay = (Math.random() * 8).toFixed(1);
                 star.style.animation = `pulsate ${duration}s ease-in-out ${delay}s infinite`;
                 
                 const sizeVariant = Math.random();
-                if (sizeVariant < 0.4) {
+                if (sizeVariant < 0.7) {
+                    star.style.width = '1px';
+                    star.style.height = '1px';
+                } else if (sizeVariant < 0.9) {
                     star.style.width = '1.5px';
                     star.style.height = '1.5px';
-                } else if (sizeVariant < 0.8) {
+                } else {
                     star.style.width = '2px';
                     star.style.height = '2px';
-                } else {
-                    star.style.width = '2.5px';
-                    star.style.height = '2.5px';
                 }
                 
                 particlesContainer.appendChild(star);
             }
         }
 
-        // Create shooting stars
-        function createResearchParticles() {
+        // Create distant galaxies
+        function createDistantGalaxies() {
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
             
-            const numParticles = 16;
-            const animations = ['shootingStar1', 'shootingStar2', 'shootingStar3', 'shootingStar4', 'shootingStar5', 'shootingStar6'];
+            const numGalaxies = 8;
             
-            for (let i = 0; i < numParticles; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'research-particle';
+            for (let i = 0; i < numGalaxies; i++) {
+                const galaxy = document.createElement('div');
+                galaxy.className = 'distant-galaxy';
                 
-                const startFromTop = Math.random() > 0.35;
-                if (startFromTop) {
-                    particle.style.left = (10 + Math.random() * 85) + '%';
-                    particle.style.top = -(Math.random() * 40 + 5) + 'px';
-                } else {
-                    particle.style.left = 'calc(100% + ' + (Math.random() * 40 + 5) + 'px)';
-                    particle.style.top = (Math.random() * 60) + '%';
-                }
+                // Random position
+                galaxy.style.left = (10 + Math.random() * 80) + '%';
+                galaxy.style.top = (10 + Math.random() * 80) + '%';
                 
-                const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-                const randomDuration = (3.5 + Math.random() * 4).toFixed(1);
-                const randomDelay = (Math.random() * 15).toFixed(1);
+                // Random rotation for ellipse orientation
+                galaxy.style.transform = `rotate(${Math.random() * 180}deg)`;
                 
-                particle.style.animation = `${randomAnim} ${randomDuration}s ease-out ${randomDelay}s infinite`;
+                // Varying sizes
+                const size = 6 + Math.random() * 8;
+                galaxy.style.width = size + 'px';
+                galaxy.style.height = (size * 0.4) + 'px';
                 
-                const sizeVariant = Math.random();
-                if (sizeVariant < 0.3) {
-                    particle.style.width = '1.5px';
-                    particle.style.height = '1.5px';
-                    particle.style.boxShadow = '0 0 2px 1px rgba(255,255,255,0.85), 0 0 6px 2px rgba(184,157,85,0.5)';
-                } else if (sizeVariant < 0.7) {
-                    particle.style.width = '2px';
-                    particle.style.height = '2px';
-                } else if (sizeVariant < 0.9) {
-                    particle.style.width = '2.5px';
-                    particle.style.height = '2.5px';
-                    particle.style.boxShadow = '0 0 4px 1px rgba(255,255,255,0.95), 0 0 10px 3px rgba(212,181,109,0.5), 0 0 16px 4px rgba(212,181,109,0.25)';
-                } else {
-                    particle.style.width = '3px';
-                    particle.style.height = '3px';
-                    particle.style.boxShadow = '0 0 4px 2px rgba(255,255,255,1), 0 0 12px 4px rgba(201,169,97,0.6), 0 0 20px 6px rgba(201,169,97,0.3)';
-                }
+                // Animation
+                const duration = (15 + Math.random() * 10).toFixed(1);
+                const delay = (Math.random() * 10).toFixed(1);
+                galaxy.style.animation = `galaxyFade ${duration}s ease-in-out ${delay}s infinite`;
                 
-                const trailLength = 25 + Math.random() * 50;
-                particle.style.setProperty('--trail-length', trailLength + 'px');
-                
-                particlesContainer.appendChild(particle);
+                particlesContainer.appendChild(galaxy);
             }
+        }
+
+        // Create nebula glows
+        function createNebulaGlows() {
+            const particlesContainer = document.querySelector('.research-particles');
+            if (!particlesContainer) return;
+            
+            const numNebulae = 4;
+            const colors = [
+                'rgba(201, 169, 97, 0.15)',
+                'rgba(180, 150, 255, 0.12)',
+                'rgba(255, 200, 150, 0.13)',
+                'rgba(150, 200, 255, 0.11)'
+            ];
+            
+            for (let i = 0; i < numNebulae; i++) {
+                const nebula = document.createElement('div');
+                nebula.className = 'nebula-glow';
+                
+                // Random position
+                nebula.style.left = (Math.random() * 100) + '%';
+                nebula.style.top = (Math.random() * 100) + '%';
+                
+                // Large, diffuse size
+                const size = 100 + Math.random() * 150;
+                nebula.style.width = size + 'px';
+                nebula.style.height = size + 'px';
+                
+                // Random color
+                nebula.style.background = `radial-gradient(circle, ${colors[i]} 0%, transparent 70%)`;
+                
+                // Very slow animation
+                const duration = (40 + Math.random() * 30).toFixed(1);
+                const delay = (Math.random() * 20).toFixed(1);
+                nebula.style.animation = `nebulaFloat ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(nebula);
+            }
+        }
+
+        // Create cosmic dust particles
+        function createCosmicDust() {
+            const particlesContainer = document.querySelector('.research-particles');
+            if (!particlesContainer) return;
+            
+            const numDust = 30;
+            
+            for (let i = 0; i < numDust; i++) {
+                const dust = document.createElement('div');
+                dust.className = 'cosmic-dust';
+                
+                // Random starting position
+                dust.style.left = (20 + Math.random() * 80) + '%';
+                dust.style.top = (Math.random() * 100) + '%';
+                
+                // Very slow drift
+                const duration = (60 + Math.random() * 60).toFixed(1);
+                const delay = (Math.random() * 40).toFixed(1);
+                dust.style.animation = `dustDrift ${duration}s linear ${delay}s infinite`;
+                
+                particlesContainer.appendChild(dust);
+            }
+        }
+
+        // Create satellite/spacecraft passes (rare events)
+        function createSatellitePasses() {
+            const particlesContainer = document.querySelector('.research-particles');
+            if (!particlesContainer) return;
+            
+            const numSatellites = 3;
+            
+            for (let i = 0; i < numSatellites; i++) {
+                const satellite = document.createElement('div');
+                satellite.className = 'satellite';
+                
+                // Start from top-right area
+                satellite.style.left = (70 + Math.random() * 30) + '%';
+                satellite.style.top = (Math.random() * 30) + '%';
+                
+                // Very slow, rare passes
+                const duration = (80 + Math.random() * 60).toFixed(1);
+                const delay = (i * 40 + Math.random() * 30).toFixed(1);
+                satellite.style.animation = `satellitePass ${duration}s linear ${delay}s infinite`;
+                
+                particlesContainer.appendChild(satellite);
+            }
+        }
+
+        // Create research section particles
+        function createResearchParticles() {
+            createDistantGalaxies();
+            createNebulaGlows();
+            createCosmicDust();
+            createSatellitePasses();
         }
 
         // Scroll reveal animation
