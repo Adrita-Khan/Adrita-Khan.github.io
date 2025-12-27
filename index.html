@@ -577,6 +577,53 @@
             text-align: justify;
         }
 
+        /* Compact About Section */
+        .about-content-compact {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .about-content-compact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-content-compact:hover::before {
+            opacity: 1;
+        }
+
+        .about-content-compact:hover {
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            transform: translateX(4px);
+        }
+
+        .about-content-compact p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about-content-compact p:last-child {
+            margin-bottom: 0;
+        }
+
         /* Current Positions */
         .positions-grid {
             display: grid;
@@ -1666,14 +1713,16 @@
                 <h2>About Me</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="about-content reveal">
-<p>
-Greetings, everyone! I am Adrita Khan, a graduate of the University of Science, Malaysia, with a major in Physics and a minor in Astronomy. I am an early career researcher focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, high energy astroparticle physics, and statistical and machine learning applications in astrophysics.
-My research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data, advancing our understanding of gravitational phenomena on cosmological scales. I am developing machine learning and deep learning methodologies for radio astronomy, with expertise in automated classification of bent radio active galactic nuclei and semi-supervised learning approaches to advance bent radio active galactic nuclei (AGN) detection and characterization.
-I am working on gamma-ray burst redshift estimation to use it as a standard candle in cosmology. I designed the Explainable Polynomial Chebyshev Network (EPCN)—a neural architecture that incorporates interpretable interaction features into Chebyshev-based frameworks, providing physical insight. My work includes radio frequency interference (RFI) detection and mitigation using machine learning techniques.
-My research goal is advancing precision cosmology at the intersection of theoretical frameworks and empirical observations, particularly within next-generation surveys such as the Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST), the Euclid mission, and the Dark Energy Spectroscopic Instrument (DESI). I employ computational methodologies, including machine learning, Bayesian inference, and cosmological emulation, to extract empirical constraints on questions related to the universe's origin, evolution, and matter-energy composition.
-Beyond research, I am committed to fostering scientific diversity, equity, and inclusion within the academic community. I believe that collaborative, interdisciplinary approaches are necessary for addressing questions in cosmology and for democratizing access to knowledge within and beyond academia.
-</p>
+            <div class="about-content-compact reveal">
+                <p>
+                    Graduate from the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. Early career researcher focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, high energy astroparticle physics, and statistical and machine learning applications in astrophysics.
+                </p>
+                <p>
+                    My research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data. I am developing machine learning and deep learning methodologies for radio astronomy, with expertise in automated classification of bent radio AGN and semi-supervised learning approaches. Currently working on gamma-ray burst redshift estimation and designed the Explainable Polynomial Chebyshev Network (EPCN)—a neural architecture incorporating interpretable interaction features into Chebyshev-based frameworks.
+                </p>
+                <p>
+                    My research goal is advancing precision cosmology at the intersection of theoretical frameworks and empirical observations, particularly within next-generation surveys such as the Vera C. Rubin Observatory's LSST, the Euclid mission, and DESI. I employ computational methodologies including machine learning, Bayesian inference, and cosmological emulation to extract empirical constraints on the universe's origin, evolution, and matter-energy composition. Committed to fostering scientific diversity, equity, and inclusion within the academic community.
+                </p>
             </div>
         </div>
     </section>
