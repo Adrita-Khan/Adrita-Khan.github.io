@@ -221,7 +221,7 @@
         }
 
         .hero-text {
-            opacity: 0;
+            opacity: 1;
             animation: fadeSlideUp 1s ease forwards;
             animation-delay: 0.3s;
         }
@@ -283,7 +283,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
+            opacity: 1;
             animation: fadeScale 1s ease forwards;
             animation-delay: 0.6s;
         }
@@ -1675,11 +1675,11 @@
             margin-bottom: 0.3rem;
         }
 
-        /* Scroll Reveal Animation */
+        /* Scroll Reveal Animation - Disabled, everything loads at once */
         .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: translateY(0);
+            transition: none;
         }
 
         .reveal.active {
@@ -2259,7 +2259,7 @@
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
             
-            const numStars = 60; // Reduced for more realistic stellar density
+            const numStars = 60;
             
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
@@ -2298,19 +2298,14 @@
                 const galaxy = document.createElement('div');
                 galaxy.className = 'distant-galaxy';
                 
-                // Random position
                 galaxy.style.left = (10 + Math.random() * 80) + '%';
                 galaxy.style.top = (10 + Math.random() * 80) + '%';
-                
-                // Random rotation for ellipse orientation
                 galaxy.style.transform = `rotate(${Math.random() * 180}deg)`;
                 
-                // Varying sizes
                 const size = 6 + Math.random() * 8;
                 galaxy.style.width = size + 'px';
                 galaxy.style.height = (size * 0.4) + 'px';
                 
-                // Animation
                 const duration = (15 + Math.random() * 10).toFixed(1);
                 const delay = (Math.random() * 10).toFixed(1);
                 galaxy.style.animation = `galaxyFade ${duration}s ease-in-out ${delay}s infinite`;
@@ -2336,19 +2331,15 @@
                 const nebula = document.createElement('div');
                 nebula.className = 'nebula-glow';
                 
-                // Random position
                 nebula.style.left = (Math.random() * 100) + '%';
                 nebula.style.top = (Math.random() * 100) + '%';
                 
-                // Large, diffuse size
                 const size = 100 + Math.random() * 150;
                 nebula.style.width = size + 'px';
                 nebula.style.height = size + 'px';
                 
-                // Random color
                 nebula.style.background = `radial-gradient(circle, ${colors[i]} 0%, transparent 70%)`;
                 
-                // Very slow animation
                 const duration = (40 + Math.random() * 30).toFixed(1);
                 const delay = (Math.random() * 20).toFixed(1);
                 nebula.style.animation = `nebulaFloat ${duration}s ease-in-out ${delay}s infinite`;
@@ -2368,11 +2359,9 @@
                 const dust = document.createElement('div');
                 dust.className = 'cosmic-dust';
                 
-                // Random starting position
                 dust.style.left = (20 + Math.random() * 80) + '%';
                 dust.style.top = (Math.random() * 100) + '%';
                 
-                // Very slow drift
                 const duration = (60 + Math.random() * 60).toFixed(1);
                 const delay = (Math.random() * 40).toFixed(1);
                 dust.style.animation = `dustDrift ${duration}s linear ${delay}s infinite`;
@@ -2381,7 +2370,7 @@
             }
         }
 
-        // Create satellite/spacecraft passes (rare events)
+        // Create satellite/spacecraft passes
         function createSatellitePasses() {
             const particlesContainer = document.querySelector('.research-particles');
             if (!particlesContainer) return;
@@ -2392,11 +2381,9 @@
                 const satellite = document.createElement('div');
                 satellite.className = 'satellite';
                 
-                // Start from top-right area
                 satellite.style.left = (70 + Math.random() * 30) + '%';
                 satellite.style.top = (Math.random() * 30) + '%';
                 
-                // Very slow, rare passes
                 const duration = (80 + Math.random() * 60).toFixed(1);
                 const delay = (i * 40 + Math.random() * 30).toFixed(1);
                 satellite.style.animation = `satellitePass ${duration}s linear ${delay}s infinite`;
@@ -2413,36 +2400,18 @@
             createSatellitePasses();
         }
 
-        // Scroll reveal animation
+        // Scroll reveal animation - DISABLED
         function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            reveals.forEach((element, index) => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    element.style.transitionDelay = (index % 4) * 0.1 + 's';
-                    element.classList.add('active');
-                    
-                    // Trigger counter animation for stats
-                    if (element.id === 'statsContainer' && !element.dataset.animated) {
-                        element.dataset.animated = 'true';
-                        animateStats();
-                    }
-                }
-            });
+            // All elements now load at once - no scroll-based reveals
         }
 
-        // Animate stats counters (professional version)
+        // Animate stats counters
         function animateStats() {
             const statNumbers = document.querySelectorAll('.stat-inline-number');
             
             statNumbers.forEach((stat, index) => {
                 const target = stat.dataset.target;
                 
-                // Skip infinity symbol
                 if (target === 'infinity') {
                     setTimeout(() => {
                         stat.classList.add('counting');
@@ -2452,7 +2421,7 @@
                 }
                 
                 const targetValue = parseInt(target);
-                const duration = 1200; // 1.2 seconds
+                const duration = 1200;
                 const steps = 40;
                 const increment = targetValue / steps;
                 const stepDuration = duration / steps;
@@ -2480,10 +2449,15 @@
             createPulsatingStars();
             createResearchParticles();
             createCMBSpots();
-            revealOnScroll();
+            // Immediately reveal all elements and animate stats
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                element.classList.add('active');
+                if (element.id === 'statsContainer') {
+                    animateStats();
+                }
+            });
         });
-
-        window.addEventListener('scroll', revealOnScroll);
 
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
