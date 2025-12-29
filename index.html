@@ -31,7 +31,6 @@
             color: var(--text-light);
         }
 
-        /* Enhanced Cosmic Background */
         .cosmic-bg {
             position: fixed;
             top: 0;
@@ -45,7 +44,6 @@
             z-index: 0;
         }
 
-        /* Nebula Effect */
         .nebula {
             position: fixed;
             top: 0;
@@ -116,7 +114,6 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* Quick Links Navigation */
         #quick-links {
             position: relative;
             z-index: 100;
@@ -190,7 +187,6 @@
                 0 0 40px rgba(201, 169, 97, 0.1);
         }
 
-        /* Color coding */
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -200,7 +196,6 @@
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
-        /* Hero Section */
         .hero {
             position: relative;
             z-index: 10;
@@ -284,19 +279,6 @@
             justify-content: center;
             align-items: center;
             opacity: 1;
-            animation: fadeScale 1s ease forwards;
-            animation-delay: 0.6s;
-        }
-
-        @keyframes fadeScale {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         .profile-picture-container {
@@ -322,7 +304,6 @@
                 0 15px 50px rgba(0, 0, 0, 0.5);
         }
 
-        /* Research Interests */
         .interests-section {
             margin: 2rem 0;
         }
@@ -382,7 +363,6 @@
             box-shadow: 0 8px 25px rgba(201, 169, 97, 0.2);
         }
 
-        /* Social Links */
         .social-links {
             display: flex;
             gap: 1rem;
@@ -445,7 +425,6 @@
             transform: scale(1.1);
         }
 
-        /* Section Styling */
         section {
             position: relative;
             z-index: 10;
@@ -506,7 +485,6 @@
             to { left: 100%; }
         }
 
-        /* About Section */
         .about-content {
             background: rgba(201, 169, 97, 0.05);
             border: 1px solid rgba(201, 169, 97, 0.15);
@@ -541,7 +519,6 @@
             text-align: justify;
         }
 
-        /* Compact About Section */
         .about-content-compact {
             background: rgba(201, 169, 97, 0.05);
             border: 1px solid rgba(201, 169, 97, 0.15);
@@ -588,7 +565,6 @@
             margin-bottom: 0;
         }
 
-        /* Current Positions */
         .positions-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -680,7 +656,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Compact Positions Layout */
         .positions-compact {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -750,7 +725,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Research Highlight */
         .research-card {
             background: rgba(201, 169, 97, 0.05);
             border: 1px solid rgba(201, 169, 97, 0.15);
@@ -803,6 +777,7 @@
                 0 0 30px rgba(201, 169, 97, 0.3),
                 0 0 60px rgba(201, 169, 97, 0.2),
                 inset 0 0 40px rgba(0, 0, 0, 0.5);
+            animation: cmbPulseGlow 6s ease-in-out infinite;
         }
 
         .cmb-core {
@@ -864,6 +839,21 @@
             50% { 
                 opacity: 0.85;
                 transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        @keyframes cmbPulseGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(201, 169, 97, 0.3),
+                    0 0 60px rgba(201, 169, 97, 0.2),
+                    inset 0 0 40px rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                box-shadow: 
+                    0 0 50px rgba(201, 169, 97, 0.5),
+                    0 0 100px rgba(201, 169, 97, 0.3),
+                    inset 0 0 40px rgba(0, 0, 0, 0.5);
             }
         }
 
@@ -994,7 +984,6 @@
                 0 0 40px rgba(201, 169, 97, 0.2);
         }
 
-        /* Publications Section */
         .publications-grid {
             display: grid;
             gap: 2rem;
@@ -1132,7 +1121,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Enhanced Research Interests Detail Section */
         .research-interests-main {
             position: relative;
             padding: 2rem 1.5rem;
@@ -1163,15 +1151,6 @@
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-light), var(--gold-dark));
             margin: 0 auto;
             border-radius: 2px;
-        }
-
-        .research-section-header p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.6rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .research-interests-grid {
@@ -1249,31 +1228,18 @@
             overflow: hidden;
         }
 
-        .research-card-icon::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
-            animation: iconShine 3s ease infinite;
-        }
-
-        @keyframes iconShine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-
         .research-interest-card:nth-child(1) .research-card-icon {
             background: linear-gradient(135deg, #c9a961, #d4b56d);
         }
+
         .research-interest-card:nth-child(2) .research-card-icon {
             background: linear-gradient(135deg, #d4b56d, #e8dcc4);
         }
+
         .research-interest-card:nth-child(3) .research-card-icon {
             background: linear-gradient(135deg, #b89d55, #c9a961);
         }
+
         .research-interest-card:nth-child(4) .research-card-icon {
             background: linear-gradient(135deg, #c9a961, #d4b56d);
         }
@@ -1325,7 +1291,6 @@
             opacity: 1;
         }
 
-        /* Research particles container */
         .research-particles {
             position: absolute;
             top: 0;
@@ -1337,124 +1302,6 @@
             z-index: 1;
         }
 
-        /* Distant stars - static with subtle twinkle */
-        .pulsating-star {
-            position: absolute;
-            width: 1.5px;
-            height: 1.5px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 2px 0.5px rgba(255, 255, 255, 0.6);
-        }
-
-        @keyframes pulsate {
-            0%, 100% { 
-                opacity: 0.4;
-                transform: scale(1);
-                box-shadow: 0 0 2px 0.5px rgba(255, 255, 255, 0.4);
-            }
-            50% { 
-                opacity: 0.9;
-                transform: scale(1.1);
-                box-shadow: 0 0 3px 1px rgba(201, 169, 97, 0.6);
-            }
-        }
-
-        /* Distant galaxies - small glowing ellipses */
-        .distant-galaxy {
-            position: absolute;
-            width: 8px;
-            height: 4px;
-            border-radius: 50%;
-            background: radial-gradient(ellipse, rgba(201, 169, 97, 0.3) 0%, rgba(201, 169, 97, 0.1) 50%, transparent 100%);
-            opacity: 0;
-            filter: blur(1px);
-        }
-
-        @keyframes galaxyFade {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 0.6; }
-        }
-
-        /* Nebula-like glows - large diffuse clouds */
-        .nebula-glow {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0;
-        }
-
-        @keyframes nebulaFloat {
-            0% { 
-                opacity: 0;
-                transform: translate(0, 0) scale(0.8);
-            }
-            50% { 
-                opacity: 0.15;
-                transform: translate(20px, -15px) scale(1);
-            }
-            100% { 
-                opacity: 0;
-                transform: translate(40px, -30px) scale(0.8);
-            }
-        }
-
-        /* Cosmic dust particles - very subtle drift */
-        .cosmic-dust {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            background: rgba(201, 169, 97, 0.3);
-            border-radius: 50%;
-            opacity: 0;
-        }
-
-        @keyframes dustDrift {
-            0% { 
-                opacity: 0;
-                transform: translate(0, 0);
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% { 
-                opacity: 0;
-                transform: translate(-100px, 50px);
-            }
-        }
-
-        /* Satellite/spacecraft - slow moving light */
-        .satellite {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.6);
-            opacity: 0;
-        }
-
-        @keyframes satellitePass {
-            0% {
-                opacity: 0;
-                transform: translate(0, 0);
-            }
-            5% {
-                opacity: 0.8;
-            }
-            95% {
-                opacity: 0.8;
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-400px, 200px);
-            }
-        }
-
-        /* Stats Section */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -1538,7 +1385,6 @@
             z-index: 1;
         }
 
-        /* Inline Stats Layout - COMPACT VERSION */
         .stats-inline {
             display: flex;
             align-items: center;
@@ -1596,16 +1442,7 @@
             min-width: 30px;
             text-align: center;
             position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .stat-inline-number.counting {
-            animation: numberFadeIn 0.5s ease;
-        }
-
-        @keyframes numberFadeIn {
-            0% { opacity: 0; transform: translateY(5px); }
-            100% { opacity: 1; transform: translateY(0); }
+            transition: none;
         }
 
         .stat-inline-label {
@@ -1627,22 +1464,100 @@
             position: relative;
         }
 
-        .stat-inline-divider::before {
+        /* Technical Skills Grid - Compact Layout */
+        .tech-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-skill-card {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 1rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-skill-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background: linear-gradient(to bottom, transparent, var(--gold-primary), transparent);
-            transition: height 0.5s ease;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .stats-inline.active .stat-inline-divider::before {
-            height: 100%;
+        .tech-skill-card:hover::before {
+            opacity: 1;
         }
 
-        /* Footer */
+        .tech-skill-card:hover {
+            transform: translateY(-4px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(201, 169, 97, 0.1);
+            border-left-color: var(--gold-light);
+        }
+
+        .tech-skill-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.3px;
+        }
+
+        .tech-skill-items {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0;
+            text-align: left;
+        }
+
+        .tech-skill-items:hover {
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 1024px) {
+            .tech-skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .tech-skills-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .tech-skill-card {
+                padding: 0.8rem;
+            }
+
+            .tech-skill-title {
+                font-size: 0.9rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .tech-skill-items {
+                font-size: 0.75rem;
+                line-height: 1.5;
+            }
+        }
+
         footer {
             position: relative;
             z-index: 10;
@@ -1675,11 +1590,12 @@
             margin-bottom: 0.3rem;
         }
 
-        /* Scroll Reveal Animation - Disabled, everything loads at once */
         .reveal {
             opacity: 1;
             transform: translateY(0);
             transition: none;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .reveal.active {
@@ -1687,7 +1603,6 @@
             transform: translateY(0);
         }
 
-        /* Responsive Design */
         @media (max-width: 1200px) {
             .research-interests-grid {
                 grid-template-columns: 1fr;
@@ -1811,24 +1726,22 @@
     <div class="nebula"></div>
     <div class="stars"></div>
 
-    <!-- Quick Links Navigation -->
     <section id="quick-links">
         <div class="nav-container">
-          <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="academic_experience.html">Academic Experience</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="notes.html">Study Notes</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </section>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
@@ -1854,11 +1767,9 @@
                     <a href="https://github.com/Adrita-Khan" target="_blank" class="social-icon" title="GitHub">
                         <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </a>
-                    
                     <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" class="social-icon" title="ResearchGate">
                         <svg viewBox="0 0 24 24"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.121 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53h-.005a3.334 3.334 0 0 0 .113.438c.245.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.505.177-.877a10.65 10.65 0 0 0 .043-1.207v-.082c0-.26-.004-.52-.043-1.207a7.589 7.589 0 0 0-.177-.876c-.235-.735-.605-1.262-1.175-1.652C21.122.211 20.386 0 19.586 0zM7.868 5.8a3.47 3.47 0 0 0-.684.068 3.372 3.372 0 0 0-.607.182c-.539.232-.911.624-1.122 1.174a3.81 3.81 0 0 0-.296 1.563v6.876a3.81 3.81 0 0 0 .296 1.564c.211.55.583.943 1.122 1.174.205.087.4.142.607.182.2.04.428.068.684.068h5.956a3.47 3.47 0 0 0 .684-.068 3.372 3.372 0 0 0 .607-.182c.539-.231.911-.624 1.122-1.174a3.81 3.81 0 0 0 .296-1.563V8.787a3.81 3.81 0 0 0-.296-1.563c-.211-.55-.583-.942-1.122-1.174a3.372 3.372 0 0 0-.607-.182 3.47 3.47 0 0 0-.684-.068H7.868z"/></svg>
                     </a>
-
                     <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" class="social-icon" title="Google Scholar">
                         <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
                     </a>
@@ -1873,13 +1784,12 @@
 
             <div class="profile-image-wrapper">
                 <div class="profile-picture-container">
-                    <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" alt="Adrita Khan" class="profile-picture">
+                    <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" alt="Adrita Khan" class="profile-picture" width="350" height="350" decoding="async">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="section-alt">
         <div class="container">
             <div class="section-header">
@@ -1887,20 +1797,13 @@
                 <div class="section-line"></div>
             </div>
             <div class="about-content-compact reveal">
-                <p>
-                    Graduate from the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. Early career researcher focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, high energy astroparticle physics, and statistical and machine learning applications in astrophysics.
-                </p>
-                <p>
-                    My research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data. I am developing machine learning and deep learning methodologies for radio astronomy, with expertise in automated classification of bent radio AGN and semi-supervised learning approaches. Currently working on gamma-ray burst redshift estimation and designed the Explainable Polynomial Chebyshev Network (EPCN)—a neural architecture incorporating interpretable interaction features into Chebyshev-based frameworks.
-                </p>
-                <p>
-                    My research goal is advancing precision cosmology at the intersection of theoretical frameworks and empirical observations, particularly within next-generation surveys such as the Vera C. Rubin Observatory's LSST, the Euclid mission, and DESI. I employ computational methodologies including machine learning, Bayesian inference, and cosmological emulation to extract empirical constraints on the universe's origin, evolution, and matter-energy composition. Committed to fostering scientific diversity, equity, and inclusion within the academic community.
-                </p>
+                <p>Graduate from the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. Early career researcher focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, high energy astroparticle physics, and statistical and machine learning applications in astrophysics.</p>
+                <p>My research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data. I am developing machine learning and deep learning methodologies for radio astronomy, with expertise in automated classification of bent radio AGN and semi-supervised learning approaches. Currently working on gamma-ray burst redshift estimation and designed the Explainable Polynomial Chebyshev Network (EPCN)—a neural architecture incorporating interpretable interaction features into Chebyshev-based frameworks.</p>
+                <p>My research goal is advancing precision cosmology at the intersection of theoretical frameworks and empirical observations, particularly within next-generation surveys such as the Vera C. Rubin Observatory's LSST, the Euclid mission, and DESI. I employ computational methodologies including machine learning, Bayesian inference, and cosmological emulation to extract empirical constraints on the universe's origin, evolution, and matter-energy composition. Committed to fostering scientific diversity, equity, and inclusion within the academic community.</p>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
     <section class="section-dark">
         <div class="container">
             <div class="section-header">
@@ -1933,9 +1836,7 @@
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Honours Research Project</span>
                                 </div>
                             </div>
-                            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">
-                                Developed comprehensive expertise in quantum mechanics, astrophysics, mathematical physics, and computational methods. Specialized in astronomy with focus on astrophysical phenomena and observational techniques.
-                            </p>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">Developed comprehensive expertise in quantum mechanics, astrophysics, mathematical physics, and computational methods. Specialized in astronomy with focus on astrophysical phenomena and observational techniques.</p>
                         </div>
                     </div>
                 </div>
@@ -1943,7 +1844,6 @@
         </div>
     </section>
 
-    <!-- Featured Research -->
     <section class="section-alt">
         <div class="container">
             <div class="section-header">
@@ -1968,7 +1868,6 @@
         </div>
     </section>
 
-    <!-- Publications Section -->
     <section class="section-dark">
         <div class="container">
             <div class="section-header">
@@ -1983,21 +1882,14 @@
                         <p class="publication-venue">Preprint</p>
                         <p class="publication-date">arXiv:2512.07420 | December 2025</p>
                     </div>
-                    <p class="publication-description">
-                        We introduce the Explainable Particle Chebyshev Network (E-PCN), a graph neural network extending the Particle Chebyshev Network (PCN) for interpretable jet classification in high-energy collider experiments. E-PCN integrates kinematic variables by constructing four graph representations per jet, each weighted by a distinct variable: angular separation (Δ), transverse momentum (k_T), momentum fraction (z), and invariant mass squared (m²). Using Gradient-weighted Class Activation Mapping (Grad-CAM), we determine which kinematic variables dominate classification outcomes. Analysis reveals that angular separation and transverse momentum collectively account for approximately 76% of classification decisions (40.72% and 35.67%, respectively), with momentum fraction and invariant mass contributing the remaining 24%. Evaluated on the JetClass dataset with 10 signal classes, E-PCN achieves a macro-accuracy of 94.67%, macro-AUC of 96.78%, and macro-AUPR of 86.79%, representing improvements of 2.36%, 4.13%, and 24.88% respectively over the baseline PCN implementation, while demonstrating physically interpretable feature learning.
-                    </p>
+                    <p class="publication-description">We introduce the Explainable Particle Chebyshev Network (E-PCN), a graph neural network extending the Particle Chebyshev Network (PCN) for interpretable jet classification in high-energy collider experiments. E-PCN integrates kinematic variables by constructing four graph representations per jet, each weighted by a distinct variable: angular separation (Δ), transverse momentum (k_T), momentum fraction (z), and invariant mass squared (m²). Using Gradient-weighted Class Activation Mapping (Grad-CAM), we determine which kinematic variables dominate classification outcomes.</p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/abs/2512.07420" target="_blank" class="pub-link">📄 arXiv</a>
                         <a href="https://github.com/Adrita-Khan/Jet-Tagging" target="_blank" class="pub-link">💻 GitHub</a>
                         <span class="pub-tag">Preprint</span>
                         <span class="pub-tag">High Energy Physics</span>
-                        <span class="pub-tag">Graph Neural Networks</span>
-                        <span class="pub-tag">Explainable AI</span>
                     </div>
                 </div>
-
-                
-
 
                 <div class="publication-card reveal">
                     <div class="publication-header">
@@ -2006,17 +1898,11 @@
                         <p class="publication-venue">Preprint</p>
                         <p class="publication-date">arXiv:2510.22190 | October 2025</p>
                     </div>
-                    <p class="publication-description">
-                        We present RGC (Radio Galaxy Classifier), a deep learning-based semi-supervised model designed for classifying bent radio active galactic nuclei (AGN) from Very Large Array (VLA) images. Out of the estimated few trillion galaxies, only around a million have been detected through radio frequencies, and only a tiny fraction have been manually classified. We address this disparity between labeled and unlabeled images of radio galaxies by employing a semi-supervised learning approach. The model leverages both labeled and unlabeled data to improve classification performance and generalization. This work represents an important step toward automated classification of radio AGN, enabling more efficient processing of large-scale radio surveys and advancing our understanding of AGN physics and galaxy evolution in cluster environments.
-                    </p>
+                    <p class="publication-description">We present RGC (Radio Galaxy Classifier), a deep learning-based semi-supervised model designed for classifying bent radio active galactic nuclei (AGN) from Very Large Array (VLA) images. This work represents an important step toward automated classification of radio AGN, enabling more efficient processing of large-scale radio surveys.</p>
                     <div class="publication-links">
-                        <a href="https://arxiv.org/abs/2510.22190" target="_blank" class="pub-link">
-                            📄 arXiv
-                        </a>
+                        <a href="https://arxiv.org/abs/2510.22190" target="_blank" class="pub-link">📄 arXiv</a>
                         <span class="pub-tag">Preprint</span>
                         <span class="pub-tag">Radio Astronomy</span>
-                        <span class="pub-tag">Semi-Supervised Learning</span>
-                        <span class="pub-tag">Deep Learning</span>
                     </div>
                 </div>
 
@@ -2027,29 +1913,18 @@
                         <p class="publication-venue">2025 IEEE International Conference on Image Processing (ICIP 2025)</p>
                         <p class="publication-date">arXiv:2505.19249 | May 2025</p>
                     </div>
-                    <p class="publication-description">
-                        We introduce RGC-Bent, a curated dataset of 639 radio galaxy images designed to support machine learning-based classification of bent radio AGN into Wide-Angle Tailed (WAT) and Narrow-Angle Tailed (NAT) types. Bent radio AGN, distinguished by their curved jet structures, provide critical insights into galaxy cluster dynamics, interactions within the intracluster medium, and the broader physics of AGN. Despite their astrophysical significance, classification of bent radio AGN remains challenging due to the scarcity of specialized datasets and benchmarks. We present detailed data processing steps and evaluate state-of-the-art deep learning models including CNNs and transformer-based architectures. ConvNeXT achieves the highest F1-scores for both NAT and WAT sources, demonstrating the effectiveness of advanced machine learning models in classifying bent radio AGN. By sharing this dataset and benchmarks, we facilitate the advancement of research in AGN classification, galaxy cluster environments, and galaxy evolution.
-                    </p>
+                    <p class="publication-description">We introduce RGC-Bent, a curated dataset of 639 radio galaxy images designed to support machine learning-based classification of bent radio AGN. ConvNeXT achieves the highest F1-scores for both NAT and WAT sources, demonstrating the effectiveness of advanced machine learning models in classifying bent radio AGN.</p>
                     <div class="publication-links">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="pub-link">
-                            📘 IEEE Xplore
-                        </a>
-                        <a href="https://arxiv.org/abs/2505.19249" target="_blank" class="pub-link">
-                            📄 arXiv
-                        </a>
-                        <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="pub-link">
-                            💻 GitHub
-                        </a>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="pub-link">📘 IEEE Xplore</a>
+                        <a href="https://arxiv.org/abs/2505.19249" target="_blank" class="pub-link">📄 arXiv</a>
+                        <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="pub-link">💻 GitHub</a>
                         <span class="pub-tag">Conference Paper</span>
-                        <span class="pub-tag">Machine Learning</span>
-                        <span class="pub-tag">Radio Astronomy</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Research and Teaching Affiliations -->
     <section class="section-dark">
         <div class="container">
             <div class="section-header">
@@ -2091,51 +1966,71 @@
         </div>
     </section>
 
-<!-- Enhanced Research Interests Section -->
-<section class="research-interests-main section-alt">
-    <div class="research-container">
-        <div class="research-particles"></div>
-        
-        <div class="research-section-header">
-            <h2>Research Interests</h2>
-            <div class="section-line"></div>
-          
-        </div>
-        
-        <div style="max-width: 900px; margin: 0 auto;">
-            <div class="research-interest-card reveal" style="border-left: 3px solid var(--gold-primary);">
-                <div class="research-card-header" style="margin-bottom: 1.5rem;">
-                    <div class="research-card-icon" style="width: 48px; height: 48px; font-size: 1.5rem;">🌌</div>
-                  
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Proficiency</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="tech-skills-grid reveal">
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Programming Languages</div>
+                    <p class="tech-skill-items">Python • C/C++ • R • Mathematica • MATLAB • SQL • Bash</p>
                 </div>
-                <ul class="research-topics-list" style="grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1.2rem;">
-                    <!-- Cosmology -->
-                    <li class="research-topic-item">Observational and Theoretical Cosmology</li>
-                    <li class="research-topic-item">Large-Scale Structure (LSS)</li>
-                    <li class="research-topic-item">Dark Matter and Dark Energy</li>
-                    <li class="research-topic-item">Modified Gravity Models</li>
-                    <li class="research-topic-item">Precision Cosmology</li>
-                    <li class="research-topic-item">Universe's Origin and Evolution</li>
-                    <li class="research-topic-item">Cosmological Simulations and Modeling</li>
-                    
-                    <!-- Astrophysics -->
-                    <li class="research-topic-item">Stellar Formation and Evolution</li>
-                    <li class="research-topic-item">Stellar Properties</li>
-                    <li class="research-topic-item">Astro-Particle and High Energy Physics</li>
-                    <li class="research-topic-item">Particle Phenomenology</li>
-                    
-                    <!-- Data Science & Computational -->
-                    <li class="research-topic-item">Astrostatistics and Machine Learning</li>
-                    <li class="research-topic-item">Computational Methods and Simulations in Nuclear Physics</li>
-                </ul>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Data & ML Frameworks</div>
+                    <p class="tech-skill-items">NumPy • Pandas • scikit-learn • PyTorch • TensorFlow</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Cosmology Tools</div>
+                    <p class="tech-skill-items">CAMB • CCL • emcee • HEALPix • TOPCAT • DS9</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Emulators & ML Methods</div>
+                    <p class="tech-skill-items">CosmoPoower • bacco • MCMC • Bayesian inference • Fisher forecasting</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Astronomy Packages</div>
+                    <p class="tech-skill-items">Astropy • Astroquery • NaMaster • corner • GetDist</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Development & Workflows</div>
+                    <p class="tech-skill-items">Git/GitHub • Docker • LaTeX • Linux/Unix • HPC • Jupyter</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <section class="research-interests-main section-alt">
+        <div class="research-container">
+            <div class="research-particles"></div>
+            <div class="research-section-header">
+                <h2>Research Interests</h2>
+                <div class="section-line"></div>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="research-interest-card reveal" style="border-left: 3px solid var(--gold-primary);">
+                    <ul class="research-topics-list" style="grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1.2rem;">
+                        <li class="research-topic-item">Observational and Theoretical Cosmology</li>
+                        <li class="research-topic-item">Large-Scale Structure (LSS)</li>
+                        <li class="research-topic-item">Dark Matter and Dark Energy</li>
+                        <li class="research-topic-item">Modified Gravity Models</li>
+                        <li class="research-topic-item">Precision Cosmology</li>
+                        <li class="research-topic-item">Universe's Origin and Evolution</li>
+                        <li class="research-topic-item">Cosmological Simulations and Modeling</li>
+                        <li class="research-topic-item">Stellar Formation and Evolution</li>
+                        <li class="research-topic-item">Stellar Properties</li>
+                        <li class="research-topic-item">Astro-Particle and High Energy Physics</li>
+                        <li class="research-topic-item">Particle Phenomenology</li>
+                        <li class="research-topic-item">Multimessenger Astronomy</li>
+                        <li class="research-topic-item">Astrostatistics and Machine Learning</li>
+                        <li class="research-topic-item">Computational Methods in Nuclear Physics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-    <!-- Quick Stats -->
     <section class="section-dark">
         <div class="container">
             <div class="section-header">
@@ -2166,18 +2061,15 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
         <p style="font-size: 0.85rem;">PhD Aspirant in Astrophysics & Cosmology</p>
     </footer>
 
     <script>
-        // Create animated stars with variety
         function createStars() {
             const starsContainer = document.querySelector('.stars');
             const numStars = 120;
-            
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star' + (Math.random() > 0.85 ? ' large' : '');
@@ -2189,27 +2081,21 @@
             }
         }
 
-        // Create CMB temperature fluctuation spots
         function createCMBSpots() {
             const cmbSpotsContainer = document.getElementById('cmbSpots');
             if (!cmbSpotsContainer) return;
-
             const spots = [
-                // Hot spots (warmer regions - yellow/orange)
                 { type: 'hot', size: 35, top: 25, left: 30, delay: 0 },
                 { type: 'hot', size: 28, top: 65, left: 70, delay: 1.5 },
                 { type: 'hot', size: 32, top: 50, left: 15, delay: 3 },
                 { type: 'hot', size: 25, top: 80, left: 45, delay: 4.5 },
                 { type: 'hot', size: 30, top: 15, left: 75, delay: 2 },
-                
-                // Cold spots (cooler regions - blue/purple)
                 { type: 'cold', size: 38, top: 40, left: 60, delay: 0.5 },
                 { type: 'cold', size: 30, top: 70, left: 25, delay: 2.5 },
                 { type: 'cold', size: 33, top: 20, left: 50, delay: 1 },
                 { type: 'cold', size: 27, top: 55, left: 85, delay: 3.5 },
                 { type: 'cold', size: 35, top: 85, left: 65, delay: 2 },
             ];
-
             spots.forEach(spot => {
                 const spotElement = document.createElement('div');
                 spotElement.className = `cmb-${spot.type}-spot`;
@@ -2223,186 +2109,25 @@
             });
         }
 
-        // Create pulsating stars for research interests section (distant stars)
-        function createPulsatingStars() {
-            const particlesContainer = document.querySelector('.research-particles');
-            if (!particlesContainer) return;
-            
-            const numStars = 60;
-            
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'pulsating-star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                
-                const duration = (4 + Math.random() * 6).toFixed(1);
-                const delay = (Math.random() * 8).toFixed(1);
-                star.style.animation = `pulsate ${duration}s ease-in-out ${delay}s infinite`;
-                
-                const sizeVariant = Math.random();
-                if (sizeVariant < 0.7) {
-                    star.style.width = '1px';
-                    star.style.height = '1px';
-                } else if (sizeVariant < 0.9) {
-                    star.style.width = '1.5px';
-                    star.style.height = '1.5px';
-                } else {
-                    star.style.width = '2px';
-                    star.style.height = '2px';
-                }
-                
-                particlesContainer.appendChild(star);
-            }
-        }
-
-        // Create distant galaxies
-        function createDistantGalaxies() {
-            const particlesContainer = document.querySelector('.research-particles');
-            if (!particlesContainer) return;
-            
-            const numGalaxies = 8;
-            
-            for (let i = 0; i < numGalaxies; i++) {
-                const galaxy = document.createElement('div');
-                galaxy.className = 'distant-galaxy';
-                
-                galaxy.style.left = (10 + Math.random() * 80) + '%';
-                galaxy.style.top = (10 + Math.random() * 80) + '%';
-                galaxy.style.transform = `rotate(${Math.random() * 180}deg)`;
-                
-                const size = 6 + Math.random() * 8;
-                galaxy.style.width = size + 'px';
-                galaxy.style.height = (size * 0.4) + 'px';
-                
-                const duration = (15 + Math.random() * 10).toFixed(1);
-                const delay = (Math.random() * 10).toFixed(1);
-                galaxy.style.animation = `galaxyFade ${duration}s ease-in-out ${delay}s infinite`;
-                
-                particlesContainer.appendChild(galaxy);
-            }
-        }
-
-        // Create nebula glows
-        function createNebulaGlows() {
-            const particlesContainer = document.querySelector('.research-particles');
-            if (!particlesContainer) return;
-            
-            const numNebulae = 4;
-            const colors = [
-                'rgba(201, 169, 97, 0.15)',
-                'rgba(180, 150, 255, 0.12)',
-                'rgba(255, 200, 150, 0.13)',
-                'rgba(150, 200, 255, 0.11)'
-            ];
-            
-            for (let i = 0; i < numNebulae; i++) {
-                const nebula = document.createElement('div');
-                nebula.className = 'nebula-glow';
-                
-                nebula.style.left = (Math.random() * 100) + '%';
-                nebula.style.top = (Math.random() * 100) + '%';
-                
-                const size = 100 + Math.random() * 150;
-                nebula.style.width = size + 'px';
-                nebula.style.height = size + 'px';
-                
-                nebula.style.background = `radial-gradient(circle, ${colors[i]} 0%, transparent 70%)`;
-                
-                const duration = (40 + Math.random() * 30).toFixed(1);
-                const delay = (Math.random() * 20).toFixed(1);
-                nebula.style.animation = `nebulaFloat ${duration}s ease-in-out ${delay}s infinite`;
-                
-                particlesContainer.appendChild(nebula);
-            }
-        }
-
-        // Create cosmic dust particles
-        function createCosmicDust() {
-            const particlesContainer = document.querySelector('.research-particles');
-            if (!particlesContainer) return;
-            
-            const numDust = 30;
-            
-            for (let i = 0; i < numDust; i++) {
-                const dust = document.createElement('div');
-                dust.className = 'cosmic-dust';
-                
-                dust.style.left = (20 + Math.random() * 80) + '%';
-                dust.style.top = (Math.random() * 100) + '%';
-                
-                const duration = (60 + Math.random() * 60).toFixed(1);
-                const delay = (Math.random() * 40).toFixed(1);
-                dust.style.animation = `dustDrift ${duration}s linear ${delay}s infinite`;
-                
-                particlesContainer.appendChild(dust);
-            }
-        }
-
-        // Create satellite/spacecraft passes
-        function createSatellitePasses() {
-            const particlesContainer = document.querySelector('.research-particles');
-            if (!particlesContainer) return;
-            
-            const numSatellites = 3;
-            
-            for (let i = 0; i < numSatellites; i++) {
-                const satellite = document.createElement('div');
-                satellite.className = 'satellite';
-                
-                satellite.style.left = (70 + Math.random() * 30) + '%';
-                satellite.style.top = (Math.random() * 30) + '%';
-                
-                const duration = (80 + Math.random() * 60).toFixed(1);
-                const delay = (i * 40 + Math.random() * 30).toFixed(1);
-                satellite.style.animation = `satellitePass ${duration}s linear ${delay}s infinite`;
-                
-                particlesContainer.appendChild(satellite);
-            }
-        }
-
-        // Create research section particles
-        function createResearchParticles() {
-            createDistantGalaxies();
-            createNebulaGlows();
-            createCosmicDust();
-            createSatellitePasses();
-        }
-
-        // Scroll reveal animation - DISABLED
-        function revealOnScroll() {
-            // All elements now load at once - no scroll-based reveals
-        }
-
-        // Animate stats counters
         function animateStats() {
             const statNumbers = document.querySelectorAll('.stat-inline-number');
-            
             statNumbers.forEach((stat, index) => {
                 const target = stat.dataset.target;
-                
                 if (target === 'infinity') {
-                    setTimeout(() => {
-                        stat.classList.add('counting');
-                        setTimeout(() => stat.classList.remove('counting'), 500);
-                    }, index * 150);
+                    stat.textContent = '∞';
                     return;
                 }
-                
                 const targetValue = parseInt(target);
                 const duration = 1200;
                 const steps = 40;
                 const increment = targetValue / steps;
                 const stepDuration = duration / steps;
                 let current = 0;
-                
                 setTimeout(() => {
                     const counter = setInterval(() => {
                         current += increment;
                         if (current >= targetValue) {
                             stat.textContent = targetValue;
-                            stat.classList.add('counting');
-                            setTimeout(() => stat.classList.remove('counting'), 500);
                             clearInterval(counter);
                         } else {
                             stat.textContent = Math.floor(current);
@@ -2412,13 +2137,9 @@
             });
         }
 
-        // Initialize
         window.addEventListener('load', function() {
             createStars();
-            createPulsatingStars();
-            createResearchParticles();
             createCMBSpots();
-            // Immediately reveal all elements and animate stats
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(element => {
                 element.classList.add('active');
@@ -2428,42 +2149,16 @@
             });
         });
 
-        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Mouse tracking effect for research interest cards
-        document.querySelectorAll('.research-interest-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 25;
-                const rotateY = (centerX - x) / 25;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-            });
-        });
-
-        // Parallax effect for cosmic background
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const nebula = document.querySelector('.nebula');
