@@ -158,8 +158,9 @@
 
         .left-side {
             flex: 0 0 400px;
+            align-self: flex-start;
             position: sticky;
-            top: 150px;
+            top: 2rem;
         }
 
         .right-side {
@@ -320,6 +321,7 @@
         .education-item:nth-child(1) { animation-delay: 0.2s; }
         .education-item:nth-child(2) { animation-delay: 0.4s; }
         .education-item:nth-child(3) { animation-delay: 0.6s; }
+        .education-item:nth-child(4) { animation-delay: 0.8s; }
 
         .timeline-dot {
             position: absolute;
@@ -548,6 +550,31 @@
         }
 
         /* ========================================
+           THESIS SECTION
+           ======================================== */
+        .thesis-section {
+            background: rgba(201, 169, 97, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .thesis-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .thesis-supervisor {
+            color: #c9a961;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ========================================
            SKILLS SECTION
            ======================================== */
         .skills-section {
@@ -604,6 +631,72 @@
             color: #c9a961;
             font-weight: 600;
             font-size: 1rem;
+        }
+
+        /* Skill Categories */
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-category-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        /* ========================================
+           COURSEWORK SECTIONS
+           ======================================== */
+        .semester-section {
+            margin-bottom: 2rem;
+        }
+
+        .semester-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #c9a961;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(201, 169, 97, 0.3);
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .course-item {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            color: #b8c5d0;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-item::before {
+            content: '•';
+            color: #c9a961;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .course-item:hover {
+            background: rgba(201, 169, 97, 0.12);
+            border-color: rgba(201, 169, 97, 0.4);
+            transform: translateX(5px);
+            color: #ffffff;
         }
 
         /* ========================================
@@ -734,7 +827,7 @@
                      alt="Adrita Khan" 
                      class="profile-image">
                 <h2 class="profile-name">Adrita Khan</h2>
-                <p class="profile-title">Physics Graduate & Researcher</p>
+                <p class="profile-title">Physics & Astronomy Graduate</p>
                 
                 <div class="profile-stats">
                     <div class="stat-item">
@@ -779,27 +872,23 @@
                             <div class="education-content">
                                 <h3>Bachelor of Science (Honours) in Physics</h3>
                                 <p class="education-university">Universiti Sains Malaysia</p>
-                                <p class="education-location">School of Physics, Penang, Malaysia</p>
+                                <p class="education-location">School of Physics, Gelugor, Penang, Malaysia</p>
                             </div>
                         </div>
                         
                         <!-- Meta Information -->
                         <div class="education-meta">
                             <div class="meta-badge">
-                                <span class="meta-icon">📅</span>
-                                <span>Graduated 2023</span>
+                                <span>Sep 2019 – Sep 2023</span>
                             </div>
                             <div class="meta-badge">
-                                <span class="meta-icon">🏆</span>
                                 <span>Honours Degree</span>
                             </div>
                             <div class="meta-badge">
-                                <span class="meta-icon">🔬</span>
-                                <span>Research Focus</span>
+                                <span>Major in Physics</span>
                             </div>
                             <div class="meta-badge">
-                                <span class="meta-icon">⭐</span>
-                                <span>Astronomy Minor</span>
+                                <span>Minor in Astronomy</span>
                             </div>
                         </div>
 
@@ -822,13 +911,33 @@
                                     <span class="detail-label">Institution</span>
                                     <span class="detail-value">Universiti Sains Malaysia</span>
                                 </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Gelugor, Penang, Malaysia</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Duration</span>
+                                    <span class="detail-value">4 Years (2019-2023)</span>
+                                </div>
                             </div>
+                        </div>
+
+                        <!-- Undergraduate Thesis -->
+                        <div class="thesis-section">
+                            <h4 class="section-title">
+                                <span>Undergraduate Thesis</span>
+                            </h4>
+                            <p class="thesis-title">
+                                Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations
+                            </p>
+                            <p class="thesis-supervisor">
+                                <strong>Supervisor:</strong> Dr. M. Rabie Omar
+                            </p>
                         </div>
 
                         <!-- Achievements -->
                         <div class="achievements-section">
                             <h4 class="section-title">
-                                <span>🏅</span>
                                 <span>Academic Achievements</span>
                             </h4>
                             <div class="achievement-grid">
@@ -838,7 +947,7 @@
                                 </div>
                                 <div class="achievement-item">
                                     <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Completed comprehensive Honours research project in theoretical and experimental physics</div>
+                                    <div class="achievement-text">Completed comprehensive Honours research project in nuclear physics and computational methods</div>
                                 </div>
                                 <div class="achievement-item">
                                     <div class="achievement-icon">✓</div>
@@ -846,45 +955,218 @@
                                 </div>
                                 <div class="achievement-item">
                                     <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Developed expertise in quantum mechanics, thermodynamics, and electromagnetic theory</div>
+                                    <div class="achievement-text">Developed expertise in C++ programming for scientific computing and nuclear decay simulations</div>
                                 </div>
                                 <div class="achievement-item">
                                     <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Gained proficiency in advanced mathematical physics and computational methods</div>
+                                    <div class="achievement-text">Gained proficiency in quantum mechanics, thermodynamics, electromagnetic theory, and mathematical physics</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Skills -->
+                        <!-- Coursework -->
                         <div class="skills-section">
                             <h4 class="section-title">
-                                <span>⚡</span>
-                                <span>Core Competencies</span>
+                                <span>Coursework Overview</span>
                             </h4>
+                            
+                            <!-- Semester I (2019/2020) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester I (2019/2020)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">Bahasa Malaysia I</div>
+                                    <div class="course-item">Core Entrepreneurship</div>
+                                    <div class="course-item">Physics I (Mechanics)</div>
+                                    <div class="course-item">Calculus</div>
+                                    <div class="course-item">Physics III (Vibrations, Waves and Optics)</div>
+                                    <div class="course-item">Physics Practical I</div>
+                                </div>
+                            </div>
+
+                            <!-- Semester II (2019/2020) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester II (2019/2020)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">Writing for Professional Communication</div>
+                                    <div class="course-item">Physics II (Electricity and Magnetism)</div>
+                                    <div class="course-item">Physics IV (Modern Physics)</div>
+                                    <div class="course-item">Electronics I</div>
+                                    <div class="course-item">Linear Algebra and Vector Analysis</div>
+                                    <div class="course-item">Physics Practical II</div>
+                                </div>
+                            </div>
+
+                            <!-- Semester I (2020/2021) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester I (2020/2021)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">Scientific and Medical English</div>
+                                    <div class="course-item">Electronics II</div>
+                                    <div class="course-item">Complex Analysis and Differential Equations</div>
+                                    <div class="course-item">Thermodynamics</div>
+                                    <div class="course-item">Optics</div>
+                                    <div class="course-item">Physics Practical III</div>
+                                </div>
+                            </div>
+
+                            <!-- Semester II (2020/2021) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester II (2020/2021)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">Classical Mechanics</div>
+                                    <div class="course-item">Structure of the Universe</div>
+                                    <div class="course-item">Quantum Mechanics</div>
+                                    <div class="course-item">Mathematical Methods</div>
+                                    <div class="course-item">Physics Practical IV</div>
+                                </div>
+                            </div>
+
+                            <!-- Semester I (2021/2022) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester I (2021/2022)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">Principles of Data Analytics</div>
+                                    <div class="course-item">Sustainability: Issues, Challenges and Prospects</div>
+                                    <div class="course-item">Atomic and Nuclear Physics</div>
+                                    <div class="course-item">Solid State Physics I</div>
+                                    <div class="course-item">Statistical Mechanics</div>
+                                    <div class="course-item">Pure Physics Project</div>
+                                    <div class="course-item">Radiation Biophysics</div>
+                                </div>
+                            </div>
+
+                            <!-- Semester II (2021/2022) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester II (2021/2022)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">English Poetry</div>
+                                    <div class="course-item">Malaysian Studies</div>
+                                    <div class="course-item">Electricity and Magnetism</div>
+                                    <div class="course-item">Solid State Physics II</div>
+                                    <div class="course-item">Pure Physics Project</div>
+                                </div>
+                            </div>
+
+                            <!-- Semester I (2022/2023) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester I (2022/2023)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">Speech Writing and Public Speaking</div>
+                                    <div class="course-item">Artificial Intelligence Literacy</div>
+                                    <div class="course-item">Introduction to Astronomy</div>
+                                    <div class="course-item">Principles and Practices in Astronomy</div>
+                                </div>
+                            </div>
+
+                            <!-- Semester II (2022/2023) -->
+                            <div class="semester-section">
+                                <h5 class="semester-title">Semester II (2022/2023)</h5>
+                                <div class="course-list">
+                                    <div class="course-item">Spoken English</div>
+                                    <div class="course-item">Laser and Its Applications</div>
+                                    <div class="course-item">Non-Destructive Testing</div>
+                                    <div class="course-item">Introduction to Radio Astronomy</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(201, 169, 97, 0.1); border-radius: 10px; border: 1px solid rgba(201, 169, 97, 0.2);">
+                                <p style="color: #b8c5d0; text-align: center; margin: 0;">
+                                    <strong style="color: #c9a961;">Total:</strong> 43 courses | 136 credit units
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Technical Skills -->
+                        <div class="skills-section">
+                            <h4 class="section-title">
+                                <span>Technical Skills</span>
+                            </h4>
+                            
                             <div class="skills-grid">
                                 <div class="skill-item">
-                                    <div class="skill-name">Quantum Mechanics</div>
+                                    <div class="skill-name">Python</div>
                                 </div>
                                 <div class="skill-item">
-                                    <div class="skill-name">Astrophysics</div>
+                                    <div class="skill-name">C/C++</div>
                                 </div>
                                 <div class="skill-item">
-                                    <div class="skill-name">Mathematical Physics</div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Laboratory Techniques</div>
+                                    <div class="skill-name">Machine Learning</div>
                                 </div>
                                 <div class="skill-item">
                                     <div class="skill-name">Data Analysis</div>
                                 </div>
                                 <div class="skill-item">
-                                    <div class="skill-name">Research Methodology</div>
+                                    <div class="skill-name">Git/GitHub</div>
                                 </div>
                                 <div class="skill-item">
-                                    <div class="skill-name">Scientific Writing</div>
+                                    <div class="skill-name">LaTeX</div>
                                 </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Computational Physics</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wi-STEM Bangladesh Internship -->
+                <div class="education-item">
+                    <div class="timeline-dot"></div>
+                    <div class="education-card">
+                        <!-- Header -->
+                        <div class="education-header">
+                            <div class="education-icon">🔬</div>
+                            <div class="education-content">
+                                <h3>Wi-STEM Bangladesh Mentee</h3>
+                                <p class="education-university">Summer Research Internship</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Meta Information -->
+                        <div class="education-meta">
+                            <div class="meta-badge">
+                                <span>Jul. – Dec. 2021</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span>Machine Learning</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span>Astrophysics</span>
+                            </div>
+                        </div>
+
+                        <!-- Research Project -->
+                        <div class="thesis-section">
+                            <h4 class="section-title">
+                                <span>Research Project</span>
+                            </h4>
+                            <p class="thesis-title">
+                                Photometric Redshifts using Gaussian Processes: Tested machine learning methods for photometric redshift estimation from astronomical survey data
+                            </p>
+                            <p class="thesis-supervisor">
+                                <strong>Supervisor:</strong> Dr. Tonima Tasnim Ananna
+                            </p>
+                            <div style="margin-top: 1rem;">
+                                <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" style="display: inline-block; padding: 0.6rem 1.2rem; background: rgba(201, 169, 97, 0.15); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px; color: #c9a961; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+                                    📂 View Project on GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Skills Gained -->
+                        <div class="achievements-section">
+                            <h4 class="section-title">
+                                <span>Key Learning Outcomes</span>
+                            </h4>
+                            <div class="achievement-grid">
+                                <div class="achievement-item">
+                                    <div class="achievement-icon">✓</div>
+                                    <div class="achievement-text">Applied Gaussian Processes for astronomical data analysis</div>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-icon">✓</div>
+                                    <div class="achievement-text">Developed machine learning models for photometric redshift estimation</div>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-icon">✓</div>
+                                    <div class="achievement-text">Worked with astronomical survey data and observational datasets</div>
                                 </div>
                             </div>
                         </div>
@@ -897,30 +1179,27 @@
                     <div class="education-card">
                         <!-- Header -->
                         <div class="education-header">
-                            <div class="education-icon">🔮</div>
+                            <div class="education-icon">⚛️</div>
                             <div class="education-content">
                                 <h3>Future Graduate Studies</h3>
-                                <p class="education-university">To Be Determined</p>
-                                <p class="education-location">Pursuing Advanced Research</p>
+                                <p class="education-university">PhD Aspirant in Astrophysics and Cosmology</p>
                             </div>
                         </div>
                         
                         <!-- Meta Information -->
                         <div class="education-meta">
                             <div class="meta-badge">
-                                <span class="meta-icon">📅</span>
                                 <span>Upcoming</span>
                             </div>
                             <div class="meta-badge">
-                                <span class="meta-icon">🎯</span>
                                 <span>Planning Phase</span>
                             </div>
                         </div>
 
                         <!-- Details -->
                         <div class="education-details">
-                            <p style="color: #b8c5d0; text-align: center; padding: 1rem;">
-                                Currently exploring opportunities for graduate studies in Physics and Astronomy. Interested in research areas including astrophysics, cosmology, and theoretical physics.
+                            <p style="color: #b8c5d0; text-align: center; padding: 1rem; line-height: 1.8;">
+                                Currently exploring opportunities for graduate studies in Physics and Astronomy. Research interests include Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter & Dark Energy, High-Energy Astrophysics, Galaxy Evolution & Dynamics, and Astrostatistics with Machine Learning.
                             </p>
                         </div>
                     </div>
