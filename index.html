@@ -1322,24 +1322,22 @@
             overflow: hidden;
         }
 
-        .research-interest-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(201, 169, 97, 0.08) 0%, 
-                transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 0;
-        }
+.research-interest-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
 
-        .research-interest-card:hover::before {
-            opacity: 1;
-        }
+.research-interest-card:hover::before {
+    opacity: 0;
+}
 
         .research-interest-card:hover {
             transform: translateY(-8px);
