@@ -1699,36 +1699,83 @@
         }
 
         footer {
-            position: relative;
-            z-index: 10;
-            background: rgba(10, 14, 20, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 1.5rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(201, 169, 97, 0.15);
-        }
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 14, 20, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 2rem 2rem;
+    border-top: 1px solid rgba(201, 169, 97, 0.15);
+}
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-        }
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
 
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin: 0;
-        }
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
 
-        footer p:first-child {
-            color: var(--text-light);
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
+.footer-left p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: left;
+}
+
+.footer-left p:first-child {
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.footer-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.footer-stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    min-width: 30px;
+    text-align: center;
+}
+
+.footer-stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.footer-stat-divider {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
+}
 
         .reveal {
             opacity: 1;
@@ -1811,6 +1858,19 @@
             .research-interests-main {
                 padding: 1.5rem 1rem;
             }
+
+            .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left p {
+        text-align: center;
+    }
+
+    .footer-stats {
+        justify-content: center;
+    }
         }
 
         @media (max-width: 640px) {
@@ -1858,6 +1918,21 @@
             .research-topics-list {
                 grid-template-columns: 1fr;
             }
+
+            footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-stat-divider {
+        width: 60%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
+    }
         }
     </style>
 </head>
@@ -2209,10 +2284,35 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
-        <p style="font-size: 0.85rem;">PhD Aspirant in Astrophysics & Cosmology</p>
-    </footer>
+  <footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+            <p style="font-size: 0.85rem;">PhD Aspirant in Astrophysics & Cosmology</p>
+        </div>
+        <div class="footer-stats">
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">4</div>
+                <div class="footer-stat-label">Research Centers</div>
+            </div>
+            <div class="footer-stat-divider"></div>
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">3</div>
+                <div class="footer-stat-label">Countries</div>
+            </div>
+            <div class="footer-stat-divider"></div>
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">∞</div>
+                <div class="footer-stat-label">Curiosity</div>
+            </div>
+            <div class="footer-stat-divider"></div>
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">1</div>
+                <div class="footer-stat-label">Universe to Explore</div>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script>
         function createStars() {
