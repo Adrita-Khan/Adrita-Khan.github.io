@@ -23,14 +23,14 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 1rem 2rem 2rem 2rem;
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
@@ -49,11 +49,11 @@
         }
 
         .section-subtitle {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 600;
             color: #ffffff;
-            margin-top: 4rem;
-            margin-bottom: 2rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
             text-align: left;
             position: relative;
             padding-left: 1rem;
@@ -62,89 +62,27 @@
 
         .intro-text {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #b8c5d0;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Filter and Search */
-        .filter-section {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search-box {
-            padding: 0.8rem 1.5rem;
-            border: 2px solid rgba(201, 169, 97, 0.3);
-            border-radius: 25px;
-            background: rgba(201, 169, 97, 0.1);
-            color: white;
-            font-size: 1rem;
-            min-width: 300px;
-            transition: all 0.3s ease;
-        }
-
-        .search-box::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .search-box:focus {
-            outline: none;
-            border-color: #c9a961;
-            background: rgba(201, 169, 97, 0.15);
-            box-shadow: 0 0 20px rgba(201, 169, 97, 0.4);
-        }
-
-        .filter-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-tag {
-            padding: 0.5rem 1rem;
-            background: rgba(201, 169, 97, 0.1);
-            border: 2px solid rgba(201, 169, 97, 0.3);
-            border-radius: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .filter-tag:hover,
-        .filter-tag.active {
-            background: rgba(201, 169, 97, 0.25);
-            border-color: #c9a961;
-            transform: translateY(-2px);
-            color: #c9a961;
-        }
-
-        .filter-tag.active {
-            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
-        }
-
         /* Statistics */
         .stats-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 2rem;
         }
 
         .stat-card {
             background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
+            border-radius: 10px;
+            padding: 0.9rem;
             text-align: center;
             border: 1px solid rgba(201, 169, 97, 0.2);
             transition: all 0.3s ease;
@@ -157,148 +95,34 @@
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #c9a961;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         .stat-label {
             color: #b8c5d0;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         /* Achievements List */
         .achievements-list {
             display: grid;
-            gap: 1.5rem;
-        }
-
-        .achievement-card {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .achievement-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .achievement-card:hover::before {
-            transform: translateX(0);
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.3);
-            background: rgba(201, 169, 97, 0.12);
-        }
-
-        .achievement-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
-        }
-
-        .achievement-card:hover .achievement-icon {
-            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.6);
-        }
-
-        .achievement-content {
-            flex: 1;
-        }
-
-        .achievement-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 0.3rem;
-            line-height: 1.3;
-        }
-
-        .achievement-organization {
-            color: #b8c5d0;
-            font-style: italic;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-        }
-
-        .achievement-description {
-            color: #b8c5d0;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            color: #b8c5d0;
-            font-size: 0.9rem;
-        }
-
-        .achievement-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            padding: 0.3rem 0.8rem;
-            background: rgba(201, 169, 97, 0.2);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            border-radius: 15px;
-            color: #c9a961;
-            font-size: 0.8rem;
-            font-weight: 500;
+            gap: 0.8rem;
         }
 
         /* Compact Achievement Item */
         .achievement-item {
             background: rgba(201, 169, 97, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1.2rem 1.5rem;
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
             border-left: 3px solid #c9a961;
             transition: all 0.3s ease;
             color: #b8c5d0;
             line-height: 1.6;
+            font-size: 0.98rem;
         }
 
         .achievement-item:hover {
@@ -328,11 +152,11 @@
         .membership-card {
             background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.8rem;
+            border-radius: 12px;
+            padding: 1.3rem;
             border: 1px solid rgba(201, 169, 97, 0.2);
             transition: all 0.3s ease;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .membership-card:hover {
@@ -342,10 +166,10 @@
         }
 
         .membership-header {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #c9a961;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -355,9 +179,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 0;
+            padding: 0.7rem 0;
             border-bottom: 1px solid rgba(201, 169, 97, 0.2);
             color: #b8c5d0;
+            font-size: 0.95rem;
         }
 
         .membership-role:last-of-type {
@@ -375,16 +200,17 @@
         }
 
         .membership-details {
-            margin-top: 1rem;
-            padding-top: 1rem;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
             border-top: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .membership-detail-item {
             color: #b8c5d0;
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.4rem 0;
+            padding-left: 1.2rem;
             position: relative;
+            font-size: 0.95rem;
         }
 
         .membership-detail-item::before {
@@ -407,7 +233,6 @@
             }
         }
 
-        .achievement-card,
         .achievement-item {
             animation: fadeInUp 0.6s ease forwards;
         }
@@ -415,14 +240,14 @@
         /* No results message */
         .no-results {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             color: #b8c5d0;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
         .no-results-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
             opacity: 0.5;
         }
 
@@ -502,8 +327,8 @@
             background: rgba(10, 14, 20, 0.8);
             backdrop-filter: blur(10px);
             border-top: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 2rem 0;
-            margin-top: 3rem;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
         }
 
         .footer-content {
@@ -513,7 +338,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .footer-left {
@@ -522,36 +347,21 @@
 
         .footer-left p {
             color: #b8c5d0;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .section-subtitle {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
 
             .container {
-                padding: 2rem 1rem;
-            }
-
-            .filter-section {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box {
-                min-width: auto;
-                width: 100%;
-            }
-
-            .achievement-header {
-                flex-direction: column;
-                text-align: center;
+                padding: 1.5rem 1rem;
             }
 
             .stats-section {
@@ -565,8 +375,8 @@
             }
 
             footer {
-                padding: 1.5rem 0;
-                margin-top: 2rem;
+                padding: 1.2rem 0;
+                margin-top: 1.5rem;
             }
 
             .footer-content {
@@ -597,7 +407,7 @@
 <!-- Achievements Section -->
 <div class="container">
     <h2 class="section-title">Achievements & Recognition</h2>
-    <p class="intro-text">Awards, honors, participations, and memberships throughout my academic and research journey.</p>
+    <p class="intro-text">Selected awards, honors, participations, and memberships in my academic and research journey.</p>
     
     <!-- Statistics -->
     <div class="stats-section">
@@ -616,18 +426,6 @@
         <div class="stat-card">
             <div class="stat-number">2025</div>
             <div class="stat-label">Latest Recognition</div>
-        </div>
-    </div>
-
-    <!-- Filter and Search -->
-    <div class="filter-section">
-        <input type="text" class="search-box" placeholder="Search achievements..." id="searchInput">
-        <div class="filter-tags">
-            <span class="filter-tag active" data-filter="all">All</span>
-            <span class="filter-tag" data-filter="academic">Academic</span>
-            <span class="filter-tag" data-filter="workshop">Workshop</span>
-            <span class="filter-tag" data-filter="olympiad">Olympiad</span>
-            <span class="filter-tag" data-filter="membership">Membership</span>
         </div>
     </div>
 
@@ -708,7 +506,7 @@
     <!-- American Physical Society -->
     <div class="membership-card" data-type="membership" data-keywords="american physical society aps member 2023 present">
         <div class="membership-header">
-            🔬 American Physical Society (APS)
+            American Physical Society (APS)
         </div>
         <div class="membership-role">
             <span class="membership-role-title">Member</span>
@@ -719,7 +517,7 @@
     <!-- Astronomy Club USM -->
     <div class="membership-card" data-type="membership" data-keywords="astronomy club universiti sains malaysia usm exco student representative member 2019 2020">
         <div class="membership-header">
-            🌟 Astronomy Club, Universiti Sains Malaysia
+            Astronomy Club, Universiti Sains Malaysia
         </div>
         <div class="membership-role">
             <span class="membership-role-title">Elected Student Representative (Exco)</span>
@@ -744,7 +542,7 @@
 
     <!-- No Results Message -->
     <div class="no-results" id="noResults" style="display: none;">
-        <div class="no-results-icon">🔍</div>
+        <div class="no-results-icon">No Results</div>
         <p>No achievements found matching your search criteria.</p>
     </div>
 </div>
@@ -758,65 +556,6 @@
 </footer>
 
 <script>
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    const achievementsList = document.getElementById('achievementsList');
-    const noResults = document.getElementById('noResults');
-    const filterTags = document.querySelectorAll('.filter-tag');
-
-    let currentFilter = 'all';
-
-    // Search function
-    function searchAchievements() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const achievements = document.querySelectorAll('.achievement-item, .membership-card');
-        let visibleCount = 0;
-
-        achievements.forEach(achievement => {
-            const keywords = (achievement.dataset.keywords || '').toLowerCase();
-            const text = achievement.textContent.toLowerCase();
-            
-            const matchesSearch = keywords.includes(searchTerm) || text.includes(searchTerm);
-            
-            const matchesFilter = currentFilter === 'all' || 
-                                achievement.dataset.type === currentFilter;
-
-            if (matchesSearch && matchesFilter) {
-                achievement.style.display = 'block';
-                visibleCount++;
-            } else {
-                achievement.style.display = 'none';
-            }
-        });
-
-        // Show/hide no results message
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-    }
-
-    // Filter function
-    function filterAchievements(filterType) {
-        currentFilter = filterType;
-        
-        // Update active filter tag
-        filterTags.forEach(tag => {
-            tag.classList.remove('active');
-            if (tag.dataset.filter === filterType) {
-                tag.classList.add('active');
-            }
-        });
-
-        searchAchievements();
-    }
-
-    // Event listeners
-    searchInput.addEventListener('input', searchAchievements);
-
-    filterTags.forEach(tag => {
-        tag.addEventListener('click', () => {
-            filterAchievements(tag.dataset.filter);
-        });
-    });
-
     // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
