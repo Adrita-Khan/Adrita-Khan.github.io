@@ -275,6 +275,68 @@
             }
         }
 
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-left {
+            text-align: center;
+        }
+
+        .footer-left p {
+            color: #b8c5d0;
+            font-size: 0.9rem;
+        }
+
+        .footer-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-stat-item {
+            text-align: center;
+        }
+
+        .footer-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #c9a961;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-stat-label {
+            font-size: 0.85rem;
+            color: #b8c5d0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-stat-divider {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
@@ -301,6 +363,31 @@
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
+            }
+
+            footer {
+                padding: 1.5rem 0;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
+
+            .footer-stats {
+                gap: 1rem;
+            }
+
+            .footer-stat-number {
+                font-size: 1.5rem;
+            }
+
+            .footer-stat-label {
+                font-size: 0.75rem;
+            }
+
+            .footer-stat-divider {
+                display: none;
             }
         }
     </style>
@@ -356,7 +443,7 @@
                 <div class="contact-card">
                     <div class="contact-icon">𝕏</div>
                     <h3 class="contact-title">Twitter / X</h3>
-                    <p class="contact-info">Follow me for updates on research progress, academic discussions, and insights into the fascinating world of cosmology and physics.</p>
+                    <p class="contact-info">Follow me for updates on research progress, academic discussions, and insights.</p>
                     <a href="https://x.com/Adrita_" target="_blank" class="contact-link">
                         <span>Follow on X</span>
                         <span>→</span>
@@ -367,7 +454,7 @@
                 <div class="contact-card">
                     <div class="contact-icon" style="font-weight: 700; font-size: 1.5rem; font-family: Arial, sans-serif;">in</div>
                     <h3 class="contact-title">LinkedIn</h3>
-                    <p class="contact-info">Connect with me professionally to explore collaboration opportunities, share academic experiences, and expand our research networks.</p>
+                    <p class="contact-info">Connect with me to explore collaboration opportunities, share academic experiences, and expand our research networks.</p>
                     <a href="https://linkedin.com/in/adrita-khan" target="_blank" class="contact-link">
                         <span>Connect on LinkedIn</span>
                         <span>→</span>
@@ -376,6 +463,14 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Generate twinkling stars
