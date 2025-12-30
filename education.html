@@ -145,225 +145,130 @@
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
         /* ========================================
-           MAIN LAYOUT
+           MAIN CONTAINER
            ======================================== */
-        .main-content {
-            display: flex;
-            max-width: 1400px;
+        .container {
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 4rem 2rem;
-            gap: 4rem;
-            align-items: flex-start;
-        }
-
-        .left-side {
-            flex: 0 0 400px;
-            align-self: flex-start;
-            position: sticky;
-            top: 2rem;
-        }
-
-        .right-side {
-            flex: 1;
-            min-width: 0;
+            padding: 1.5rem 1.5rem;
         }
 
         /* ========================================
-           PROFILE CARD (LEFT SIDE)
+           PAGE TITLE (TOP)
            ======================================== */
-        .profile-card {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 2rem;
+        .page-header-top {
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55, #c9a961);
-            border-radius: 25px 25px 0 0;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(201, 169, 97, 0.3);
-            background: rgba(201, 169, 97, 0.12);
-        }
-
-        .profile-image {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            border: 4px solid rgba(201, 169, 97, 0.3);
-            object-fit: cover;
-            transition: all 0.3s ease;
-        }
-
-        .profile-card:hover .profile-image {
-            transform: scale(1.05);
-            border-color: rgba(201, 169, 97, 0.5);
-        }
-
-        .profile-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-
-        .profile-title {
-            color: #c9a961;
-            font-size: 1.1rem;
             margin-bottom: 1.5rem;
         }
 
-        .profile-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            background: rgba(201, 169, 97, 0.1);
-            padding: 1rem;
-            border-radius: 15px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            background: rgba(201, 169, 97, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #c9a961;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #b8c5d0;
-        }
-
-        /* ========================================
-           PAGE HEADER (RIGHT SIDE)
-           ======================================== */
-        .page-header {
-            margin-bottom: 3rem;
-        }
-
-        .page-title {
-            font-size: 3.5rem;
+        .page-title-top {
+            font-size: 3rem;
             font-weight: 800;
-            margin-bottom: 1rem;
             color: #ffffff;
             position: relative;
+            display: inline-block;
         }
 
-        .page-title::after {
+        .page-title-top::after {
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100px;
             height: 4px;
             background: linear-gradient(90deg, #c9a961, #d4b56d);
             border-radius: 2px;
         }
 
-        .page-subtitle {
-            font-size: 1.3rem;
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            margin: 0 auto 0.8rem;
+            border: 4px solid rgba(201, 169, 97, 0.4);
+            object-fit: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(201, 169, 97, 0.3);
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: rgba(201, 169, 97, 0.6);
+            box-shadow: 0 15px 50px rgba(201, 169, 97, 0.4);
+        }
+
+        .profile-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: #ffffff;
+        }
+
+        .profile-title {
+            color: #c9a961;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .profile-info {
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 0.8rem 1.2rem;
+            font-size: 0.9rem;
             color: #b8c5d0;
-            max-width: 600px;
             line-height: 1.6;
         }
 
-        /* ========================================
-           EDUCATION TIMELINE
-           ======================================== */
-        .education-timeline {
-            position: relative;
-            margin-top: 3rem;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, #c9a961, #d4b56d, #b89d55);
-            border-radius: 1.5px;
-        }
-
-        .education-item {
-            position: relative;
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .education-item:nth-child(1) { animation-delay: 0.2s; }
-        .education-item:nth-child(2) { animation-delay: 0.4s; }
-        .education-item:nth-child(3) { animation-delay: 0.6s; }
-        .education-item:nth-child(4) { animation-delay: 0.8s; }
-
-        .timeline-dot {
-            position: absolute;
-            left: 20px;
-            top: 2rem;
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
-            border-radius: 50%;
-            border: 4px solid #0f1923;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-dot::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px;
-            height: 8px;
-            background: #fff;
-            border-radius: 50%;
+        .profile-info span {
+            color: #c9a961;
+            font-weight: 600;
         }
 
         /* ========================================
-           EDUCATION CARDS
+           EDUCATION GRID LAYOUT
            ======================================== */
-        .education-card {
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Bachelor's Degree - Full Width */
+        .education-bachelor {
+            grid-column: 1 / -1;
+        }
+
+        /* Main Education Card */
+        .education-card-main {
             background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(20px);
             border-radius: 20px;
             border: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 2.5rem;
-            margin-left: 70px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .education-card::before {
+        .education-card-main::before {
             content: '';
             position: absolute;
             top: 0;
@@ -371,155 +276,164 @@
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
         }
 
-        .education-card:hover::before {
-            transform: translateX(0);
+        .education-card-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(201, 169, 97, 0.3);
         }
 
-        .education-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(201, 169, 97, 0.3);
-            background: rgba(201, 169, 97, 0.12);
-        }
-
-        /* Education Card Header */
         .education-header {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
         }
 
         .education-icon {
-            width: 70px;
-            height: 70px;
+            width: 55px;
+            height: 55px;
             background: linear-gradient(135deg, #c9a961, #d4b56d);
-            border-radius: 50%;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             flex-shrink: 0;
             box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
         }
 
         .education-content h3 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: #ffffff;
         }
 
         .education-university {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #c9a961;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .education-location {
             color: #b8c5d0;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
-        /* Education Meta Badges */
         .education-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 0.6rem;
+            margin: 0.8rem 0;
         }
 
         .meta-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             background: rgba(201, 169, 97, 0.15);
-            padding: 0.5rem 1rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 20px;
             border: 1px solid rgba(201, 169, 97, 0.3);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #ffffff;
+        }
+
+        /* Side Info Panel */
+        .education-sidebar {
+            grid-column: 9 / -1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 1.5rem;
             transition: all 0.3s ease;
         }
 
-        .meta-badge:hover {
-            background: rgba(201, 169, 97, 0.25);
-            transform: translateY(-2px);
+        .sidebar-card:hover {
+            background: rgba(201, 169, 97, 0.12);
+            transform: translateX(5px);
         }
 
-        .meta-icon {
-            font-size: 1.1rem;
-        }
-
-        /* ========================================
-           EDUCATION DETAILS SECTION
-           ======================================== */
-        .education-details {
-            background: rgba(201, 169, 97, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #c9a961;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .detail-item {
             display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.1);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
         }
 
         .detail-label {
-            font-weight: 600;
-            color: #c9a961;
+            color: #b8c5d0;
             font-size: 0.9rem;
         }
 
         .detail-value {
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: right;
         }
 
-        /* ========================================
-           ACHIEVEMENTS SECTION
-           ======================================== */
-        .achievements-section {
+        /* Thesis Section */
+        .thesis-section {
             background: rgba(201, 169, 97, 0.1);
             border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 1rem;
+            margin: 1rem 0;
             border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #c9a961;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
-        .achievement-grid {
+        .thesis-title {
+            font-size: 0.95rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 0.6rem;
+        }
+
+        .thesis-supervisor {
+            color: #b8c5d0;
+            font-size: 0.85rem;
+        }
+
+        /* Achievements Grid */
+        .achievements-grid {
             display: grid;
-            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.6rem;
+            margin-top: 0.6rem;
         }
 
         .achievement-item {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.7rem;
             background: rgba(201, 169, 97, 0.05);
             border-radius: 10px;
             border: 1px solid rgba(201, 169, 97, 0.2);
@@ -528,267 +442,252 @@
 
         .achievement-item:hover {
             background: rgba(201, 169, 97, 0.15);
-            transform: translateX(10px);
+            transform: translateY(-3px);
         }
 
         .achievement-icon {
-            width: 40px;
-            height: 40px;
+            width: 28px;
+            height: 28px;
             background: linear-gradient(135deg, #c9a961, #d4b56d);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             flex-shrink: 0;
         }
 
         .achievement-text {
             color: #b8c5d0;
-            font-size: 1rem;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
 
-        /* ========================================
-           THESIS SECTION
-           ======================================== */
-        .thesis-section {
-            background: rgba(201, 169, 97, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-        }
-
-        .thesis-title {
-            font-size: 1.1rem;
-            color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .thesis-supervisor {
-            color: #c9a961;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
-
-        /* ========================================
-           SKILLS SECTION
-           ======================================== */
-        .skills-section {
-            background: rgba(201, 169, 97, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-        }
-
-        .skills-section .section-title {
-            color: #c9a961;
-        }
-
+        /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.6rem;
+            margin-top: 0.6rem;
         }
 
         .skill-item {
             background: rgba(201, 169, 97, 0.05);
             border: 1px solid rgba(201, 169, 97, 0.3);
-            border-radius: 12px;
-            padding: 1.2rem;
+            border-radius: 10px;
+            padding: 0.6rem;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.15), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .skill-item:hover::before {
-            left: 100%;
+            transition: all 0.3s ease;
         }
 
         .skill-item:hover {
             background: rgba(201, 169, 97, 0.15);
-            transform: translateY(-5px) scale(1.02);
-            border-color: rgba(201, 169, 97, 0.4);
+            transform: translateY(-3px);
+            border-color: rgba(201, 169, 97, 0.5);
         }
 
         .skill-name {
             color: #c9a961;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
 
-        /* Skill Categories */
-        .skill-category {
-            margin-bottom: 2rem;
+        /* Coursework Section */
+        .coursework-section {
+            grid-column: 1 / -1;
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 1.5rem;
         }
 
-        .skill-category:last-child {
-            margin-bottom: 0;
+        .coursework-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin-top: 1.2rem;
         }
 
-        .skill-category-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+        .semester-card {
+            background: rgba(201, 169, 97, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
         }
 
-        /* ========================================
-           COURSEWORK SECTIONS
-           ======================================== */
-        .semester-section {
-            margin-bottom: 2rem;
+        .semester-card:hover {
+            background: rgba(201, 169, 97, 0.1);
+            transform: translateY(-5px);
         }
 
         .semester-title {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #c9a961;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+            padding-bottom: 0.4rem;
             border-bottom: 2px solid rgba(201, 169, 97, 0.3);
         }
 
         .course-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
         }
 
         .course-item {
-            background: rgba(201, 169, 97, 0.05);
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 8px;
-            padding: 0.8rem 1rem;
             color: #b8c5d0;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            padding-left: 1rem;
             position: relative;
-            overflow: hidden;
+            transition: all 0.2s ease;
         }
 
         .course-item::before {
             content: '•';
             color: #c9a961;
+            position: absolute;
+            left: 0;
             font-weight: bold;
-            margin-right: 0.5rem;
         }
 
         .course-item:hover {
-            background: rgba(201, 169, 97, 0.12);
-            border-color: rgba(201, 169, 97, 0.4);
-            transform: translateX(5px);
+            color: #ffffff;
+            transform: translateX(3px);
+        }
+
+        /* Internship Section */
+        .internship-section {
+            grid-column: 1 / 7;
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .internship-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d);
+        }
+
+        .internship-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Future Studies */
+        .future-section {
+            grid-column: 7 / -1;
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 1.5rem;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .future-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d);
+        }
+
+        .future-section:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .future-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .future-title-group h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
             color: #ffffff;
         }
 
-        /* ========================================
-           ANIMATIONS
-           ======================================== */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .future-description {
+            background: rgba(201, 169, 97, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .future-description p {
+            color: #b8c5d0;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         /* ========================================
            RESPONSIVE DESIGN
            ======================================== */
-        @media (max-width: 1024px) {
-            .main-content {
-                flex-direction: column;
-                gap: 3rem;
-                padding: 3rem 1.5rem;
+        @media (max-width: 1400px) {
+            .coursework-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .coursework-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .left-side {
-                flex: none;
-                position: static;
-                max-width: 400px;
-                margin: 0 auto;
+            .achievements-grid {
+                grid-template-columns: 1fr;
             }
 
-            .page-title {
-                font-size: 3rem;
-                text-align: center;
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
 
-            .page-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .page-subtitle {
-                text-align: center;
-                margin: 0 auto;
+            .internship-section,
+            .future-section {
+                grid-column: 1 / -1;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-list {
-                gap: 0.5rem;
-            }
-
-            .nav-list a {
-                font-size: 0.8rem;
-                padding: 0.6rem 1rem;
-            }
-
-            .main-content {
+            .container {
                 padding: 2rem 1rem;
             }
 
-            .page-title {
+            .page-title-top {
                 font-size: 2.5rem;
-            }
-
-            .education-card {
-                margin-left: 50px;
-                padding: 2rem;
-            }
-
-            .timeline-dot {
-                left: 10px;
-            }
-
-            .timeline-line {
-                left: 20px;
             }
 
             .education-header {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
-                gap: 1rem;
             }
 
-            .education-meta {
-                justify-content: center;
+            .coursework-grid {
+                grid-template-columns: 1fr;
             }
 
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .details-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -804,405 +703,349 @@
     <!-- Quick Links Navigation -->
     <section id="quick-links">
         <div class="nav-container">
-          <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="academic_experience.html">Academic Experience</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="notes.html">Study Notes</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Left Side: Profile Card -->
-        <div class="left-side">
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Page Title at Top -->
+        <div class="page-header-top">
+            <h1 class="page-title-top">Educational Journey</h1>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
             <div class="profile-card">
                 <img src="https://github.com/Adrita-Khan/Assets/blob/main/host/new.jpg?raw=true" 
                      alt="Adrita Khan" 
                      class="profile-image">
                 <h2 class="profile-name">Adrita Khan</h2>
                 <p class="profile-title">Physics & Astronomy Graduate</p>
-                
-                <div class="profile-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">2023</div>
-                        <div class="stat-label">Graduate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">BSc</div>
-                        <div class="stat-label">Honours</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">Physics</div>
-                        <div class="stat-label">Major</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">Astronomy</div>
-                        <div class="stat-label">Minor</div>
-                    </div>
+                <div class="profile-info">
+                    <span>2023 Graduate</span> • <span>BSc Honours</span> • <span>Physics Major</span> • <span>Astronomy Minor</span>
                 </div>
             </div>
         </div>
 
-        <!-- Right Side: Education Timeline -->
-        <div class="right-side">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1 class="page-title">Educational Journey</h1>
-                <p class="page-subtitle">Exploring the academic foundations that shaped my research interests and scientific expertise in physics and astronomy.</p>
+        <!-- Education Grid -->
+        <div class="education-grid">
+            <!-- Bachelor's Degree Section -->
+            <div class="education-bachelor">
+                <!-- Main Education Card -->
+                <div class="education-card-main">
+                    <div class="education-header">
+                        <div class="education-icon">🎓</div>
+                        <div class="education-content">
+                            <h3>Bachelor of Science (Honours) in Physics</h3>
+                            <p class="education-university">Universiti Sains Malaysia</p>
+                            <p class="education-location">School of Physics, Gelugor, Penang, Malaysia</p>
+                        </div>
+                    </div>
+
+                    <div class="education-meta">
+                        <div class="meta-badge">Sep 2019 – Sep 2023</div>
+                        <div class="meta-badge">Honours Degree</div>
+                        <div class="meta-badge">Major in Physics</div>
+                        <div class="meta-badge">Minor in Astronomy</div>
+                    </div>
+
+                    <!-- Thesis -->
+                    <div class="thesis-section">
+                        <h4 class="section-title">Undergraduate Thesis</h4>
+                        <p class="thesis-title">
+                            Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations
+                        </p>
+                        <p class="thesis-supervisor"><strong>Supervisor:</strong> Dr. M. Rabie Omar</p>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div style="margin-top: 2rem;">
+                        <h4 class="section-title">Academic Achievements</h4>
+                        <div class="achievements-grid">
+                            <div class="achievement-item">
+                                <div class="achievement-icon">✓</div>
+                                <div class="achievement-text">Dean's List recipient for Semesters II, III, and VI</div>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-icon">✓</div>
+                                <div class="achievement-text">Completed Honours research in nuclear physics</div>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-icon">✓</div>
+                                <div class="achievement-text">Specialized in Astronomy with astrophysical focus</div>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-icon">✓</div>
+                                <div class="achievement-text">Developed C++ expertise for scientific computing</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Skills -->
+                    <div style="margin-top: 2rem;">
+                        <h4 class="section-title">Technical Skills</h4>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-name">Python</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">C/C++</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Machine Learning</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Data Analysis</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Git/GitHub</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">LaTeX</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Timeline -->
-            <div class="education-timeline">
-                <div class="timeline-line"></div>
-                
-                <!-- Bachelor's Degree -->
-                <div class="education-item">
-                    <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <!-- Header -->
-                        <div class="education-header">
-                            <div class="education-icon">🎓</div>
-                            <div class="education-content">
-                                <h3>Bachelor of Science (Honours) in Physics</h3>
-                                <p class="education-university">Universiti Sains Malaysia</p>
-                                <p class="education-location">School of Physics, Gelugor, Penang, Malaysia</p>
-                            </div>
+
+            <!-- Coursework Section -->
+            <div class="coursework-section">
+                <h3 class="section-title">Comprehensive Coursework (8 Semesters)</h3>
+                <div class="coursework-grid">
+                    <!-- Semester I -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester I (2019/2020)</h5>
+                        <div class="course-list">
+                            <div class="course-item">Bahasa Malaysia I</div>
+                            <div class="course-item">Core Entrepreneurship</div>
+                            <div class="course-item">Physics I (Mechanics)</div>
+                            <div class="course-item">Calculus</div>
+                            <div class="course-item">Physics III (Waves & Optics)</div>
+                            <div class="course-item">Physics Practical I</div>
                         </div>
-                        
-                        <!-- Meta Information -->
-                        <div class="education-meta">
-                            <div class="meta-badge">
-                                <span>Sep 2019 – Sep 2023</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span>Honours Degree</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span>Major in Physics</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span>Minor in Astronomy</span>
-                            </div>
+                    </div>
+
+                    <!-- Semester II -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester II (2019/2020)</h5>
+                        <div class="course-list">
+                            <div class="course-item">Professional Writing</div>
+                            <div class="course-item">Physics II (E&M)</div>
+                            <div class="course-item">Physics IV (Modern Physics)</div>
+                            <div class="course-item">Electronics I</div>
+                            <div class="course-item">Linear Algebra & Vectors</div>
+                            <div class="course-item">Physics Practical II</div>
                         </div>
+                    </div>
 
-                        <!-- Details -->
-                        <div class="education-details">
-                            <div class="details-grid">
-                                <div class="detail-item">
-                                    <span class="detail-label">Major Field</span>
-                                    <span class="detail-value">Physics</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Minor Field</span>
-                                    <span class="detail-value">Astronomy</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Degree Type</span>
-                                    <span class="detail-value">Bachelor of Science (Honours)</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Institution</span>
-                                    <span class="detail-value">Universiti Sains Malaysia</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Location</span>
-                                    <span class="detail-value">Gelugor, Penang, Malaysia</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Duration</span>
-                                    <span class="detail-value">4 Years (2019-2023)</span>
-                                </div>
-                            </div>
+                    <!-- Semester III -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester I (2020/2021)</h5>
+                        <div class="course-list">
+                            <div class="course-item">Scientific English</div>
+                            <div class="course-item">Electronics II</div>
+                            <div class="course-item">Complex Analysis & ODEs</div>
+                            <div class="course-item">Thermodynamics</div>
+                            <div class="course-item">Optics</div>
+                            <div class="course-item">Physics Practical III</div>
                         </div>
+                    </div>
 
-                        <!-- Undergraduate Thesis -->
-                        <div class="thesis-section">
-                            <h4 class="section-title">
-                                <span>Undergraduate Thesis</span>
-                            </h4>
-                            <p class="thesis-title">
-                                Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations
-                            </p>
-                            <p class="thesis-supervisor">
-                                <strong>Supervisor:</strong> Dr. M. Rabie Omar
-                            </p>
+                    <!-- Semester IV -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester II (2020/2021)</h5>
+                        <div class="course-list">
+                            <div class="course-item">Classical Mechanics</div>
+                            <div class="course-item">Structure of Universe</div>
+                            <div class="course-item">Quantum Mechanics</div>
+                            <div class="course-item">Mathematical Methods</div>
+                            <div class="course-item">Physics Practical IV</div>
                         </div>
+                    </div>
 
-                        <!-- Achievements -->
-                        <div class="achievements-section">
-                            <h4 class="section-title">
-                                <span>Academic Achievements</span>
-                            </h4>
-                            <div class="achievement-grid">
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Dean's List recipient for Semesters II, III, and VI</div>
-                                </div>
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Completed comprehensive Honours research project in nuclear physics and computational methods</div>
-                                </div>
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Specialized in Astronomy with focus on astrophysical phenomena and observational techniques</div>
-                                </div>
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Developed expertise in C++ programming for scientific computing and nuclear decay simulations</div>
-                                </div>
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Gained proficiency in quantum mechanics, thermodynamics, electromagnetic theory, and mathematical physics</div>
-                                </div>
-                            </div>
+                    <!-- Semester V -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester I (2021/2022)</h5>
+                        <div class="course-list">
+                            <div class="course-item">Data Analytics Principles</div>
+                            <div class="course-item">Sustainability</div>
+                            <div class="course-item">Atomic & Nuclear Physics</div>
+                            <div class="course-item">Solid State Physics I</div>
+                            <div class="course-item">Statistical Mechanics</div>
+                            <div class="course-item">Physics Project</div>
+                            <div class="course-item">Radiation Biophysics</div>
                         </div>
+                    </div>
 
-                        <!-- Coursework -->
-                        <div class="skills-section">
-                            <h4 class="section-title">
-                                <span>Coursework Overview</span>
-                            </h4>
-                            
-                            <!-- Semester I (2019/2020) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester I (2019/2020)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">Bahasa Malaysia I</div>
-                                    <div class="course-item">Core Entrepreneurship</div>
-                                    <div class="course-item">Physics I (Mechanics)</div>
-                                    <div class="course-item">Calculus</div>
-                                    <div class="course-item">Physics III (Vibrations, Waves and Optics)</div>
-                                    <div class="course-item">Physics Practical I</div>
-                                </div>
-                            </div>
-
-                            <!-- Semester II (2019/2020) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester II (2019/2020)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">Writing for Professional Communication</div>
-                                    <div class="course-item">Physics II (Electricity and Magnetism)</div>
-                                    <div class="course-item">Physics IV (Modern Physics)</div>
-                                    <div class="course-item">Electronics I</div>
-                                    <div class="course-item">Linear Algebra and Vector Analysis</div>
-                                    <div class="course-item">Physics Practical II</div>
-                                </div>
-                            </div>
-
-                            <!-- Semester I (2020/2021) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester I (2020/2021)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">Scientific and Medical English</div>
-                                    <div class="course-item">Electronics II</div>
-                                    <div class="course-item">Complex Analysis and Differential Equations</div>
-                                    <div class="course-item">Thermodynamics</div>
-                                    <div class="course-item">Optics</div>
-                                    <div class="course-item">Physics Practical III</div>
-                                </div>
-                            </div>
-
-                            <!-- Semester II (2020/2021) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester II (2020/2021)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">Classical Mechanics</div>
-                                    <div class="course-item">Structure of the Universe</div>
-                                    <div class="course-item">Quantum Mechanics</div>
-                                    <div class="course-item">Mathematical Methods</div>
-                                    <div class="course-item">Physics Practical IV</div>
-                                </div>
-                            </div>
-
-                            <!-- Semester I (2021/2022) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester I (2021/2022)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">Principles of Data Analytics</div>
-                                    <div class="course-item">Sustainability: Issues, Challenges and Prospects</div>
-                                    <div class="course-item">Atomic and Nuclear Physics</div>
-                                    <div class="course-item">Solid State Physics I</div>
-                                    <div class="course-item">Statistical Mechanics</div>
-                                    <div class="course-item">Pure Physics Project</div>
-                                    <div class="course-item">Radiation Biophysics</div>
-                                </div>
-                            </div>
-
-                            <!-- Semester II (2021/2022) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester II (2021/2022)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">English Poetry</div>
-                                    <div class="course-item">Malaysian Studies</div>
-                                    <div class="course-item">Electricity and Magnetism</div>
-                                    <div class="course-item">Solid State Physics II</div>
-                                    <div class="course-item">Pure Physics Project</div>
-                                </div>
-                            </div>
-
-                            <!-- Semester I (2022/2023) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester I (2022/2023)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">Speech Writing and Public Speaking</div>
-                                    <div class="course-item">Artificial Intelligence Literacy</div>
-                                    <div class="course-item">Introduction to Astronomy</div>
-                                    <div class="course-item">Principles and Practices in Astronomy</div>
-                                </div>
-                            </div>
-
-                            <!-- Semester II (2022/2023) -->
-                            <div class="semester-section">
-                                <h5 class="semester-title">Semester II (2022/2023)</h5>
-                                <div class="course-list">
-                                    <div class="course-item">Spoken English</div>
-                                    <div class="course-item">Laser and Its Applications</div>
-                                    <div class="course-item">Non-Destructive Testing</div>
-                                    <div class="course-item">Introduction to Radio Astronomy</div>
-                                </div>
-                            </div>
-
-                            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(201, 169, 97, 0.1); border-radius: 10px; border: 1px solid rgba(201, 169, 97, 0.2);">
-                                <p style="color: #b8c5d0; text-align: center; margin: 0;">
-                                    <strong style="color: #c9a961;">Total:</strong> 43 courses | 136 credit units
-                                </p>
-                            </div>
+                    <!-- Semester VI -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester II (2021/2022)</h5>
+                        <div class="course-list">
+                            <div class="course-item">English Poetry</div>
+                            <div class="course-item">Malaysian Studies</div>
+                            <div class="course-item">Electricity & Magnetism</div>
+                            <div class="course-item">Solid State Physics II</div>
+                            <div class="course-item">Physics Project</div>
                         </div>
+                    </div>
 
-                        <!-- Technical Skills -->
-                        <div class="skills-section">
-                            <h4 class="section-title">
-                                <span>Technical Skills</span>
-                            </h4>
-                            
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <div class="skill-name">Python</div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">C/C++</div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Machine Learning</div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Data Analysis</div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Git/GitHub</div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">LaTeX</div>
-                                </div>
+                    <!-- Semester VII -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester I (2022/2023)</h5>
+                        <div class="course-list">
+                            <div class="course-item">Public Speaking</div>
+                            <div class="course-item">AI Literacy</div>
+                            <div class="course-item">Introduction to Astronomy</div>
+                            <div class="course-item">Principles in Astronomy</div>
+                        </div>
+                    </div>
+
+                    <!-- Semester VIII -->
+                    <div class="semester-card">
+                        <h5 class="semester-title">Semester II (2022/2023)</h5>
+                        <div class="course-list">
+                            <div class="course-item">Spoken English</div>
+                            <div class="course-item">Laser Applications</div>
+                            <div class="course-item">Non-Destructive Testing</div>
+                            <div class="course-item">Radio Astronomy</div>
+                        </div>
+                    </div>
+
+                    <!-- Coursework Statistics Card -->
+                    <div class="semester-card" style="background: rgba(201, 169, 97, 0.12); border: 2px solid rgba(201, 169, 97, 0.4);">
+                        <h5 class="semester-title">Coursework Summary</h5>
+                        <div style="display: flex; flex-direction: column; gap: 1rem; padding: 0.5rem 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: rgba(201, 169, 97, 0.08); border-radius: 8px;">
+                                <span style="color: #b8c5d0; font-size: 0.85rem;">Total Courses</span>
+                                <span style="color: #c9a961; font-size: 1.4rem; font-weight: 700;">43</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: rgba(201, 169, 97, 0.08); border-radius: 8px;">
+                                <span style="color: #b8c5d0; font-size: 0.85rem;">Semesters</span>
+                                <span style="color: #c9a961; font-size: 1.4rem; font-weight: 700;">8</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: rgba(201, 169, 97, 0.08); border-radius: 8px;">
+                                <span style="color: #b8c5d0; font-size: 0.85rem;">Credit Units</span>
+                                <span style="color: #c9a961; font-size: 1.4rem; font-weight: 700;">136</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Wi-STEM Bangladesh Internship -->
-                <div class="education-item">
-                    <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <!-- Header -->
-                        <div class="education-header">
-                            <div class="education-icon">🔬</div>
-                            <div class="education-content">
-                                <h3>Wi-STEM Bangladesh Mentee</h3>
-                                <p class="education-university">Summer Research Internship</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Meta Information -->
-                        <div class="education-meta">
-                            <div class="meta-badge">
-                                <span>Jul. – Dec. 2021</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span>Machine Learning</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span>Astrophysics</span>
-                            </div>
-                        </div>
-
-                        <!-- Research Project -->
-                        <div class="thesis-section">
-                            <h4 class="section-title">
-                                <span>Research Project</span>
-                            </h4>
-                            <p class="thesis-title">
-                                Photometric Redshifts using Gaussian Processes: Tested machine learning methods for photometric redshift estimation from astronomical survey data
-                            </p>
-                            <p class="thesis-supervisor">
-                                <strong>Supervisor:</strong> Dr. Tonima Tasnim Ananna
-                            </p>
-                            <div style="margin-top: 1rem;">
-                                <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" style="display: inline-block; padding: 0.6rem 1.2rem; background: rgba(201, 169, 97, 0.15); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px; color: #c9a961; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
-                                    📂 View Project on GitHub
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Skills Gained -->
-                        <div class="achievements-section">
-                            <h4 class="section-title">
-                                <span>Key Learning Outcomes</span>
-                            </h4>
-                            <div class="achievement-grid">
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Applied Gaussian Processes for astronomical data analysis</div>
-                                </div>
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Developed machine learning models for photometric redshift estimation</div>
-                                </div>
-                                <div class="achievement-item">
-                                    <div class="achievement-icon">✓</div>
-                                    <div class="achievement-text">Worked with astronomical survey data and observational datasets</div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Internship Section -->
+            <div class="internship-section">
+                <div class="education-header">
+                    <div class="education-icon">🔬</div>
+                    <div class="education-content">
+                        <h3>Wi-STEM Bangladesh Mentee</h3>
+                        <p class="education-university">Summer Research Internship</p>
+                        <p class="education-location">Machine Learning in Astrophysics</p>
                     </div>
                 </div>
 
-                <!-- Future Education (Placeholder) -->
-                <div class="education-item" style="opacity: 0.3;">
-                    <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <!-- Header -->
-                        <div class="education-header">
-                            <div class="education-icon">⚛️</div>
-                            <div class="education-content">
-                                <h3>Future Graduate Studies</h3>
-                                <p class="education-university">PhD Aspirant in Astrophysics and Cosmology</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Meta Information -->
-                        <div class="education-meta">
-                            <div class="meta-badge">
-                                <span>Upcoming</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span>Planning Phase</span>
-                            </div>
-                        </div>
+                <div class="education-meta">
+                    <div class="meta-badge">Jul – Dec 2021</div>
+                    <div class="meta-badge">Machine Learning</div>
+                    <div class="meta-badge">Astrophysics</div>
+                </div>
 
-                        <!-- Details -->
-                        <div class="education-details">
-                            <p style="color: #b8c5d0; text-align: center; padding: 1rem; line-height: 1.8;">
-                                Currently exploring opportunities for graduate studies in Physics and Astronomy. Research interests include Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter & Dark Energy, High-Energy Astrophysics, Galaxy Evolution & Dynamics, and Astrostatistics with Machine Learning.
-                            </p>
+                <div class="thesis-section">
+                    <h4 class="section-title">Research Project</h4>
+                    <p class="thesis-title">
+                        Photometric Redshifts using Gaussian Processes: Tested machine learning methods for photometric redshift estimation from astronomical survey data
+                    </p>
+                    <p class="thesis-supervisor"><strong>Supervisor:</strong> Dr. Tonima Tasnim Ananna</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" style="display: inline-block; padding: 0.6rem 1.2rem; background: rgba(201, 169, 97, 0.15); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px; color: #c9a961; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+                            📂 View Project on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h4 class="section-title">Key Outcomes</h4>
+                    <div class="achievements-grid" style="grid-template-columns: 1fr;">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">Applied Gaussian Processes for astronomical data analysis</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">Developed ML models for photometric redshift estimation</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">Worked with astronomical survey data and observations</div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Astronomy Club Section -->
+            <div class="internship-section" style="grid-column: 7 / -1;">
+                <div class="education-header">
+                    <div class="education-icon">🌟</div>
+                    <div class="education-content">
+                        <h3>Astronomy Club, Universiti Sains Malaysia</h3>
+                        <p class="education-university">Elected Student Representative (Exco)</p>
+                        <p class="education-location">Member & Active Participant</p>
+                    </div>
+                </div>
+
+                <div class="education-meta">
+                    <div class="meta-badge">Exco: 2019 - 2020</div>
+                    <div class="meta-badge">Member: 2019 - Present</div>
+                    <div class="meta-badge">Leadership</div>
+                    <div class="meta-badge">Outreach</div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h4 class="section-title">Contributions & Activities</h4>
+                    <div class="achievements-grid" style="grid-template-columns: 1fr;">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">Represented and coordinated activities among students from over 10 nationalities, fostering inclusivity and cross-cultural collaboration</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">Actively participated in stargazing sessions, public outreach programs, workshops, and valuable training sessions</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">Attended Physics colloquia, workshops, coffee talks, and various engaging activities as part of the community</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Studies -->
+            <div class="future-section" style="grid-column: 1 / -1;">
+                <div class="future-header">
+                    <div class="education-icon">⚛️</div>
+                    <div class="future-title-group">
+                        <h3>Future Graduate Studies</h3>
+                        <p class="education-university">PhD Aspirant in Astrophysics and Cosmology</p>
+                    </div>
+                </div>
+
+                <div class="education-meta">
+                    <div class="meta-badge">Upcoming</div>
+                    <div class="meta-badge">Planning Phase</div>
+                </div>
+
+                <div class="future-description">
+                    <p>Currently exploring opportunities for graduate studies in Physics and Astronomy. Research interests include Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter & Dark Energy, High-Energy Astrophysics, Galaxy Evolution & Dynamics, and Astrostatistics with Machine Learning.</p>
                 </div>
             </div>
         </div>
