@@ -312,35 +312,6 @@
         .project-item:nth-child(12) { animation-delay: 1.2s; }
         .project-item:nth-child(13) { animation-delay: 1.3s; }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-
-            .projects-intro,
-            .project-item {
-                padding: 1.5rem;
-            }
-
-            .project-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .project-title {
-                font-size: 1.5rem;
-            }
-
-            .project-links {
-                justify-content: center;
-            }
-        }
-
         /* Special styling for different project types - all using golden gradient variations */
         .project-item[data-type="photometry"] .project-icon {
             background: linear-gradient(135deg, #c9a961, #d4b56d);
@@ -389,6 +360,74 @@
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-left {
+            text-align: center;
+        }
+
+        .footer-left p {
+            color: #b8c5d0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .projects-intro,
+            .project-item {
+                padding: 1.5rem;
+            }
+
+            .project-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .project-links {
+                justify-content: center;
+            }
+
+            footer {
+                padding: 1.5rem 0;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -693,6 +732,14 @@
             </li>
         </ul>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Add smooth scrolling for internal links
