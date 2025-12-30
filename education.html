@@ -279,7 +279,7 @@
         .hero-section {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 1.5rem;
             gap: 3rem;
         }
@@ -289,6 +289,7 @@
             align-items: center;
             gap: 2rem;
             position: relative;
+            margin-top: 1rem;
         }
 
         .page-title-right {
@@ -304,17 +305,44 @@
             display: inline-block;
             line-height: 1.2;
             margin: 0;
+            padding-bottom: 0.8rem;
+            overflow: hidden;
         }
 
         .page-title-right h1::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            right: 0;
-            width: 100px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
             height: 4px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d);
+            background: linear-gradient(90deg, #c9a961 0%, #d4b56d 50%, #c9a961 100%);
             border-radius: 2px;
+            animation: underline-expand 3s ease-in-out infinite;
+        }
+
+        @keyframes underline-expand {
+            0% {
+                width: 0%;
+                opacity: 0;
+            }
+            10% {
+                width: 0%;
+                opacity: 1;
+            }
+            50% {
+                width: 100%;
+                opacity: 1;
+            }
+            90% {
+                width: 100%;
+                opacity: 1;
+            }
+            100% {
+                width: 100%;
+                opacity: 0;
+            }
         }
 
         .profile-image {
@@ -907,6 +935,7 @@
             .hero-section {
                 flex-direction: column;
                 gap: 1.5rem;
+                align-items: center;
             }
 
             .page-title-right {
@@ -918,15 +947,10 @@
                 font-size: 2rem;
             }
 
-            .page-title-right h1::after {
-                left: 50%;
-                transform: translateX(-50%);
-                right: auto;
-            }
-
             .profile-card {
                 flex-direction: column;
                 text-align: center;
+                margin-top: 0;
             }
 
             .profile-text-content {
