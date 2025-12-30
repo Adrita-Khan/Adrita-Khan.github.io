@@ -412,46 +412,6 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .section-subtitle {
-                font-size: 1.6rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-
-            .filter-section {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box {
-                min-width: auto;
-                width: 100%;
-            }
-
-            .achievement-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .stats-section {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .membership-role {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.3rem;
-            }
-        }
-
         /* No results message */
         .no-results {
             text-align: center;
@@ -534,6 +494,85 @@
         .nav-list li:nth-child(8n+6) a { border-left: 3px solid #b89d55; }
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-left {
+            text-align: center;
+        }
+
+        .footer-left p {
+            color: #b8c5d0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.6rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .achievement-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .membership-role {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+
+            footer {
+                padding: 1.5rem 0;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -709,6 +748,14 @@
         <p>No achievements found matching your search criteria.</p>
     </div>
 </div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 <script>
     // Search functionality
