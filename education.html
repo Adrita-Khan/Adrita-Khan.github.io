@@ -242,16 +242,14 @@
         .container {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 2rem 3.5rem 3.5rem 3.5rem;
+            padding: 1.2rem 3.5rem 3.5rem 3.5rem;
         }
 
         /* ========================================
            PAGE TITLE (TOP)
            ======================================== */
         .page-header-top {
-            text-align: center;
-            margin-bottom: 1rem;
-            padding-top: 0.5rem;
+            display: none;
         }
 
         .page-title-top {
@@ -280,8 +278,10 @@
            ======================================== */
         .hero-section {
             display: flex;
-            justify-content: center;
-            margin-bottom: 1.2rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 3rem;
         }
 
         .profile-card {
@@ -289,6 +289,32 @@
             align-items: center;
             gap: 2rem;
             position: relative;
+        }
+
+        .page-title-right {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .page-title-right h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .page-title-right h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d);
+            border-radius: 2px;
         }
 
         .profile-image {
@@ -878,8 +904,24 @@
                 padding: 2.5rem 2rem;
             }
 
-            .page-title-top {
-                font-size: 2.5rem;
+            .hero-section {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .page-title-right {
+                text-align: center;
+                order: -1;
+            }
+
+            .page-title-right h1 {
+                font-size: 2rem;
+            }
+
+            .page-title-right h1::after {
+                left: 50%;
+                transform: translateX(-50%);
+                right: auto;
             }
 
             .profile-card {
@@ -994,12 +1036,7 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Page Title at Top -->
-        <div class="page-header-top">
-            <h1 class="page-title-top">Educational Journey</h1>
-        </div>
-
-        <!-- Hero Section -->
+        <!-- Hero Section with Title on Right -->
         <div class="hero-section">
             <div class="profile-card">
                 <img src="https://github.com/Adrita-Khan/Assets/blob/main/host/new.jpg?raw=true" 
@@ -1012,6 +1049,9 @@
                         <span>2023 Graduate</span> • <span>BSc Honours</span> • <span>Physics Major</span> • <span>Astronomy Minor</span>
                     </div>
                 </div>
+            </div>
+            <div class="page-title-right">
+                <h1>Educational Journey</h1>
             </div>
         </div>
 
