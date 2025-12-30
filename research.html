@@ -327,6 +327,47 @@
         .nav-list li:nth-child(8n+6) a { border-left: 3px solid #b89d55; }
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-left {
+            text-align: center;
+        }
+
+        .footer-left p {
+            color: #b8c5d0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 1.5rem 0;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -441,6 +482,14 @@
         </li>
     </ul>
 </div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 <script>
     // Add smooth scrolling for internal links
