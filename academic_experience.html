@@ -13,35 +13,35 @@
             color: #333;
             line-height: 1.6;
         }
-        .container { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 1rem 2rem 2rem 2rem; }
         .section-title {
-            font-size: 3.5rem; font-weight: 700; text-align: center; margin-bottom: 3rem;
+            font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem;
             color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); position: relative;
         }
         .section-title::after {
             content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-            width: 120px; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d);
+            width: 80px; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d);
             border-radius: 2px;
         }
-        .container > ul { list-style: none; display: grid; gap: 2.5rem; }
+        .container > ul { list-style: none; display: grid; gap: 1.5rem; }
         .container > ul > li {
-            background: rgba(201, 169, 97, 0.08); backdrop-filter: blur(10px); border-radius: 20px;
-            padding: 2.5rem; border: 1px solid rgba(201, 169, 97, 0.2); transition: all 0.3s ease;
+            background: rgba(201, 169, 97, 0.08); backdrop-filter: blur(10px); border-radius: 15px;
+            padding: 1.5rem; border: 1px solid rgba(201, 169, 97, 0.2); transition: all 0.3s ease;
             position: relative; overflow: hidden;
         }
         .container > ul > li::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
             transform: translateX(-100%); transition: transform 0.3s ease;
         }
         .container > ul > li:hover::before { transform: translateX(0); }
         .container > ul > li:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(201, 169, 97, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.3);
             background: rgba(201, 169, 97, 0.12);
         }
         .container > ul > li > h3 {
-            font-size: 2rem; font-weight: 600; color: #c9a961; margin-bottom: 1rem;
+            font-size: 1.5rem; font-weight: 600; color: #c9a961; margin-bottom: 0.8rem;
             position: relative; display: inline-block;
         }
         .container > ul > li > h3::after {
@@ -50,27 +50,27 @@
         }
         .container > ul > li:hover > h3::after { width: 100%; }
         .container > ul > li > p {
-            color: #b8c5d0; font-size: 1.1rem; margin-bottom: 0.8rem;
+            color: #b8c5d0; font-size: 1rem; margin-bottom: 0.6rem;
         }
         .container > ul > li > p:first-of-type {
-            font-weight: 600; color: #ffffff; font-size: 1.2rem;
+            font-weight: 600; color: #ffffff; font-size: 1.1rem;
         }
         .container > ul > li > p:nth-of-type(2) {
             color: #c9a961; font-weight: 500; font-style: italic;
         }
         .container > ul > li > p:last-of-type {
-            color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;
+            color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;
         }
         .container > ul > li ul {
-            list-style: none; padding-left: 0; margin-top: 1rem;
+            list-style: none; padding-left: 0; margin-top: 0.8rem;
         }
         .container > ul > li ul li {
             background: rgba(201, 169, 97, 0.1); border-left: 3px solid #c9a961;
-            padding: 1rem 1.5rem; margin-bottom: 0.8rem; border-radius: 0 10px 10px 0;
-            color: #b8c5d0; font-size: 1.05rem; transition: all 0.3s ease; position: relative;
+            padding: 0.8rem 1.2rem; margin-bottom: 0.6rem; border-radius: 0 10px 10px 0;
+            color: #b8c5d0; font-size: 0.98rem; transition: all 0.3s ease; position: relative;
         }
         .container > ul > li ul li::before {
-            content: '▸'; color: #c9a961; font-weight: bold; margin-right: 0.5rem; font-size: 1.2rem;
+            content: '▸'; color: #c9a961; font-weight: bold; margin-right: 0.5rem; font-size: 1.1rem;
         }
         .container > ul > li ul li:hover {
             background: rgba(201, 169, 97, 0.15); border-left-color: #d4b56d; transform: translateX(5px);
@@ -82,13 +82,13 @@
             color: #d4b56d; border-bottom-color: #c9a961;
         }
         .position-subsection {
-            margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(201, 169, 97, 0.2);
+            margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(201, 169, 97, 0.2);
         }
         .position-subsection h4 {
-            font-size: 1.5rem; color: #ffffff; margin-bottom: 0.5rem;
+            font-size: 1.3rem; color: #ffffff; margin-bottom: 0.4rem;
         }
         .position-subsection > p:first-of-type {
-            color: #c9a961 !important; font-weight: 500; font-style: italic; margin-bottom: 0.8rem;
+            color: #c9a961 !important; font-weight: 500; font-style: italic; margin-bottom: 0.6rem;
         }
         .position-subsection p {
             color: #b8c5d0;
@@ -121,21 +121,12 @@
         .container > ul > li:nth-child(4) { animation-delay: 0.4s; }
         .container > ul > li:nth-child(5) { animation-delay: 0.5s; }
         .container > ul > li:nth-child(6) { animation-delay: 0.6s; }
-        .container > ul > li::after {
-            content: '🔬'; position: absolute; top: 2rem; right: 2rem; font-size: 2rem; opacity: 0.3; transition: all 0.3s ease;
-        }
-        .container > ul > li:hover::after { opacity: 0.6; transform: scale(1.2) rotate(15deg); }
-        .container > ul > li:nth-child(2)::after { content: '🌌'; }
-        .container > ul > li:nth-child(3)::after { content: '🚀'; }
-        .container > ul > li:nth-child(4)::after { content: '🌍'; }
-        .container > ul > li:nth-child(5)::after { content: '🎓'; }
-        .container > ul > li:nth-child(6)::after { content: '👥'; }
         html { scroll-behavior: smooth; }
         .container > ul > li { cursor: pointer; }
         .container > ul > li:hover { border-color: rgba(201, 169, 97, 0.4); }
         .container > ul > li:hover {
             box-shadow: 
-                0 20px 50px rgba(201, 169, 97, 0.3),
+                0 15px 40px rgba(201, 169, 97, 0.3),
                 0 0 20px rgba(201, 169, 97, 0.15);
         }
 
@@ -174,8 +165,8 @@
             background: rgba(10, 14, 20, 0.8);
             backdrop-filter: blur(10px);
             border-top: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 2rem 0;
-            margin-top: 3rem;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
         }
 
         .footer-content {
@@ -185,7 +176,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .footer-left {
@@ -194,19 +185,18 @@
 
         .footer-left p {
             color: #b8c5d0;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
         @media (max-width: 768px) {
-            .section-title { font-size: 2.5rem; }
-            .container { padding: 2rem 1rem; }
-            .container > ul > li { padding: 1.5rem; }
-            .container > ul > li > h3 { font-size: 1.5rem; }
-            .container > ul > li::after { display: none; }
+            .section-title { font-size: 2rem; }
+            .container { padding: 1.5rem 1rem; }
+            .container > ul > li { padding: 1.2rem; }
+            .container > ul > li > h3 { font-size: 1.3rem; }
 
             footer {
-                padding: 1.5rem 0;
-                margin-top: 2rem;
+                padding: 1.2rem 0;
+                margin-top: 1.5rem;
             }
 
             .footer-content {
@@ -246,7 +236,7 @@
             <div class="position-subsection">
                 <h4>Full-time Research Assistant</h4>
                 <p>August 2025 – Present</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
                 <ul>
                     <li>Cosmological data analysis and pipeline development for radio astronomical sources.</li>
                     <li>Project: Jet tagging using PCN with interaction features (previously as intern).</li>
@@ -257,7 +247,7 @@
             <div class="position-subsection">
                 <h4>Research Intern</h4>
                 <p>January 2025 – July 2025</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
                 <ul>
                     <li>Assisted with jet tagging research and initial methodology design for ML in particle physics.</li>
                     <li>Developed scripts for preprocessing and feature engineering.</li>
@@ -273,19 +263,19 @@
             <div class="position-subsection">
                 <h4>Part-time Research Assistant</h4>
                 <p>October 2025 – Present</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
                 <ul>
                     <li>Development of astrophysical simulation models.</li>
                     <li>Continuation of previous intern research; extension to observational studies and analytic methods.</li>
                     <li>Collaboration on institutional research projects and student mentoring.</li>
                 </ul>
-                <p style="margin-top: 1rem;">More about CASSA: <a href="https://cassa.site/entry/p2024002/" target="_blank">Project Details</a> | <a href="https://cassa.site/entry/p2023001/" target="_blank">Additional Research</a> | <a href="https://cassa.site/people/students/" target="_blank">Student Roles</a></p>
+                <p style="margin-top: 0.8rem;">More about CASSA: <a href="https://cassa.site/entry/p2024002/" target="_blank">Project Details</a> | <a href="https://cassa.site/entry/p2023001/" target="_blank">Additional Research</a> | <a href="https://cassa.site/people/students/" target="_blank">Student Roles</a></p>
             </div>
 
             <div class="position-subsection">
                 <h4>Research Intern</h4>
                 <p>June 2024 – September 2025</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1rem;">Responsibilities:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
                 <ul>
                     <li>Initiated radio astronomy classification projects for galaxy morphologies.</li>
                     <li>Contributed to data curation and preliminary analysis for source identification.</li>
@@ -297,7 +287,7 @@
             <h3>Remote Research Assistant</h3>
             <p>Centre for Astro-Particle Physics (CAPP), University of Johannesburg, South Africa</p>
             <p>June 2025 – Present</p>
-            <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;">Responsibilities:</p>
+            <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Responsibilities:</p>
             <ul>
                 <li>Remote collaboration on astro-particle physics and cosmology research projects.</li>
                 <li>Data analysis and computational modeling for high-energy astrophysics studies.</li>
@@ -309,7 +299,7 @@
             <h3>Student Research Collaborator</h3>
             <p>Dunlap Institute for Astronomy & Astrophysics, University of Toronto</p>
             <p>March 2025 – Present (Remote)</p>
-            <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;">Responsibilities:</p>
+            <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Responsibilities:</p>
             <ul>
                 <li>Remote collaboration on experimental cosmology and radio astronomy projects.</li>
                 <li>Active participation in research discussions and joint data analysis tasks.</li>
@@ -320,7 +310,7 @@
             <h3>Graduate Teaching Assistant</h3>
             <p>North South University (NSU), Department of Mathematics and Physics</p>
             <p>Spring 2025 (January – April)</p>
-            <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;">Courses and Responsibilities:</p>
+            <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Courses and Responsibilities:</p>
             <ul>
                 <li>Supported undergraduate courses PHY107 and PHY108 (Physics I, II).</li>
                 <li>Mentored students during weekly consultation hours.</li>
@@ -333,10 +323,10 @@
             <p>Spring – Fall 2025</p>
             
             <div class="position-subsection">
-                <h4>Mentee: Subaita Rahman Supti <span style="font-size:1rem;color:#b8c5d0;">(ICTP PWF Intern 2025)</span></h4>
+                <h4>Mentee: Subaita Rahman Supti <span style="font-size:0.95rem;color:#b8c5d0;">(ICTP PWF Intern 2025)</span></h4>
                 <p>Institution: Independent University, Bangladesh (IUB)</p>
                 <p>Department: Physical Sciences | Major: Physics</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;">Mentoring Focus Areas:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Scientific Computing & Programming: Introduction to LaTeX (Overleaf), C/C++ fundamentals</li>
                     <li>Research Guidance: Discussion and development of research ideas in Cosmology and Particle Physics</li>
@@ -348,7 +338,7 @@
                 <h4>Mentee: Maisha Rahman</h4>
                 <p>Institution: University of Dhaka</p>
                 <p>Department: Physics | Major: Physics</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;">Mentoring Focus Areas:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Programming & Data Analysis: Python, Statistics</li>
                     <li>Artificial Intelligence & Machine Learning: Basics of Machine Learning and Deep Learning, Object Detection using ML</li>
@@ -357,10 +347,10 @@
             </div>
 
             <div class="position-subsection">
-                <h4>Mentee: Saidul Hossain Al-Amin <span style="font-size:1rem;color:#b8c5d0;">(Bronze Awardee, IAAC)</span></h4>
+                <h4>Mentee: Saidul Hossain Al-Amin <span style="font-size:0.95rem;color:#b8c5d0;">(Bronze Awardee, IAAC)</span></h4>
                 <p>Institution: North South University, Bangladesh</p>
                 <p>Department: Electronics and Communication Engineering (ECE) | Major: Electrical and Electronic Engineering (EEE)</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;">Mentoring Focus Areas:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Programming & Data Analysis: Python, Statistics</li>
                     <li>Signal Processing & Astronomy: Introduction to Signal Processing, Introduction to Radio Astronomy</li>
@@ -373,14 +363,14 @@
                 <p>Institution: Shahjalal University of Science and Technology (SUST) – BSc | North South University, Bangladesh – MSc</p>
                 <p>Department: Petroleum and Mining Engineering (BSc) | Mathematics & Physics (MSc)</p>
                 <p>Major: Petroleum and Mining Engineering, Applied Mathematics and Computational Science</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem;">Mentoring Focus Areas:</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Programming & Data Analysis: Python, C++, MATLAB, Machine Learning</li>
                     <li>Web Development: HTML, CSS</li>
                     <li>Research Projects: Neural Ordinary Differential Equations (Neural ODE), Traffic Flow Modeling</li>
                     <li>Research Tools: Usage of research core packages</li>
                 </ul>
-                <p style="margin-top: 1rem;">Portfolio: <a href="https://neyaz-ahmed.github.io/" target="_blank">Website</a> | <a href="https://github.com/neyaz-ahmed" target="_blank">GitHub</a></p>
+                <p style="margin-top: 0.8rem;">Portfolio: <a href="https://neyaz-ahmed.github.io/" target="_blank">Website</a> | <a href="https://github.com/neyaz-ahmed" target="_blank">GitHub</a></p>
             </div>
         </li>
     </ul>
@@ -411,7 +401,7 @@
     // Add interactive hover effects
     document.querySelectorAll('.container > ul > li').forEach(item => {
         item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.transform = 'translateY(-5px) scale(1.01)';
         });
         item.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
@@ -423,7 +413,7 @@
         item.addEventListener('click', function() {
             this.style.transform = 'scale(0.98)';
             setTimeout(() => {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
+                this.style.transform = 'translateY(-5px) scale(1.01)';
             }, 100);
         });
     });
