@@ -242,7 +242,7 @@
         .container {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 1.2rem 3.5rem 3.5rem 3.5rem;
+            padding: 1.2rem 3.5rem 1rem 3.5rem;
         }
 
         /* ========================================
@@ -405,7 +405,7 @@
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             gap: 1.2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0rem;
         }
 
         /* Bachelor's Degree - Full Width */
@@ -899,6 +899,36 @@
             font-size: 0.9rem;
         }
 
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 2rem 0;
+            margin-top: 0rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-left {
+            text-align: center;
+        }
+
+        .footer-left p {
+            color: #b8c5d0;
+            font-size: 0.9rem;
+        }
+
         /* ========================================
            RESPONSIVE DESIGN
            ======================================== */
@@ -979,6 +1009,15 @@
 
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                padding: 1.5rem 0;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
             }
         }
 
@@ -1388,5 +1427,13 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
