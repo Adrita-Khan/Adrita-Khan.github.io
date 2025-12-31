@@ -84,156 +84,156 @@
             50% { transform: translate(30px, -20px) scale(1.1); }
         }
 
-  /* Aurora for Research Interests Section - Gold with Subtle Green Tones */
-.aurora-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
-}
+        /* Aurora for Research Interests Section - Gold with Subtle Green Tones */
+        .aurora-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-.aurora {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-}
+        .aurora {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
 
-.aurora-wave {
-    position: absolute;
-    width: 300%;
-    height: 150%;
-    left: -100%;
-    top: -25%;
-}
+        .aurora-wave {
+            position: absolute;
+            width: 300%;
+            height: 150%;
+            left: -100%;
+            top: -25%;
+        }
 
-.aurora-wave-1 {
-    background: 
-        radial-gradient(ellipse 800px 400px at 20% 30%, rgba(201, 169, 97, 0.16) 0%, rgba(201, 169, 97, 0.08) 30%, transparent 60%),
-        radial-gradient(ellipse 600px 300px at 80% 70%, rgba(150, 200, 150, 0.12) 0%, rgba(150, 200, 150, 0.05) 30%, transparent 60%),
-        radial-gradient(ellipse 700px 350px at 50% 50%, rgba(180, 180, 130, 0.14) 0%, rgba(180, 180, 130, 0.06) 30%, transparent 60%);
-    animation: auroraFlow1 25s ease-in-out infinite;
-    filter: blur(50px);
-    mix-blend-mode: screen;
-}
+        .aurora-wave-1 {
+            background: 
+                radial-gradient(ellipse 800px 400px at 20% 30%, rgba(201, 169, 97, 0.16) 0%, rgba(201, 169, 97, 0.08) 30%, transparent 60%),
+                radial-gradient(ellipse 600px 300px at 80% 70%, rgba(150, 200, 150, 0.12) 0%, rgba(150, 200, 150, 0.05) 30%, transparent 60%),
+                radial-gradient(ellipse 700px 350px at 50% 50%, rgba(180, 180, 130, 0.14) 0%, rgba(180, 180, 130, 0.06) 30%, transparent 60%);
+            animation: auroraFlow1 25s ease-in-out infinite;
+            filter: blur(50px);
+            mix-blend-mode: screen;
+        }
 
-.aurora-wave-2 {
-    background: 
-        radial-gradient(ellipse 900px 450px at 60% 40%, rgba(201, 169, 97, 0.18) 0%, rgba(201, 169, 97, 0.09) 30%, transparent 60%),
-        radial-gradient(ellipse 700px 350px at 30% 80%, rgba(160, 190, 140, 0.13) 0%, rgba(160, 190, 140, 0.06) 30%, transparent 60%),
-        radial-gradient(ellipse 800px 400px at 70% 20%, rgba(190, 180, 120, 0.15) 0%, rgba(190, 180, 120, 0.07) 30%, transparent 60%);
-    animation: auroraFlow2 30s ease-in-out infinite reverse;
-    filter: blur(55px);
-    mix-blend-mode: screen;
-}
+        .aurora-wave-2 {
+            background: 
+                radial-gradient(ellipse 900px 450px at 60% 40%, rgba(201, 169, 97, 0.18) 0%, rgba(201, 169, 97, 0.09) 30%, transparent 60%),
+                radial-gradient(ellipse 700px 350px at 30% 80%, rgba(160, 190, 140, 0.13) 0%, rgba(160, 190, 140, 0.06) 30%, transparent 60%),
+                radial-gradient(ellipse 800px 400px at 70% 20%, rgba(190, 180, 120, 0.15) 0%, rgba(190, 180, 120, 0.07) 30%, transparent 60%);
+            animation: auroraFlow2 30s ease-in-out infinite reverse;
+            filter: blur(55px);
+            mix-blend-mode: screen;
+        }
 
-.aurora-wave-3 {
-    background: 
-        radial-gradient(ellipse 1000px 500px at 40% 60%, rgba(180, 190, 130, 0.14) 0%, rgba(180, 190, 130, 0.07) 30%, transparent 60%),
-        radial-gradient(ellipse 800px 400px at 85% 30%, rgba(201, 169, 97, 0.16) 0%, rgba(201, 169, 97, 0.08) 30%, transparent 60%),
-        radial-gradient(ellipse 900px 450px at 15% 80%, rgba(170, 185, 140, 0.12) 0%, rgba(170, 185, 140, 0.05) 30%, transparent 60%);
-    animation: auroraFlow3 35s ease-in-out infinite;
-    filter: blur(60px);
-    mix-blend-mode: screen;
-}
+        .aurora-wave-3 {
+            background: 
+                radial-gradient(ellipse 1000px 500px at 40% 60%, rgba(180, 190, 130, 0.14) 0%, rgba(180, 190, 130, 0.07) 30%, transparent 60%),
+                radial-gradient(ellipse 800px 400px at 85% 30%, rgba(201, 169, 97, 0.16) 0%, rgba(201, 169, 97, 0.08) 30%, transparent 60%),
+                radial-gradient(ellipse 900px 450px at 15% 80%, rgba(170, 185, 140, 0.12) 0%, rgba(170, 185, 140, 0.05) 30%, transparent 60%);
+            animation: auroraFlow3 35s ease-in-out infinite;
+            filter: blur(60px);
+            mix-blend-mode: screen;
+        }
 
-@keyframes auroraFlow1 {
-    0%, 100% {
-        transform: translate(0%, 0%) rotate(0deg) scale(1);
-        opacity: 0.75;
-    }
-    25% {
-        transform: translate(5%, -3%) rotate(1deg) scale(1.05);
-        opacity: 0.85;
-    }
-    50% {
-        transform: translate(-3%, 2%) rotate(-1deg) scale(0.98);
-        opacity: 0.7;
-    }
-    75% {
-        transform: translate(4%, -2%) rotate(0.5deg) scale(1.02);
-        opacity: 0.8;
-    }
-}
+        @keyframes auroraFlow1 {
+            0%, 100% {
+                transform: translate(0%, 0%) rotate(0deg) scale(1);
+                opacity: 0.75;
+            }
+            25% {
+                transform: translate(5%, -3%) rotate(1deg) scale(1.05);
+                opacity: 0.85;
+            }
+            50% {
+                transform: translate(-3%, 2%) rotate(-1deg) scale(0.98);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translate(4%, -2%) rotate(0.5deg) scale(1.02);
+                opacity: 0.8;
+            }
+        }
 
-@keyframes auroraFlow2 {
-    0%, 100% {
-        transform: translate(0%, 0%) rotate(0deg) scale(1);
-        opacity: 0.7;
-    }
-    30% {
-        transform: translate(-4%, 3%) rotate(-1deg) scale(1.04);
-        opacity: 0.8;
-    }
-    60% {
-        transform: translate(3%, -2%) rotate(0.8deg) scale(0.97);
-        opacity: 0.65;
-    }
-    90% {
-        transform: translate(-2%, 1%) rotate(-0.5deg) scale(1.01);
-        opacity: 0.75;
-    }
-}
+        @keyframes auroraFlow2 {
+            0%, 100% {
+                transform: translate(0%, 0%) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translate(-4%, 3%) rotate(-1deg) scale(1.04);
+                opacity: 0.8;
+            }
+            60% {
+                transform: translate(3%, -2%) rotate(0.8deg) scale(0.97);
+                opacity: 0.65;
+            }
+            90% {
+                transform: translate(-2%, 1%) rotate(-0.5deg) scale(1.01);
+                opacity: 0.75;
+            }
+        }
 
-@keyframes auroraFlow3 {
-    0%, 100% {
-        transform: translate(0%, 0%) rotate(0deg) scale(1);
-        opacity: 0.65;
-    }
-    20% {
-        transform: translate(3%, -2%) rotate(0.5deg) scale(1.03);
-        opacity: 0.75;
-    }
-    40% {
-        transform: translate(-4%, 3%) rotate(-0.8deg) scale(0.99);
-        opacity: 0.6;
-    }
-    60% {
-        transform: translate(2%, -1%) rotate(0.3deg) scale(1.01);
-        opacity: 0.7;
-    }
-    80% {
-        transform: translate(-2%, 2%) rotate(-0.4deg) scale(0.98);
-        opacity: 0.65;
-    }
-}
+        @keyframes auroraFlow3 {
+            0%, 100% {
+                transform: translate(0%, 0%) rotate(0deg) scale(1);
+                opacity: 0.65;
+            }
+            20% {
+                transform: translate(3%, -2%) rotate(0.5deg) scale(1.03);
+                opacity: 0.75;
+            }
+            40% {
+                transform: translate(-4%, 3%) rotate(-0.8deg) scale(0.99);
+                opacity: 0.6;
+            }
+            60% {
+                transform: translate(2%, -1%) rotate(0.3deg) scale(1.01);
+                opacity: 0.7;
+            }
+            80% {
+                transform: translate(-2%, 2%) rotate(-0.4deg) scale(0.98);
+                opacity: 0.65;
+            }
+        }
 
-/* Subtle gradient overlay */
-.aurora::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(
-            135deg,
-            rgba(201, 169, 97, 0.06) 0%,
-            rgba(170, 190, 140, 0.05) 25%,
-            rgba(190, 180, 130, 0.06) 50%,
-            rgba(160, 195, 145, 0.04) 75%,
-            rgba(201, 169, 97, 0.06) 100%
-        );
-    filter: blur(40px);
-    animation: overlayPulse 20s ease-in-out infinite;
-    mix-blend-mode: screen;
-}
+        /* Subtle gradient overlay */
+        .aurora::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(201, 169, 97, 0.06) 0%,
+                    rgba(170, 190, 140, 0.05) 25%,
+                    rgba(190, 180, 130, 0.06) 50%,
+                    rgba(160, 195, 145, 0.04) 75%,
+                    rgba(201, 169, 97, 0.06) 100%
+                );
+            filter: blur(40px);
+            animation: overlayPulse 20s ease-in-out infinite;
+            mix-blend-mode: screen;
+        }
 
-@keyframes overlayPulse {
-    0%, 100% { 
-        opacity: 0.5; 
-        transform: scale(1);
-    }
-    50% { 
-        opacity: 0.7; 
-        transform: scale(1.02);
-    }
-}
+        @keyframes overlayPulse {
+            0%, 100% { 
+                opacity: 0.5; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.7; 
+                transform: scale(1.02);
+            }
+        }
 
         .stars {
             position: fixed;
@@ -1272,12 +1272,12 @@
             letter-spacing: 0.5px;
         }
 
-.research-interests-main {
-    position: relative;
-    padding: 2rem 1.5rem;
-    overflow: hidden;
-    z-index: 20; /* Add this line to place it above the stars */
-}
+        .research-interests-main {
+            position: relative;
+            padding: 2rem 1.5rem;
+            overflow: hidden;
+            z-index: 20;
+        }
 
         .research-container {
             max-width: 1400px;
@@ -1323,22 +1323,22 @@
             overflow: hidden;
         }
 
-.research-interest-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: transparent;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-}
+        .research-interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
 
-.research-interest-card:hover::before {
-    opacity: 0;
-}
+        .research-interest-card:hover::before {
+            opacity: 0;
+        }
 
         .research-interest-card:hover {
             transform: translateY(-8px);
@@ -1427,7 +1427,7 @@
         }
 
         .research-topic-item::before {
-            content: "â—†";
+            content: "◆";
             margin-right: 0.6rem;
             color: var(--gold-primary);
             transition: all 0.3s ease;
@@ -1440,7 +1440,6 @@
             transform: scale(1.3);
             opacity: 1;
         }
-
 
         .stats-grid {
             display: grid;
@@ -1699,83 +1698,83 @@
         }
 
         footer {
-    position: relative;
-    z-index: 10;
-    background: rgba(10, 14, 20, 0.95);
-    backdrop-filter: blur(20px);
-    padding: 2rem 2rem;
-    border-top: 1px solid rgba(201, 169, 97, 0.15);
-}
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 14, 20, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 2rem 2rem;
+            border-top: 1px solid rgba(201, 169, 97, 0.15);
+        }
 
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-}
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
 
-.footer-left p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin: 0;
-    text-align: left;
-}
+        .footer-left p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+            text-align: left;
+        }
 
-.footer-left p:first-child {
-    color: var(--text-light);
-    font-weight: 500;
-    margin-bottom: 0.3rem;
-}
+        .footer-left p:first-child {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
 
-.footer-stats {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
+        .footer-stats {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
 
-.footer-stat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
+        .footer-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
 
-.footer-stat-number {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    min-width: 30px;
-    text-align: center;
-}
+        .footer-stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-width: 30px;
+            text-align: center;
+        }
 
-.footer-stat-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-weight: 500;
-    white-space: nowrap;
-}
+        .footer-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+        }
 
-.footer-stat-divider {
-    width: 1px;
-    height: 30px;
-    background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
-}
+        .footer-stat-divider {
+            width: 1px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
+        }
 
         .reveal {
             opacity: 1;
@@ -1860,17 +1859,17 @@ footer::before {
             }
 
             .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+                flex-direction: column;
+                text-align: center;
+            }
 
-    .footer-left p {
-        text-align: center;
-    }
+            .footer-left p {
+                text-align: center;
+            }
 
-    .footer-stats {
-        justify-content: center;
-    }
+            .footer-stats {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 640px) {
@@ -1920,19 +1919,19 @@ footer::before {
             }
 
             footer {
-        padding: 1.5rem 1rem;
-    }
+                padding: 1.5rem 1rem;
+            }
 
-    .footer-stats {
-        flex-direction: column;
-        gap: 1rem;
-    }
+            .footer-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-    .footer-stat-divider {
-        width: 60%;
-        height: 1px;
-        background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
-    }
+            .footer-stat-divider {
+                width: 60%;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
+            }
         }
     </style>
 </head>
@@ -2013,7 +2012,7 @@ footer::before {
             </div>
             <div class="about-content-compact reveal">
                 <p>Graduate from the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. Early career researcher focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, high energy astroparticle physics, and statistical and machine learning applications in astrophysics.</p>
-                <p>My research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data. I am developing machine learning and deep learning methodologies for radio astronomy, with expertise in automated classification of bent radio AGN and semi-supervised learning approaches. Currently working on gamma-ray burst redshift estimation and designed the Explainable Polynomial Chebyshev Network (EPCN)â€”a neural architecture incorporating interpretable interaction features into Chebyshev-based frameworks.</p>
+                <p>My research involves investigating modified gravity theories through cross-correlation analysis of the Cosmic Microwave Background (CMB) and galaxy data. I am developing machine learning and deep learning methodologies for radio astronomy, with expertise in automated classification of bent radio AGN and semi-supervised learning approaches. Currently working on gamma-ray burst redshift estimation and designed the Explainable Polynomial Chebyshev Network (EPCN)—a neural architecture incorporating interpretable interaction features into Chebyshev-based frameworks.</p>
                 <p>My research goal is advancing precision cosmology at the intersection of theoretical frameworks and empirical observations, particularly within next-generation surveys such as the Vera C. Rubin Observatory's LSST, the Euclid mission, and DESI. I employ computational methodologies including machine learning, Bayesian inference, and cosmological emulation to extract empirical constraints on the universe's origin, evolution, and matter-energy composition. Committed to fostering scientific diversity, equity, and inclusion within the academic community.</p>
             </div>
         </div>
@@ -2028,26 +2027,26 @@ footer::before {
             <div class="about-content reveal">
                 <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
                     <div style="display: flex; align-items: flex-start; gap: 2rem;">
-                        <div style="font-size: 3rem; color: var(--gold-primary); min-width: 60px;">ðŸŽ“</div>
+                        <div style="font-size: 3rem; color: var(--gold-primary); min-width: 60px;">🎓</div>
                         <div style="flex: 1;">
                             <h3 style="font-size: 1.4rem; color: var(--gold-primary); margin-bottom: 0.5rem;">Bachelor of Science (Honours) in Physics</h3>
                             <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 0.3rem; font-weight: 500;">Universiti Sains Malaysia (USM)</p>
-                            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">School of Physics, Penang, Malaysia â€¢ Graduated 2023</p>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">School of Physics, Penang, Malaysia • Graduated 2023</p>
                             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-bottom: 1rem;">
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <span style="color: var(--gold-primary);">âœ“</span>
+                                    <span style="color: var(--gold-primary);">✓</span>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Major: Physics</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <span style="color: var(--gold-primary);">âœ“</span>
+                                    <span style="color: var(--gold-primary);">✓</span>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Minor: Astronomy</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <span style="color: var(--gold-primary);">âœ“</span>
+                                    <span style="color: var(--gold-primary);">✓</span>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Dean's List (3 semesters)</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <span style="color: var(--gold-primary);">âœ“</span>
+                                    <span style="color: var(--gold-primary);">✓</span>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Honours Research Project</span>
                                 </div>
                             </div>
@@ -2076,7 +2075,7 @@ footer::before {
                 </div>
                 <div class="research-content">
                     <h3>Testing Modified Gravity Theories</h3>
-                    <p>My research focuses on testing modified gravity theories, specifically f(R) gravity and Horndeski theories, by analyzing cross-correlated power spectra. The primary objective is to examine the Galaxy-Galaxy power spectrum, Galaxy-CMB lensing cross-power spectrum, and CMB lensing auto-power spectrum to detect signatures of modified gravity that deviate from the standard Î›CDM model. This work contributes to advancing our understanding of gravitational phenomena on cosmological scales.</p>
+                    <p>My research focuses on testing modified gravity theories, specifically f(R) gravity and Horndeski theories, by analyzing cross-correlated power spectra. The primary objective is to examine the Galaxy-Galaxy power spectrum, Galaxy-CMB lensing cross-power spectrum, and CMB lensing auto-power spectrum to detect signatures of modified gravity that deviate from the standard ΛCDM model. This work contributes to advancing our understanding of gravitational phenomena on cosmological scales.</p>
                     <a href="https://github.com/Adrita-Khan/Modified-Gravity" target="_blank" class="btn-primary">View Project</a>
                 </div>
             </div>
@@ -2093,14 +2092,14 @@ footer::before {
                 <div class="publication-card reveal">
                     <div class="publication-header">
                         <h3 class="publication-title">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</h3>
-                        <p class="publication-authors">Md Raqibul Islamâ€ , <strong>Adrita Khanâ€ </strong>, Mir Sazzat Hossain*, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
+                        <p class="publication-authors">Md Raqibul Islam†, <strong>Adrita Khan†</strong>, Mir Sazzat Hossain*, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
                         <p class="publication-venue">Preprint</p>
                         <p class="publication-date">arXiv:2512.07420 | December 2025</p>
                     </div>
-                    <p class="publication-description">We introduce the Explainable Particle Chebyshev Network (E-PCN), a graph neural network extending the Particle Chebyshev Network (PCN) for interpretable jet classification in high-energy collider experiments. E-PCN integrates kinematic variables by constructing four graph representations per jet, each weighted by a distinct variable: angular separation (Î”), transverse momentum (k_T), momentum fraction (z), and invariant mass squared (mÂ²). Using Gradient-weighted Class Activation Mapping (Grad-CAM), we determine which kinematic variables dominate classification outcomes.</p>
+                    <p class="publication-description">We introduce the Explainable Particle Chebyshev Network (E-PCN), a graph neural network extending the Particle Chebyshev Network (PCN) for interpretable jet classification in high-energy collider experiments. E-PCN integrates kinematic variables by constructing four graph representations per jet, each weighted by a distinct variable: angular separation (Δ), transverse momentum (k_T), momentum fraction (z), and invariant mass squared (m²). Using Gradient-weighted Class Activation Mapping (Grad-CAM), we determine which kinematic variables dominate classification outcomes.</p>
                     <div class="publication-links">
-                        <a href="https://arxiv.org/abs/2512.07420" target="_blank" class="pub-link">ðŸ“„ arXiv</a>
-                        <a href="https://github.com/Adrita-Khan/Jet-Tagging" target="_blank" class="pub-link">ðŸ’» GitHub</a>
+                        <a href="https://arxiv.org/abs/2512.07420" target="_blank" class="pub-link">📄 arXiv</a>
+                        <a href="https://github.com/Adrita-Khan/Jet-Tagging" target="_blank" class="pub-link">💻 GitHub</a>
                         <span class="pub-tag">Preprint</span>
                         <span class="pub-tag">High Energy Physics</span>
                     </div>
@@ -2115,7 +2114,7 @@ footer::before {
                     </div>
                     <p class="publication-description">We present RGC (Radio Galaxy Classifier), a deep learning-based semi-supervised model designed for classifying bent radio active galactic nuclei (AGN) from Very Large Array (VLA) images. This work represents an important step toward automated classification of radio AGN, enabling more efficient processing of large-scale radio surveys.</p>
                     <div class="publication-links">
-                        <a href="https://arxiv.org/abs/2510.22190" target="_blank" class="pub-link">ðŸ“„ arXiv</a>
+                        <a href="https://arxiv.org/abs/2510.22190" target="_blank" class="pub-link">📄 arXiv</a>
                         <span class="pub-tag">Preprint</span>
                         <span class="pub-tag">Radio Astronomy</span>
                     </div>
@@ -2130,9 +2129,9 @@ footer::before {
                     </div>
                     <p class="publication-description">We introduce RGC-Bent, a curated dataset of 639 radio galaxy images designed to support machine learning-based classification of bent radio AGN. ConvNeXT achieves the highest F1-scores for both NAT and WAT sources, demonstrating the effectiveness of advanced machine learning models in classifying bent radio AGN.</p>
                     <div class="publication-links">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="pub-link">ðŸ“˜ IEEE Xplore</a>
-                        <a href="https://arxiv.org/abs/2505.19249" target="_blank" class="pub-link">ðŸ“„ arXiv</a>
-                        <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="pub-link">ðŸ’» GitHub</a>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="pub-link">📘 IEEE Xplore</a>
+                        <a href="https://arxiv.org/abs/2505.19249" target="_blank" class="pub-link">📄 arXiv</a>
+                        <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="pub-link">💻 GitHub</a>
                         <span class="pub-tag">Conference Paper</span>
                     </div>
                 </div>
@@ -2182,50 +2181,48 @@ footer::before {
     </section>
 
     <section class="section-dark">
-    <div class="container">
-        <div class="section-header">
-            <h2>Technical Proficiency</h2>
-            <div class="section-line"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Proficiency</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="tech-skills-grid reveal">
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Programming Languages</div>
+                    <p class="tech-skill-items">Python • C/C++ • Mathematica • MATLAB • R • SQL • Bash/Shell scripting</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Python Scientific Stack</div>
+                    <p class="tech-skill-items">NumPy • SciPy • Pandas • scikit-learn • Astropy • Astroquery • PyTorch • TensorFlow</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Cosmology & Astrophysics</div>
+                    <p class="tech-skill-items">CAMB • CCL • HEALPix • NaMaster • emcee • pocoMC • corner • GetDist • TOPCAT • SAOImage DS9</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Cosmological Emulators</div>
+                    <p class="tech-skill-items">CosmoPower • bacco • e-mantis • nDGP</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Statistical Methods & ML</div>
+                    <p class="tech-skill-items">MCMC • Bayesian inference • Fisher forecasting • ML/DL frameworks • Feature engineering • Hyperparameter optimization</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Development Tools</div>
+                    <p class="tech-skill-items">Linux/Unix • Git/GitHub • Docker • LaTeX • HPC clusters & parallelization</p>
+                </div>
+            </div>
         </div>
-        <div class="tech-skills-grid reveal">
-            <div class="tech-skill-card">
-                <div class="tech-skill-title">Programming Languages</div>
-                <p class="tech-skill-items">Python â€¢ C/C++ â€¢ Mathematica â€¢ MATLAB â€¢ R â€¢ SQL â€¢ Bash/Shell scripting</p>
-            </div>
-            <div class="tech-skill-card">
-                <div class="tech-skill-title">Python Scientific Stack</div>
-                <p class="tech-skill-items">NumPy â€¢ SciPy â€¢ Pandas â€¢ scikit-learn â€¢ Astropy â€¢ Astroquery â€¢ PyTorch â€¢ TensorFlow</p>
-            </div>
-            <div class="tech-skill-card">
-                <div class="tech-skill-title">Cosmology & Astrophysics</div>
-                <p class="tech-skill-items">CAMB â€¢ CCL â€¢ HEALPix â€¢ NaMaster â€¢ emcee â€¢ pocoMC â€¢ corner â€¢ GetDist â€¢ TOPCAT â€¢ SAOImage DS9</p>
-            </div>
-            <div class="tech-skill-card">
-                <div class="tech-skill-title">Cosmological Emulators</div>
-                <p class="tech-skill-items">CosmoPower â€¢ bacco â€¢ e-mantis â€¢ nDGP</p>
-            </div>
-            <div class="tech-skill-card">
-                <div class="tech-skill-title">Statistical Methods & ML</div>
-                <p class="tech-skill-items">MCMC â€¢ Bayesian inference â€¢ Fisher forecasting â€¢ ML/DL frameworks â€¢ Feature engineering â€¢ Hyperparameter optimization</p>
-            </div>
-            <div class="tech-skill-card">
-                <div class="tech-skill-title">Development Tools</div>
-                <p class="tech-skill-items">Linux/Unix â€¢ Git/GitHub â€¢ Docker â€¢ LaTeX â€¢ HPC clusters & parallelization</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section class="research-interests-main section-alt">
-        <!-- Add this aurora container -->
-    <div class="aurora-container">
-        <div class="aurora">
-            <div class="aurora-wave aurora-wave-1"></div>
-            <div class="aurora-wave aurora-wave-2"></div>
-            <div class="aurora-wave aurora-wave-3"></div>
+        <div class="aurora-container">
+            <div class="aurora">
+                <div class="aurora-wave aurora-wave-1"></div>
+                <div class="aurora-wave aurora-wave-2"></div>
+                <div class="aurora-wave aurora-wave-3"></div>
+            </div>
         </div>
-    </div>
-    <!-- End of aurora container -->
         <div class="research-container">
             <div class="research-section-header">
                 <h2>Research Interests</h2>
@@ -2254,36 +2251,34 @@ footer::before {
         </div>
     </section>
 
-  
-
-  <footer>
-    <div class="footer-content">
-        <div class="footer-left">
-            <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Adrita Khan. All rights reserved.</p>
+            </div>
+            <div class="footer-stats">
+                <div class="footer-stat-item">
+                    <div class="footer-stat-number">4</div>
+                    <div class="footer-stat-label">Research Centers</div>
+                </div>
+                <div class="footer-stat-divider"></div>
+                <div class="footer-stat-item">
+                    <div class="footer-stat-number">3</div>
+                    <div class="footer-stat-label">Countries</div>
+                </div>
+                <div class="footer-stat-divider"></div>
+                <div class="footer-stat-item">
+                    <div class="footer-stat-number">∞</div>
+                    <div class="footer-stat-label">Curiosity</div>
+                </div>
+                <div class="footer-stat-divider"></div>
+                <div class="footer-stat-item">
+                    <div class="footer-stat-number">1</div>
+                    <div class="footer-stat-label">Universe to Explore</div>
+                </div>
+            </div>
         </div>
-        <div class="footer-stats">
-            <div class="footer-stat-item">
-                <div class="footer-stat-number">4</div>
-                <div class="footer-stat-label">Research Centers</div>
-            </div>
-            <div class="footer-stat-divider"></div>
-            <div class="footer-stat-item">
-                <div class="footer-stat-number">3</div>
-                <div class="footer-stat-label">Countries</div>
-            </div>
-            <div class="footer-stat-divider"></div>
-            <div class="footer-stat-item">
-                <div class="footer-stat-number">âˆž</div>
-                <div class="footer-stat-label">Curiosity</div>
-            </div>
-            <div class="footer-stat-divider"></div>
-            <div class="footer-stat-item">
-                <div class="footer-stat-number">1</div>
-                <div class="footer-stat-label">Universe to Explore</div>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
         function createStars() {
@@ -2333,7 +2328,7 @@ footer::before {
             statNumbers.forEach((stat, index) => {
                 const target = stat.dataset.target;
                 if (target === 'infinity') {
-                    stat.textContent = 'âˆž';
+                    stat.textContent = '∞';
                     return;
                 }
                 const targetValue = parseInt(target);
