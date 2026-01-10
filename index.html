@@ -383,20 +383,22 @@
             }
         }
 
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            position: relative;
-        }
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    position: relative;
+    text-align: center;
+}
 
         .hero-text h1::after {
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--gold-primary), var(--gold-light), transparent);
@@ -408,14 +410,15 @@
             to { width: 60%; }
         }
 
-        .hero-text .subtitle {
-            font-size: 1.3rem;
-            color: var(--gold-primary);
-            margin-bottom: 2rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 30px rgba(201, 169, 97, 0.3);
-        }
+.hero-text .subtitle {
+    font-size: 1.3rem;
+    color: var(--gold-primary);
+    margin-bottom: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 30px rgba(201, 169, 97, 0.3);
+    text-align: center;
+}
 
         .hero-text .bio {
             font-size: 1rem;
