@@ -3,27 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Adrita Khan - PhD Aspirant in Astrophysics & Cosmology specializing in observational cosmology, large-scale structure, dark matter, and machine learning applications in astronomy.">
-    <meta name="keywords" content="astrophysics, cosmology, dark matter, dark energy, modified gravity, machine learning, radio astronomy">
-    <meta name="author" content="Adrita Khan">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Adrita Khan - PhD Aspirant in Astrophysics & Cosmology">
-    <meta property="og:description" content="Research focused on observational cosmology, large-scale structure, and machine learning in astrophysics">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Adrita Khan - Astrophysics & Cosmology">
-    <meta name="twitter:description" content="Research in observational cosmology and machine learning">
-    
     <title>Adrita Khan - PhD Aspirant in Astrophysics and Cosmology</title>
-    
-    <!-- Preload critical resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://raw.githubusercontent.com">
-    
     <style>
         * {
             margin: 0;
@@ -41,78 +21,16 @@
             --text-light: #ffffff;
             --text-muted: #b8c5d0;
             --glow-gold: rgba(201, 169, 97, 0.4);
-            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-light) 100%);
             min-height: 100vh;
             overflow-x: hidden;
             color: var(--text-light);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Skip to main content for accessibility */
-        .skip-to-main {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--gold-primary);
-            color: var(--bg-dark);
-            padding: 8px 16px;
-            text-decoration: none;
-            z-index: 1000;
-            border-radius: 0 0 4px 0;
-            font-weight: 600;
-        }
-
-        .skip-to-main:focus {
-            top: 0;
-        }
-
-        /* Loading screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(201, 169, 97, 0.2);
-            border-top-color: var(--gold-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Optimized background effects */
         .cosmic-bg {
             position: fixed;
             top: 0;
@@ -120,14 +38,13 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse 80% 50% at 20% 80%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
+                radial-gradient(ellipse 80% 50% at 20% 80%, rgba(201, 169, 97, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 60% at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
             z-index: 0;
-            will-change: transform;
         }
 
-        /* Optimized stars with CSS */
-        .stars {
+        .nebula {
             position: fixed;
             top: 0;
             left: 0;
@@ -135,67 +52,263 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, white, transparent),
-                radial-gradient(2px 2px at 60px 70px, white, transparent),
-                radial-gradient(1px 1px at 50px 50px, white, transparent),
-                radial-gradient(1px 1px at 130px 80px, white, transparent),
-                radial-gradient(2px 2px at 90px 10px, white, transparent);
-            background-repeat: repeat;
-            background-size: 200px 200px;
+            opacity: 0.4;
+        }
+
+        .nebula::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: nebulaDrift 30s ease-in-out infinite;
+        }
+
+        .nebula::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(ellipse at center, rgba(150, 130, 80, 0.1) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: nebulaDrift 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
+        }
+
+        /* Aurora for Research Interests Section - Gold with Subtle Green Tones */
+        .aurora-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .aurora {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+
+        .aurora-wave {
+            position: absolute;
+            width: 300%;
+            height: 150%;
+            left: -100%;
+            top: -25%;
+        }
+
+        .aurora-wave-1 {
+            background: 
+                radial-gradient(ellipse 800px 400px at 20% 30%, rgba(201, 169, 97, 0.16) 0%, rgba(201, 169, 97, 0.08) 30%, transparent 60%),
+                radial-gradient(ellipse 600px 300px at 80% 70%, rgba(150, 200, 150, 0.12) 0%, rgba(150, 200, 150, 0.05) 30%, transparent 60%),
+                radial-gradient(ellipse 700px 350px at 50% 50%, rgba(180, 180, 130, 0.14) 0%, rgba(180, 180, 130, 0.06) 30%, transparent 60%);
+            animation: auroraFlow1 25s ease-in-out infinite;
+            filter: blur(50px);
+            mix-blend-mode: screen;
+        }
+
+        .aurora-wave-2 {
+            background: 
+                radial-gradient(ellipse 900px 450px at 60% 40%, rgba(201, 169, 97, 0.18) 0%, rgba(201, 169, 97, 0.09) 30%, transparent 60%),
+                radial-gradient(ellipse 700px 350px at 30% 80%, rgba(160, 190, 140, 0.13) 0%, rgba(160, 190, 140, 0.06) 30%, transparent 60%),
+                radial-gradient(ellipse 800px 400px at 70% 20%, rgba(190, 180, 120, 0.15) 0%, rgba(190, 180, 120, 0.07) 30%, transparent 60%);
+            animation: auroraFlow2 30s ease-in-out infinite reverse;
+            filter: blur(55px);
+            mix-blend-mode: screen;
+        }
+
+        .aurora-wave-3 {
+            background: 
+                radial-gradient(ellipse 1000px 500px at 40% 60%, rgba(180, 190, 130, 0.14) 0%, rgba(180, 190, 130, 0.07) 30%, transparent 60%),
+                radial-gradient(ellipse 800px 400px at 85% 30%, rgba(201, 169, 97, 0.16) 0%, rgba(201, 169, 97, 0.08) 30%, transparent 60%),
+                radial-gradient(ellipse 900px 450px at 15% 80%, rgba(170, 185, 140, 0.12) 0%, rgba(170, 185, 140, 0.05) 30%, transparent 60%);
+            animation: auroraFlow3 35s ease-in-out infinite;
+            filter: blur(60px);
+            mix-blend-mode: screen;
+        }
+
+        @keyframes auroraFlow1 {
+            0%, 100% {
+                transform: translate(0%, 0%) rotate(0deg) scale(1);
+                opacity: 0.75;
+            }
+            25% {
+                transform: translate(5%, -3%) rotate(1deg) scale(1.05);
+                opacity: 0.85;
+            }
+            50% {
+                transform: translate(-3%, 2%) rotate(-1deg) scale(0.98);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translate(4%, -2%) rotate(0.5deg) scale(1.02);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes auroraFlow2 {
+            0%, 100% {
+                transform: translate(0%, 0%) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translate(-4%, 3%) rotate(-1deg) scale(1.04);
+                opacity: 0.8;
+            }
+            60% {
+                transform: translate(3%, -2%) rotate(0.8deg) scale(0.97);
+                opacity: 0.65;
+            }
+            90% {
+                transform: translate(-2%, 1%) rotate(-0.5deg) scale(1.01);
+                opacity: 0.75;
+            }
+        }
+
+        @keyframes auroraFlow3 {
+            0%, 100% {
+                transform: translate(0%, 0%) rotate(0deg) scale(1);
+                opacity: 0.65;
+            }
+            20% {
+                transform: translate(3%, -2%) rotate(0.5deg) scale(1.03);
+                opacity: 0.75;
+            }
+            40% {
+                transform: translate(-4%, 3%) rotate(-0.8deg) scale(0.99);
+                opacity: 0.6;
+            }
+            60% {
+                transform: translate(2%, -1%) rotate(0.3deg) scale(1.01);
+                opacity: 0.7;
+            }
+            80% {
+                transform: translate(-2%, 2%) rotate(-0.4deg) scale(0.98);
+                opacity: 0.65;
+            }
+        }
+
+        /* Subtle gradient overlay */
+        .aurora::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(201, 169, 97, 0.06) 0%,
+                    rgba(170, 190, 140, 0.05) 25%,
+                    rgba(190, 180, 130, 0.06) 50%,
+                    rgba(160, 195, 145, 0.04) 75%,
+                    rgba(201, 169, 97, 0.06) 100%
+                );
+            filter: blur(40px);
+            animation: overlayPulse 20s ease-in-out infinite;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes overlayPulse {
+            0%, 100% { 
+                opacity: 0.5; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.7; 
+                transform: scale(1.02);
+            }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
             animation: twinkle 3s infinite;
-            opacity: 0.6;
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.3);
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* Sticky navigation with blur */
         #quick-links {
-            position: sticky;
-            top: 0;
+            position: relative;
             z-index: 100;
-            background: rgba(10, 14, 20, 0.85);
+            background: rgba(10, 14, 20, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             border-bottom: 1px solid rgba(201, 169, 97, 0.15);
-            transition: all 0.3s var(--transition-smooth);
-        }
-
-        #quick-links.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            background: rgba(10, 14, 20, 0.95);
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
         }
 
         .nav-container {
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
         }
 
         .nav-list {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.8rem;
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .nav-list a {
             display: block;
             background: rgba(201, 169, 97, 0.08);
             border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 20px;
-            padding: 0.6rem 1rem;
+            border-radius: 25px;
+            padding: 0.7rem 1.2rem;
             text-decoration: none;
             color: var(--text-light);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s var(--transition-smooth);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(5px);
+            white-space: nowrap;
+            flex-shrink: 0;
             position: relative;
             overflow: hidden;
         }
@@ -211,49 +324,58 @@
             transition: left 0.5s ease;
         }
 
-        .nav-list a:hover::before,
-        .nav-list a:focus::before {
+        .nav-list a:hover::before {
             left: 100%;
         }
 
-        .nav-list a:hover,
-        .nav-list a:focus {
+        .nav-list a:hover {
             background: rgba(201, 169, 97, 0.2);
             border-color: rgba(201, 169, 97, 0.5);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             color: var(--gold-primary);
-            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
-            outline: none;
+            box-shadow: 
+                0 5px 20px rgba(201, 169, 97, 0.3),
+                0 0 40px rgba(201, 169, 97, 0.1);
         }
 
-        /* Hero section optimized */
-        .hero {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1.5rem;
-            min-height: 80vh;
-        }
+        .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
+        .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
+        .nav-list li:nth-child(8n+4) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+5) a { border-left: 3px solid #d4b56d; }
+        .nav-list li:nth-child(8n+6) a { border-left: 3px solid #b89d55; }
+        .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
+        .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
+
+.hero {
+    position: relative;
+    z-index: 10;
+    min-height: auto;  /* Changed from 90vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem 2rem 2rem;  /* Reduced from 4rem to 2rem */
+}
 
         .hero-content {
             max-width: 1200px;
             width: 100%;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .hero-text {
-            animation: fadeIn 0.8s ease forwards;
+            opacity: 1;
+            animation: fadeSlideUp 1s ease forwards;
+            animation-delay: 0.3s;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeSlideUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -261,106 +383,146 @@
             }
         }
 
-        .hero-text h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            text-align: center;
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    position: relative;
+    text-align: center;
+}
+
+        .hero-text h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light), transparent);
+            animation: lineExpand 1s ease forwards;
+            animation-delay: 1s;
         }
 
-        .hero-text .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: var(--gold-primary);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
-            text-align: center;
+        @keyframes lineExpand {
+            to { width: 60%; }
         }
+
+.hero-text .subtitle {
+    font-size: 1.3rem;
+    color: var(--gold-primary);
+    margin-bottom: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 30px rgba(201, 169, 97, 0.3);
+    text-align: center;
+}
 
         .hero-text .bio {
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.7;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             text-align: justify;
         }
 
-        /* Profile image with better loading */
         .profile-image-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+        .profile-picture-container {
+            position: relative;
         }
 
         .profile-picture {
-            width: 100%;
-            max-width: 350px;
-            aspect-ratio: 1;
+            width: 350px;
+            height: 350px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid rgba(201, 169, 97, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            transition: all 0.4s var(--transition-smooth);
+            box-shadow: 
+                0 0 0 1px rgba(201, 169, 97, 0.1),
+                0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
         }
 
         .profile-picture:hover {
-            border-color: rgba(201, 169, 97, 0.6);
-            transform: scale(1.02);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border-color: rgba(201, 169, 97, 0.5);
+            box-shadow: 
+                0 0 0 1px rgba(201, 169, 97, 0.15),
+                0 15px 50px rgba(0, 0, 0, 0.5);
         }
 
-        /* Interest tags with better interaction */
         .interests-section {
-            margin: 1.5rem 0;
+            margin: 2rem 0;
         }
 
         .interests-label {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--gold-primary);
             font-weight: 600;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-align: center;
         }
 
         .interests-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.7rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
         }
 
         .interest-tag {
             background: rgba(201, 169, 97, 0.1);
             border: 1px solid rgba(201, 169, 97, 0.25);
             padding: 0.6rem 1rem;
-            border-radius: 15px;
+            border-radius: 20px;
             font-size: 0.85rem;
             color: var(--text-light);
             text-align: center;
-            transition: all 0.3s var(--transition-smooth);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.3) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .interest-tag:hover::before {
+            width: 200%;
+            height: 200%;
         }
 
         .interest-tag:hover {
             background: rgba(201, 169, 97, 0.2);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.02);
             color: var(--gold-primary);
             border-color: rgba(201, 169, 97, 0.5);
-            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.2);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.2);
         }
 
-        /* Social links with aria labels */
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
 
         .social-icon {
             width: 45px;
@@ -373,23 +535,44 @@
             justify-content: center;
             color: var(--text-light);
             text-decoration: none;
-            transition: all 0.3s var(--transition-smooth);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-icon:hover,
-        .social-icon:focus {
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .social-icon:hover::before {
+            width: 150%;
+            height: 150%;
+        }
+
+        .social-icon:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
-            outline: 2px solid var(--gold-primary);
-            outline-offset: 2px;
+            transform: translateY(-4px) rotate(5deg);
+            box-shadow: 
+                0 10px 30px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         .social-icon svg {
             width: 22px;
             height: 22px;
             fill: currentColor;
+            position: relative;
+            z-index: 1;
             transition: transform 0.3s ease;
         }
 
@@ -397,18 +580,21 @@
             transform: scale(1.1);
         }
 
-        /* Sections with better spacing */
-        section {
-            position: relative;
-            z-index: 10;
-            padding: 3rem 1.5rem;
-            border-top: 1px solid rgba(201, 169, 97, 0.1);
-        }
+section {
+    position: relative;
+    z-index: 10;
+    padding: 1.5rem 2rem;  /* Reduced from 3rem to 1.5rem */
+    border-top: 1px solid rgba(201, 169, 97, 0.1);
+}
 
         .section-alt {
-            background: rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-        }
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.section-alt:nth-of-type(2) {
+    padding-top: 1.5rem;
+}
 
         .section-dark {
             background: rgba(0, 0, 0, 0.25);
@@ -426,10 +612,11 @@
         }
 
         .section-header h2 {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-size: 2rem;
             font-weight: 700;
             color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
         .section-line {
@@ -438,36 +625,524 @@
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
             margin: 0 auto;
             border-radius: 2px;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Content cards with better accessibility */
+        .section-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s ease infinite;
+        }
+
+        @keyframes shimmer {
+            to { left: 100%; }
+        }
+
         .about-content {
             background: rgba(201, 169, 97, 0.05);
             border: 1px solid rgba(201, 169, 97, 0.15);
-            border-radius: 20px;
-            padding: 2.5rem;
+            border-radius: 25px;
+            padding: 3rem;
             backdrop-filter: blur(15px);
-            transition: all 0.3s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
         }
 
         .about-content:hover {
             background: rgba(201, 169, 97, 0.08);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .about-content p {
-            font-size: 0.95rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.85;
             color: var(--text-muted);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             text-align: justify;
         }
 
-        .about-content p:last-child {
+        .about-content-compact {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .about-content-compact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-content-compact:hover::before {
+            opacity: 1;
+        }
+
+        .about-content-compact:hover {
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            transform: translateX(4px);
+        }
+
+        .about-content-compact p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about-content-compact p:last-child {
             margin-bottom: 0;
         }
 
-        /* Publication cards with better structure */
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .position-card {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold-primary), var(--gold-light));
+            transition: height 0.4s ease;
+            border-radius: 0 0 4px 0;
+        }
+
+        .position-card:hover::before {
+            height: 100%;
+        }
+
+        .position-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .position-card:hover::after {
+            opacity: 1;
+        }
+
+        .position-card:hover {
+            transform: translateY(-8px) translateX(4px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.1);
+            border-color: rgba(201, 169, 97, 0.3);
+        }
+
+        .position-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .position-org {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-name {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .position-type {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(201, 169, 97, 0.1));
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            padding: 0.35rem 0.9rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .positions-compact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .position-compact-item {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-compact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .position-compact-item:hover::before {
+            opacity: 1;
+        }
+
+        .position-compact-item:hover {
+            transform: translateX(4px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(201, 169, 97, 0.1);
+            border-left-color: var(--gold-light);
+        }
+
+        .position-compact-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .position-compact-org {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .position-compact-type {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15), rgba(201, 169, 97, 0.08));
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 0.25rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .research-card {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(15px);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .research-card:hover::before {
+            opacity: 1;
+        }
+
+        .research-card:hover {
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .research-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cmb-animation {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 
+                0 0 30px rgba(201, 169, 97, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.2),
+                inset 0 0 40px rgba(0, 0, 0, 0.5);
+            animation: cmbPulseGlow 6s ease-in-out infinite;
+        }
+
+        .cmb-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: 
+                radial-gradient(ellipse at 30% 40%, rgba(255, 200, 100, 0.4) 0%, transparent 25%),
+                radial-gradient(ellipse at 70% 60%, rgba(200, 150, 255, 0.3) 0%, transparent 30%),
+                radial-gradient(ellipse at 50% 70%, rgba(255, 180, 120, 0.35) 0%, transparent 25%),
+                radial-gradient(ellipse at 40% 30%, rgba(180, 200, 255, 0.3) 0%, transparent 20%),
+                radial-gradient(ellipse at 60% 80%, rgba(255, 190, 110, 0.3) 0%, transparent 25%),
+                radial-gradient(ellipse at 20% 60%, rgba(190, 160, 255, 0.25) 0%, transparent 20%),
+                radial-gradient(circle at center, rgba(201, 169, 97, 0.4) 0%, rgba(201, 169, 97, 0.2) 30%, rgba(150, 130, 100, 0.3) 60%, rgba(100, 80, 60, 0.2) 100%);
+            animation: cmbFluctuation 8s ease-in-out infinite;
+        }
+
+        .cmb-core::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: 
+                radial-gradient(ellipse at 80% 40%, rgba(255, 210, 130, 0.25) 0%, transparent 20%),
+                radial-gradient(ellipse at 25% 75%, rgba(170, 180, 255, 0.2) 0%, transparent 25%),
+                radial-gradient(ellipse at 55% 25%, rgba(255, 195, 115, 0.3) 0%, transparent 18%);
+            animation: cmbFluctuation 10s ease-in-out infinite reverse;
+        }
+
+        .cmb-core::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: repeating-conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(201, 169, 97, 0.05) 30deg,
+                transparent 60deg
+            );
+            animation: cmbRotate 30s linear infinite;
+        }
+
+        @keyframes cmbFluctuation {
+            0%, 100% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                opacity: 0.85;
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        @keyframes cmbPulseGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(201, 169, 97, 0.3),
+                    0 0 60px rgba(201, 169, 97, 0.2),
+                    inset 0 0 40px rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                box-shadow: 
+                    0 0 50px rgba(201, 169, 97, 0.5),
+                    0 0 100px rgba(201, 169, 97, 0.3),
+                    inset 0 0 40px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        @keyframes cmbRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cmb-temperature-spots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .cmb-hot-spot, .cmb-cold-spot {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(8px);
+            animation: spotPulse 6s ease-in-out infinite;
+        }
+
+        .cmb-hot-spot {
+            background: radial-gradient(circle, rgba(255, 200, 100, 0.4) 0%, transparent 70%);
+        }
+
+        .cmb-cold-spot {
+            background: radial-gradient(circle, rgba(150, 170, 255, 0.35) 0%, transparent 70%);
+        }
+
+        @keyframes spotPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .cmb-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 50%;
+        }
+
+        .ring-outer-1 { 
+            width: 240px; 
+            height: 240px;
+            border-style: dashed;
+            animation: ringPulse 4s ease-in-out infinite;
+        }
+
+        .ring-outer-2 { 
+            width: 260px; 
+            height: 260px;
+            border-style: dotted;
+            animation: ringPulse 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .research-content h3 {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .research-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
+        }
+
+        .research-content p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            border: none;
+            border-radius: 25px;
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bg-dark);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 15px 35px rgba(201, 169, 97, 0.4),
+                0 0 40px rgba(201, 169, 97, 0.2);
+        }
+
         .publications-grid {
             display: grid;
             gap: 2rem;
@@ -476,25 +1151,64 @@
         .publication-card {
             background: rgba(201, 169, 97, 0.05);
             border: 1px solid rgba(201, 169, 97, 0.15);
-            border-left: 4px solid var(--gold-primary);
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 20px;
+            padding: 2.5rem;
             backdrop-filter: blur(15px);
-            transition: all 0.3s var(--transition-smooth);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold-primary), var(--gold-light));
+            transition: height 0.4s ease;
+            border-radius: 0 0 4px 0;
+        }
+
+        .publication-card:hover::before {
+            height: 100%;
+        }
+
+        .publication-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .publication-card:hover::after {
+            opacity: 1;
         }
 
         .publication-card:hover {
-            transform: translateX(4px);
+            transform: translateY(-8px) translateX(4px);
             background: rgba(201, 169, 97, 0.08);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-left-color: var(--gold-light);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.1);
+            border-color: rgba(201, 169, 97, 0.3);
+        }
+
+        .publication-header {
+            margin-bottom: 1.5rem;
         }
 
         .publication-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--gold-primary);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             line-height: 1.4;
         }
 
@@ -509,7 +1223,7 @@
             font-size: 0.85rem;
             color: var(--text-light);
             font-style: italic;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
         }
 
         .publication-date {
@@ -519,168 +1233,205 @@
         }
 
         .publication-description {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.7;
             color: var(--text-muted);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             text-align: justify;
         }
 
         .publication-links {
             display: flex;
-            gap: 0.8rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            align-items: center;
         }
 
         .pub-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
             background: rgba(201, 169, 97, 0.1);
             border: 1px solid rgba(201, 169, 97, 0.25);
-            padding: 0.5rem 0.9rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
             color: var(--text-light);
             text-decoration: none;
-            transition: all 0.3s var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
-        .pub-link:hover,
-        .pub-link:focus {
+        .pub-link:hover {
             background: rgba(201, 169, 97, 0.2);
             border-color: rgba(201, 169, 97, 0.4);
             transform: translateY(-2px);
             color: var(--gold-primary);
-            outline: 2px solid var(--gold-primary);
-            outline-offset: 2px;
         }
 
         .pub-tag {
             display: inline-block;
             background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(201, 169, 97, 0.1));
             border: 1px solid rgba(201, 169, 97, 0.25);
-            padding: 0.35rem 0.8rem;
-            border-radius: 12px;
+            padding: 0.35rem 0.9rem;
+            border-radius: 15px;
             font-size: 0.75rem;
             color: var(--text-light);
+            margin-top: 0.5rem;
             font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
-        /* Position cards grid */
-        .positions-grid {
+        .research-interests-main {
+            position: relative;
+            padding: 2rem 1.5rem;
+            overflow: hidden;
+            z-index: 20;
+        }
+
+        .research-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .research-section-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .research-section-header .section-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light), var(--gold-dark));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .research-interests-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .position-card {
+        .research-interest-card {
             background: rgba(201, 169, 97, 0.05);
             border: 1px solid rgba(201, 169, 97, 0.15);
-            border-left: 3px solid var(--gold-primary);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 1rem 1.2rem;
             backdrop-filter: blur(15px);
-            transition: all 0.3s var(--transition-smooth);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .position-card:hover {
-            transform: translateX(4px);
+        .research-interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .research-interest-card:hover::before {
+            opacity: 0;
+        }
+
+        .research-interest-card:hover {
+            transform: translateY(-8px);
             background: rgba(201, 169, 97, 0.08);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(201, 169, 97, 0.1),
+                inset 0 1px 0 rgba(201, 169, 97, 0.2);
+            border-color: rgba(201, 169, 97, 0.35);
         }
 
-        .position-title {
+        .research-interest-card:nth-child(1) { border-left: 3px solid #c9a961; }
+        .research-interest-card:nth-child(2) { border-left: 3px solid #d4b56d; }
+        .research-interest-card:nth-child(3) { border-left: 3px solid #b89d55; }
+        .research-interest-card:nth-child(4) { border-left: 3px solid #c9a961; }
+
+        .research-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .research-card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.7rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-interest-card:nth-child(1) .research-card-icon {
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
+        }
+
+        .research-interest-card:nth-child(2) .research-card-icon {
+            background: linear-gradient(135deg, #d4b56d, #e8dcc4);
+        }
+
+        .research-interest-card:nth-child(3) .research-card-icon {
+            background: linear-gradient(135deg, #b89d55, #c9a961);
+        }
+
+        .research-interest-card:nth-child(4) .research-card-icon {
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
+        }
+
+        .research-card-title {
             font-size: 1rem;
             font-weight: 600;
             color: var(--gold-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .position-org {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
-        }
-
-        .position-type {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15), rgba(201, 169, 97, 0.08));
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 0.3rem 0.7rem;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* Technical skills grid */
-        .tech-skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .tech-skill-card {
-            background: rgba(201, 169, 97, 0.05);
-            border: 1px solid rgba(201, 169, 97, 0.15);
-            border-left: 3px solid var(--gold-primary);
-            border-radius: 12px;
-            padding: 1.2rem;
-            backdrop-filter: blur(15px);
-            transition: all 0.3s var(--transition-smooth);
-        }
-
-        .tech-skill-card:hover {
-            transform: translateY(-4px);
-            background: rgba(201, 169, 97, 0.08);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .tech-skill-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--gold-primary);
-            margin-bottom: 0.6rem;
-        }
-
-        .tech-skill-items {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: var(--text-muted);
             margin: 0;
-        }
-
-        /* Research interests */
-        .research-interests-section {
-            position: relative;
         }
 
         .research-topics-list {
             list-style: none;
             padding: 0;
+            margin: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 0.8rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.3rem 0.8rem;
+            position: relative;
+            z-index: 1;
         }
 
         .research-topic-item {
             display: flex;
             align-items: center;
-            padding: 0.6rem;
+            padding: 0.35rem 0;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.3s ease;
-            background: rgba(201, 169, 97, 0.03);
-            border-radius: 8px;
         }
 
         .research-topic-item:hover {
             color: var(--text-light);
-            background: rgba(201, 169, 97, 0.1);
-            padding-left: 1rem;
+            padding-left: 0.6rem;
         }
 
         .research-topic-item::before {
@@ -688,21 +1439,289 @@
             margin-right: 0.6rem;
             color: var(--gold-primary);
             transition: all 0.3s ease;
-            font-size: 0.6rem;
+            font-size: 0.5rem;
+            opacity: 0.7;
         }
 
         .research-topic-item:hover::before {
+            color: var(--gold-light);
             transform: scale(1.3);
+            opacity: 1;
         }
 
-        /* Footer */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            transition: width 0.4s ease;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .stat-card:hover::before {
+            width: 60%;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(201, 169, 97, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-card:hover::after {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.1);
+            border-color: rgba(201, 169, 97, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-inline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-inline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.03) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stats-inline.active::before {
+            opacity: 1;
+        }
+
+        .stats-inline:hover {
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: rgba(201, 169, 97, 0.25);
+        }
+
+        .stat-inline-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-inline-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-width: 30px;
+            text-align: center;
+            position: relative;
+            transition: none;
+        }
+
+        .stat-inline-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .stats-inline:hover .stat-inline-label {
+            color: var(--text-light);
+        }
+
+        .stat-inline-divider {
+            width: 1px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
+            position: relative;
+        }
+
+        /* Technical Skills Grid - Compact Layout */
+        .tech-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-skill-card {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 1rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tech-skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .tech-skill-card:hover {
+            transform: translateY(-4px);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(201, 169, 97, 0.1);
+            border-left-color: var(--gold-light);
+        }
+
+        .tech-skill-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.3px;
+        }
+
+        .tech-skill-items {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0;
+            text-align: left;
+        }
+
+        .tech-skill-items:hover {
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 1024px) {
+            .tech-skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .tech-skills-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .tech-skill-card {
+                padding: 0.8rem;
+            }
+
+            .tech-skill-title {
+                font-size: 0.9rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .tech-skill-items {
+                font-size: 0.75rem;
+                line-height: 1.5;
+            }
+        }
+
         footer {
             position: relative;
             z-index: 10;
             background: rgba(10, 14, 20, 0.95);
             backdrop-filter: blur(20px);
-            padding: 2rem 1.5rem;
+            padding: 2rem 2rem;
             border-top: 1px solid rgba(201, 169, 97, 0.15);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
         }
 
         .footer-content {
@@ -719,6 +1738,13 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             margin: 0;
+            text-align: left;
+        }
+
+        .footer-left p:first-child {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
         }
 
         .footer-stats {
@@ -737,96 +1763,115 @@
         .footer-stat-number {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #c9a961, #d4b56d, #e8dcc4);
+            background: linear-gradient(135deg, #c9a961 0%, #d4b56d 50%, #e8dcc4 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            min-width: 30px;
+            text-align: center;
         }
 
         .footer-stat-label {
             font-size: 0.75rem;
             color: var(--text-muted);
             font-weight: 500;
+            white-space: nowrap;
         }
 
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--gold-primary);
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s var(--transition-smooth);
-            z-index: 99;
-            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+        .footer-stat-divider {
+            width: 1px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
         }
 
-        .scroll-top.visible {
+        .reveal {
             opacity: 1;
-            visibility: visible;
+            transform: translateY(0);
+            transition: none;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .scroll-top:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.5);
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .scroll-top svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--bg-dark);
+        @media (max-width: 1200px) {
+            .research-interests-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
 
-        /* Responsive design */
         @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .hero {
-                min-height: auto;
-                padding: 2rem 1rem;
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
 
-            section {
-                padding: 2rem 1rem;
-            }
-
-            .about-content {
-                padding: 1.5rem;
-            }
-
-            .publication-card {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .nav-list a {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.8rem;
+            .hero-text h1::after {
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             .interests-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .social-links {
                 justify-content: center;
             }
 
+            .positions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .positions-compact {
+                grid-template-columns: 1fr;
+            }
+
+            .research-card {
+                grid-template-columns: 1fr;
+            }
+
+            .research-interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-inline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-inline-divider {
+                width: 60%;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
+            }
+
+            .research-section-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .research-interests-main {
+                padding: 1.5rem 1rem;
+            }
+
             .footer-content {
                 flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-left p {
                 text-align: center;
             }
 
@@ -835,59 +1880,80 @@
             }
         }
 
-        /* Reduce motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+               @media (max-width: 640px) {
+            .nav-list {
+                gap: 0.5rem;
+            }
+
+            .nav-list a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .profile-picture {
+                width: 280px;
+                height: 280px;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-inline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-inline-divider {
+                width: 60%;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
+            }
+
+            .research-topics-list {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-stat-divider {
+                width: 60%;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(201, 169, 97, 0.3), transparent);
             }
         }
 
-        /* Print styles */
-        @media print {
-            .loading-screen,
-            #quick-links,
-            .scroll-top,
-            .stars,
-            .cosmic-bg {
-                display: none !important;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-
-            section {
-                page-break-inside: avoid;
-            }
-        }
-
-        /* Focus visible for better keyboard navigation */
-        *:focus-visible {
-            outline: 2px solid var(--gold-primary);
-            outline-offset: 2px;
+        /* Hide Aurora Effect for Better Performance */
+        .aurora-container {
+            display: none !important;
         }
     </style>
 </head>
 <body>
-    <!-- Skip to main content -->
-    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <div class="cosmic-bg"></div>
+    <div class="nebula"></div>
+    <div class="stars"></div>
 
-    <!-- Loading screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader" role="status" aria-label="Loading"></div>
-    </div>
-
-    <!-- Background effects -->
-    <div class="cosmic-bg" aria-hidden="true"></div>
-    <div class="stars" aria-hidden="true"></div>
-
-    <!-- Navigation -->
-    <nav id="quick-links" role="navigation" aria-label="Main navigation">
+    <section id="quick-links">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -901,254 +1967,308 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
-    </nav>
+    </section>
 
-    <!-- Main content -->
-    <main id="main-content">
-        <!-- Hero section -->
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Adrita Khan</h1>
-                    <p class="subtitle">PhD Aspirant in Astrophysics & Cosmology</p>
-                    
-                    <!-- Social links -->
-                    <div class="social-links">
-                        <a href="https://github.com/Adrita-Khan" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                        <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="ResearchGate profile">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.121 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53h-.005a3.334 3.334 0 0 0 .113.438c.245.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.505.177-.877a10.65 10.65 0 0 0 .043-1.207v-.082c0-.26-.004-.52-.043-1.207a7.589 7.589 0 0 0-.177-.876c-.235-.735-.605-1.262-1.175-1.652C21.122.211 20.386 0 19.586 0zM7.868 5.8a3.47 3.47 0 0 0-.684.068 3.372 3.372 0 0 0-.607.182c-.539.232-.911.624-1.122 1.174a3.81 3.81 0 0 0-.296 1.563v6.876a3.81 3.81 0 0 0 .296 1.564c.211.55.583.943 1.122 1.174.205.087.4.142.607.182.2.04.428.068.684.068h5.956a3.47 3.47 0 0 0 .684-.068 3.372 3.372 0 0 0 .607-.182c.539-.231.911-.624 1.122-1.174a3.81 3.81 0 0 0 .296-1.563V8.787a3.81 3.81 0 0 0-.296-1.563c-.211-.55-.583-.942-1.122-1.174a3.372 3.372 0 0 0-.607-.182 3.47 3.47 0 0 0-.684-.068H7.868z"/></svg>
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Google Scholar profile">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
-                        </a>
-                        <a href="https://orcid.org/0009-0000-9304-8895" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="ORCID profile">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.525.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 4.068-1.472 4.068-3.722 0-2.016-1.247-3.722-4.068-3.722h-2.297z"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/adrita-khan/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                    </div>
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Adrita Khan</h1>
+            <p class="subtitle">PhD Aspirant in Astrophysics & Cosmology</p>
+            <div class="social-links">
+                <a href="https://github.com/Adrita-Khan" target="_blank" class="social-icon" title="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" class="social-icon" title="ResearchGate">
+                    <svg viewBox="0 0 24 24"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.121 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53h-.005a3.334 3.334 0 0 0 .113.438c.245.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.505.177-.877a10.65 10.65 0 0 0 .043-1.207v-.082c0-.26-.004-.52-.043-1.207a7.589 7.589 0 0 0-.177-.876c-.235-.735-.605-1.262-1.175-1.652C21.122.211 20.386 0 19.586 0zM7.868 5.8a3.47 3.47 0 0 0-.684.068 3.372 3.372 0 0 0-.607.182c-.539.232-.911.624-1.122 1.174a3.81 3.81 0 0 0-.296 1.563v6.876a3.81 3.81 0 0 0 .296 1.564c.211.55.583.943 1.122 1.174.205.087.4.142.607.182.2.04.428.068.684.068h5.956a3.47 3.47 0 0 0 .684-.068 3.372 3.372 0 0 0 .607-.182c.539-.231.911-.624 1.122-1.174a3.81 3.81 0 0 0 .296-1.563V8.787a3.81 3.81 0 0 0-.296-1.563c-.211-.55-.583-.942-1.122-1.174a3.372 3.372 0 0 0-.607-.182 3.47 3.47 0 0 0-.684-.068H7.868z"/></svg>
+                </a>
+                <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" class="social-icon" title="Google Scholar">
+                    <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+                </a>
+                <a href="https://orcid.org/0009-0000-9304-8895" target="_blank" class="social-icon" title="ORCID">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.525.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 4.068-1.472 4.068-3.722 0-2.016-1.247-3.722-4.068-3.722h-2.297z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/adrita-khan/" target="_blank" class="social-icon" title="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+            <p class="bio">
+                Graduate from the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. Currently focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, and astroparticle physics. Working across multiple research centers on cosmology and astrophysics using computational methods, including machine learning, Bayesian inference, and cosmological emulation.
+            </p>
 
-                    <p class="bio">
-                        Graduate from the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. Currently focused on observational cosmology, particularly large-scale structure, dark matter, dark energy, and astroparticle physics. Working across multiple research centers on cosmology and astrophysics using computational methods, including machine learning, Bayesian inference, and cosmological emulation.
-                    </p>
+            <div class="interests-section">
+                <div class="interests-label">Key Research Areas</div>
+                <div class="interests-grid">
+                    <span class="interest-tag">Observational Cosmology</span>
+                    <span class="interest-tag">Large Scale Structure</span>
+                    <span class="interest-tag">Dark Energy</span>
+                    <span class="interest-tag">Dark Matter</span>
+                    <span class="interest-tag">Modified Gravity</span>
+                    <span class="interest-tag">Machine Learning</span>
+                </div>
+            </div>
+        </div>
 
-                    <div class="interests-section">
-                        <div class="interests-label">Key Research Areas</div>
-                        <div class="interests-grid">
-                            <span class="interest-tag">Observational Cosmology</span>
-                            <span class="interest-tag">Large Scale Structure</span>
-                            <span class="interest-tag">Dark Energy</span>
-                            <span class="interest-tag">Dark Matter</span>
-                            <span class="interest-tag">Modified Gravity</span>
-                            <span class="interest-tag">Machine Learning</span>
+        <div class="profile-image-wrapper">
+            <div class="profile-picture-container">
+                <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" alt="Adrita Khan" class="profile-picture" width="350" height="350" decoding="async">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content-compact reveal">
+    <p>Greetings, everyone. I am Adrita Khan. I am a graduate of the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. My research interests lie in theoretical and observational cosmology, including large-scale structure, dark matter, dark energy, high-energy astroparticle physics, and machine learning applications in astrophysics.</p>
+
+    <p>My research focuses on modified gravity theories through cross-correlation analyses of the Cosmic Microwave Background (CMB) and galaxy data. I develop machine learning and deep learning methods for radio astronomy, including automated classification of bent radio AGN and semi-supervised learning approaches. I am currently working on gamma-ray burst redshift estimation and on developing the Explainable Polynomial Chebyshev Network (EPCN), a neural architecture that incorporates interpretable interaction features into Chebyshev-based frameworks.</p>
+
+    <p>My research goal is to advance precision cosmology at the intersection of theory and observation, particularly using data from next-generation surveys such as the Vera C. Rubin Observatory’s LSST, the Euclid mission, and DESI. I use computational approaches including machine learning, Bayesian inference, and cosmological emulation to extract constraints on the universe’s origin, evolution, and matter–energy composition. I am committed to fostering diversity, equity, and inclusion within the academic community.</p>
+</div>
+
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Education</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content reveal">
+                <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 2rem;">
+                        <div style="font-size: 3rem; color: var(--gold-primary); min-width: 60px;">🎓</div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.4rem; color: var(--gold-primary); margin-bottom: 0.5rem;">Bachelor of Science (Honours) in Physics</h3>
+                            <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 0.3rem; font-weight: 500;">Universiti Sains Malaysia (USM)</p>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">School of Physics, Penang, Malaysia • Graduated 2023</p>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-bottom: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="color: var(--gold-primary);">◆</span>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Major: Physics</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                   <span style="color: var(--gold-primary);">◆</span>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Minor: Astronomy</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="color: var(--gold-primary);">◆</span>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Dean's List (3 semesters)</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="color: var(--gold-primary);">◆</span>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Honours Research Project</span>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">Developed comprehensive expertise in quantum mechanics, astrophysics, mathematical physics, and computational methods. Specialized in astronomy with focus on astrophysical phenomena and observational techniques.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="profile-image-wrapper">
-                    <img src="https://raw.githubusercontent.com/Adrita-Khan/Assets/main/host/first.jpg" 
-                         alt="Portrait of Adrita Khan" 
-                         class="profile-picture" 
-                         width="350" 
-                         height="350" 
-                         loading="lazy">
+<section class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Research</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="research-card reveal">
+                <div class="research-visual">
+                    <div class="cmb-animation">
+                        <div class="cmb-core"></div>
+                        <div class="cmb-temperature-spots" id="cmbSpots"></div>
+                        <div class="cmb-ring ring-outer-1"></div>
+                        <div class="cmb-ring ring-outer-2"></div>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <h3>Testing Modified Gravity Theories with Cross-Correlation</h3>
+                    <p>This project calculates and analyzes galaxy–galaxy power spectra (C<sub>ℓ</sub><sup>gg</sup>) and galaxy–CMB lensing cross-power spectra (C<sub>ℓ</sub><sup>κg</sup>) using models including nDGP, e-mantis, and Bacco emulators. The goal is to forecast the ability of surveys like LSST/DESC to constrain modified gravity theories such as f(R) and DGP through cross-correlation techniques. This approach breaks parameter degeneracies and reduces systematic errors by combining uncorrelated datasets. The analysis examines whether observed power spectra contain signatures of modified gravity that differ from standard ΛCDM predictions. This approach helps constrain alternative theories of gravity on cosmological scales.</p>
+                    <a href="https://github.com/Adrita-Khan/Modified-Gravity" target="_blank" class="btn-primary">View Project</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About section -->
-        <section class="section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <h2>About Me</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="about-content">
-                    <p>Greetings, everyone. I am Adrita Khan. I am a graduate of the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. My research interests lie in theoretical and observational cosmology, including large-scale structure, dark matter, dark energy, high-energy astroparticle physics, and machine learning applications in astrophysics.</p>
-
-                    <p>My research focuses on modified gravity theories through cross-correlation analyses of the Cosmic Microwave Background (CMB) and galaxy data. I develop machine learning and deep learning methods for radio astronomy, including automated classification of bent radio AGN and semi-supervised learning approaches. I am currently working on gamma-ray burst redshift estimation and on developing the Explainable Polynomial Chebyshev Network (EPCN), a neural architecture that incorporates interpretable interaction features into Chebyshev-based frameworks.</p>
-
-                    <p>My research goal is to advance precision cosmology at the intersection of theory and observation, particularly using data from next-generation surveys such as the Vera C. Rubin Observatory's LSST, the Euclid mission, and DESI. I use computational approaches including machine learning, Bayesian inference, and cosmological emulation to extract constraints on the universe's origin, evolution, and matter–energy composition. I am committed to fostering diversity, equity, and inclusion within the academic community.</p>
-                </div>
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Publications</h2>
+                <div class="section-line"></div>
             </div>
-        </section>
-
-        <!-- Education section -->
-        <section class="section-dark">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Education</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="about-content">
-                    <h3 style="font-size: 1.3rem; color: var(--gold-primary); margin-bottom: 0.5rem;">Bachelor of Science (Honours) in Physics</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.3rem; font-weight: 500;">Universiti Sains Malaysia (USM)</p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">School of Physics, Penang, Malaysia • Graduated 2023</p>
-                    <p>Developed comprehensive expertise in quantum mechanics, astrophysics, mathematical physics, and computational methods. Specialized in astronomy with focus on astrophysical phenomena and observational techniques. Achieved Dean's List recognition for 3 semesters and completed an honours research project.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications section -->
-        <section class="section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Publications</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="publications-grid">
-                    <article class="publication-card">
+           <div class="publications-grid">
+                <div class="publication-card reveal">
+                    <div class="publication-header">
                         <h3 class="publication-title">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</h3>
-                        <p class="publication-authors">Md Raqibul Islam†, <strong>Adrita Khan†</strong>, Mir Sazzat Hossain*, and others</p>
+                        <p class="publication-authors">Md Raqibul Islam†, <strong>Adrita Khan†</strong>, Mir Sazzat Hossain*, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
                         <p class="publication-venue">Preprint</p>
                         <p class="publication-date">arXiv:2512.07420 | December 2025</p>
-                        <p class="publication-description">Introduced the Explainable Particle Chebyshev Network (E-PCN) for interpretable jet classification in high-energy collider experiments, integrating kinematic variables through multiple graph representations.</p>
-                        <div class="publication-links">
-                            <a href="https://arxiv.org/abs/2512.07420" target="_blank" rel="noopener noreferrer" class="pub-link">📄 arXiv</a>
-                            <a href="https://www.researchgate.net/publication/398475962" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate</a>
-                            <a href="https://github.com/Adrita-Khan/Jet-Tagging" target="_blank" rel="noopener noreferrer" class="pub-link">💻 GitHub</a>
-                            <span class="pub-tag">Preprint</span>
-                        </div>
-                    </article>
+                    </div>
+                    <p class="publication-description">We introduce the Explainable Particle Chebyshev Network (E-PCN), a graph neural network extending the Particle Chebyshev Network (PCN) for interpretable jet classification in high-energy collider experiments. E-PCN integrates kinematic variables by constructing four graph representations per jet, each weighted by a distinct variable: angular separation (Δ), transverse momentum (<i>k<sub>t</sub></i>), momentum fraction (<i>z</i>), and invariant mass squared (<i>m</i>²). Using Gradient-weighted Class Activation Mapping (Grad-CAM), we determine which kinematic variables dominate classification outcomes.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/abs/2512.07420" target="_blank" class="pub-link">📄 arXiv</a>
+                        <a href="https://www.researchgate.net/publication/398475962" target="_blank" class="pub-link">ResearchGate</a>
+                        <a href="https://github.com/Adrita-Khan/Jet-Tagging" target="_blank" class="pub-link">💻 GitHub</a>
+                        <span class="pub-tag">Preprint</span>
+                        <span class="pub-tag">High Energy Physics</span>
+                    </div>
+                </div>
 
-                    <article class="publication-card">
-                        <h3 class="publication-title">RGC: A Radio AGN Classifier Based on Deep Learning</h3>
-                        <p class="publication-authors">M.S. Hossain, M.S.H. Shahal, <strong>A. Khan</strong>, and others</p>
+               <div class="publication-card reveal">
+                    <div class="publication-header">
+                        <h3 class="publication-title">RGC: A Radio AGN Classifier Based on Deep Learning. I. A Semi-Supervised Model for the VLA Images of Bent Radio AGNs</h3>
+                        <p class="publication-authors">M.S. Hossain, M.S.H. Shahal, <strong>A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman</p>
                         <p class="publication-venue">Preprint</p>
                         <p class="publication-date">arXiv:2510.22190 | October 2025</p>
-                        <p class="publication-description">Presented RGC, a deep learning-based semi-supervised model for classifying bent radio AGN from VLA images, enabling automated processing of large-scale radio surveys.</p>
-                        <div class="publication-links">
-                            <a href="https://arxiv.org/abs/2510.22190" target="_blank" rel="noopener noreferrer" class="pub-link">📄 arXiv</a>
-                            <a href="https://www.researchgate.net/publication/396967381" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate</a>
-                            <span class="pub-tag">Preprint</span>
-                        </div>
-                    </article>
+                    </div>
+                    <p class="publication-description">We present RGC (Radio Galaxy Classifier), a deep learning-based semi-supervised model designed for classifying bent radio active galactic nuclei (AGN) from Very Large Array (VLA) images. This work represents an important step toward automated classification of radio AGN, enabling more efficient processing of large-scale radio surveys.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/abs/2510.22190" target="_blank" class="pub-link">📄 arXiv</a>
+                        <a href="https://www.researchgate.net/publication/396967381_RGC_a_radio_AGN_classifier_based_on_deep_learning_I_A_semi-supervised_model_for_the_VLA_images_of_bent_radio_AGNs" target="_blank" class="pub-link">ResearchGate</a>
+                        <span class="pub-tag">Preprint</span>
+                        <span class="pub-tag">Radio Astronomy</span>
+                    </div>
+                </div>
 
-                    <article class="publication-card">
+                <div class="publication-card reveal">
+                    <div class="publication-header">
                         <h3 class="publication-title">RGC-Bent: A Novel Dataset for Bent Radio Galaxy Classification</h3>
-                        <p class="publication-authors">Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, <strong>Adrita Khan</strong>, and others</p>
+                        <p class="publication-authors">Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, <strong>Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
                         <p class="publication-venue">2025 IEEE International Conference on Image Processing (ICIP 2025)</p>
                         <p class="publication-date">arXiv:2505.19249 | May 2025</p>
-                        <p class="publication-description">Introduced RGC-Bent, a curated dataset of 639 radio galaxy images for machine learning-based classification of bent radio AGN.</p>
-                        <div class="publication-links">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" rel="noopener noreferrer" class="pub-link">📘 IEEE</a>
-                            <a href="https://arxiv.org/abs/2505.19249" target="_blank" rel="noopener noreferrer" class="pub-link">📄 arXiv</a>
-                            <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" rel="noopener noreferrer" class="pub-link">💻 GitHub</a>
-                            <span class="pub-tag">Conference</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Affiliations section -->
-        <section class="section-dark">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Research & Teaching Affiliations</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="positions-grid">
-                    <div class="position-card">
-                        <div class="position-title">Research Assistant</div>
-                        <div class="position-org">Center for Computational and Data Sciences (CCDS), Independent University, Bangladesh</div>
-                        <span class="position-type">Full-time</span>
                     </div>
-                    <div class="position-card">
-                        <div class="position-title">Research Assistant</div>
-                        <div class="position-org">Center for Astronomy, Space Science, and Astrophysics (CASSA), Independent University, Bangladesh</div>
-                        <span class="position-type">Part-time</span>
-                    </div>
-                    <div class="position-card">
-                        <div class="position-title">Research Assistant</div>
-                        <div class="position-org">Centre for Astro-Particle Physics (CAPP), University of Johannesburg, South Africa</div>
-                        <span class="position-type">Remote</span>
-                    </div>
-                    <div class="position-card">
-                        <div class="position-title">Student Research Collaborator</div>
-                        <div class="position-org">Dunlap Institute for Astronomy & Astrophysics, University of Toronto</div>
-                        <span class="position-type">Collaborative</span>
-                    </div>
-                    <div class="position-card">
-                        <div class="position-title">Teaching Assistant</div>
-                        <div class="position-org">North South University, Bangladesh (PHY107 & PHY108)</div>
-                        <span class="position-type">Spring 2025</span>
-                    </div>
-                    <div class="position-card">
-                        <div class="position-title">Wi-STEM Bangladesh Mentee</div>
-                        <div class="position-org">Photometric Redshift Estimation Using Machine Learning</div>
-                        <span class="position-type">Summer Intern</span>
+                    <p class="publication-description">We introduce RGC-Bent, a curated dataset of 639 radio galaxy images designed to support machine learning-based classification of bent radio AGN. ConvNeXT achieves the highest F1-scores for both NAT and WAT sources, demonstrating the effectiveness of advanced machine learning models in classifying bent radio AGN.</p>
+                    <div class="publication-links">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="pub-link">📘 IEEE Xplore</a>
+                        <a href="https://arxiv.org/abs/2505.19249" target="_blank" class="pub-link">📄 arXiv</a>
+                        <a href="https://www.researchgate.net/publication/394896407_RGC-Bent_A_Novel_Dataset_for_Bent_Radio_Galaxy_Classification" target="_blank" class="pub-link">ResearchGate</a>
+                        <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="pub-link">💻 GitHub</a>
+                        <span class="pub-tag">Conference Paper</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Technical skills section -->
-        <section class="section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Technical Proficiency</h2>
-                    <div class="section-line"></div>
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research and Teaching Affiliations</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="positions-compact reveal">
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Research Assistant</div>
+                    <div class="position-compact-org">Center for Computational and Data Sciences (CCDS), Independent University, Bangladesh</div>
+                    <span class="position-compact-type">Full-time (Employed)</span>
                 </div>
-                <div class="tech-skills-grid">
-                    <div class="tech-skill-card">
-                        <div class="tech-skill-title">Programming Languages</div>
-                        <p class="tech-skill-items">Python • C/C++ • Mathematica • MATLAB • R • SQL • Bash/Shell scripting</p>
-                    </div>
-                    <div class="tech-skill-card">
-                        <div class="tech-skill-title">Python Scientific Stack</div>
-                        <p class="tech-skill-items">NumPy • SciPy • Pandas • scikit-learn • Astropy • Astroquery • PyTorch • TensorFlow</p>
-                    </div>
-                    <div class="tech-skill-card">
-                        <div class="tech-skill-title">Cosmology & Astrophysics</div>
-                        <p class="tech-skill-items">CAMB • CCL • HEALPix • NaMaster • emcee • pocoMC • corner • GetDist • TOPCAT • SAOImage DS9</p>
-                    </div>
-                    <div class="tech-skill-card">
-                        <div class="tech-skill-title">Cosmological Emulators</div>
-                        <p class="tech-skill-items">CosmoPower • bacco • e-mantis • nDGP</p>
-                    </div>
-                    <div class="tech-skill-card">
-                        <div class="tech-skill-title">Statistical Methods & ML</div>
-                        <p class="tech-skill-items">MCMC • Bayesian inference • Fisher forecasting • ML/DL frameworks • Feature engineering</p>
-                    </div>
-                    <div class="tech-skill-card">
-                        <div class="tech-skill-title">Development Tools</div>
-                        <p class="tech-skill-items">Linux/Unix • Git/GitHub • Docker • LaTeX • HPC clusters & parallelization</p>
-                    </div>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Research Assistant</div>
+                    <div class="position-compact-org">Center for Astronomy, Space Science, and Astrophysics (CASSA), Independent University, Bangladesh</div>
+                    <span class="position-compact-type">Part-time</span>
+                </div>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Research Assistant</div>
+                    <div class="position-compact-org">Centre for Astro-Particle Physics (CAPP), University of Johannesburg, South Africa</div>
+                    <span class="position-compact-type">Remote</span>
+                </div>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Student Research Collaborator</div>
+                    <div class="position-compact-org">Dunlap Institute for Astronomy & Astrophysics, University of Toronto</div>
+                    <span class="position-compact-type">Collaborative</span>
+                </div>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Teaching Assistant</div>
+                    <div class="position-compact-org">North South University, Bangladesh (PHY107 & PHY108, Spring 2025)</div>
+                    <span class="position-compact-type">Part-time</span>
+                </div>
+                <div class="position-compact-item">
+                    <div class="position-compact-title">Wi-STEM Bangladesh Mentee</div>
+                    <div class="position-compact-org">Photometric Redshift Estimation Using Machine Learning</div>
+                    <span class="position-compact-type">Summer Research Intern</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Research interests section -->
-        <section class="section-dark research-interests-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Research Interests</h2>
-                    <div class="section-line"></div>
-                </div>
-                <ul class="research-topics-list">
-                    <li class="research-topic-item">Observational and Theoretical Cosmology</li>
-                    <li class="research-topic-item">Large-Scale Structure (LSS)</li>
-                    <li class="research-topic-item">Dark Matter and Dark Energy</li>
-                    <li class="research-topic-item">Modified Gravity Models</li>
-                    <li class="research-topic-item">Precision Cosmology</li>
-                    <li class="research-topic-item">Universe's Origin and Evolution</li>
-                    <li class="research-topic-item">Cosmological Simulations and Modeling</li>
-                    <li class="research-topic-item">Stellar Formation and Evolution</li>
-                    <li class="research-topic-item">Astro-Particle and High Energy Physics</li>
-                    <li class="research-topic-item">Particle Phenomenology</li>
-                    <li class="research-topic-item">Multimessenger Astronomy</li>
-                    <li class="research-topic-item">Astrostatistics and Machine Learning</li>
-                    <li class="research-topic-item">Computational Methods in Nuclear Physics</li>
-                </ul>
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Proficiency</h2>
+                <div class="section-line"></div>
             </div>
-        </section>
-    </main>
+            <div class="tech-skills-grid reveal">
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Programming Languages</div>
+                    <p class="tech-skill-items">Python • C/C++ • Mathematica • MATLAB • R • SQL • Bash/Shell scripting</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Python Scientific Stack</div>
+                    <p class="tech-skill-items">NumPy • SciPy • Pandas • scikit-learn • Astropy • Astroquery • PyTorch • TensorFlow</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Cosmology & Astrophysics</div>
+                    <p class="tech-skill-items">CAMB • CCL • HEALPix • NaMaster • emcee • pocoMC • corner • GetDist • TOPCAT • SAOImage DS9</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Cosmological Emulators</div>
+                    <p class="tech-skill-items">CosmoPower • bacco • e-mantis • nDGP</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Statistical Methods & ML</div>
+                    <p class="tech-skill-items">MCMC • Bayesian inference • Fisher forecasting • ML/DL frameworks • Feature engineering • Hyperparameter optimization</p>
+                </div>
+                <div class="tech-skill-card">
+                    <div class="tech-skill-title">Development Tools</div>
+                    <p class="tech-skill-items">Linux/Unix • Git/GitHub • Docker • LaTeX • HPC clusters & parallelization</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
+    <section class="research-interests-main section-alt">
+        <div class="aurora-container">
+            <div class="aurora">
+                <div class="aurora-wave aurora-wave-1"></div>
+                <div class="aurora-wave aurora-wave-2"></div>
+                <div class="aurora-wave aurora-wave-3"></div>
+            </div>
+        </div>
+        <div class="research-container">
+            <div class="research-section-header">
+                <h2>Research Interests</h2>
+                <div class="section-line"></div>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="research-interest-card reveal" style="border-left: 3px solid var(--gold-primary);">
+                    <ul class="research-topics-list" style="grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1.2rem;">
+                        <li class="research-topic-item">Observational and Theoretical Cosmology</li>
+                        <li class="research-topic-item">Large-Scale Structure (LSS)</li>
+                        <li class="research-topic-item">Dark Matter and Dark Energy</li>
+                        <li class="research-topic-item">Modified Gravity Models</li>
+                        <li class="research-topic-item">Precision Cosmology</li>
+                        <li class="research-topic-item">Universe's Origin and Evolution</li>
+                        <li class="research-topic-item">Cosmological Simulations and Modeling</li>
+                        <li class="research-topic-item">Stellar Formation and Evolution</li>
+                        <li class="research-topic-item">Stellar Properties</li>
+                        <li class="research-topic-item">Astro-Particle and High Energy Physics</li>
+                        <li class="research-topic-item">Particle Phenomenology</li>
+                        <li class="research-topic-item">Multimessenger Astronomy</li>
+                        <li class="research-topic-item">Astrostatistics and Machine Learning</li>
+                        <li class="research-topic-item">Computational Methods in Nuclear Physics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-left">
@@ -1159,102 +2279,124 @@
                     <div class="footer-stat-number">4</div>
                     <div class="footer-stat-label">Research Centers</div>
                 </div>
+                <div class="footer-stat-divider"></div>
                 <div class="footer-stat-item">
                     <div class="footer-stat-number">3</div>
                     <div class="footer-stat-label">Countries</div>
                 </div>
+                <div class="footer-stat-divider"></div>
                 <div class="footer-stat-item">
                     <div class="footer-stat-number">∞</div>
                     <div class="footer-stat-label">Curiosity</div>
+                </div>
+                <div class="footer-stat-divider"></div>
+                <div class="footer-stat-item">
+                    <div class="footer-stat-number">1</div>
+                    <div class="footer-stat-label">Universe to Explore</div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-        <svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>
-    </button>
-
     <script>
-        // Remove loading screen once page is loaded
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numStars = 120;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star' + (Math.random() > 0.85 ? ' large' : '');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function createCMBSpots() {
+            const cmbSpotsContainer = document.getElementById('cmbSpots');
+            if (!cmbSpotsContainer) return;
+            const spots = [
+                { type: 'hot', size: 35, top: 25, left: 30, delay: 0 },
+                { type: 'hot', size: 28, top: 65, left: 70, delay: 1.5 },
+                { type: 'hot', size: 32, top: 50, left: 15, delay: 3 },
+                { type: 'hot', size: 25, top: 80, left: 45, delay: 4.5 },
+                { type: 'hot', size: 30, top: 15, left: 75, delay: 2 },
+                { type: 'cold', size: 38, top: 40, left: 60, delay: 0.5 },
+                { type: 'cold', size: 30, top: 70, left: 25, delay: 2.5 },
+                { type: 'cold', size: 33, top: 20, left: 50, delay: 1 },
+                { type: 'cold', size: 27, top: 55, left: 85, delay: 3.5 },
+                { type: 'cold', size: 35, top: 85, left: 65, delay: 2 },
+            ];
+            spots.forEach(spot => {
+                const spotElement = document.createElement('div');
+                spotElement.className = `cmb-${spot.type}-spot`;
+                spotElement.style.width = spot.size + 'px';
+                spotElement.style.height = spot.size + 'px';
+                spotElement.style.top = spot.top + '%';
+                spotElement.style.left = spot.left + '%';
+                spotElement.style.animationDelay = spot.delay + 's';
+                spotElement.style.transform = 'translate(-50%, -50%)';
+                cmbSpotsContainer.appendChild(spotElement);
+            });
+        }
+
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-inline-number');
+            statNumbers.forEach((stat, index) => {
+                const target = stat.dataset.target;
+                if (target === 'infinity') {
+                    stat.textContent = '∞';
+                    return;
+                }
+                const targetValue = parseInt(target);
+                const duration = 1200;
+                const steps = 40;
+                const increment = targetValue / steps;
+                const stepDuration = duration / steps;
+                let current = 0;
+                setTimeout(() => {
+                    const counter = setInterval(() => {
+                        current += increment;
+                        if (current >= targetValue) {
+                            stat.textContent = targetValue;
+                            clearInterval(counter);
+                        } else {
+                            stat.textContent = Math.floor(current);
+                        }
+                    }, stepDuration);
+                }, index * 150);
+            });
+        }
+
         window.addEventListener('load', function() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            loadingScreen.classList.add('hidden');
-        });
-
-        // Sticky navigation with scroll effect
-        const nav = document.getElementById('quick-links');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-
-            lastScroll = currentScroll;
-        });
-
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            createStars();
+            createCMBSpots();
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                element.classList.add('active');
+                if (element.id === 'statsContainer') {
+                    animateStats();
+                }
             });
         });
 
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#main-content') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const nebula = document.querySelector('.nebula');
+            if (nebula) {
+                nebula.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
     </script>
 </body>
