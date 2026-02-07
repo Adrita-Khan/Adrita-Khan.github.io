@@ -368,19 +368,6 @@
 
         .hero-text {
             opacity: 1;
-            animation: fadeSlideUp 1s ease forwards;
-            animation-delay: 0.3s;
-        }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
 .hero-text h1 {
@@ -399,15 +386,9 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 0;
+            width: 60%;
             height: 3px;
             background: linear-gradient(90deg, var(--gold-primary), var(--gold-light), transparent);
-            animation: lineExpand 1s ease forwards;
-            animation-delay: 1s;
-        }
-
-        @keyframes lineExpand {
-            to { width: 60%; }
         }
 
 .hero-text .subtitle {
@@ -1812,9 +1793,6 @@ section {
         .reveal {
             opacity: 1;
             transform: translateY(0);
-            transition: none;
-            backface-visibility: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
         .reveal.active {
@@ -2047,12 +2025,12 @@ section {
                 <h2>About Me</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="about-content-compact reveal">
+            <div class="about-content-compact">
     <p>Greetings, everyone. I am Adrita Khan. I am a graduate of the University of Science, Malaysia (USM) with a major in Physics and a minor in Astronomy. My research interests lie in theoretical and observational cosmology, including large-scale structure, dark matter, dark energy, high-energy astroparticle physics, and machine learning applications in astrophysics.</p>
 
     <p>My research focuses on modified gravity theories through cross-correlation analyses of the Cosmic Microwave Background (CMB) and galaxy data. I develop machine learning and deep learning methods for radio astronomy, including automated classification of bent radio AGN and semi-supervised learning approaches. I am currently working on gamma-ray burst redshift estimation and on developing the Explainable Polynomial Chebyshev Network (EPCN), a neural architecture that incorporates interpretable interaction features into Chebyshev-based frameworks.</p>
 
-    <p>My research goal is to advance precision cosmology at the intersection of theory and observation, particularly using data from next-generation surveys such as the Vera C. Rubin Observatory’s LSST, the Euclid mission, and DESI. I use computational approaches including machine learning, Bayesian inference, and cosmological emulation to extract constraints on the universe’s origin, evolution, and matter–energy composition. I am committed to fostering diversity, equity, and inclusion within the academic community.</p>
+    <p>My research goal is to advance precision cosmology at the intersection of theory and observation, particularly using data from next-generation surveys such as the Vera C. Rubin Observatory's LSST, the Euclid mission, and DESI. I use computational approaches including machine learning, Bayesian inference, and cosmological emulation to extract constraints on the universe's origin, evolution, and matter–energy composition. I am committed to fostering diversity, equity, and inclusion within the academic community.</p>
 </div>
 
         </div>
@@ -2064,7 +2042,7 @@ section {
                 <h2>Education</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="about-content reveal">
+            <div class="about-content">
                 <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
                     <div style="display: flex; align-items: flex-start; gap: 2rem;">
                         <div style="font-size: 3rem; color: var(--gold-primary); min-width: 60px;">🎓</div>
@@ -2104,7 +2082,7 @@ section {
                 <h2>Featured Research</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="research-card reveal">
+            <div class="research-card">
                 <div class="research-visual">
                     <div class="cmb-animation">
                         <div class="cmb-core"></div>
@@ -2129,7 +2107,7 @@ section {
                 <div class="section-line"></div>
             </div>
            <div class="publications-grid">
-                <div class="publication-card reveal">
+                <div class="publication-card">
                     <div class="publication-header">
                         <h3 class="publication-title">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</h3>
                         <p class="publication-authors">Md Raqibul Islam†, <strong>Adrita Khan†</strong>, Mir Sazzat Hossain*, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
@@ -2146,7 +2124,7 @@ section {
                     </div>
                 </div>
 
-               <div class="publication-card reveal">
+               <div class="publication-card">
                     <div class="publication-header">
                         <h3 class="publication-title">RGC: A Radio AGN Classifier Based on Deep Learning. I. A Semi-Supervised Model for the VLA Images of Bent Radio AGNs</h3>
                         <p class="publication-authors">M.S. Hossain, M.S.H. Shahal, <strong>A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman</p>
@@ -2162,7 +2140,7 @@ section {
                     </div>
                 </div>
 
-                <div class="publication-card reveal">
+                <div class="publication-card">
                     <div class="publication-header">
                         <h3 class="publication-title">RGC-Bent: A Novel Dataset for Bent Radio Galaxy Classification</h3>
                         <p class="publication-authors">Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, <strong>Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman</p>
@@ -2188,7 +2166,7 @@ section {
                 <h2>Research and Teaching Affiliations</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="positions-compact reveal">
+            <div class="positions-compact">
 <div class="position-compact-item">
     <div class="position-compact-title">Research Assistant</div>
     <div class="position-compact-org"><a href="https://ccds.ai/?portfolio=adrita-khan" target="_blank">Center for Computational and Data Sciences (CCDS)</a>, Independent University, Bangladesh (IUB)</div>
@@ -2241,7 +2219,7 @@ section {
                 <h2>Technical Proficiency</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="tech-skills-grid reveal">
+            <div class="tech-skills-grid">
                 <div class="tech-skill-card">
                     <div class="tech-skill-title">Programming Languages</div>
                     <p class="tech-skill-items">Python • C/C++ • Mathematica • MATLAB • R • SQL • Bash/Shell scripting</p>
@@ -2284,7 +2262,7 @@ section {
                 <div class="section-line"></div>
             </div>
             <div style="max-width: 900px; margin: 0 auto;">
-                <div class="research-interest-card reveal" style="border-left: 3px solid var(--gold-primary);">
+                <div class="research-interest-card" style="border-left: 3px solid var(--gold-primary);">
                     <ul class="research-topics-list" style="grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1.2rem;">
                         <li class="research-topic-item">Observational and Theoretical Cosmology</li>
                         <li class="research-topic-item">Large-Scale Structure (LSS)</li>
@@ -2378,44 +2356,9 @@ section {
             });
         }
 
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-inline-number');
-            statNumbers.forEach((stat, index) => {
-                const target = stat.dataset.target;
-                if (target === 'infinity') {
-                    stat.textContent = '∞';
-                    return;
-                }
-                const targetValue = parseInt(target);
-                const duration = 1200;
-                const steps = 40;
-                const increment = targetValue / steps;
-                const stepDuration = duration / steps;
-                let current = 0;
-                setTimeout(() => {
-                    const counter = setInterval(() => {
-                        current += increment;
-                        if (current >= targetValue) {
-                            stat.textContent = targetValue;
-                            clearInterval(counter);
-                        } else {
-                            stat.textContent = Math.floor(current);
-                        }
-                    }, stepDuration);
-                }, index * 150);
-            });
-        }
-
         window.addEventListener('load', function() {
             createStars();
             createCMBSpots();
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                element.classList.add('active');
-                if (element.id === 'statsContainer') {
-                    animateStats();
-                }
-            });
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
