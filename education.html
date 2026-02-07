@@ -38,7 +38,7 @@
             position: absolute;
             border-radius: 50%;
             background: linear-gradient(45deg, rgba(201, 169, 97, 0.1), rgba(212, 181, 109, 0.1));
-            animation: float 20s infinite ease-in-out;
+            /* Animation removed for instant display */
         }
 
         .floating-shape:nth-child(1) {
@@ -46,7 +46,6 @@
             height: 80px;
             top: 20%;
             left: 10%;
-            animation-delay: 0s;
         }
 
         .floating-shape:nth-child(2) {
@@ -54,7 +53,6 @@
             height: 120px;
             top: 60%;
             right: 10%;
-            animation-delay: 5s;
         }
 
         .floating-shape:nth-child(3) {
@@ -62,21 +60,14 @@
             height: 60px;
             bottom: 20%;
             left: 20%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(90deg); }
-            50% { transform: translateY(-40px) rotate(180deg); }
-            75% { transform: translateY(-20px) rotate(270deg); }
         }
 
         .star {
             position: absolute;
             background: #ffffff;
             border-radius: 50%;
-            animation: twinkle 3s infinite ease-in-out;
+            /* Twinkle animation removed for instant display */
+            opacity: 0.8;
         }
 
         .star.small {
@@ -102,64 +93,53 @@
                         0 0 24px 12px rgba(201, 169, 97, 0.4);
         }
 
-        @keyframes twinkle {
-            0%, 100% { 
-                opacity: 0.6; 
-                transform: scale(0.9);
-            }
-            50% { 
-                opacity: 1; 
-                transform: scale(1.3);
-            }
-        }
-
-        .star:nth-child(4) { top: 5%; left: 8%; animation-delay: 0s; }
-        .star:nth-child(5) { top: 12%; left: 85%; animation-delay: 0.5s; }
-        .star:nth-child(6) { top: 8%; right: 15%; animation-delay: 1s; }
-        .star:nth-child(7) { top: 18%; left: 3%; animation-delay: 1.5s; }
-        .star:nth-child(8) { top: 22%; right: 25%; animation-delay: 2s; }
-        .star:nth-child(9) { top: 35%; left: 12%; animation-delay: 0.3s; }
-        .star:nth-child(10) { top: 28%; right: 8%; animation-delay: 1.2s; }
-        .star:nth-child(11) { top: 42%; left: 78%; animation-delay: 0.8s; }
-        .star:nth-child(12) { top: 48%; left: 22%; animation-delay: 1.8s; }
-        .star:nth-child(13) { top: 52%; right: 32%; animation-delay: 0.6s; }
-        .star:nth-child(14) { top: 38%; left: 48%; animation-delay: 2.3s; }
-        .star:nth-child(15) { top: 15%; left: 42%; animation-delay: 1.4s; }
-        .star:nth-child(16) { top: 58%; right: 5%; animation-delay: 0.9s; }
-        .star:nth-child(17) { top: 45%; left: 92%; animation-delay: 2.1s; }
-        .star:nth-child(18) { top: 65%; left: 18%; animation-delay: 1.6s; }
-        .star:nth-child(19) { top: 72%; left: 65%; animation-delay: 0.4s; }
-        .star:nth-child(20) { top: 78%; right: 22%; animation-delay: 1.9s; }
-        .star:nth-child(21) { top: 8%; left: 58%; animation-delay: 2.5s; }
-        .star:nth-child(22) { top: 68%; right: 12%; animation-delay: 0.7s; }
-        .star:nth-child(23) { top: 85%; left: 35%; animation-delay: 1.3s; }
-        .star:nth-child(24) { top: 25%; right: 48%; animation-delay: 2.2s; }
-        .star:nth-child(25) { top: 55%; left: 5%; animation-delay: 0.2s; }
-        .star:nth-child(26) { top: 82%; left: 72%; animation-delay: 1.7s; }
-        .star:nth-child(27) { top: 10%; right: 38%; animation-delay: 2.4s; }
-        .star:nth-child(28) { top: 75%; left: 52%; animation-delay: 1.1s; }
-        .star:nth-child(29) { top: 32%; left: 32%; animation-delay: 0.5s; }
-        .star:nth-child(30) { top: 62%; right: 18%; animation-delay: 2.6s; }
-        .star:nth-child(31) { top: 3%; left: 25%; animation-delay: 1.0s; }
-        .star:nth-child(32) { top: 88%; right: 45%; animation-delay: 0.8s; }
-        .star:nth-child(33) { top: 20%; left: 68%; animation-delay: 2.0s; }
-        .star:nth-child(34) { top: 50%; left: 55%; animation-delay: 1.5s; }
-        .star:nth-child(35) { top: 92%; left: 8%; animation-delay: 0.3s; }
-        .star:nth-child(36) { top: 40%; right: 42%; animation-delay: 2.3s; }
-        .star:nth-child(37) { top: 70%; right: 55%; animation-delay: 0.9s; }
-        .star:nth-child(38) { top: 15%; right: 2%; animation-delay: 1.8s; }
-        .star:nth-child(39) { top: 95%; right: 28%; animation-delay: 1.2s; }
-        .star:nth-child(40) { top: 6%; left: 95%; animation-delay: 0.6s; }
-        .star:nth-child(41) { top: 45%; left: 2%; animation-delay: 2.4s; }
-        .star:nth-child(42) { top: 80%; left: 45%; animation-delay: 1.4s; }
-        .star:nth-child(43) { top: 30%; right: 65%; animation-delay: 0.4s; }
-        .star:nth-child(44) { top: 60%; left: 88%; animation-delay: 1.9s; }
-        .star:nth-child(45) { top: 25%; left: 15%; animation-delay: 2.1s; }
-        .star:nth-child(46) { top: 55%; right: 78%; animation-delay: 0.7s; }
-        .star:nth-child(47) { top: 90%; left: 62%; animation-delay: 1.6s; }
-        .star:nth-child(48) { top: 12%; right: 52%; animation-delay: 2.5s; }
-        .star:nth-child(49) { top: 75%; right: 8%; animation-delay: 0.2s; }
-        .star:nth-child(50) { top: 35%; left: 82%; animation-delay: 1.3s; }
+        .star:nth-child(4) { top: 5%; left: 8%; }
+        .star:nth-child(5) { top: 12%; left: 85%; }
+        .star:nth-child(6) { top: 8%; right: 15%; }
+        .star:nth-child(7) { top: 18%; left: 3%; }
+        .star:nth-child(8) { top: 22%; right: 25%; }
+        .star:nth-child(9) { top: 35%; left: 12%; }
+        .star:nth-child(10) { top: 28%; right: 8%; }
+        .star:nth-child(11) { top: 42%; left: 78%; }
+        .star:nth-child(12) { top: 48%; left: 22%; }
+        .star:nth-child(13) { top: 52%; right: 32%; }
+        .star:nth-child(14) { top: 38%; left: 48%; }
+        .star:nth-child(15) { top: 15%; left: 42%; }
+        .star:nth-child(16) { top: 58%; right: 5%; }
+        .star:nth-child(17) { top: 45%; left: 92%; }
+        .star:nth-child(18) { top: 65%; left: 18%; }
+        .star:nth-child(19) { top: 72%; left: 65%; }
+        .star:nth-child(20) { top: 78%; right: 22%; }
+        .star:nth-child(21) { top: 8%; left: 58%; }
+        .star:nth-child(22) { top: 68%; right: 12%; }
+        .star:nth-child(23) { top: 85%; left: 35%; }
+        .star:nth-child(24) { top: 25%; right: 48%; }
+        .star:nth-child(25) { top: 55%; left: 5%; }
+        .star:nth-child(26) { top: 82%; left: 72%; }
+        .star:nth-child(27) { top: 10%; right: 38%; }
+        .star:nth-child(28) { top: 75%; left: 52%; }
+        .star:nth-child(29) { top: 32%; left: 32%; }
+        .star:nth-child(30) { top: 62%; right: 18%; }
+        .star:nth-child(31) { top: 3%; left: 25%; }
+        .star:nth-child(32) { top: 88%; right: 45%; }
+        .star:nth-child(33) { top: 20%; left: 68%; }
+        .star:nth-child(34) { top: 50%; left: 55%; }
+        .star:nth-child(35) { top: 92%; left: 8%; }
+        .star:nth-child(36) { top: 40%; right: 42%; }
+        .star:nth-child(37) { top: 70%; right: 55%; }
+        .star:nth-child(38) { top: 15%; right: 2%; }
+        .star:nth-child(39) { top: 95%; right: 28%; }
+        .star:nth-child(40) { top: 6%; left: 95%; }
+        .star:nth-child(41) { top: 45%; left: 2%; }
+        .star:nth-child(42) { top: 80%; left: 45%; }
+        .star:nth-child(43) { top: 30%; right: 65%; }
+        .star:nth-child(44) { top: 60%; left: 88%; }
+        .star:nth-child(45) { top: 25%; left: 15%; }
+        .star:nth-child(46) { top: 55%; right: 78%; }
+        .star:nth-child(47) { top: 90%; left: 62%; }
+        .star:nth-child(48) { top: 12%; right: 52%; }
+        .star:nth-child(49) { top: 75%; right: 8%; }
+        .star:nth-child(50) { top: 35%; left: 82%; }
 
         #quick-links {
             position: relative;
@@ -294,34 +274,11 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 0%;
+            width: 100%;
             height: 4px;
             background: linear-gradient(90deg, #c9a961 0%, #d4b56d 50%, #c9a961 100%);
             border-radius: 2px;
-            animation: underline-expand 3s ease-in-out infinite;
-        }
-
-        @keyframes underline-expand {
-            0% {
-                width: 0%;
-                opacity: 0;
-            }
-            10% {
-                width: 0%;
-                opacity: 1;
-            }
-            50% {
-                width: 100%;
-                opacity: 1;
-            }
-            90% {
-                width: 100%;
-                opacity: 1;
-            }
-            100% {
-                width: 100%;
-                opacity: 0;
-            }
+            /* Underline animation removed for instant display */
         }
 
         .profile-image {
