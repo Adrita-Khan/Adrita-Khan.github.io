@@ -121,7 +121,7 @@
         .main-content {
             position: relative;
             z-index: 10;
-            padding: 1rem 2rem;
+            padding: 2rem 4rem;
             min-height: calc(100vh - 120px);
         }
 
@@ -212,8 +212,8 @@
 
         .notes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .note-card {
@@ -495,6 +495,10 @@
         }
 
         @media (max-width: 768px) {
+            .main-content {
+                padding: 1rem 1.5rem;
+            }
+
             .page-header h1 {
                 font-size: 2.2rem;
             }
