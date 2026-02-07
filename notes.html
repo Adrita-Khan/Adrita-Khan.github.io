@@ -133,7 +133,6 @@
         .page-header {
             text-align: center;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease-out;
         }
 
         .page-header h1 {
@@ -169,7 +168,6 @@
 
         .category-section {
             margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out;
         }
 
         .category-header {
@@ -1104,25 +1102,7 @@
         }
 
         function initAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationDelay = '0s';
-                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            document.querySelectorAll('.note-card').forEach(card => {
-                observer.observe(card);
-            });
-
-            document.querySelectorAll('.category-section').forEach(section => {
-                observer.observe(section);
-            });
+            // Animations disabled for immediate display
         }
 
         document.addEventListener('DOMContentLoaded', function() {
