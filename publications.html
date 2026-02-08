@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Adrita Khan</title>
+    <title>Research - Adrita Khan</title>
     <style>
         * {
             margin: 0;
@@ -48,80 +48,38 @@
             border-radius: 2px;
         }
 
-        .intro-text {
-            text-align: center;
+        /* Research Content */
+        .research-intro {
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .research-intro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.12);
+        }
+
+        .research-intro p {
             font-size: 1.1rem;
             color: #b8c5d0;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: center;
+            margin-bottom: 0;
         }
 
-        /* Filter and Search */
-        .filter-section {
-            display: flex;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search-box {
-            padding: 0.7rem 1.2rem;
-            border: 2px solid rgba(201, 169, 97, 0.3);
-            border-radius: 25px;
-            background: rgba(201, 169, 97, 0.1);
-            color: white;
-            font-size: 0.95rem;
-            min-width: 300px;
-            transition: all 0.3s ease;
-        }
-
-        .search-box::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .search-box:focus {
-            outline: none;
-            border-color: #c9a961;
-            background: rgba(201, 169, 97, 0.15);
-            box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
-        }
-
-        .filter-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-tag {
-            padding: 0.5rem 1rem;
-            background: rgba(201, 169, 97, 0.1);
-            border: 2px solid rgba(201, 169, 97, 0.3);
-            border-radius: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .filter-tag:hover,
-        .filter-tag.active {
-            background: rgba(201, 169, 97, 0.25);
-            border-color: #c9a961;
-            transform: translateY(-2px);
-        }
-
-        /* Publications List */
-        .publications-list {
+        /* Research Items */
+        .research-list {
             display: grid;
             gap: 1.5rem;
+            list-style: none;
         }
 
-        .publication-card {
+        .research-item {
             background: rgba(201, 169, 97, 0.08);
             backdrop-filter: blur(10px);
             border-radius: 15px;
@@ -132,7 +90,7 @@
             overflow: hidden;
         }
 
-        .publication-card::before {
+        .research-item::before {
             content: '';
             position: absolute;
             top: 0;
@@ -144,26 +102,26 @@
             transition: transform 0.3s ease;
         }
 
-        .publication-card:hover::before {
+        .research-item:hover::before {
             transform: translateX(0);
         }
 
-        .publication-card:hover {
+        .research-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(201, 169, 97, 0.3);
             background: rgba(201, 169, 97, 0.12);
         }
 
-        .publication-header {
+        .research-header {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 0.8rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
-        .publication-icon {
-            width: 40px;
-            height: 40px;
+        .research-icon {
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, #c9a961, #d4b56d);
             border-radius: 50%;
             display: flex;
@@ -173,159 +131,93 @@
             color: white;
             flex-shrink: 0;
             box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
-            font-weight: 600;
-        }
-
-        .publication-content {
-            flex: 1;
-        }
-
-        .publication-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.4rem;
-            line-height: 1.3;
-        }
-
-        .publication-title a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .publication-title a:hover {
-            color: #c9a961;
-        }
-
-        .publication-authors {
-            color: #b8c5d0;
-            margin-bottom: 0.4rem;
-            font-size: 0.93rem;
-        }
-
-        .publication-journal {
-            color: #b8c5d0;
-            font-style: italic;
-            margin-bottom: 0.8rem;
-            font-size: 0.93rem;
-        }
-
-        .publication-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.8rem;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            color: #b8c5d0;
-            font-size: 0.88rem;
-        }
-
-        .publication-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 0.8rem;
-        }
-
-        .tag {
-            padding: 0.3rem 0.8rem;
-            background: rgba(201, 169, 97, 0.2);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            border-radius: 15px;
-            color: #c9a961;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .publication-actions {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .action-btn {
-            padding: 0.5rem 1rem;
-            background: rgba(201, 169, 97, 0.15);
-            border: 2px solid rgba(201, 169, 97, 0.3);
-            border-radius: 20px;
-            color: #c9a961;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 500;
             transition: all 0.3s ease;
-            display: flex;
+            font-weight: 600;
+        }
+
+        .research-item:hover .research-icon {
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.6);
+            transform: scale(1.05);
+        }
+
+        .research-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #c9a961;
+            margin-bottom: 0.3rem;
+        }
+
+        .research-description {
+            color: #b8c5d0;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .research-header .research-description {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .research-supervisors {
+            color: #d4b56d;
+            font-size: 0.92rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid rgba(201, 169, 97, 0.4);
+        }
+
+        .research-supervisors strong {
+            color: #c9a961;
+            font-weight: 600;
+        }
+
+        .research-supervisors a {
+            color: #e8dcc4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(232, 220, 196, 0.4);
+        }
+
+        .research-supervisors a:hover {
+            color: #f5ead6;
+            border-bottom-color: #f5ead6;
+        }
+
+        .research-link {
+            display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            color: #c9a961;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border: 2px solid rgba(201, 169, 97, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(201, 169, 97, 0.1);
+            margin-right: 0.8rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .action-btn:hover {
-            background: rgba(201, 169, 97, 0.25);
+        .research-link:hover {
+            background: rgba(201, 169, 97, 0.2);
             border-color: #c9a961;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
         }
 
-        /* Statistics */
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
+        .research-link::after {
+            content: '→';
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
         }
 
-        .stat-card {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 0.9rem;
-            text-align: center;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
+        .research-link:hover::after {
+            transform: translateX(3px);
         }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #c9a961;
-            margin-bottom: 0.2rem;
-        }
-
-        .stat-label {
-            color: #b8c5d0;
-            font-size: 0.8rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .publication-card {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .publication-card:nth-child(1) { animation-delay: 0.1s; }
-        .publication-card:nth-child(2) { animation-delay: 0.2s; }
-        .publication-card:nth-child(3) { animation-delay: 0.3s; }
-        .publication-card:nth-child(4) { animation-delay: 0.4s; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -337,51 +229,44 @@
                 padding: 1.5rem 1rem;
             }
 
-            .filter-section {
-                flex-direction: column;
-                align-items: stretch;
+            .research-intro,
+            .research-item {
+                padding: 1.2rem;
             }
 
-            .search-box {
-                min-width: auto;
-                width: 100%;
-            }
-
-            .publication-header {
+            .research-header {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .publication-actions {
-                flex-direction: column;
-            }
-
-            .stats-section {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            footer {
-                padding: 1.2rem 0;
-                margin-top: 1.5rem;
-            }
-
-            .footer-content {
-                padding: 0 1rem;
+            .research-title {
+                font-size: 1.3rem;
             }
         }
 
-        /* No results message */
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            color: #b8c5d0;
-            font-size: 1.05rem;
+        /* Special styling for different research types */
+        .research-item[data-type="interference"] .research-icon {
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
         }
 
-        .no-results-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.8rem;
-            opacity: 0.5;
+        .research-item[data-type="classifier"] .research-icon {
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
+        }
+
+        .research-item[data-type="gravity"] .research-icon {
+            background: linear-gradient(135deg, #b89d55, #c9a961);
+        }
+
+        .research-item[data-type="jets"] .research-icon {
+            background: linear-gradient(135deg, #d4b56d, #e8c484);
+        }
+
+        .research-item[data-type="grb"] .research-icon {
+            background: linear-gradient(135deg, #c9a961, #d9b875);
+        }
+
+        .research-item[data-type="paper"] .research-icon {
+            background: linear-gradient(135deg, #c9a961, #b89d55);
         }
 
         /* Smooth Scroll */
@@ -482,6 +367,17 @@
             color: #b8c5d0;
             font-size: 0.88rem;
         }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 1.2rem 0;
+                margin-top: 1.5rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -503,268 +399,144 @@
         </div>
     </section>
 
-<!-- Publications Section -->
+<!-- Research Section -->
 <div class="container">
-    <h2 class="section-title">Publications</h2>
+    <h2 class="section-title">Research</h2>
     
-    <!-- Publications List -->
-    <div class="publications-list" id="publicationsList">
-        
-        <!-- Publication 1: ICIP 2025 -->
-        <div class="publication-card" data-type="conference" data-year="2025" data-keywords="bent radio agn dataset machine learning deep learning radio astronomy classification nat wat">
-            <div class="publication-header">
-                <div class="publication-icon">P1</div>
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank">RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification</a>
-                    </h3>
-                    <p class="publication-authors">
-                        <strong>Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman
-                    </p>
-                    <p class="publication-journal">2025 IEEE International Conference on Image Processing, IEEE ICIP 2025, Anchorage Alaska, USA</p>
-                    <div class="publication-meta">
-                        <span class="meta-item">
-                            <span>Conference:</span>
-                            <span>14-17 September 2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Added to IEEE Xplore:</span>
-                            <span>18 August 2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>DOI:</span>
-                            <span><a href="https://doi.org/10.1109/ICIP55913.2025.11084387" target="_blank" style="color: #c9a961; text-decoration: none;">10.1109/ICIP55913.2025.11084387</a></span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Publisher:</span>
-                            <span>IEEE</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Location:</span>
-                            <span>Anchorage, AK, USA</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="publication-tags">
-                <span class="tag">Radio Astronomy</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Deep Learning</span>
-                <span class="tag">Dataset</span>
-                <span class="tag">AGN Classification</span>
-            </div>
-            <div class="publication-actions">
-                <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="action-btn">
-                    <span>IEEE Xplore</span>
-                </a>
-                <a href="https://arxiv.org/pdf/2505.19249" target="_blank" class="action-btn">
-                    <span>arXiv PDF</span>
-                </a>
-                <a href="https://www.researchgate.net/publication/394896407_RGC-Bent_A_Novel_Dataset_for_Bent_Radio_Galaxy_Classification" target="_blank" class="action-btn">
-                    <span>ResearchGate</span>
-                </a>
-                <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="action-btn">
-                    <span>GitHub</span>
-                </a>
-                <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification,&quot; in 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Hyderabad, India, 2025, doi: 10.1109/ICASSP48485.2025.11084387.">
-                    <span>Cite</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Publication 2: arXiv Preprint -->
-        <div class="publication-card" data-type="preprint" data-year="2025" data-keywords="radio agn classifier deep learning semi-supervised vla bent radio galaxies wat nat">
-            <div class="publication-header">
-                <div class="publication-icon">P2</div>
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="https://arxiv.org/pdf/2510.22190" target="_blank">RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs</a>
-                    </h3>
-                    <p class="publication-authors">
-                        <strong>M.S. Hossain, M.S.H. Shahal, A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A.A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman
-                    </p>
-                    <p class="publication-journal">arXiv preprint arXiv:2510.22190 (Submitted to Astronomy & Astrophysics)</p>
-                    <div class="publication-meta">
-                        <span class="meta-item">
-                            <span>Year:</span>
-                            <span>2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Type:</span>
-                            <span>Preprint</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Status:</span>
-                            <span>arXiv</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="publication-tags">
-                <span class="tag">Radio AGN</span>
-                <span class="tag">Semi-supervised Learning</span>
-                <span class="tag">Deep Learning</span>
-                <span class="tag">VLA</span>
-                <span class="tag">BYOL</span>
-                <span class="tag">E2CNN</span>
-            </div>
-            <div class="publication-actions">
-                <a href="https://arxiv.org/pdf/2510.22190" target="_blank" class="action-btn">
-                    <span>arXiv PDF</span>
-                </a>
-                <a href="https://www.researchgate.net/publication/396967381_RGC_a_radio_AGN_classifier_based_on_deep_learning_I_A_semi-supervised_model_for_the_VLA_images_of_bent_radio_AGNs" target="_blank" class="action-btn">
-                    <span>ResearchGate</span>
-                </a>
-                <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251022190H/abstract" target="_blank" class="action-btn">
-                    <span>ADS</span>
-                </a>
-                <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs,&quot; arXiv preprint arXiv:2510.22190, 2025.">
-                    <span>Cite</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Publication 3: arXiv Preprint -->
-        <div class="publication-card" data-type="preprint" data-year="2025" data-keywords="jet tagging explainable ai particle physics chebyshev networks e-pcn lhc">
-            <div class="publication-header">
-                <div class="publication-icon">P3</div>
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="https://arxiv.org/pdf/2512.07420" target="_blank">
-                            E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features
-                        </a>
-                    </h3>
-                    <p class="publication-authors">
-                        <strong>Md Raqibul Islam†, Adrita Khan†</strong>, Mir Sazzat Hossain, 
-                        Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, 
-                        Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, 
-                        AKM Mahbubur Rahman
-                    </p>
-                    <p class="publication-journal">
-                        arXiv preprint arXiv:2512.07420 (Submitted to Journal of High Energy Physics)
-                    </p>
-                    <div class="publication-meta">
-                        <span class="meta-item">
-                            <span>Year:</span>
-                            <span>2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Type:</span>
-                            <span>Preprint</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Status:</span>
-                            <span>arXiv</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="publication-tags">
-                <span class="tag">Jet Tagging</span>
-                <span class="tag">Explainable AI</span>
-                <span class="tag">Particle Physics</span>
-                <span class="tag">Graph Neural Networks</span>
-                <span class="tag">Chebyshev Networks</span>
-            </div>
-            <div class="publication-actions">
-                <a href="https://arxiv.org/pdf/2512.07420" target="_blank" class="action-btn">
-                    <span>arXiv PDF</span>
-                </a>
-                <a href="https://www.researchgate.net/publication/398475962_E-PCN_Jet_Tagging_with_Explainable_Particle_Chebyshev_Networks_Using_Kinematic_Features" target="_blank" class="action-btn">
-                    <span>ResearchGate</span>
-                </a>
-                <a href="#" class="action-btn cite-btn"
-                   data-citation="M. R. Islam et al., &quot;E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features,&quot; arXiv preprint arXiv:2512.07420, 2025.">
-                    <span>Cite</span>
-                </a>
-            </div>
-        </div>
-        
+    <div class="research-intro">
+        <p>My research focuses on the intersection of observation, computation, and theory. My current and ongoing research projects are:</p>
     </div>
-</div>
 
-    <!-- No Results Message -->
-    <div class="no-results" id="noResults" style="display: none;">
-        <div class="no-results-icon">No Results</div>
-        <p>No publications found matching your search criteria.</p>
-    </div>
+    <ul class="research-list">
+        <li class="research-item" data-type="interference">
+            <div class="research-header">
+                <div class="research-icon">R1</div>
+                <div>
+                    <h3 class="research-title">RiFInE</h3>
+                    <p class="research-description">Radio Frequency Interference Identification and Elimination</p>
+                </div>
+            </div>
+            <p class="research-description">
+                This research is on identifying and eliminating radio frequency interference in astronomical observations. It addresses one of the most critical challenges in radio astronomy, where interference from human-made sources can significantly impact the quality of astronomical data.
+            </p>
+            <p class="research-supervisors">
+                <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/kasad" target="_blank">Dr. Khan Muhammad Bin Asad</a>, <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>, <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
+            </p>
+            <a href="https://cassa.site/entry/rifine/" target="_blank" class="research-link">
+                Read more
+            </a>
+            <a href="https://github.com/Adrita-Khan/RFI_Mitigation_Review" target="_blank" class="research-link">
+                GitHub Repo 
+            </a>
+        </li>
+
+        <li class="research-item" data-type="classifier">
+            <div class="research-header">
+                <div class="research-icon">R2</div>
+                <div>
+                    <h3 class="research-title">RGC</h3>
+                    <p class="research-description">Radha Gobinda Chandra, a Radio Galaxy Classifier</p>
+                </div>
+            </div>
+            <p class="research-description">
+                An advanced machine learning-based classifier designed to identify and categorize radio galaxies from astronomical survey data. This tool leverages deep learning techniques to automatically classify different types of radio sources, significantly improving the efficiency of radio astronomy research.
+            </p>
+            <p class="research-supervisors">
+                <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/kasad" target="_blank">Dr. Khan Muhammad Bin Asad</a>, <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>; <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/aminali" target="_blank">Dr. Amin Ahsan Ali</a>, <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
+            </p>
+            <a href="https://cassa.site/entry/p2023001/" target="_blank" class="research-link">
+                Explore
+            </a>
+        </li>
+
+        <li class="research-item" data-type="gravity">
+            <div class="research-header">
+                <div class="research-icon">R3</div>
+                <div>
+                    <h3 class="research-title">Modified Gravity with Cross-Correlation</h3>
+                    <p class="research-description">Testing Modified Gravity theories via galaxy clustering and CMB lensing data</p>
+                </div>
+            </div>
+            <p class="research-description">
+                This project forecasts signatures of modified gravity (including f(R) and DGP gravity) using cross-correlation analyses between galaxy clustering and CMB lensing. Incorporates simulation and survey specifications (LSST/DESC, Simons Observatory), Fisher matrix forecasting, and fast emulators for theoretical predictions.
+            </p>
+            <p class="research-supervisors">
+                <strong>Supervisors:</strong> <a href="https://tanveerkarim.com/" target="_blank">Dr. Tanveer Karim</a>; <a href="https://astrophysics.uchicago.edu/people/profile/georgios-valogiannis/" target="_blank">Dr. Georgios Valogiannis</a>
+            </p>
+            <a href="https://github.com/Adrita-Khan/Modified-Gravity" target="_blank" class="research-link">
+                GitHub Repo 
+            </a>
+        </li>
+
+        <li class="research-item" data-type="jets">
+            <div class="research-header">
+                <div class="research-icon">R4</div>
+                <div>
+                    <h3 class="research-title">Interaction Feature Guided Jet Tagging (E-PCN)</h3>
+                    <p class="research-description">Machine Learning for High-Energy Physics Jet Classification</p>
+                </div>
+            </div>
+            <p class="research-description">
+                The Jet-Tagging-Experiments repository develops an explainable Particle Chebyshev Network that uses physics-motivated interaction features (ln Δ, ln kT, ln z, ln m²) to classify jets on CERN Open Data (JetClass), advancing QCD-informed machine learning for particle physics.
+            </p>
+            <p class="research-supervisors">
+                <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>; <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/aminali" target="_blank">Dr. Amin Ahsan Ali</a>; <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
+            </p>
+            <a href="https://github.com/Adrita-Khan/Jet-Tagging-Experiments" target="_blank" class="research-link">
+                GitHub Repo 
+            </a>
+        </li>
+
+        <li class="research-item" data-type="grb">
+            <div class="research-header">
+                <div class="research-icon">R5</div>
+                <div>
+                    <h3 class="research-title">Gamma-Ray Burst ML (GRB-ML)</h3>
+                    <p class="research-description">Machine Learning for GRB Data & Redshift Estimation</p>
+                </div>
+            </div>
+            <p class="research-description">
+                Contains tools and experiments focused on using machine learning to estimate redshifts and classify gamma-ray bursts using Fermi and other astrophysical data. Explores advanced algorithms and astrophysical feature engineering for transient phenomena.
+            </p>
+            <p class="research-supervisors">
+                <strong>Supervisors:</strong> <a href="https://www.uj.ac.za/members/soebur-razzaque/" target="_blank">Dr. Soebur Razzaque</a>; <a href="https://www.uj.ac.za/members/prof-saeeda-sajjad/" target="_blank">Dr. Saeeda Sajjad</a>
+            </p>
+            <a href="https://github.com/Adrita-Khan/GRB-ML" target="_blank" class="research-link">
+                GitHub Repo 
+            </a>
+        </li>
+
+        <li class="research-item" data-type="paper">
+            <div class="research-header">
+                <div class="research-icon">R6</div>
+                <div>
+                    <h3 class="research-title">PINNs for Stochastic Inflation</h3>
+                    <p class="research-description">Physics-Informed Neural Networks for Cosmological Inflation (Exploratory Work)</p>
+                </div>
+            </div>
+            <p class="research-description">
+                Explores the application of Physics-Informed Neural Networks (PINNs) to model stochastic inflation in early universe cosmology. This exploratory work investigates how machine learning techniques can be integrated with physical constraints to solve differential equations governing inflationary dynamics.
+            </p>
+            <p class="research-supervisors">
+                <strong>Supervisor:</strong> <a href="https://inspirehep.net/authors/1622353" target="_blank">Dr. Rafid Mahbub</a>
+            </p>
+            <a href="https://github.com/Adrita-Khan/pinns-stochastic-inflation" target="_blank" class="research-link">
+                GitHub Repo 
+            </a>
+        </li>
+    </ul>
 </div>
 
 <footer>
     <div class="footer-content">
         <div class="footer-left">
-            <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
+            <p>&copy; 2026 Adrita Khan. All rights reserved.</p> 
         </div>
     </div>
 </footer>
 
 <script>
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    const publicationsList = document.getElementById('publicationsList');
-    const noResults = document.getElementById('noResults');
-    const filterTags = document.querySelectorAll('.filter-tag');
-
-    let currentFilter = 'all';
-
-    // Search function
-    function searchPublications() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const publications = document.querySelectorAll('.publication-card');
-        let visibleCount = 0;
-
-        publications.forEach(publication => {
-            const keywords = publication.dataset.keywords.toLowerCase();
-            const title = publication.querySelector('.publication-title').textContent.toLowerCase();
-            const authors = publication.querySelector('.publication-authors').textContent.toLowerCase();
-            const journal = publication.querySelector('.publication-journal').textContent.toLowerCase();
-            
-            const matchesSearch = keywords.includes(searchTerm) || 
-                                title.includes(searchTerm) || 
-                                authors.includes(searchTerm) ||
-                                journal.includes(searchTerm);
-            
-            const matchesFilter = currentFilter === 'all' || 
-                                publication.dataset.type === currentFilter || 
-                                publication.dataset.year === currentFilter;
-
-            if (matchesSearch && matchesFilter) {
-                publication.style.display = 'block';
-                visibleCount++;
-            } else {
-                publication.style.display = 'none';
-            }
-        });
-
-        // Show/hide no results message
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-    }
-
-    // Filter function
-    function filterPublications(filterType) {
-        currentFilter = filterType;
-        
-        // Update active filter tag
-        filterTags.forEach(tag => {
-            tag.classList.remove('active');
-            if (tag.dataset.filter === filterType) {
-                tag.classList.add('active');
-            }
-        });
-
-        searchPublications();
-    }
-
-    // Event listeners
-    searchInput.addEventListener('input', searchPublications);
-
-    filterTags.forEach(tag => {
-        tag.addEventListener('click', () => {
-            filterPublications(tag.dataset.filter);
-        });
-    });
-
-    // Smooth scrolling for internal links
+    // Add smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -776,27 +548,7 @@
             }
         });
     });
-
-    // Copy citation functionality
-    document.querySelectorAll('.cite-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const citation = this.dataset.citation;
-            
-            // Copy to clipboard
-            navigator.clipboard.writeText(citation).then(() => {
-                const originalText = this.innerHTML;
-                this.innerHTML = '<span>Copied!</span>';
-                
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                }, 2000);
-            }).catch(() => {
-                alert('Citation: ' + citation);
-            });
-        });
-    });
 </script>
+
 </body>
 </html>
