@@ -548,17 +548,6 @@
             }
         });
     });
-
-    // Add subtle parallax effect to research items
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const researchItems = document.querySelectorAll('.research-item');
-        
-        researchItems.forEach((item, index) => {
-            const rate = scrolled * -0.1 * (index + 1);
-            item.style.transform = `translateY(${rate}px)`;
-        });
-    });
 </script>
 
 </body>
