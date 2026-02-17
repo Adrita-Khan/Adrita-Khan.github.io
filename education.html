@@ -38,7 +38,6 @@
             position: absolute;
             border-radius: 50%;
             background: linear-gradient(45deg, rgba(201, 169, 97, 0.1), rgba(212, 181, 109, 0.1));
-            /* Animation removed for instant display */
         }
 
         .floating-shape:nth-child(1) {
@@ -66,7 +65,6 @@
             position: absolute;
             background: #ffffff;
             border-radius: 50%;
-            /* Twinkle animation removed for instant display */
             opacity: 0.8;
         }
 
@@ -206,7 +204,13 @@
         .container {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 2.5rem 4.5rem 2.5rem 4.5rem;
+            padding: 2.5rem 4.5rem 0 4.5rem;
+        }
+
+        .container-wide {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 8rem 2.5rem 8rem;
         }
 
         .page-header-top {
@@ -278,7 +282,6 @@
             height: 4px;
             background: linear-gradient(90deg, #c9a961 0%, #d4b56d 50%, #c9a961 100%);
             border-radius: 2px;
-            /* Underline animation removed for instant display */
         }
 
         .profile-image {
@@ -871,12 +874,20 @@
         }
 
         @media (max-width: 1400px) {
+            .container-wide {
+                padding: 0 6rem 2.5rem 6rem;
+            }
+
             .coursework-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
 
         @media (max-width: 1200px) {
+            .container-wide {
+                padding: 0 4.5rem 2.5rem 4.5rem;
+            }
+
             .coursework-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -897,7 +908,11 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 2.5rem 2rem;
+                padding: 2.5rem 2rem 0 2rem;
+            }
+
+            .container-wide {
+                padding: 0 2rem 2.5rem 2rem;
             }
 
             .hero-section {
@@ -1037,7 +1052,6 @@
                      alt="Adrita Khan" 
                      class="profile-image">
                 <div class="profile-text-content">
-                    <h2 class="profile-name">Adrita Khan</h2>
                     <div class="profile-info-box">
                         <p class="profile-title">PhD Aspirant in Astrophysics & Cosmology</p>
                         <div class="profile-info">
@@ -1067,7 +1081,9 @@
                 <h1>Educational Journey</h1>
             </div>
         </div>
+    </div>
 
+    <div class="container-wide">
         <div class="education-grid">
             <div class="education-bachelor">
                 <div class="education-card-main">
