@@ -217,15 +217,13 @@
         #quick-links {
             position: relative;
             z-index: 10;
-            background: rgba(7, 9, 13, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(10, 14, 20, 0.6);
+            backdrop-filter: blur(10px);
             padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
             display: flex;
             justify-content: center;
             overflow-x: hidden;
-            animation: fadeIn 0.6s ease both;
         }
 
         .nav-container {
@@ -246,28 +244,27 @@
 
         .nav-list a {
             display: block;
-            background: rgba(201, 169, 97, 0.06);
-            border: 1px solid rgba(201, 169, 97, 0.15);
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             border-radius: 25px;
             padding: 0.7rem 1.2rem;
             text-decoration: none;
-            color: #d0d8e0;
+            color: #ffffff;
             font-size: 0.9rem;
             font-weight: 500;
             text-align: center;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s ease;
             backdrop-filter: blur(5px);
             white-space: nowrap;
             flex-shrink: 0;
-            letter-spacing: 0.02em;
         }
 
         .nav-list a:hover {
-            background: rgba(201, 169, 97, 0.15);
+            background: rgba(201, 169, 97, 0.2);
             border-color: rgba(201, 169, 97, 0.4);
             transform: translateY(-3px);
             color: #c9a961;
-            box-shadow: 0 8px 24px rgba(201, 169, 97, 0.2);
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
 
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
@@ -1099,10 +1096,9 @@
         footer {
             position: relative;
             z-index: 10;
-            background: rgba(7, 9, 13, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(201, 169, 97, 0.1);
+            background: rgba(10, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
             padding: 2rem 0;
             margin-top: 0rem;
         }
@@ -1122,9 +1118,8 @@
         }
 
         .footer-left p {
-            color: #6b7d8f;
-            font-size: 0.95rem;
-            letter-spacing: 0.02em;
+            color: #b8c5d0;
+            font-size: 1rem;
         }
 
         /* ─── Responsive ─── */
