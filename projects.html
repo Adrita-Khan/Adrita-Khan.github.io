@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Adrita Khan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +12,7 @@
         }
 
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
             min-height: 100vh;
             color: #b8c5d0;
@@ -95,19 +94,10 @@
             font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 2rem;
             color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #c9a961;
-            font-size: 1rem;
-            font-weight: 300;
-            margin-bottom: 2.5rem;
-            letter-spacing: 0.5px;
         }
 
         .section-title::after {
@@ -120,6 +110,29 @@
             height: 4px;
             background: linear-gradient(90deg, #c9a961, #d4b56d);
             border-radius: 2px;
+        }
+
+        .projects-intro {
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .projects-intro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.12);
+        }
+
+        .projects-intro p {
+            font-size: 1.1rem;
+            color: #b8c5d0;
+            text-align: center;
+            margin-bottom: 0;
         }
 
         /* ===== Card Grid Layout (inspired by Kartik's science page) ===== */
@@ -342,7 +355,10 @@
     <!-- Projects Section — now card grid -->
     <div class="container">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Astrophysics, machine learning, and interdisciplinary data analysis</p>
+        
+        <div class="projects-intro">
+            <p>Check my projects in astrophysics, machine learning, and interdisciplinary data analysis:</p>
+        </div>
 
         <div class="projects-grid">
 
