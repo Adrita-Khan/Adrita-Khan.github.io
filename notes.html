@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Notes - Adrita Khan</title>
+
     <style>
         * {
             margin: 0;
@@ -19,6 +20,7 @@
             color: #b8c5d0;
         }
 
+        /* ── Cosmic Background ── */
         .stars {
             position: fixed;
             top: 0;
@@ -38,8 +40,14 @@
             animation: twinkle 3s infinite;
         }
 
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px 1px rgba(201, 169, 97, 0.4);
+        }
+
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
+            0%, 100% { opacity: 0.2; }
             50% { opacity: 1; }
         }
 
@@ -56,6 +64,53 @@
             z-index: 0;
         }
 
+        /* Nebula layers */
+        .nebula {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .nebula::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -10%;
+            width: 700px; height: 700px;
+            background: radial-gradient(ellipse, rgba(201,169,97,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: nebulaFloat 25s ease-in-out infinite alternate;
+        }
+        .nebula::after {
+            content: '';
+            position: absolute;
+            bottom: -10%; left: -5%;
+            width: 500px; height: 500px;
+            background: radial-gradient(ellipse, rgba(160,130,70,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
+            animation: nebulaFloat 20s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes nebulaFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, -30px) scale(1.1); }
+        }
+
+        /* Grid overlay for scientific feel */
+        .grid-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background-image: 
+                linear-gradient(rgba(201,169,97,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201,169,97,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* ── Navigation ── */
         #quick-links {
             position: relative;
             z-index: 10;
@@ -118,6 +173,7 @@
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
+        /* ── Main Content ── */
         .main-content {
             position: relative;
             z-index: 10;
@@ -130,9 +186,20 @@
             margin: 0 auto;
         }
 
+        /* ── Page Header ── */
         .page-header {
             text-align: center;
             margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .header-icon {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+        .header-icon svg {
+            filter: drop-shadow(0 0 20px rgba(201,169,97,0.3));
         }
 
         .page-header h1 {
@@ -164,10 +231,129 @@
             background: linear-gradient(135deg, #c9a961, #d4b56d);
             margin: 1rem auto;
             border-radius: 2px;
+            position: relative;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 6px; height: 6px;
+            background: #c9a961;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        .section-divider::before { left: -12px; }
+        .section-divider::after { right: -12px; }
+
+        /* ── Controls ── */
+        .controls-section {
+            background: rgba(201, 169, 97, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .controls-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,169,97,0.4), transparent);
         }
 
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 1.2rem;
+            position: relative;
+        }
+        .search-box::before {
+            content: '';
+            position: absolute;
+            left: 14px; top: 50%;
+            transform: translateY(-50%);
+            width: 16px; height: 16px;
+            border: 2px solid rgba(201,169,97,0.4);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .search-box::after {
+            content: '';
+            position: absolute;
+            left: 27px; top: 60%;
+            width: 2px; height: 7px;
+            background: rgba(201,169,97,0.4);
+            transform: rotate(-45deg);
+            z-index: 2;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 18px;
+            padding: 0.7rem 1rem 0.7rem 2.8rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            color: #ffffff;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: rgba(184, 197, 208, 0.6);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #c9a961;
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.12), 0 0 20px rgba(201,169,97,0.08);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .filter-btn {
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            border-radius: 18px;
+            padding: 0.6rem 1rem;
+            font-size: 0.8rem;
+            font-family: inherit;
+            color: #b8c5d0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(201, 169, 97, 0.18);
+            border-color: #c9a961;
+            color: #c9a961;
+            box-shadow: 0 0 12px rgba(201,169,97,0.15);
+        }
+
+        /* ── Category Section ── */
         .category-section {
-            margin-bottom: 2rem;
+            margin-bottom: 2.8rem;
+            animation: sectionFadeIn 0.6s ease both;
+        }
+        .category-section:nth-child(1) { animation-delay: 0.1s; }
+        .category-section:nth-child(2) { animation-delay: 0.2s; }
+        .category-section:nth-child(3) { animation-delay: 0.3s; }
+        .category-section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes sectionFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .category-header {
@@ -175,21 +361,43 @@
             align-items: center;
             margin-bottom: 1.2rem;
             padding-bottom: 0.6rem;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+            position: relative;
+        }
+        .category-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, #c9a961, transparent);
         }
 
         .category-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 1.2rem;
             font-size: 1.4rem;
-            background: rgba(201, 169, 97, 0.15);
-            border: 2px solid rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .category-icon svg {
+            position: relative;
+            z-index: 2;
+        }
+        .category-icon::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201,169,97,0.15), transparent);
         }
 
         .category-title {
@@ -197,6 +405,7 @@
         }
 
         .category-title h2 {
+            font-family: inherit;
             font-size: 1.7rem;
             font-weight: 700;
             color: #ffffff;
@@ -208,6 +417,7 @@
             color: #c9a961;
         }
 
+        /* ── Notes Grid ── */
         .notes-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -215,13 +425,13 @@
         }
 
         .note-card {
-            background: rgba(201, 169, 97, 0.08);
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 12px;
+            background: rgba(201, 169, 97, 0.04);
+            border: 1px solid rgba(201, 169, 97, 0.12);
+            border-radius: 16px;
             padding: 1.2rem;
             padding-top: 2.8rem;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
         }
@@ -230,22 +440,54 @@
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1), transparent);
-            transition: left 0.5s;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,169,97,0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .note-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(201,169,97,0.04), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
         }
 
         .note-card:hover {
-            transform: translateY(-5px);
-            background: rgba(201, 169, 97, 0.12);
-            border-color: rgba(201, 169, 97, 0.3);
-            box-shadow: 0 12px 30px rgba(201, 169, 97, 0.3);
+            transform: translateY(-6px);
+            background: rgba(201, 169, 97, 0.08);
+            border-color: rgba(201, 169, 97, 0.25);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(201, 169, 97, 0.08);
         }
 
         .note-card:hover::before {
-            left: 100%;
+            opacity: 1;
+        }
+        .note-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Decorative corner SVGs on cards */
+        .card-corner {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            opacity: 0.04;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .note-card:hover .card-corner {
+            opacity: 0.08;
         }
 
         .note-header {
@@ -255,20 +497,20 @@
         }
 
         .note-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(201,169,97,0.2), rgba(201,169,97,0.05));
+            border: 1px solid rgba(201,169,97,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 0.7rem;
-            font-size: 1rem;
-            color: white;
             flex-shrink: 0;
         }
 
         .note-title {
+            font-family: inherit;
             font-size: 1.1rem;
             font-weight: 600;
             color: #ffffff;
@@ -279,12 +521,13 @@
         .note-subtitle {
             font-size: 0.8rem;
             color: #c9a961;
+            font-weight: 400;
         }
 
         .note-description {
             font-size: 0.9rem;
-            line-height: 1.5;
-            color: #b8c5d0;
+            line-height: 1.6;
+            color: rgba(184, 197, 208, 0.85);
             margin-bottom: 1.2rem;
             text-align: justify;
         }
@@ -297,13 +540,18 @@
         }
 
         .tag {
-            background: rgba(201, 169, 97, 0.15);
-            border: 1px solid rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.18);
             border-radius: 10px;
             padding: 0.2rem 0.6rem;
             font-size: 0.7rem;
-            color: #c9a961;
+            color: rgba(201, 169, 97, 0.85);
             backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .tag:hover {
+            background: rgba(201, 169, 97, 0.15);
+            color: #d4b56d;
         }
 
         .note-actions {
@@ -319,6 +567,7 @@
             padding: 0.6rem 1rem;
             font-size: 0.8rem;
             font-weight: 600;
+            font-family: inherit;
             color: #0f1923;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -329,19 +578,20 @@
 
         .note-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+            box-shadow: 0 8px 24px rgba(201, 169, 97, 0.35);
         }
 
         .note-btn.secondary {
-            background: rgba(201, 169, 97, 0.15);
-            border: 1px solid rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             color: #c9a961;
         }
 
         .note-btn.secondary:hover {
-            background: rgba(201, 169, 97, 0.25);
+            background: rgba(201, 169, 97, 0.2);
         }
 
+        /* ── Status Badges ── */
         .status-badge {
             position: absolute;
             top: 0.8rem;
@@ -353,105 +603,28 @@
             text-transform: uppercase;
             z-index: 10;
             white-space: nowrap;
+            letter-spacing: 0.04em;
         }
 
         .status-badge.available {
-            background: rgba(201, 169, 97, 0.2);
+            background: rgba(201, 169, 97, 0.15);
             color: #d4b56d;
-            border: 1px solid rgba(201, 169, 97, 0.3);
+            border: 1px solid rgba(201, 169, 97, 0.25);
         }
 
         .status-badge.coming-soon {
-            background: rgba(212, 181, 109, 0.2);
+            background: rgba(212, 181, 109, 0.12);
             color: #e8c484;
-            border: 1px solid rgba(212, 181, 109, 0.3);
+            border: 1px solid rgba(212, 181, 109, 0.2);
         }
 
         .status-badge.in-progress {
-            background: rgba(184, 157, 85, 0.2);
+            background: rgba(184, 157, 85, 0.12);
             color: #c9a961;
-            border: 1px solid rgba(184, 157, 85, 0.3);
+            border: 1px solid rgba(184, 157, 85, 0.2);
         }
 
-        .math .category-icon {
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
-        }
-
-        .cosmology .category-icon {
-            background: linear-gradient(135deg, #d4b56d, #e8c484);
-        }
-
-        .physics .category-icon {
-            background: linear-gradient(135deg, #b89d55, #c9a961);
-        }
-
-        .miscellaneous .category-icon {
-            background: linear-gradient(135deg, #c9a961, #d9b875);
-        }
-
-        .controls-section {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1.2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-        }
-
-        .search-box {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 1.2rem;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            background: rgba(201, 169, 97, 0.1);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            border-radius: 18px;
-            padding: 0.7rem 1rem;
-            font-size: 0.9rem;
-            color: #ffffff;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-
-        .search-input::placeholder {
-            color: #b8c5d0;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #c9a961;
-            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.15);
-        }
-
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .filter-btn {
-            background: rgba(201, 169, 97, 0.1);
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 18px;
-            padding: 0.6rem 1rem;
-            font-size: 0.8rem;
-            color: #b8c5d0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: rgba(201, 169, 97, 0.2);
-            border-color: #c9a961;
-            color: #c9a961;
-        }
-
+        /* ── Footer ── */
         footer {
             position: relative;
             z-index: 10;
@@ -481,17 +654,23 @@
             font-size: 0.88rem;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* ── Shooting Star ── */
+        .shooting-star {
+            position: fixed;
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(201,169,97,0.6), transparent);
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0;
+            animation: shoot 1.5s ease-out forwards;
+        }
+        @keyframes shoot {
+            0% { opacity: 1; transform: translateX(0) translateY(0); }
+            100% { opacity: 0; transform: translateX(300px) translateY(180px); }
         }
 
+        /* ── Responsive ── */
         @media (max-width: 768px) {
             .main-content {
                 padding: 1rem 1.5rem;
@@ -536,6 +715,8 @@
 </head>
 <body>
     <div class="cosmic-bg"></div>
+    <div class="nebula"></div>
+    <div class="grid-overlay"></div>
     <div class="stars"></div>
 
     <section id="quick-links">
@@ -557,6 +738,30 @@
     <div class="main-content">
         <div class="container">
             <div class="page-header">
+                <div class="header-icon">
+                    <!-- Open book with constellation lines -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 18 L40 65" stroke="rgba(201,169,97,0.3)" stroke-width="1"/>
+                        <path d="M12 22 C12 22 26 18 40 22 C54 18 68 22 68 22 L68 60 C68 60 54 56 40 60 C26 56 12 60 12 60 Z" stroke="#c9a961" stroke-width="1.5" fill="rgba(201,169,97,0.05)"/>
+                        <path d="M12 22 C12 22 26 18 40 22 L40 60 C26 56 12 60 12 60 Z" fill="rgba(201,169,97,0.08)"/>
+                        <!-- Constellation dots on left page -->
+                        <circle cx="22" cy="32" r="1.5" fill="#c9a961" opacity="0.8"/>
+                        <circle cx="28" cy="38" r="1" fill="#c9a961" opacity="0.6"/>
+                        <circle cx="19" cy="42" r="1.2" fill="#c9a961" opacity="0.7"/>
+                        <circle cx="32" cy="46" r="1" fill="#c9a961" opacity="0.5"/>
+                        <line x1="22" y1="32" x2="28" y2="38" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
+                        <line x1="28" y1="38" x2="19" y2="42" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
+                        <line x1="19" y1="42" x2="32" y2="46" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
+                        <!-- Equation marks on right page -->
+                        <line x1="48" y1="32" x2="62" y2="32" stroke="rgba(201,169,97,0.3)" stroke-width="0.8"/>
+                        <line x1="48" y1="37" x2="58" y2="37" stroke="rgba(201,169,97,0.2)" stroke-width="0.8"/>
+                        <line x1="48" y1="42" x2="64" y2="42" stroke="rgba(201,169,97,0.3)" stroke-width="0.8"/>
+                        <line x1="48" y1="47" x2="56" y2="47" stroke="rgba(201,169,97,0.2)" stroke-width="0.8"/>
+                        <!-- Glow star above -->
+                        <circle cx="40" cy="10" r="2" fill="#c9a961" opacity="0.6"/>
+                        <circle cx="40" cy="10" r="4" fill="none" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
+                    </svg>
+                </div>
                 <h1>Study Notes</h1>
                 <div class="section-divider"></div>
                 <p class="page-description">
@@ -580,19 +785,38 @@
                 </div>
             </div>
 
+            <!-- ═══════════════ MATHEMATICS ═══════════════ -->
             <div class="category-section math" data-category="math">
                 <div class="category-header">
-                    <div class="category-icon">∫</div>
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <path d="M4 24 C4 24 8 4 14 14 C20 24 24 4 24 4" stroke="#c9a961" stroke-width="2" stroke-linecap="round" fill="none"/>
+                            <line x1="2" y1="14" x2="26" y2="14" stroke="rgba(201,169,97,0.3)" stroke-width="0.5"/>
+                            <circle cx="14" cy="14" r="2" fill="rgba(201,169,97,0.3)"/>
+                        </svg>
+                    </div>
                     <div class="category-title">
                         <h2>Mathematics</h2>
                         <p class="category-description">Core mathematical foundations for physics, cosmology, computer science, and machine learning</p>
                     </div>
                 </div>
                 <div class="notes-grid">
+                    <!-- Vector Calculus -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <path d="M40 10 L55 40 L70 20" stroke="#c9a961" stroke-width="1.5" fill="none"/>
+                            <path d="M55 40 L50 38 M55 40 L53 35" stroke="#c9a961" stroke-width="1.2"/>
+                            <path d="M10 50 L30 50 L30 70" stroke="rgba(201,169,97,0.5)" stroke-width="1" fill="none"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">∇</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <path d="M5 17 L11 5 L17 17" stroke="#c9a961" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    <path d="M11 5 L9 7 M11 5 L13 7" stroke="#c9a961" stroke-width="1.2"/>
+                                    <circle cx="11" cy="17" r="1.5" fill="rgba(201,169,97,0.4)"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Vector Calculus & Tensor Analysis</div>
                                 <div class="note-subtitle">Essential for General Relativity</div>
@@ -613,10 +837,26 @@
                         </div>
                     </div>
 
+                    <!-- Linear Algebra -->
                     <div class="note-card">
                         <div class="status-badge in-progress">In Progress</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <rect x="15" y="15" width="50" height="50" rx="2" stroke="rgba(201,169,97,0.4)" stroke-width="1" fill="none"/>
+                            <line x1="15" y1="40" x2="65" y2="40" stroke="rgba(201,169,97,0.2)" stroke-width="0.5"/>
+                            <line x1="40" y1="15" x2="40" y2="65" stroke="rgba(201,169,97,0.2)" stroke-width="0.5"/>
+                            <circle cx="28" cy="28" r="3" fill="rgba(201,169,97,0.2)"/>
+                            <circle cx="52" cy="52" r="3" fill="rgba(201,169,97,0.2)"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">∑</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <rect x="4" y="4" width="14" height="14" rx="1" stroke="#c9a961" stroke-width="1.2" fill="none"/>
+                                    <line x1="4" y1="11" x2="18" y2="11" stroke="rgba(201,169,97,0.4)" stroke-width="0.8"/>
+                                    <line x1="11" y1="4" x2="11" y2="18" stroke="rgba(201,169,97,0.4)" stroke-width="0.8"/>
+                                    <circle cx="7" cy="7" r="1" fill="#c9a961" opacity="0.6"/>
+                                    <circle cx="15" cy="15" r="1" fill="#c9a961" opacity="0.6"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Linear Algebra for ML/DL</div>
                                 <div class="note-subtitle">Matrix Operations & Eigenvalues</div>
@@ -637,10 +877,21 @@
                         </div>
                     </div>
 
+                    <!-- Complex Analysis -->
                     <div class="note-card">
                         <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="25" stroke="rgba(201,169,97,0.3)" stroke-width="0.8" fill="none"/>
+                            <path d="M20 40 C20 40 30 25 40 40 C50 55 60 40 60 40" stroke="rgba(201,169,97,0.4)" stroke-width="1" fill="none"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">∞</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <circle cx="11" cy="11" r="7" stroke="#c9a961" stroke-width="1.2" fill="none"/>
+                                    <path d="M6 11 C6 11 8.5 6 11 11 C13.5 16 16 11 16 11" stroke="#c9a961" stroke-width="1.2" fill="none"/>
+                                    <circle cx="11" cy="11" r="1" fill="#c9a961" opacity="0.5"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Complex Analysis</div>
                                 <div class="note-subtitle">Functions of Complex Variables</div>
@@ -661,10 +912,18 @@
                         </div>
                     </div>
 
+                    <!-- Fourier Analysis -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <path d="M10 40 C15 20 20 60 25 40 C30 20 35 60 40 40 C45 20 50 60 55 40 C60 20 65 60 70 40" stroke="rgba(201,169,97,0.3)" stroke-width="1" fill="none"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">∫</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <path d="M3 11 C5 5 7 17 9 11 C11 5 13 17 15 11 C17 5 19 17 19 11" stroke="#c9a961" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Fourier Analysis</div>
                                 <div class="note-subtitle">Transform Methods</div>
@@ -687,19 +946,39 @@
                 </div>
             </div>
 
+            <!-- ═══════════════ COSMOLOGY ═══════════════ -->
             <div class="category-section cosmology" data-category="cosmology">
                 <div class="category-header">
-                    <div class="category-icon">Λ</div>
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <circle cx="14" cy="14" r="10" stroke="#c9a961" stroke-width="1" fill="none" stroke-dasharray="2 3"/>
+                            <circle cx="14" cy="14" r="5" stroke="#c9a961" stroke-width="1.5" fill="rgba(201,169,97,0.1)"/>
+                            <circle cx="14" cy="14" r="2" fill="#c9a961" opacity="0.5"/>
+                            <circle cx="22" cy="8" r="1.5" fill="#c9a961" opacity="0.4"/>
+                            <circle cx="7" cy="22" r="1" fill="#c9a961" opacity="0.3"/>
+                        </svg>
+                    </div>
                     <div class="category-title">
                         <h2>Cosmology</h2>
                         <p class="category-description">Understanding the universe at the largest scales</p>
                     </div>
                 </div>
                 <div class="notes-grid">
+                    <!-- LCDM -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="30" stroke="rgba(201,169,97,0.15)" stroke-width="0.5" fill="none"/>
+                            <circle cx="40" cy="40" r="20" stroke="rgba(201,169,97,0.2)" stroke-width="0.5" fill="none"/>
+                            <circle cx="40" cy="40" r="10" stroke="rgba(201,169,97,0.3)" stroke-width="0.5" fill="none"/>
+                            <circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.15)"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">Λ</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <text x="4" y="16" font-family="serif" font-size="14" font-weight="bold" fill="#c9a961" opacity="0.9">Λ</text>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">ΛCDM Model</div>
                                 <div class="note-subtitle">Standard Model of Cosmology</div>
@@ -720,10 +999,20 @@
                         </div>
                     </div>
 
+                    <!-- Modified Gravity -->
                     <div class="note-card">
                         <div class="status-badge in-progress">In Progress</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <ellipse cx="40" cy="40" rx="30" ry="15" stroke="rgba(201,169,97,0.2)" stroke-width="0.8" fill="none" transform="rotate(-20 40 40)"/>
+                            <ellipse cx="40" cy="40" rx="30" ry="15" stroke="rgba(201,169,97,0.15)" stroke-width="0.8" fill="none" transform="rotate(30 40 40)"/>
+                            <circle cx="40" cy="40" r="4" fill="rgba(201,169,97,0.15)"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">f</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <text x="2" y="15" font-family="serif" font-style="italic" font-size="13" fill="#c9a961" opacity="0.9">f(R)</text>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Modified Gravity Theories</div>
                                 <div class="note-subtitle">f(R) Gravity & Beyond</div>
@@ -744,10 +1033,25 @@
                         </div>
                     </div>
 
+                    <!-- Power Spectrum -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <rect x="15" y="55" width="6" height="15" fill="rgba(201,169,97,0.1)"/>
+                            <rect x="25" y="40" width="6" height="30" fill="rgba(201,169,97,0.12)"/>
+                            <rect x="35" y="25" width="6" height="45" fill="rgba(201,169,97,0.15)"/>
+                            <rect x="45" y="35" width="6" height="35" fill="rgba(201,169,97,0.12)"/>
+                            <rect x="55" y="50" width="6" height="20" fill="rgba(201,169,97,0.1)"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">P</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <rect x="3" y="13" width="3" height="6" rx="0.5" fill="rgba(201,169,97,0.5)"/>
+                                    <rect x="7" y="8" width="3" height="11" rx="0.5" fill="rgba(201,169,97,0.7)"/>
+                                    <rect x="11" y="4" width="3" height="15" rx="0.5" fill="#c9a961"/>
+                                    <rect x="15" y="9" width="3" height="10" rx="0.5" fill="rgba(201,169,97,0.6)"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Power Spectrum Analysis</div>
                                 <div class="note-subtitle">Statistical Cosmology</div>
@@ -768,10 +1072,26 @@
                         </div>
                     </div>
 
+                    <!-- Observational Cosmology -->
                     <div class="note-card">
                         <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="35" r="18" stroke="rgba(201,169,97,0.2)" stroke-width="1" fill="none"/>
+                            <line x1="40" y1="53" x2="40" y2="70" stroke="rgba(201,169,97,0.15)" stroke-width="2"/>
+                            <line x1="30" y1="70" x2="50" y2="70" stroke="rgba(201,169,97,0.15)" stroke-width="2"/>
+                            <circle cx="35" cy="30" r="1.5" fill="rgba(201,169,97,0.3)"/>
+                            <circle cx="45" cy="38" r="1" fill="rgba(201,169,97,0.2)"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">⊕</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <circle cx="11" cy="9" r="6" stroke="#c9a961" stroke-width="1.2" fill="none"/>
+                                    <line x1="11" y1="15" x2="11" y2="20" stroke="#c9a961" stroke-width="1.2"/>
+                                    <line x1="7" y1="20" x2="15" y2="20" stroke="#c9a961" stroke-width="1.2" stroke-linecap="round"/>
+                                    <circle cx="9" cy="8" r="0.8" fill="#c9a961" opacity="0.5"/>
+                                    <circle cx="13" cy="10" r="0.6" fill="#c9a961" opacity="0.4"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Observational Cosmology</div>
                                 <div class="note-subtitle">LSST, Euclid & Future Surveys</div>
@@ -794,19 +1114,46 @@
                 </div>
             </div>
 
+            <!-- ═══════════════ PHYSICS ═══════════════ -->
             <div class="category-section physics" data-category="physics">
                 <div class="category-header">
-                    <div class="category-icon">⚛</div>
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <circle cx="14" cy="14" r="3" fill="#c9a961" opacity="0.4"/>
+                            <ellipse cx="14" cy="14" rx="12" ry="5" stroke="#c9a961" stroke-width="1" fill="none" transform="rotate(0 14 14)"/>
+                            <ellipse cx="14" cy="14" rx="12" ry="5" stroke="#c9a961" stroke-width="1" fill="none" transform="rotate(60 14 14)"/>
+                            <ellipse cx="14" cy="14" rx="12" ry="5" stroke="#c9a961" stroke-width="1" fill="none" transform="rotate(120 14 14)"/>
+                        </svg>
+                    </div>
                     <div class="category-title">
                         <h2>Physics</h2>
                         <p class="category-description">Fundamental physics concepts and advanced topics</p>
                     </div>
                 </div>
                 <div class="notes-grid">
+                    <!-- General Relativity -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <!-- Spacetime grid warped -->
+                            <path d="M10 30 Q40 25 70 30" stroke="rgba(201,169,97,0.15)" stroke-width="0.5" fill="none"/>
+                            <path d="M10 40 Q40 50 70 40" stroke="rgba(201,169,97,0.2)" stroke-width="0.5" fill="none"/>
+                            <path d="M10 50 Q40 65 70 50" stroke="rgba(201,169,97,0.15)" stroke-width="0.5" fill="none"/>
+                            <path d="M30 15 Q25 40 30 65" stroke="rgba(201,169,97,0.15)" stroke-width="0.5" fill="none"/>
+                            <path d="M40 15 Q40 50 40 65" stroke="rgba(201,169,97,0.2)" stroke-width="0.5" fill="none"/>
+                            <path d="M50 15 Q55 40 50 65" stroke="rgba(201,169,97,0.15)" stroke-width="0.5" fill="none"/>
+                            <circle cx="40" cy="42" r="5" fill="rgba(201,169,97,0.08)"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">g</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <!-- Curved spacetime -->
+                                    <path d="M3 8 Q11 4 19 8" stroke="rgba(201,169,97,0.4)" stroke-width="0.8" fill="none"/>
+                                    <path d="M3 11 Q11 16 19 11" stroke="#c9a961" stroke-width="1.2" fill="none"/>
+                                    <path d="M3 14 Q11 19 19 14" stroke="rgba(201,169,97,0.4)" stroke-width="0.8" fill="none"/>
+                                    <circle cx="11" cy="12" r="2.5" fill="rgba(201,169,97,0.3)"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">General Relativity</div>
                                 <div class="note-subtitle">Einstein's Theory of Gravity</div>
@@ -827,10 +1174,19 @@
                         </div>
                     </div>
 
+                    <!-- Quantum Mechanics -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <path d="M15 40 C20 20 30 60 40 40 C50 20 60 60 65 40" stroke="rgba(201,169,97,0.2)" stroke-width="1" fill="none"/>
+                            <path d="M15 40 C20 20 30 60 40 40 C50 20 60 60 65 40" stroke="rgba(201,169,97,0.08)" stroke-width="8" fill="none"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">ψ</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <text x="5" y="16" font-family="serif" font-style="italic" font-size="15" fill="#c9a961" opacity="0.9">ψ</text>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Quantum Mechanics</div>
                                 <div class="note-subtitle">Wave Functions & Operators</div>
@@ -851,10 +1207,28 @@
                         </div>
                     </div>
 
+                    <!-- Statistical Mechanics -->
                     <div class="note-card">
                         <div class="status-badge in-progress">In Progress</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <!-- Particle cloud -->
+                            <circle cx="25" cy="35" r="2" fill="rgba(201,169,97,0.15)"/>
+                            <circle cx="40" cy="28" r="2.5" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="55" cy="38" r="2" fill="rgba(201,169,97,0.18)"/>
+                            <circle cx="35" cy="50" r="1.5" fill="rgba(201,169,97,0.1)"/>
+                            <circle cx="50" cy="55" r="2" fill="rgba(201,169,97,0.14)"/>
+                            <circle cx="30" cy="45" r="1.8" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="60" cy="48" r="1.5" fill="rgba(201,169,97,0.1)"/>
+                            <circle cx="45" cy="42" r="3" fill="rgba(201,169,97,0.08)"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">S</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <!-- Bell curve / Boltzmann -->
+                                    <path d="M3 18 C3 18 7 18 9 14 C11 8 11 4 11 4 C11 4 11 8 13 14 C15 18 19 18 19 18" stroke="#c9a961" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+                                    <line x1="3" y1="18" x2="19" y2="18" stroke="rgba(201,169,97,0.3)" stroke-width="0.8"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Statistical Mechanics</div>
                                 <div class="note-subtitle">Thermodynamics & Phase Transitions</div>
@@ -875,10 +1249,29 @@
                         </div>
                     </div>
 
+                    <!-- Electromagnetism -->
                     <div class="note-card">
                         <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <!-- EM field lines -->
+                            <path d="M20 40 C25 20 35 20 40 40 C45 60 55 60 60 40" stroke="rgba(201,169,97,0.2)" stroke-width="0.8" fill="none"/>
+                            <path d="M20 40 C25 30 35 30 40 40 C45 50 55 50 60 40" stroke="rgba(201,169,97,0.15)" stroke-width="0.8" fill="none"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">E</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <!-- Electric field lines from charge -->
+                                    <circle cx="11" cy="11" r="2.5" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.2)"/>
+                                    <line x1="11" y1="3" x2="11" y2="7" stroke="#c9a961" stroke-width="0.8"/>
+                                    <line x1="11" y1="15" x2="11" y2="19" stroke="#c9a961" stroke-width="0.8"/>
+                                    <line x1="3" y1="11" x2="7" y2="11" stroke="#c9a961" stroke-width="0.8"/>
+                                    <line x1="15" y1="11" x2="19" y2="11" stroke="#c9a961" stroke-width="0.8"/>
+                                    <line x1="5.5" y1="5.5" x2="8" y2="8" stroke="rgba(201,169,97,0.5)" stroke-width="0.6"/>
+                                    <line x1="14" y1="14" x2="16.5" y2="16.5" stroke="rgba(201,169,97,0.5)" stroke-width="0.6"/>
+                                    <line x1="16.5" y1="5.5" x2="14" y2="8" stroke="rgba(201,169,97,0.5)" stroke-width="0.6"/>
+                                    <line x1="8" y1="14" x2="5.5" y2="16.5" stroke="rgba(201,169,97,0.5)" stroke-width="0.6"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Electromagnetism</div>
                                 <div class="note-subtitle">Maxwell's Equations & Applications</div>
@@ -901,19 +1294,59 @@
                 </div>
             </div>
 
+            <!-- ═══════════════ MISCELLANEOUS ═══════════════ -->
             <div class="category-section miscellaneous" data-category="miscellaneous">
                 <div class="category-header">
-                    <div class="category-icon">◊</div>
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <!-- Neural network / nodes -->
+                            <circle cx="7" cy="8" r="2.5" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.15)"/>
+                            <circle cx="7" cy="20" r="2.5" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.15)"/>
+                            <circle cx="14" cy="14" r="2.5" stroke="#c9a961" stroke-width="1.2" fill="rgba(201,169,97,0.2)"/>
+                            <circle cx="21" cy="8" r="2.5" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.15)"/>
+                            <circle cx="21" cy="20" r="2.5" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.15)"/>
+                            <line x1="9" y1="9" x2="12" y2="13" stroke="#c9a961" stroke-width="0.6" opacity="0.5"/>
+                            <line x1="9" y1="19" x2="12" y2="15" stroke="#c9a961" stroke-width="0.6" opacity="0.5"/>
+                            <line x1="16" y1="13" x2="19" y2="9" stroke="#c9a961" stroke-width="0.6" opacity="0.5"/>
+                            <line x1="16" y1="15" x2="19" y2="19" stroke="#c9a961" stroke-width="0.6" opacity="0.5"/>
+                        </svg>
+                    </div>
                     <div class="category-title">
                         <h2>Miscellaneous</h2>
                         <p class="category-description">Computer science, machine learning, and interdisciplinary topics</p>
                     </div>
                 </div>
                 <div class="notes-grid">
+                    <!-- ML Fundamentals -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <!-- Neural net layers -->
+                            <circle cx="20" cy="25" r="3" fill="rgba(201,169,97,0.1)"/>
+                            <circle cx="20" cy="40" r="3" fill="rgba(201,169,97,0.1)"/>
+                            <circle cx="20" cy="55" r="3" fill="rgba(201,169,97,0.1)"/>
+                            <circle cx="40" cy="32" r="3" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="40" cy="48" r="3" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="60" cy="40" r="3" fill="rgba(201,169,97,0.15)"/>
+                            <line x1="23" y1="26" x2="37" y2="32" stroke="rgba(201,169,97,0.08)" stroke-width="0.5"/>
+                            <line x1="23" y1="40" x2="37" y2="33" stroke="rgba(201,169,97,0.08)" stroke-width="0.5"/>
+                            <line x1="23" y1="40" x2="37" y2="47" stroke="rgba(201,169,97,0.08)" stroke-width="0.5"/>
+                            <line x1="23" y1="54" x2="37" y2="48" stroke="rgba(201,169,97,0.08)" stroke-width="0.5"/>
+                            <line x1="43" y1="33" x2="57" y2="40" stroke="rgba(201,169,97,0.08)" stroke-width="0.5"/>
+                            <line x1="43" y1="47" x2="57" y2="40" stroke="rgba(201,169,97,0.08)" stroke-width="0.5"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">AI</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <circle cx="5" cy="7" r="2" stroke="#c9a961" stroke-width="0.8" fill="none"/>
+                                    <circle cx="5" cy="15" r="2" stroke="#c9a961" stroke-width="0.8" fill="none"/>
+                                    <circle cx="11" cy="11" r="2" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.2)"/>
+                                    <circle cx="17" cy="11" r="2" stroke="#c9a961" stroke-width="0.8" fill="none"/>
+                                    <line x1="7" y1="8" x2="9" y2="10" stroke="#c9a961" stroke-width="0.6"/>
+                                    <line x1="7" y1="14" x2="9" y2="12" stroke="#c9a961" stroke-width="0.6"/>
+                                    <line x1="13" y1="11" x2="15" y2="11" stroke="#c9a961" stroke-width="0.6"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Machine Learning Fundamentals</div>
                                 <div class="note-subtitle">Algorithms & Implementation</div>
@@ -934,10 +1367,19 @@
                         </div>
                     </div>
 
+                    <!-- Scientific Computing -->
                     <div class="note-card">
                         <div class="status-badge in-progress">In Progress</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <text x="15" y="38" font-family="monospace" font-size="10" fill="rgba(201,169,97,0.1)">def f(x):</text>
+                            <text x="15" y="50" font-family="monospace" font-size="10" fill="rgba(201,169,97,0.08)">  return x</text>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">{ }</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <text x="3" y="15" font-family="monospace" font-size="13" fill="#c9a961" opacity="0.85">&lt;/&gt;</text>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Scientific Computing</div>
                                 <div class="note-subtitle">Python, NumPy & Scientific Libraries</div>
@@ -958,10 +1400,25 @@
                         </div>
                     </div>
 
+                    <!-- Statistics -->
                     <div class="note-card">
                         <div class="status-badge available">Available</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <!-- Scatter plot with trend -->
+                            <circle cx="20" cy="55" r="2" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="28" cy="48" r="2" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="38" cy="42" r="2" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="48" cy="35" r="2" fill="rgba(201,169,97,0.12)"/>
+                            <circle cx="58" cy="28" r="2" fill="rgba(201,169,97,0.12)"/>
+                            <line x1="15" y1="58" x2="63" y2="25" stroke="rgba(201,169,97,0.1)" stroke-width="0.8" stroke-dasharray="3 3"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">χ²</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <!-- Chi-squared symbol stylized -->
+                                    <text x="2" y="16" font-family="serif" font-style="italic" font-size="14" fill="#c9a961" opacity="0.9">χ²</text>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Statistics & Data Analysis</div>
                                 <div class="note-subtitle">Bayesian Methods & MCMC</div>
@@ -982,10 +1439,25 @@
                         </div>
                     </div>
 
+                    <!-- Research Methods -->
                     <div class="note-card">
                         <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <!-- Document / pen -->
+                            <rect x="22" y="20" width="36" height="44" rx="2" stroke="rgba(201,169,97,0.12)" stroke-width="1" fill="none"/>
+                            <line x1="28" y1="30" x2="52" y2="30" stroke="rgba(201,169,97,0.08)" stroke-width="0.8"/>
+                            <line x1="28" y1="36" x2="48" y2="36" stroke="rgba(201,169,97,0.06)" stroke-width="0.8"/>
+                            <line x1="28" y1="42" x2="50" y2="42" stroke="rgba(201,169,97,0.08)" stroke-width="0.8"/>
+                            <line x1="28" y1="48" x2="44" y2="48" stroke="rgba(201,169,97,0.06)" stroke-width="0.8"/>
+                        </svg>
                         <div class="note-header">
-                            <div class="note-icon">R</div>
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <!-- Quill/pen -->
+                                    <path d="M15 3 C15 3 6 12 5 17 C5 17 8 16 10 14 C12 12 15 3 15 3 Z" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.1)"/>
+                                    <line x1="4" y1="19" x2="10" y2="19" stroke="#c9a961" stroke-width="0.8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
                             <div>
                                 <div class="note-title">Research Methods</div>
                                 <div class="note-subtitle">Academic Writing & Collaboration</div>
@@ -1021,16 +1493,27 @@
     <script>
         function createStars() {
             const starsContainer = document.querySelector('.stars');
-            const numStars = 100;
+            const numStars = 120;
 
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
-                star.className = 'star';
+                star.className = 'star' + (Math.random() > 0.9 ? ' large' : '');
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (2 + Math.random() * 3) + 's';
                 starsContainer.appendChild(star);
             }
+        }
+
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.top = Math.random() * 40 + '%';
+            star.style.left = Math.random() * 60 + '%';
+            star.style.transform = `rotate(${30 + Math.random() * 20}deg)`;
+            document.body.appendChild(star);
+            setTimeout(() => star.remove(), 1600);
         }
 
         function initSearch() {
@@ -1101,16 +1584,16 @@
             });
         }
 
-        function initAnimations() {
-            // Animations disabled for immediate display
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             initSearch();
             initFilters();
             initSmoothScroll();
-            initAnimations();
+
+            // Occasional shooting stars
+            setInterval(() => {
+                if (Math.random() > 0.6) createShootingStar();
+            }, 5000);
         });
     </script>
 </body>
