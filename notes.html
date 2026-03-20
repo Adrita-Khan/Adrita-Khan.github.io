@@ -64,51 +64,7 @@
             z-index: 0;
         }
 
-        /* Nebula layers */
-        .nebula {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .nebula::before {
-            content: '';
-            position: absolute;
-            top: -20%; right: -10%;
-            width: 700px; height: 700px;
-            background: radial-gradient(ellipse, rgba(201,169,97,0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: nebulaFloat 25s ease-in-out infinite alternate;
-        }
-        .nebula::after {
-            content: '';
-            position: absolute;
-            bottom: -10%; left: -5%;
-            width: 500px; height: 500px;
-            background: radial-gradient(ellipse, rgba(160,130,70,0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(50px);
-            animation: nebulaFloat 20s ease-in-out infinite alternate-reverse;
-        }
-        @keyframes nebulaFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, -30px) scale(1.1); }
-        }
 
-        /* Grid overlay for scientific feel */
-        .grid-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            background-image: 
-                linear-gradient(rgba(201,169,97,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(201,169,97,0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
 
         /* ── Navigation ── */
         #quick-links {
@@ -193,15 +149,6 @@
             position: relative;
         }
 
-        .header-icon {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 1.2rem;
-        }
-        .header-icon svg {
-            filter: drop-shadow(0 0 20px rgba(201,169,97,0.3));
-        }
-
         .page-header h1 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -231,20 +178,7 @@
             background: linear-gradient(135deg, #c9a961, #d4b56d);
             margin: 1rem auto;
             border-radius: 2px;
-            position: relative;
         }
-        .section-divider::before,
-        .section-divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 6px; height: 6px;
-            background: #c9a961;
-            border-radius: 50%;
-            transform: translateY(-50%);
-        }
-        .section-divider::before { left: -12px; }
-        .section-divider::after { right: -12px; }
 
         /* ── Controls ── */
         .controls-section {
@@ -654,21 +588,7 @@
             font-size: 0.88rem;
         }
 
-        /* ── Shooting Star ── */
-        .shooting-star {
-            position: fixed;
-            width: 80px;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(201,169,97,0.6), transparent);
-            pointer-events: none;
-            z-index: 2;
-            opacity: 0;
-            animation: shoot 1.5s ease-out forwards;
-        }
-        @keyframes shoot {
-            0% { opacity: 1; transform: translateX(0) translateY(0); }
-            100% { opacity: 0; transform: translateX(300px) translateY(180px); }
-        }
+
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
@@ -715,8 +635,7 @@
 </head>
 <body>
     <div class="cosmic-bg"></div>
-    <div class="nebula"></div>
-    <div class="grid-overlay"></div>
+
     <div class="stars"></div>
 
     <section id="quick-links">
@@ -738,30 +657,6 @@
     <div class="main-content">
         <div class="container">
             <div class="page-header">
-                <div class="header-icon">
-                    <!-- Open book with constellation lines -->
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M40 18 L40 65" stroke="rgba(201,169,97,0.3)" stroke-width="1"/>
-                        <path d="M12 22 C12 22 26 18 40 22 C54 18 68 22 68 22 L68 60 C68 60 54 56 40 60 C26 56 12 60 12 60 Z" stroke="#c9a961" stroke-width="1.5" fill="rgba(201,169,97,0.05)"/>
-                        <path d="M12 22 C12 22 26 18 40 22 L40 60 C26 56 12 60 12 60 Z" fill="rgba(201,169,97,0.08)"/>
-                        <!-- Constellation dots on left page -->
-                        <circle cx="22" cy="32" r="1.5" fill="#c9a961" opacity="0.8"/>
-                        <circle cx="28" cy="38" r="1" fill="#c9a961" opacity="0.6"/>
-                        <circle cx="19" cy="42" r="1.2" fill="#c9a961" opacity="0.7"/>
-                        <circle cx="32" cy="46" r="1" fill="#c9a961" opacity="0.5"/>
-                        <line x1="22" y1="32" x2="28" y2="38" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
-                        <line x1="28" y1="38" x2="19" y2="42" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
-                        <line x1="19" y1="42" x2="32" y2="46" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
-                        <!-- Equation marks on right page -->
-                        <line x1="48" y1="32" x2="62" y2="32" stroke="rgba(201,169,97,0.3)" stroke-width="0.8"/>
-                        <line x1="48" y1="37" x2="58" y2="37" stroke="rgba(201,169,97,0.2)" stroke-width="0.8"/>
-                        <line x1="48" y1="42" x2="64" y2="42" stroke="rgba(201,169,97,0.3)" stroke-width="0.8"/>
-                        <line x1="48" y1="47" x2="56" y2="47" stroke="rgba(201,169,97,0.2)" stroke-width="0.8"/>
-                        <!-- Glow star above -->
-                        <circle cx="40" cy="10" r="2" fill="#c9a961" opacity="0.6"/>
-                        <circle cx="40" cy="10" r="4" fill="none" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
-                    </svg>
-                </div>
                 <h1>Study Notes</h1>
                 <div class="section-divider"></div>
                 <p class="page-description">
@@ -1506,15 +1401,6 @@
             }
         }
 
-        function createShootingStar() {
-            const star = document.createElement('div');
-            star.className = 'shooting-star';
-            star.style.top = Math.random() * 40 + '%';
-            star.style.left = Math.random() * 60 + '%';
-            star.style.transform = `rotate(${30 + Math.random() * 20}deg)`;
-            document.body.appendChild(star);
-            setTimeout(() => star.remove(), 1600);
-        }
 
         function initSearch() {
             const searchInput = document.getElementById('searchInput');
@@ -1590,10 +1476,7 @@
             initFilters();
             initSmoothScroll();
 
-            // Occasional shooting stars
-            setInterval(() => {
-                if (Math.random() > 0.6) createShootingStar();
-            }, 5000);
+
         });
     </script>
 </body>
