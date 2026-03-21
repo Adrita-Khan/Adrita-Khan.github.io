@@ -13,35 +13,10 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
+            background: linear-gradient(135deg, #060a0f 0%, #0a1018 50%, #0e1825 100%);
             min-height: 100vh;
             overflow-x: hidden;
             color: #b8c5d0;
-        }
-
-        /* Cosmic Background Effects */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #ffffff;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
         }
 
         .cosmic-bg {
@@ -51,9 +26,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(212, 181, 109, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(184, 157, 85, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 181, 109, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(184, 157, 85, 0.04) 0%, transparent 50%);
             z-index: 0;
         }
 
@@ -389,7 +364,6 @@
 </head>
 <body>
     <div class="cosmic-bg"></div>
-    <div class="stars"></div>
 
     <!-- Quick Links Navigation -->
     <section id="quick-links">
@@ -468,25 +442,6 @@
     </footer>
 
     <script>
-        // Generate twinkling stars
-        function createStars() {
-            const starsContainer = document.querySelector('.stars');
-            const starCount = 100;
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-
-        // Initialize stars on page load
-        window.addEventListener('load', createStars);
-
         // Add smooth scrolling for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
