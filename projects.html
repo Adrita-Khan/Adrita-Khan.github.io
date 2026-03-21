@@ -55,15 +55,7 @@
         }
         .blog-entry.visible{opacity:1;transform:translateY(0);transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1),transform 0.7s cubic-bezier(0.4,0,0.2,1)}
         .blog-entry:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 24px 60px rgba(201,169,97,0.2),0 0 0 1px rgba(201,169,97,0.15)}
-        /* Shimmer glow on hover */
-        .blog-entry::before{
-            content:'';position:absolute;inset:-1px;border-radius:15px;z-index:-1;
-            background:conic-gradient(from var(--shimmer-angle,0deg),transparent,rgba(201,169,97,0.3),transparent,rgba(201,169,97,0.15),transparent);
-            opacity:0;transition:opacity 0.5s;
-        }
-        .blog-entry:hover::before{opacity:1;animation:shimmer-rotate 3s linear infinite}
-        @keyframes shimmer-rotate{to{--shimmer-angle:360deg}}
-        @property --shimmer-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+
         /* Image area */
         .image-wrapper{overflow:hidden;border-bottom:2px solid rgba(201,169,97,0.2);position:relative}
         .image-wrapper::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,rgba(6,10,16,0.6));pointer-events:none;z-index:2}
@@ -147,17 +139,30 @@
 <circle cx="28" cy="18" r="1.1" fill="#fff" class="twinkle-star" style="--dur:2.6s"/><circle cx="92" cy="45" r=".6" fill="#aadcff" class="twinkle-star" style="--dur:4.2s;--delay:.5s"/><circle cx="158" cy="12" r=".8" fill="#fff" class="twinkle-star" style="--dur:3.4s;--delay:1s"/><circle cx="232" cy="32" r=".5" fill="#ffeebb" class="twinkle-star" style="--dur:3.8s;--delay:.2s"/><circle cx="318" cy="18" r="1.2" fill="#fff" class="twinkle-star" style="--dur:2.4s;--delay:.7s"/><circle cx="375" cy="55" r=".7" fill="#aadcff" class="twinkle-star" style="--dur:4.5s;--delay:1.3s"/><circle cx="48" cy="168" r=".6" fill="#fff" class="twinkle-star" style="--dur:3.6s;--delay:.8s"/><circle cx="352" cy="148" r=".5" fill="#ffeebb" class="twinkle-star" style="--dur:3.2s;--delay:1.6s"/><circle cx="15" cy="98" r=".7" fill="#ddd" class="twinkle-star" style="--dur:5s;--delay:.3s"/><circle cx="388" cy="125" r=".6" fill="#ddd" class="twinkle-star" style="--dur:4s;--delay:1.9s"/><circle cx="270" cy="45" r=".4" fill="#aadcff" class="twinkle-star" style="--dur:4.8s;--delay:2.1s"/><circle cx="120" cy="155" r=".5" fill="#ffeebb" class="twinkle-star" style="--dur:3.9s;--delay:1.1s"/>
 <!-- Distant galaxy smudges -->
 <ellipse cx="72" cy="62" rx="12" ry="4" fill="#c9a961" opacity=".05" transform="rotate(-25 72 62)"/><ellipse cx="335" cy="78" rx="14" ry="3.5" fill="#6e8efb" opacity=".04" transform="rotate(30 335 78)"/><ellipse cx="148" cy="138" rx="9" ry="3" fill="#e85d5d" opacity=".035" transform="rotate(-12 148 138)"/>
-<!-- Expanding redshift rings -->
-<circle cx="200" cy="88" r="35" fill="none" stroke="var(--gold)" stroke-width=".45" stroke-dasharray="2.5 8" opacity=".2" class="dash-animate"/>
-<circle cx="200" cy="88" r="55" fill="none" stroke="var(--gold)" stroke-width=".35" stroke-dasharray="3 10" opacity=".13" class="dash-animate" style="animation-duration:4.5s"/>
-<circle cx="200" cy="88" r="75" fill="none" stroke="var(--gold)" stroke-width=".3" stroke-dasharray="2 14" opacity=".08" class="dash-animate" style="animation-duration:6s"/>
-<!-- Galaxy -->
-<circle cx="200" cy="88" r="30" fill="url(#p1b)" opacity=".2" filter="url(#sf-haze)"/>
-<ellipse cx="200" cy="88" rx="26" ry="11" fill="url(#p1b)" opacity=".32" transform="rotate(-18 200 88)"/>
-<path d="M206,83 C218,74 234,80 235,90 C236,100 224,106 213,102" fill="none" stroke="#f5d480" stroke-width=".7" opacity=".18"/>
-<path d="M194,93 C182,102 168,96 167,88 C166,78 178,72 189,76" fill="none" stroke="#f5d480" stroke-width=".7" opacity=".18"/>
-<ellipse cx="200" cy="88" rx="16" ry="7" fill="url(#p1b)" opacity=".5" transform="rotate(-18 200 88)"/>
-<circle cx="200" cy="88" r="4.5" fill="#fff8e1" opacity=".92" filter="url(#sf-glow)"/>
+<!-- Redshift rings (static) -->
+<circle cx="200" cy="88" r="50" fill="none" stroke="var(--gold)" stroke-width=".4" stroke-dasharray="2.5 8" opacity=".12"/>
+<circle cx="200" cy="88" r="68" fill="none" stroke="var(--gold)" stroke-width=".3" stroke-dasharray="3 10" opacity=".08"/>
+<!-- Elliptical Galaxy — smooth concentric isophotes, no spiral structure -->
+<!-- Outermost diffuse halo -->
+<ellipse cx="200" cy="88" rx="44" ry="32" fill="url(#p1b)" opacity=".06" filter="url(#sf-haze)"/>
+<!-- Outer isophote shell -->
+<ellipse cx="200" cy="88" rx="36" ry="26" fill="url(#p1b)" opacity=".1" transform="rotate(-12 200 88)"/>
+<ellipse cx="200" cy="88" rx="36" ry="26" fill="none" stroke="#f5d480" stroke-width=".4" opacity=".06" transform="rotate(-12 200 88)"/>
+<!-- Mid isophote -->
+<ellipse cx="200" cy="88" rx="27" ry="20" fill="url(#p1b)" opacity=".18" transform="rotate(-12 200 88)"/>
+<ellipse cx="200" cy="88" rx="27" ry="20" fill="none" stroke="#f5d480" stroke-width=".3" opacity=".08" transform="rotate(-12 200 88)"/>
+<!-- Inner isophote -->
+<ellipse cx="200" cy="88" rx="18" ry="14" fill="url(#p1b)" opacity=".3" transform="rotate(-12 200 88)"/>
+<!-- Core region -->
+<ellipse cx="200" cy="88" rx="11" ry="9" fill="url(#p1b)" opacity=".5" transform="rotate(-12 200 88)"/>
+<!-- Bright nucleus -->
+<circle cx="200" cy="88" r="6" fill="url(#p1b)" opacity=".7" filter="url(#sf-glow)"/>
+<circle cx="200" cy="88" r="3.5" fill="#fff8e1" opacity=".92"/>
+<circle cx="200" cy="88" r="1.8" fill="#fff" opacity="1"/>
+<!-- Globular cluster halo points -->
+<circle cx="170" cy="72" r="1" fill="#f5d480" opacity=".12"/><circle cx="228" cy="102" r=".8" fill="#f5d480" opacity=".1"/>
+<circle cx="237" cy="76" r=".9" fill="#f5d480" opacity=".1"/><circle cx="164" cy="104" r=".7" fill="#f5d480" opacity=".08"/>
+<circle cx="218" cy="66" r=".7" fill="#f5d480" opacity=".09"/><circle cx="182" cy="110" r=".8" fill="#f5d480" opacity=".08"/>
 <!-- ugriz spectrum bar -->
 <rect x="50" y="168" width="300" height="7" rx="3.5" fill="url(#p1c)" opacity=".8"/>
 <!-- Filter ticks with glow dots -->
@@ -341,14 +346,20 @@
 
 <!-- Stage 1: Telescope / Data Source -->
 <g transform="translate(42,55)">
-  <path d="M-16,0 Q0,-14 16,0" fill="none" stroke="var(--gold)" stroke-width="1.6" opacity=".7"/>
-  <line x1="0" y1="-5" x2="0" y2="22" stroke="var(--gold)" stroke-width="1.2" opacity=".6"/>
-  <line x1="-8" y1="22" x2="8" y2="22" stroke="var(--gold)" stroke-width="1.2" opacity=".6"/>
-  <circle cx="0" cy="-8" r="2" fill="var(--gold)" opacity=".5" class="glow-animate"/>
-  <!-- Signal waves from sky -->
-  <path d="M0,-25 Q-4,-18 0,-14" fill="none" stroke="var(--teal)" stroke-width=".5" opacity=".3"/>
-  <path d="M-6,-28 Q-10,-20 -4,-14" fill="none" stroke="var(--teal)" stroke-width=".4" opacity=".2"/>
-  <path d="M6,-28 Q10,-20 4,-14" fill="none" stroke="var(--teal)" stroke-width=".4" opacity=".2"/>
+  <!-- Dish (parabolic reflector) -->
+  <path d="M-18,0 Q-14,-12 0,-16 Q14,-12 18,0" fill="rgba(201,169,97,.08)" stroke="var(--gold)" stroke-width="1.4" opacity=".7"/>
+  <!-- Feed horn at focal point -->
+  <line x1="-10" y1="-2" x2="0" y2="-10" stroke="var(--gold)" stroke-width=".7" opacity=".45"/>
+  <line x1="10" y1="-2" x2="0" y2="-10" stroke="var(--gold)" stroke-width=".7" opacity=".45"/>
+  <circle cx="0" cy="-10" r="1.8" fill="var(--gold)" opacity=".5" class="glow-animate"/>
+  <!-- Mount pedestal -->
+  <line x1="0" y1="0" x2="0" y2="18" stroke="var(--gold)" stroke-width="1.6" opacity=".6"/>
+  <!-- Base -->
+  <line x1="-10" y1="18" x2="10" y2="18" stroke="var(--gold)" stroke-width="1.4" opacity=".6"/>
+  <line x1="-6" y1="22" x2="6" y2="22" stroke="var(--gold)" stroke-width="1" opacity=".45"/>
+  <!-- Signal waves arriving from sky -->
+  <path d="M-3,-24 Q0,-20 3,-24" fill="none" stroke="var(--teal)" stroke-width=".5" opacity=".3"/>
+  <path d="M-7,-28 Q0,-23 7,-28" fill="none" stroke="var(--teal)" stroke-width=".4" opacity=".2"/>
 </g>
 <text x="22" y="88" font-family="monospace" font-size="7.5" fill="var(--gold)" opacity=".9" font-weight="500">SDSS</text>
 
@@ -494,7 +505,7 @@
 <!-- Peak marker -->
 <line x1="101" y1="42" x2="101" y2="112" stroke="var(--teal)" stroke-width=".4" stroke-dasharray="2 3" opacity=".35"/>
 <circle cx="101" cy="42" r="2.5" fill="var(--teal)" opacity=".6" class="pulse-node"/>
-<text x="80" y="38" font-family="monospace" font-size="7" fill="var(--teal)" opacity=".9" font-weight="500">1420.4 MHz</text>
+<text x="110" y="48" font-family="monospace" font-size="6" fill="var(--teal)" opacity=".9" font-weight="500">1420.4 MHz</text>
 <!-- Velocity axis label -->
 <text x="72" y="124" font-family="monospace" font-size="7" fill="var(--text-dim)" opacity=".8" font-weight="500">VELOCITY (km/s)</text>
 <!-- Right: Channel map grid (3x2 mini images) -->
@@ -512,20 +523,36 @@
 <!-- Bottom: Interferometry baseline -->
 <line x1="25" y1="155" x2="375" y2="155" stroke="var(--gold)" stroke-width=".3" opacity=".12"/>
 <!-- Dish pair with baseline arrow -->
-<g transform="translate(72,158)" opacity=".7">
-  <path d="M-18,0 Q0,-16 18,0" fill="none" stroke="var(--gold)" stroke-width="1.8"/><line x1="0" y1="-6" x2="0" y2="22" stroke="var(--gold)" stroke-width="1.2"/><line x1="-10" y1="22" x2="10" y2="22" stroke="var(--gold)" stroke-width="1.2"/>
-  <circle cx="0" cy="-9" r="2" fill="var(--gold)" opacity=".5" class="glow-animate"/>
+<g transform="translate(72,148)" opacity=".7">
+  <!-- Left dish: parabolic reflector -->
+  <path d="M-20,0 Q-16,-14 0,-18 Q16,-14 20,0" fill="rgba(201,169,97,.08)" stroke="var(--gold)" stroke-width="1.6"/>
+  <!-- Feed horn struts -->
+  <line x1="-12" y1="-2" x2="0" y2="-12" stroke="var(--gold)" stroke-width=".6" opacity=".45"/>
+  <line x1="12" y1="-2" x2="0" y2="-12" stroke="var(--gold)" stroke-width=".6" opacity=".45"/>
+  <circle cx="0" cy="-12" r="1.5" fill="var(--gold)" opacity=".5" class="glow-animate"/>
+  <!-- Mount -->
+  <line x1="0" y1="0" x2="0" y2="20" stroke="var(--gold)" stroke-width="1.4" opacity=".6"/>
+  <line x1="-8" y1="20" x2="8" y2="20" stroke="var(--gold)" stroke-width="1.2" opacity=".55"/>
+  <line x1="-5" y1="23" x2="5" y2="23" stroke="var(--gold)" stroke-width=".8" opacity=".4"/>
 </g>
-<g transform="translate(328,158)" opacity=".7">
-  <path d="M-18,0 Q0,-16 18,0" fill="none" stroke="var(--gold)" stroke-width="1.8"/><line x1="0" y1="-6" x2="0" y2="22" stroke="var(--gold)" stroke-width="1.2"/><line x1="-10" y1="22" x2="10" y2="22" stroke="var(--gold)" stroke-width="1.2"/>
-  <circle cx="0" cy="-9" r="2" fill="var(--gold)" opacity=".5" class="glow-animate" style="--delay:.6s"/>
+<g transform="translate(328,148)" opacity=".7">
+  <!-- Right dish: parabolic reflector -->
+  <path d="M-20,0 Q-16,-14 0,-18 Q16,-14 20,0" fill="rgba(201,169,97,.08)" stroke="var(--gold)" stroke-width="1.6"/>
+  <!-- Feed horn struts -->
+  <line x1="-12" y1="-2" x2="0" y2="-12" stroke="var(--gold)" stroke-width=".6" opacity=".45"/>
+  <line x1="12" y1="-2" x2="0" y2="-12" stroke="var(--gold)" stroke-width=".6" opacity=".45"/>
+  <circle cx="0" cy="-12" r="1.5" fill="var(--gold)" opacity=".5" class="glow-animate" style="--delay:.6s"/>
+  <!-- Mount -->
+  <line x1="0" y1="0" x2="0" y2="20" stroke="var(--gold)" stroke-width="1.4" opacity=".6"/>
+  <line x1="-8" y1="20" x2="8" y2="20" stroke="var(--gold)" stroke-width="1.2" opacity=".55"/>
+  <line x1="-5" y1="23" x2="5" y2="23" stroke="var(--gold)" stroke-width=".8" opacity=".4"/>
 </g>
-<!-- Baseline double-arrow -->
-<line x1="95" y1="168" x2="305" y2="168" stroke="var(--gold)" stroke-width=".8" opacity=".4"/>
-<polygon points="95,168 100,165 100,171" fill="var(--gold)" opacity=".4"/><polygon points="305,168 300,165 300,171" fill="var(--gold)" opacity=".4"/>
-<text x="165" y="165" font-family="monospace" font-size="8" fill="var(--gold)" opacity=".9" font-weight="500">BASELINE</text>
+<!-- Baseline double-arrow (between dish bases) -->
+<line x1="97" y1="172" x2="303" y2="172" stroke="var(--gold)" stroke-width=".8" opacity=".4"/>
+<polygon points="97,172 102,169 102,175" fill="var(--gold)" opacity=".4"/><polygon points="303,172 298,169 298,175" fill="var(--gold)" opacity=".4"/>
+<text x="168" y="170" font-family="monospace" font-size="7" fill="var(--gold)" opacity=".9" font-weight="500">BASELINE</text>
 <!-- Correlation wave between dishes -->
-<path d="M95,178 C115,172 130,184 150,178 C170,172 185,184 200,178 C220,172 235,184 255,178 C275,172 290,184 305,178" fill="none" stroke="var(--teal)" stroke-width=".7" opacity=".25" class="dash-animate" stroke-dasharray="4 4"/>
+<path d="M97,180 C117,174 132,186 152,180 C172,174 187,186 200,180 C218,174 233,186 253,180 C273,174 288,186 303,180" fill="none" stroke="var(--teal)" stroke-width=".7" opacity=".25" stroke-dasharray="4 4"/>
 <!-- Labels -->
 <rect x="42" y="198" width="82" height="14" rx="7" fill="rgba(78,205,196,.08)" stroke="var(--teal)" stroke-width=".4"/><text x="52" y="208" font-family="monospace" font-size="7.5" fill="var(--teal)" opacity="1" font-weight="500">HI EMISSION</text>
 <rect x="155" y="198" width="90" height="14" rx="7" fill="rgba(201,169,97,.08)" stroke="var(--gold)" stroke-width=".4"/><text x="163" y="208" font-family="monospace" font-size="7.5" fill="var(--gold)" opacity="1" font-weight="500">INTERFEROMETRY</text>
