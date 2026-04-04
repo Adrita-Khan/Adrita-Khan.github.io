@@ -1105,6 +1105,7 @@ section {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .pub-link {
@@ -1140,6 +1141,131 @@ section {
             font-weight: 500;
             letter-spacing: 0.5px;
         }
+
+        /* ── BibTeX styles ── */
+        .bibtex-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.22);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            user-select: none;
+        }
+
+        .bibtex-toggle:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.4);
+            color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        .bibtex-toggle svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .bibtex-toggle.open svg.chevron { transform: rotate(180deg); }
+
+        .bibtex-block {
+            display: none;
+            margin-top: 1.2rem;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 97, 0.18);
+            background: rgba(10, 14, 20, 0.6);
+        }
+
+        .bibtex-block.open { display: block; }
+
+        .bibtex-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 1rem;
+            background: rgba(201, 169, 97, 0.08);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.12);
+        }
+
+        .bibtex-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(201, 169, 97, 0.12);
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            border-radius: 8px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .copy-btn svg {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            background: rgba(201, 169, 97, 0.25);
+            border-color: rgba(201, 169, 97, 0.5);
+            color: var(--gold-primary);
+        }
+
+        .copy-btn.copied {
+            background: rgba(80, 180, 120, 0.2);
+            border-color: rgba(80, 180, 120, 0.4);
+            color: #6fcf97;
+        }
+
+        .bibtex-code {
+            padding: 1rem 1.2rem;
+            margin: 0;
+            font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Consolas, monospace;
+            font-size: 0.78rem;
+            line-height: 1.65;
+            color: #c8d6e5;
+            white-space: pre;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(201, 169, 97, 0.3) transparent;
+        }
+
+        .bibtex-code::-webkit-scrollbar { height: 5px; }
+        .bibtex-code::-webkit-scrollbar-track { background: transparent; }
+        .bibtex-code::-webkit-scrollbar-thumb {
+            background: rgba(201, 169, 97, 0.3);
+            border-radius: 3px;
+        }
+
+        /* syntax-like coloring */
+        .bib-key   { color: #c9a961; }
+        .bib-field { color: #7ec8e3; }
+        .bib-value { color: #b5d99c; }
+        .bib-brace { color: #888; }
 
         .research-interests-main {
             position: relative;
@@ -1796,6 +1922,8 @@ section {
                 <div class="section-line"></div>
             </div>
            <div class="publications-grid">
+
+                <!-- Publication 1 -->
                 <div class="publication-card">
                     <div class="publication-header">
                         <h3 class="publication-title">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</h3>
@@ -1811,8 +1939,37 @@ section {
                         <span class="pub-tag">Preprint</span>
                         <span class="pub-tag">High Energy Physics</span>
                     </div>
+                    <!-- BibTeX -->
+                    <button class="bibtex-toggle" onclick="toggleBibtex('bib1', this)" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" class="chevron"><path d="M19 9l-7 7-7-7"/><path d="M19 9l-7 7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Cite (BibTeX)
+                    </button>
+                    <div class="bibtex-block" id="bib1">
+                        <div class="bibtex-header">
+                            <span class="bibtex-label">BibTeX</span>
+                            <button class="copy-btn" onclick="copyBibtex('bib1-code', this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                Copy
+                            </button>
+                        </div>
+                        <pre class="bibtex-code" id="bib1-code">@misc{islam2025epcn,
+  title         = {{E-PCN}: Jet Tagging with Explainable Particle
+                   {Chebyshev} Networks Using Kinematic Features},
+  author        = {Islam, Md Raqibul and Khan, Adrita and
+                   Hossain, Mir Sazzat and Siddiqui, Choudhury
+                   Ben Yamin and Hossan, Md.\ Zakir and
+                   Khan, Tanjib and Momen, M.\ Arshad and
+                   Ali, Amin Ahsan and Rahman, AKM Mahbubur},
+  year          = {2025},
+  eprint        = {2512.07420},
+  archivePrefix = {arXiv},
+  primaryClass  = {hep-ph},
+  url           = {https://arxiv.org/abs/2512.07420}
+}</pre>
+                    </div>
                 </div>
 
+                <!-- Publication 2 -->
                <div class="publication-card">
                     <div class="publication-header">
                         <h3 class="publication-title">RGC: A Radio AGN Classifier Based on Deep Learning. I. A Semi-Supervised Model for the VLA Images of Bent Radio AGNs</h3>
@@ -1827,8 +1984,37 @@ section {
                         <span class="pub-tag">Preprint</span>
                         <span class="pub-tag">Radio Astronomy</span>
                     </div>
+                    <!-- BibTeX -->
+                    <button class="bibtex-toggle" onclick="toggleBibtex('bib2', this)" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" class="chevron"><path d="M19 9l-7 7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Cite (BibTeX)
+                    </button>
+                    <div class="bibtex-block" id="bib2">
+                        <div class="bibtex-header">
+                            <span class="bibtex-label">BibTeX</span>
+                            <button class="copy-btn" onclick="copyBibtex('bib2-code', this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                Copy
+                            </button>
+                        </div>
+                        <pre class="bibtex-code" id="bib2-code">@misc{hossain2025rgc,
+  title         = {{RGC}: A Radio {AGN} Classifier Based on Deep
+                   Learning. {I}. A Semi-Supervised Model for the
+                   {VLA} Images of Bent Radio {AGN}s},
+  author        = {Hossain, M.S. and Shahal, M.S.H. and
+                   Khan, A. and Asad, K.M.B. and Saikia, P. and
+                   Akter, F. and Ali, A. and Amin, M.A. and
+                   Momen, A. and Hasan, M. and Rahman, A.K.M.M.},
+  year          = {2025},
+  eprint        = {2510.22190},
+  archivePrefix = {arXiv},
+  primaryClass  = {astro-ph.GA},
+  url           = {https://arxiv.org/abs/2510.22190}
+}</pre>
+                    </div>
                 </div>
 
+                <!-- Publication 3 -->
                 <div class="publication-card">
                     <div class="publication-header">
                         <h3 class="publication-title">RGC-Bent: A Novel Dataset for Bent Radio Galaxy Classification</h3>
@@ -1844,7 +2030,39 @@ section {
                         <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="pub-link">💻 GitHub</a>
                         <span class="pub-tag">Conference Paper</span>
                     </div>
+                    <!-- BibTeX -->
+                    <button class="bibtex-toggle" onclick="toggleBibtex('bib3', this)" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" class="chevron"><path d="M19 9l-7 7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Cite (BibTeX)
+                    </button>
+                    <div class="bibtex-block" id="bib3">
+                        <div class="bibtex-header">
+                            <span class="bibtex-label">BibTeX</span>
+                            <button class="copy-btn" onclick="copyBibtex('bib3-code', this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                Copy
+                            </button>
+                        </div>
+                        <pre class="bibtex-code" id="bib3-code">@inproceedings{hossain2025rgcbent,
+  title     = {{RGC-Bent}: A Novel Dataset for Bent Radio
+               Galaxy Classification},
+  author    = {Hossain, Mir Sazzat and Asad, Khan Muhammad Bin
+               and Saikia, Payaswini and Khan, Adrita and
+               Iftee, Md Akil Raihan and Rajib, Rakibul Hasan
+               and Momen, Arshad and Amin, Md Ashraful and
+               Ali, Amin Ahsan and Rahman, AKM Mahbubur},
+  booktitle = {2025 IEEE International Conference on Image
+               Processing (ICIP)},
+  year      = {2025},
+  eprint    = {2505.19249},
+  archivePrefix = {arXiv},
+  primaryClass  = {astro-ph.IM},
+  doi       = {10.1109/ICIP57928.2025.11084387},
+  url       = {https://arxiv.org/abs/2505.19249}
+}</pre>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -2003,6 +2221,28 @@ section {
     </footer>
 
     <script>
+        /* ── BibTeX toggle & copy ── */
+        function toggleBibtex(id, btn) {
+            const block = document.getElementById(id);
+            const isOpen = block.classList.toggle('open');
+            btn.classList.toggle('open', isOpen);
+            btn.setAttribute('aria-expanded', isOpen);
+        }
+
+        function copyBibtex(codeId, btn) {
+            const text = document.getElementById(codeId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const orig = btn.innerHTML;
+                btn.classList.add('copied');
+                btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!`;
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = orig;
+                }, 2000);
+            });
+        }
+
+        /* ── Stars & CMB spots ── */
         function createStars() {
             const starsContainer = document.querySelector('.stars');
             const numStars = 120;
@@ -2069,4 +2309,4 @@ section {
         });
     </script>
 </body>
-</html>      
+</html>
