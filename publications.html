@@ -271,6 +271,107 @@
             transform: translateY(-2px);
         }
 
+        /* BibTeX styles */
+        .bibtex-wrapper {
+            margin-top: 1rem;
+        }
+
+        .bibtex-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(100, 180, 255, 0.1);
+            border: 2px solid rgba(100, 180, 255, 0.3);
+            border-radius: 20px;
+            color: #7ec8ff;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .bibtex-toggle:hover {
+            background: rgba(100, 180, 255, 0.2);
+            border-color: #7ec8ff;
+            transform: translateY(-2px);
+        }
+
+        .bibtex-toggle .arrow {
+            transition: transform 0.25s ease;
+            display: inline-block;
+            font-size: 0.7rem;
+        }
+
+        .bibtex-toggle.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .bibtex-block {
+            display: none;
+            margin-top: 0.75rem;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .bibtex-block.visible {
+            display: block;
+        }
+
+        .bibtex-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0.9rem;
+            background: rgba(100, 180, 255, 0.08);
+            border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+        }
+
+        .bibtex-label {
+            color: #7ec8ff;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .copy-bibtex-btn {
+            padding: 0.3rem 0.8rem;
+            background: rgba(100, 180, 255, 0.12);
+            border: 1px solid rgba(100, 180, 255, 0.3);
+            border-radius: 12px;
+            color: #7ec8ff;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .copy-bibtex-btn:hover {
+            background: rgba(100, 180, 255, 0.22);
+        }
+
+        .copy-bibtex-btn.copied {
+            color: #6be8a0;
+            border-color: rgba(100, 255, 150, 0.4);
+            background: rgba(100, 255, 150, 0.1);
+        }
+
+        .bibtex-code {
+            padding: 0.9rem 1rem;
+            font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+            font-size: 0.78rem;
+            color: #c9d8e8;
+            line-height: 1.65;
+            white-space: pre;
+            overflow-x: auto;
+            tab-size: 2;
+        }
+
         /* Statistics */
         .stats-section {
             display: grid;
@@ -549,6 +650,31 @@
                     <span>Cite</span>
                 </a>
             </div>
+            <!-- BibTeX -->
+            <div class="bibtex-wrapper">
+                <button class="bibtex-toggle" onclick="toggleBibtex(this)">
+                    <span>BibTeX</span><span class="arrow">&#9660;</span>
+                </button>
+                <div class="bibtex-block">
+                    <div class="bibtex-header">
+                        <span class="bibtex-label">BibTeX</span>
+                        <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
+                    </div>
+                    <pre class="bibtex-code">@inproceedings{hossain2025rgcbent,
+  title     = {{RGC-BENT}: A Novel Dataset for Bent Radio Galaxy Classification},
+  author    = {Hossain, Mir Sazzat and Asad, Khan Muhammad Bin and
+               Saikia, Payaswini and Khan, Adrita and Iftee, Md Akil Raihan and
+               Rajib, Rakibul Hasan and Momen, Arshad and Amin, Md Ashraful and
+               Ali, Amin Ahsan and Rahman, AKM Mahbubur},
+  booktitle = {2025 IEEE International Conference on Image Processing (ICIP)},
+  year      = {2025},
+  month     = sep,
+  address   = {Anchorage, AK, USA},
+  publisher = {IEEE},
+  doi       = {10.1109/ICIP55913.2025.11084387}
+}</pre>
+                </div>
+            </div>
         </div>
 
         <!-- Publication 2: arXiv Preprint -->
@@ -562,7 +688,7 @@
                     <p class="publication-authors">
                         <strong>M.S. Hossain, M.S.H. Shahal, A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A.A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman
                     </p>
-                    <p class="publication-journal">arXiv preprint arXiv:2510.22190 (Submitted to Astronomy & Astrophysics)</p>
+                    <p class="publication-journal">arXiv preprint arXiv:2510.22190 (Submitted to Astronomy &amp; Astrophysics)</p>
                     <div class="publication-meta">
                         <span class="meta-item">
                             <span>Year:</span>
@@ -600,6 +726,32 @@
                 <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs,&quot; arXiv preprint arXiv:2510.22190, 2025.">
                     <span>Cite</span>
                 </a>
+            </div>
+            <!-- BibTeX -->
+            <div class="bibtex-wrapper">
+                <button class="bibtex-toggle" onclick="toggleBibtex(this)">
+                    <span>BibTeX</span><span class="arrow">&#9660;</span>
+                </button>
+                <div class="bibtex-block">
+                    <div class="bibtex-header">
+                        <span class="bibtex-label">BibTeX</span>
+                        <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
+                    </div>
+                    <pre class="bibtex-code">@misc{hossain2025rgc,
+  title         = {{RGC}: a radio {AGN} classifier based on deep learning.
+                   {I}. {A} semi-supervised model for the {VLA}
+                   images of bent radio {AGN}s},
+  author        = {Hossain, M. S. and Shahal, M. S. H. and Khan, A. and
+                   Asad, K. M. B. and Saikia, P. and Akter, F. and
+                   Ali, A. A. and Amin, M. A. and Momen, A. and
+                   Hasan, M. and Rahman, A. K. M. M.},
+  year          = {2025},
+  eprint        = {2510.22190},
+  archivePrefix = {arXiv},
+  primaryClass  = {astro-ph.GA},
+  note          = {Submitted to Astronomy \& Astrophysics}
+}</pre>
+                </div>
             </div>
         </div>
 
@@ -657,10 +809,35 @@
                     <span>Cite</span>
                 </a>
             </div>
+            <!-- BibTeX -->
+            <div class="bibtex-wrapper">
+                <button class="bibtex-toggle" onclick="toggleBibtex(this)">
+                    <span>BibTeX</span><span class="arrow">&#9660;</span>
+                </button>
+                <div class="bibtex-block">
+                    <div class="bibtex-header">
+                        <span class="bibtex-label">BibTeX</span>
+                        <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
+                    </div>
+                    <pre class="bibtex-code">@misc{islam2025epcn,
+  title         = {{E-PCN}: Jet Tagging with Explainable Particle
+                   Chebyshev Networks Using Kinematic Features},
+  author        = {Islam, Md Raqibul and Khan, Adrita and
+                   Hossain, Mir Sazzat and Siddiqui, Choudhury Ben Yamin and
+                   Hossan, Md. Zakir and Khan, Tanjib and
+                   Momen, M. Arshad and Ali, Amin Ahsan and
+                   Rahman, AKM Mahbubur},
+  year          = {2025},
+  eprint        = {2512.07420},
+  archivePrefix = {arXiv},
+  primaryClass  = {hep-ph},
+  note          = {Submitted to Journal of High Energy Physics}
+}</pre>
+                </div>
+            </div>
         </div>
         
     </div>
-</div>
 
     <!-- No Results Message -->
     <div class="no-results" id="noResults" style="display: none;">
@@ -688,7 +865,7 @@
 
     // Search function
     function searchPublications() {
-        const searchTerm = searchInput.value.toLowerCase();
+        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
         const publications = document.querySelectorAll('.publication-card');
         let visibleCount = 0;
 
@@ -715,27 +892,25 @@
             }
         });
 
-        // Show/hide no results message
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (noResults) {
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
     }
 
     // Filter function
     function filterPublications(filterType) {
         currentFilter = filterType;
-        
-        // Update active filter tag
         filterTags.forEach(tag => {
             tag.classList.remove('active');
             if (tag.dataset.filter === filterType) {
                 tag.classList.add('active');
             }
         });
-
         searchPublications();
     }
 
     // Event listeners
-    searchInput.addEventListener('input', searchPublications);
+    if (searchInput) searchInput.addEventListener('input', searchPublications);
 
     filterTags.forEach(tag => {
         tag.addEventListener('click', () => {
@@ -746,12 +921,12 @@
     // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
@@ -760,22 +935,38 @@
     document.querySelectorAll('.cite-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            
             const citation = this.dataset.citation;
-            
-            // Copy to clipboard
             navigator.clipboard.writeText(citation).then(() => {
                 const originalText = this.innerHTML;
                 this.innerHTML = '<span>Copied!</span>';
-                
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                }, 2000);
+                setTimeout(() => { this.innerHTML = originalText; }, 2000);
             }).catch(() => {
                 alert('Citation: ' + citation);
             });
         });
     });
+
+    // BibTeX toggle
+    function toggleBibtex(btn) {
+        btn.classList.toggle('open');
+        const block = btn.parentElement.querySelector('.bibtex-block');
+        block.classList.toggle('visible');
+    }
+
+    // Copy BibTeX
+    function copyBibtex(btn) {
+        const code = btn.closest('.bibtex-block').querySelector('.bibtex-code').textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        }).catch(() => {
+            alert(code);
+        });
+    }
 </script>
 </body>
 </html>
