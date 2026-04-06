@@ -5,16 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education - Adrita Khan</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
@@ -23,139 +15,55 @@
             line-height: 1.7;
             overflow-x: hidden;
         }
-
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.3;
-        }
-
-        .floating-shape {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(201, 169, 97, 0.1), rgba(212, 181, 109, 0.1));
-        }
-
+        .animated-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; }
+        .floating-shape { position: absolute; border-radius: 50%; background: linear-gradient(45deg, rgba(201,169,97,0.1), rgba(212,181,109,0.1)); }
         .floating-shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; }
         .floating-shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 10%; }
         .floating-shape:nth-child(3) { width: 60px; height: 60px; bottom: 20%; left: 20%; }
-
-        .star {
-            position: absolute;
-            background: #ffffff;
-            border-radius: 50%;
-            opacity: 0.8;
-        }
-
+        .star { position: absolute; background: #ffffff; border-radius: 50%; opacity: 0.8; }
         .star.small { width: 2px; height: 2px; box-shadow: 0 0 4px 2px rgba(255,255,255,0.8), 0 0 8px 4px rgba(201,169,97,0.5); }
         .star.medium { width: 3px; height: 3px; box-shadow: 0 0 6px 3px rgba(255,255,255,0.9), 0 0 12px 6px rgba(201,169,97,0.6), 0 0 18px 8px rgba(201,169,97,0.3); }
         .star.large { width: 4px; height: 4px; box-shadow: 0 0 8px 4px rgba(255,255,255,1), 0 0 16px 8px rgba(201,169,97,0.7), 0 0 24px 12px rgba(201,169,97,0.4); }
-
-        .star:nth-child(4) { top: 5%; left: 8%; }
-        .star:nth-child(5) { top: 12%; left: 85%; }
-        .star:nth-child(6) { top: 8%; right: 15%; }
-        .star:nth-child(7) { top: 18%; left: 3%; }
-        .star:nth-child(8) { top: 22%; right: 25%; }
-        .star:nth-child(9) { top: 35%; left: 12%; }
-        .star:nth-child(10) { top: 28%; right: 8%; }
-        .star:nth-child(11) { top: 42%; left: 78%; }
-        .star:nth-child(12) { top: 48%; left: 22%; }
-        .star:nth-child(13) { top: 52%; right: 32%; }
-        .star:nth-child(14) { top: 38%; left: 48%; }
-        .star:nth-child(15) { top: 15%; left: 42%; }
-        .star:nth-child(16) { top: 58%; right: 5%; }
-        .star:nth-child(17) { top: 45%; left: 92%; }
-        .star:nth-child(18) { top: 65%; left: 18%; }
-        .star:nth-child(19) { top: 72%; left: 65%; }
-        .star:nth-child(20) { top: 78%; right: 22%; }
-        .star:nth-child(21) { top: 8%; left: 58%; }
-        .star:nth-child(22) { top: 68%; right: 12%; }
-        .star:nth-child(23) { top: 85%; left: 35%; }
-        .star:nth-child(24) { top: 25%; right: 48%; }
-        .star:nth-child(25) { top: 55%; left: 5%; }
-        .star:nth-child(26) { top: 82%; left: 72%; }
-        .star:nth-child(27) { top: 10%; right: 38%; }
-        .star:nth-child(28) { top: 75%; left: 52%; }
-        .star:nth-child(29) { top: 32%; left: 32%; }
-        .star:nth-child(30) { top: 62%; right: 18%; }
-        .star:nth-child(31) { top: 3%; left: 25%; }
-        .star:nth-child(32) { top: 88%; right: 45%; }
-        .star:nth-child(33) { top: 20%; left: 68%; }
-        .star:nth-child(34) { top: 50%; left: 55%; }
-        .star:nth-child(35) { top: 92%; left: 8%; }
-        .star:nth-child(36) { top: 40%; right: 42%; }
-        .star:nth-child(37) { top: 70%; right: 55%; }
-        .star:nth-child(38) { top: 15%; right: 2%; }
-        .star:nth-child(39) { top: 95%; right: 28%; }
-        .star:nth-child(40) { top: 6%; left: 95%; }
-        .star:nth-child(41) { top: 45%; left: 2%; }
-        .star:nth-child(42) { top: 80%; left: 45%; }
-        .star:nth-child(43) { top: 30%; right: 65%; }
-        .star:nth-child(44) { top: 60%; left: 88%; }
-        .star:nth-child(45) { top: 25%; left: 15%; }
-        .star:nth-child(46) { top: 55%; right: 78%; }
-        .star:nth-child(47) { top: 90%; left: 62%; }
-        .star:nth-child(48) { top: 12%; right: 52%; }
-        .star:nth-child(49) { top: 75%; right: 8%; }
+        .star:nth-child(4) { top: 5%; left: 8%; } .star:nth-child(5) { top: 12%; left: 85%; }
+        .star:nth-child(6) { top: 8%; right: 15%; } .star:nth-child(7) { top: 18%; left: 3%; }
+        .star:nth-child(8) { top: 22%; right: 25%; } .star:nth-child(9) { top: 35%; left: 12%; }
+        .star:nth-child(10) { top: 28%; right: 8%; } .star:nth-child(11) { top: 42%; left: 78%; }
+        .star:nth-child(12) { top: 48%; left: 22%; } .star:nth-child(13) { top: 52%; right: 32%; }
+        .star:nth-child(14) { top: 38%; left: 48%; } .star:nth-child(15) { top: 15%; left: 42%; }
+        .star:nth-child(16) { top: 58%; right: 5%; } .star:nth-child(17) { top: 45%; left: 92%; }
+        .star:nth-child(18) { top: 65%; left: 18%; } .star:nth-child(19) { top: 72%; left: 65%; }
+        .star:nth-child(20) { top: 78%; right: 22%; } .star:nth-child(21) { top: 8%; left: 58%; }
+        .star:nth-child(22) { top: 68%; right: 12%; } .star:nth-child(23) { top: 85%; left: 35%; }
+        .star:nth-child(24) { top: 25%; right: 48%; } .star:nth-child(25) { top: 55%; left: 5%; }
+        .star:nth-child(26) { top: 82%; left: 72%; } .star:nth-child(27) { top: 10%; right: 38%; }
+        .star:nth-child(28) { top: 75%; left: 52%; } .star:nth-child(29) { top: 32%; left: 32%; }
+        .star:nth-child(30) { top: 62%; right: 18%; } .star:nth-child(31) { top: 3%; left: 25%; }
+        .star:nth-child(32) { top: 88%; right: 45%; } .star:nth-child(33) { top: 20%; left: 68%; }
+        .star:nth-child(34) { top: 50%; left: 55%; } .star:nth-child(35) { top: 92%; left: 8%; }
+        .star:nth-child(36) { top: 40%; right: 42%; } .star:nth-child(37) { top: 70%; right: 55%; }
+        .star:nth-child(38) { top: 15%; right: 2%; } .star:nth-child(39) { top: 95%; right: 28%; }
+        .star:nth-child(40) { top: 6%; left: 95%; } .star:nth-child(41) { top: 45%; left: 2%; }
+        .star:nth-child(42) { top: 80%; left: 45%; } .star:nth-child(43) { top: 30%; right: 65%; }
+        .star:nth-child(44) { top: 60%; left: 88%; } .star:nth-child(45) { top: 25%; left: 15%; }
+        .star:nth-child(46) { top: 55%; right: 78%; } .star:nth-child(47) { top: 90%; left: 62%; }
+        .star:nth-child(48) { top: 12%; right: 52%; } .star:nth-child(49) { top: 75%; right: 8%; }
         .star:nth-child(50) { top: 35%; left: 82%; }
 
         #quick-links {
-            position: relative;
-            z-index: 10;
-            background: rgba(10, 14, 20, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
-            display: flex;
-            justify-content: center;
-            overflow-x: hidden;
+            position: relative; z-index: 10;
+            background: rgba(10,14,20,0.6); backdrop-filter: blur(10px);
+            padding: 1.5rem 0; border-bottom: 1px solid rgba(201,169,97,0.2);
+            display: flex; justify-content: center; overflow-x: hidden;
         }
-
-        .nav-container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 1rem;
-        }
-
-        .nav-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
+        .nav-container { width: 100%; max-width: 1200px; padding: 0 1rem; }
+        .nav-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; list-style: none; padding: 0; margin: 0; }
         .nav-list a {
-            display: block;
-            background: rgba(201, 169, 97, 0.1);
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 25px;
-            padding: 0.7rem 1.2rem;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            white-space: nowrap;
-            flex-shrink: 0;
+            display: block; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2);
+            border-radius: 25px; padding: 0.7rem 1.2rem; text-decoration: none; color: #ffffff;
+            font-size: 0.9rem; font-weight: 500; text-align: center; transition: all 0.3s ease;
+            backdrop-filter: blur(5px); white-space: nowrap; flex-shrink: 0;
         }
-
-        .nav-list a:hover {
-            background: rgba(201, 169, 97, 0.2);
-            border-color: rgba(201, 169, 97, 0.4);
-            transform: translateY(-3px);
-            color: #c9a961;
-            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
-        }
-
+        .nav-list a:hover { background: rgba(201,169,97,0.2); border-color: rgba(201,169,97,0.4); transform: translateY(-3px); color: #c9a961; box-shadow: 0 5px 15px rgba(201,169,97,0.3); }
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -165,566 +73,121 @@
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 1.2rem 4.5rem 0 4.5rem;
-        }
+        .container { max-width: 1600px; margin: 0 auto; padding: 1.2rem 4.5rem 0 4.5rem; }
+        .container-wide { max-width: 1600px; margin: 0 auto; padding: 0 8rem 2.5rem 8rem; }
 
-        .container-wide {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 8rem 2.5rem 8rem;
-        }
+        .hero-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; gap: 0; }
 
-        /* ============================================================
-           HERO SECTION — fully centered layout
-        ============================================================ */
-        .hero-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 2rem;
-            gap: 0;
-        }
-
-        .profile-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            position: relative;
-            margin-top: 0;
-            width: 100%;
-        }
+        /* Image + text side by side — same as original */
+        .profile-card { display: flex; align-items: center; gap: 2rem; position: relative; margin-top: 0; }
 
         .profile-image {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            border: 4px solid rgba(201, 169, 97, 0.4);
-            object-fit: cover;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(201, 169, 97, 0.3);
-            flex-shrink: 0;
+            width: 280px; height: 280px; border-radius: 50%;
+            border: 4px solid rgba(201,169,97,0.4); object-fit: cover;
+            transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(201,169,97,0.3); flex-shrink: 0;
         }
+        .profile-image:hover { transform: scale(1.05); border-color: rgba(201,169,97,0.6); box-shadow: 0 15px 50px rgba(201,169,97,0.4); }
 
-        .profile-image:hover {
-            transform: scale(1.05);
-            border-color: rgba(201, 169, 97, 0.6);
-            box-shadow: 0 15px 50px rgba(201, 169, 97, 0.4);
-        }
+        /* Text block: centered alignment */
+        .profile-text-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
 
-        /* Text block sits below the image, fully centered */
-        .profile-text-content {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-            width: 100%;
-        }
-
-        /* Title block */
-        .page-title-right {
-            text-align: center;
-            width: 100%;
-        }
-
+        .page-title-right { text-align: center; width: 100%; }
         .page-title-right h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #ffffff;
-            position: relative;
-            display: inline-block;
-            line-height: 1.2;
-            margin: 0;
-            padding-bottom: 0.5rem;
-            overflow: hidden;
+            font-size: 2.8rem; font-weight: 800; color: #ffffff;
+            position: relative; display: inline-block; line-height: 1.2;
+            margin: 0; padding-bottom: 0.5rem; overflow: hidden;
         }
-
-        /* Underline centered under the title text */
+        /* Centered underline */
         .page-title-right h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 4px;
+            content: ''; position: absolute; bottom: 0;
+            left: 50%; transform: translateX(-50%);
+            width: 100%; height: 4px;
             background: linear-gradient(90deg, #c9a961 0%, #d4b56d 50%, #c9a961 100%);
             border-radius: 2px;
         }
 
-        /* Social icons row — centered */
-        .social-links {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0;
-            justify-content: center;
+        .profile-info-box {
+            background: linear-gradient(135deg, rgba(201,169,97,0.12), rgba(201,169,97,0.08));
+            backdrop-filter: blur(15px); border: 1px solid rgba(201,169,97,0.3);
+            border-radius: 16px; padding: 1.5rem; margin-top: 0.5rem;
+            box-shadow: 0 8px 32px rgba(201,169,97,0.2); transition: all 0.3s ease;
+            position: relative; overflow: hidden; text-align: center;
         }
+        .profile-info-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55); }
+        .profile-info-box:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,169,97,0.3); border-color: rgba(201,169,97,0.5); }
 
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(201, 169, 97, 0.1);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+        .profile-title { color: #c9a961; font-size: 1.35rem; margin-bottom: 0.3rem; font-weight: 600; }
+        .profile-info { font-size: 1.05rem; color: #b8c5d0; line-height: 1.7; }
+        .profile-info span { color: #c9a961; font-weight: 600; }
 
-        .social-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: rgba(201, 169, 97, 0.2);
-            border-color: rgba(201, 169, 97, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
-        }
-
+        .social-links { display: flex; gap: 0.8rem; margin-top: 0; justify-content: center; }
+        .social-icon { width: 40px; height: 40px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; text-decoration: none; }
+        .social-icon svg { width: 20px; height: 20px; fill: #ffffff; transition: all 0.3s ease; }
+        .social-icon:hover { background: rgba(201,169,97,0.2); border-color: rgba(201,169,97,0.5); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(201,169,97,0.3); }
         .social-icon:hover svg { fill: #c9a961; }
 
-        /* Info box — constrained width so it doesn't stretch full-page */
-        .profile-info-box {
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.12), rgba(201, 169, 97, 0.08));
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            margin-top: 0.5rem;
-            box-shadow: 0 8px 32px rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .profile-info-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
-        }
-
-        .profile-info-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(201, 169, 97, 0.3);
-            border-color: rgba(201, 169, 97, 0.5);
-        }
-
-        .profile-title {
-            color: #c9a961;
-            font-size: 1.35rem;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
-        }
-
-        .profile-info {
-            font-size: 1.05rem;
-            color: #b8c5d0;
-            line-height: 1.7;
-        }
-
-        .profile-info span {
-            color: #c9a961;
-            font-weight: 600;
-        }
-
-        /* ============================================================
-           EDUCATION GRID & CARDS (unchanged)
-        ============================================================ */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 0rem;
-        }
-
+        .education-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-bottom: 0rem; }
         .education-bachelor { grid-column: 1 / -1; }
-
-        .education-card-main {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .education-card-main::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
-        }
-
-        .education-card-main:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(201, 169, 97, 0.3);
-        }
-
-        .education-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .education-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
-        }
-
-        .education-content h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-            color: #ffffff;
-        }
-
-        .education-university {
-            font-size: 1.1rem;
-            color: #c9a961;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-        }
-
-        .education-university a:hover {
-            color: #ffffff;
-            text-decoration-color: #ffffff;
-        }
-
+        .education-card-main { background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .education-card-main::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55); }
+        .education-card-main:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(201,169,97,0.3); }
+        .education-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .education-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; box-shadow: 0 10px 30px rgba(201,169,97,0.4); }
+        .education-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; color: #ffffff; }
+        .education-university { font-size: 1.1rem; color: #c9a961; font-weight: 600; margin-bottom: 0.2rem; }
+        .education-university a:hover { color: #ffffff; text-decoration-color: #ffffff; }
         .education-location { color: #b8c5d0; font-size: 1rem; }
-
-        .education-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 0.8rem 0;
-        }
-
-        .meta-badge {
-            background: rgba(201, 169, 97, 0.15);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            font-size: 0.9rem;
-            color: #ffffff;
-        }
-
-        .sidebar-card {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 15px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-card:hover { background: rgba(201, 169, 97, 0.12); transform: translateX(5px); }
-
-        .sidebar-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #c9a961;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.1);
-        }
-
-        .detail-item:last-child { border-bottom: none; }
-        .detail-label { color: #b8c5d0; font-size: 1.05rem; }
-        .detail-value { color: #ffffff; font-size: 1.05rem; font-weight: 600; text-align: right; }
-
-        .thesis-section {
-            background: rgba(201, 169, 97, 0.1);
-            border-radius: 12px;
-            padding: 1rem;
-            margin: 1rem 0;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #c9a961;
-            margin-bottom: 0.5rem;
-        }
-
+        .education-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
+        .meta-badge { background: rgba(201,169,97,0.15); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(201,169,97,0.3); font-size: 0.9rem; color: #ffffff; }
+        .thesis-section { background: rgba(201,169,97,0.1); border-radius: 12px; padding: 1rem; margin: 1rem 0; border: 1px solid rgba(201,169,97,0.2); }
+        .section-title { font-size: 1.1rem; font-weight: 700; color: #c9a961; margin-bottom: 0.5rem; }
         .thesis-title { font-size: 1.02rem; color: #ffffff; line-height: 1.5; margin-bottom: 0.5rem; }
         .thesis-supervisor { color: #b8c5d0; font-size: 0.95rem; }
         .thesis-supervisor a:hover { color: #ffffff; text-decoration-color: #ffffff; }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .achievement-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            padding: 0.6rem;
-            background: rgba(201, 169, 97, 0.05);
-            border-radius: 8px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .achievement-item:hover { background: rgba(201, 169, 97, 0.15); transform: translateY(-3px); }
-
-        .achievement-icon {
-            width: 26px;
-            height: 26px;
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            flex-shrink: 0;
-        }
-
+        .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+        .achievement-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.6rem; background: rgba(201,169,97,0.05); border-radius: 8px; border: 1px solid rgba(201,169,97,0.2); transition: all 0.3s ease; }
+        .achievement-item:hover { background: rgba(201,169,97,0.15); transform: translateY(-3px); }
+        .achievement-icon { width: 26px; height: 26px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
         .achievement-icon::before { content: '★'; color: #ffffff; font-size: 0.9rem; }
         .achievement-text { color: #b8c5d0; font-size: 0.92rem; line-height: 1.4; }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 0.7rem;
-            margin-top: 0.7rem;
-        }
-
-        .skill-item {
-            background: rgba(201, 169, 97, 0.05);
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            border-radius: 10px;
-            padding: 0.7rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover { background: rgba(201, 169, 97, 0.15); transform: translateY(-3px); border-color: rgba(201, 169, 97, 0.5); }
+        .skills-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.7rem; margin-top: 0.7rem; }
+        .skill-item { background: rgba(201,169,97,0.05); border: 1px solid rgba(201,169,97,0.3); border-radius: 10px; padding: 0.7rem; text-align: center; transition: all 0.3s ease; }
+        .skill-item:hover { background: rgba(201,169,97,0.15); transform: translateY(-3px); border-color: rgba(201,169,97,0.5); }
         .skill-name { color: #c9a961; font-weight: 600; font-size: 1rem; }
-
-        .coursework-section {
-            grid-column: 1 / -1;
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 2rem;
-        }
-
-        .coursework-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-top: 1.2rem;
-        }
-
-        .semester-card {
-            background: rgba(201, 169, 97, 0.05);
-            border-radius: 8px;
-            padding: 0.7rem;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .semester-card:hover { background: rgba(201, 169, 97, 0.1); transform: translateY(-3px); }
-
-        .semester-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #c9a961;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.3rem;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.3);
-            flex-shrink: 0;
-        }
-
+        .coursework-section { grid-column: 1 / -1; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 2rem; }
+        .coursework-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.2rem; }
+        .semester-card { background: rgba(201,169,97,0.05); border-radius: 8px; padding: 0.7rem; border: 1px solid rgba(201,169,97,0.2); transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .semester-card:hover { background: rgba(201,169,97,0.1); transform: translateY(-3px); }
+        .semester-title { font-size: 0.95rem; font-weight: 700; color: #c9a961; margin-bottom: 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(201,169,97,0.3); flex-shrink: 0; }
         .course-list { display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
-
-        .course-item {
-            color: #b8c5d0;
-            font-size: 0.85rem;
-            padding-left: 0.9rem;
-            position: relative;
-            transition: all 0.2s ease;
-            line-height: 1.4;
-        }
-
+        .course-item { color: #b8c5d0; font-size: 0.85rem; padding-left: 0.9rem; position: relative; transition: all 0.2s ease; line-height: 1.4; }
         .course-item::before { content: '•'; color: #c9a961; position: absolute; left: 0; font-weight: bold; font-size: 0.7rem; }
         .course-item:hover { color: #ffffff; transform: translateX(2px); }
-
-        .internship-section {
-            grid-column: 1 / 7;
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .internship-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d);
-        }
-
-        .internship-section:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(201, 169, 97, 0.3); }
-
-        .future-section {
-            grid-column: 7 / -1;
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(201, 169, 97, 0.3);
-            padding: 1.5rem;
-            opacity: 0.75;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .future-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d);
-            z-index: 2;
-        }
-
-        .future-section::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: radial-gradient(ellipse at 30% 50%, rgba(201, 169, 97, 0.4) 0%, transparent 50%),
-                        radial-gradient(ellipse at 70% 30%, rgba(212, 181, 109, 0.35) 0%, transparent 50%),
-                        radial-gradient(ellipse at 50% 70%, rgba(184, 157, 85, 0.3) 0%, transparent 50%);
-            pointer-events: none;
-            filter: blur(40px);
-            opacity: 0.65;
-        }
-
-        .future-section:hover { opacity: 1; transform: translateY(-5px); box-shadow: 0 20px 50px rgba(201, 169, 97, 0.5); background: rgba(201, 169, 97, 0.12); }
-
-        .future-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.8rem;
-            position: relative;
-            z-index: 3;
-        }
-
+        .internship-section { grid-column: 1 / 7; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 1.5rem; transition: all 0.3s ease; position: relative; }
+        .internship-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d); }
+        .internship-section:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(201,169,97,0.3); }
+        .future-section { grid-column: 7 / -1; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.3); padding: 1.5rem; opacity: 0.75; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .future-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d); z-index: 2; }
+        .future-section::after { content: ''; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%; background: radial-gradient(ellipse at 30% 50%, rgba(201,169,97,0.4) 0%, transparent 50%), radial-gradient(ellipse at 70% 30%, rgba(212,181,109,0.35) 0%, transparent 50%), radial-gradient(ellipse at 50% 70%, rgba(184,157,85,0.3) 0%, transparent 50%); pointer-events: none; filter: blur(40px); opacity: 0.65; }
+        .future-section:hover { opacity: 1; transform: translateY(-5px); box-shadow: 0 20px 50px rgba(201,169,97,0.5); background: rgba(201,169,97,0.12); }
+        .future-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; position: relative; z-index: 3; }
         .future-title-group h3 { font-size: 1.55rem; font-weight: 700; margin-bottom: 0.3rem; color: #ffffff; }
         .future-title-group .education-university { color: #e8dcc0; }
-
-        .future-description {
-            background: rgba(201, 169, 97, 0.1);
-            border-radius: 12px;
-            padding: 1.2rem;
-            margin-top: 1rem;
-            position: relative;
-            z-index: 3;
-        }
-
+        .future-description { background: rgba(201,169,97,0.1); border-radius: 12px; padding: 1.2rem; margin-top: 1rem; position: relative; z-index: 3; }
         .future-description p { color: #e8e8e8; line-height: 1.7; font-size: 1.05rem; }
 
-        footer {
-            position: relative;
-            z-index: 10;
-            background: rgba(10, 14, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 2rem 0;
-            margin-top: 0rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
+        footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 2rem 0; margin-top: 0rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
         .footer-left { text-align: center; }
         .footer-left p { color: #b8c5d0; font-size: 1rem; }
 
-        /* ============================================================
-           RESPONSIVE
-        ============================================================ */
-        @media (max-width: 1400px) {
-            .container-wide { padding: 0 6rem 2.5rem 6rem; }
-            .coursework-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        @media (max-width: 1200px) {
-            .container-wide { padding: 0 4.5rem 2.5rem 4.5rem; }
-            .achievements-grid { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: repeat(4, 1fr); }
-            .internship-section, .future-section { grid-column: 1 / -1; }
-        }
-
+        @media (max-width: 1400px) { .container-wide { padding: 0 6rem 2.5rem 6rem; } .coursework-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 1200px) { .container-wide { padding: 0 4.5rem 2.5rem 4.5rem; } .achievements-grid { grid-template-columns: 1fr; } .skills-grid { grid-template-columns: repeat(4, 1fr); } .internship-section, .future-section { grid-column: 1 / -1; } }
         @media (max-width: 768px) {
-            .container { padding: 0 2rem 0 2rem; }
-            .container-wide { padding: 0 2rem 2.5rem 2rem; }
+            .container { padding: 0 2rem 0 2rem; } .container-wide { padding: 0 2rem 2.5rem 2rem; }
             .page-title-right h1 { font-size: 2rem; }
+            .profile-card { flex-direction: column; text-align: center; margin-top: 0; }
+            .profile-text-content { text-align: center; align-items: center; }
             .profile-image { width: 220px; height: 220px; }
             .education-header { flex-direction: column; align-items: center; text-align: center; }
             .coursework-grid { grid-template-columns: repeat(4, 1fr); }
@@ -732,61 +195,27 @@
             footer { padding: 1.5rem 0; margin-top: 2rem; }
             .footer-content { padding: 0 1rem; }
         }
-
-        @media (max-width: 480px) {
-            .coursework-grid { grid-template-columns: repeat(4, 1fr); }
-        }
+        @media (max-width: 480px) { .coursework-grid { grid-template-columns: repeat(4, 1fr); } }
     </style>
 </head>
 <body>
     <div class="animated-bg">
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star large"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
-        <div class="star large"></div>
-        <div class="star medium"></div>
-        <div class="star small"></div>
+        <div class="floating-shape"></div><div class="floating-shape"></div><div class="floating-shape"></div>
+        <div class="star small"></div><div class="star medium"></div><div class="star large"></div>
+        <div class="star small"></div><div class="star medium"></div><div class="star small"></div>
+        <div class="star large"></div><div class="star medium"></div><div class="star small"></div>
+        <div class="star medium"></div><div class="star small"></div><div class="star large"></div>
+        <div class="star medium"></div><div class="star small"></div><div class="star medium"></div>
+        <div class="star small"></div><div class="star large"></div><div class="star medium"></div>
+        <div class="star small"></div><div class="star medium"></div><div class="star small"></div>
+        <div class="star large"></div><div class="star medium"></div><div class="star small"></div>
+        <div class="star medium"></div><div class="star small"></div><div class="star large"></div>
+        <div class="star medium"></div><div class="star small"></div><div class="star medium"></div>
+        <div class="star small"></div><div class="star large"></div><div class="star medium"></div>
+        <div class="star small"></div><div class="star medium"></div><div class="star small"></div>
+        <div class="star large"></div><div class="star medium"></div><div class="star small"></div>
+        <div class="star medium"></div><div class="star small"></div><div class="star large"></div>
+        <div class="star medium"></div><div class="star small"></div>
     </div>
 
     <section id="quick-links">
@@ -809,16 +238,11 @@
         <div class="hero-section">
             <div class="profile-card">
                 <img src="https://github.com/Adrita-Khan/Assets/blob/main/host/new.jpg?raw=true"
-                     alt="Adrita Khan"
-                     class="profile-image">
-
+                     alt="Adrita Khan" class="profile-image">
                 <div class="profile-text-content">
-                    <!-- Title — centered -->
                     <div class="page-title-right">
                         <h1>Educational Journey</h1>
                     </div>
-
-                    <!-- Social icons — centered -->
                     <div class="social-links" style="margin-top: 0.6rem;">
                         <a href="https://github.com/Adrita-Khan" target="_blank" class="social-icon" title="GitHub">
                             <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -836,8 +260,6 @@
                             <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
                     </div>
-
-                    <!-- Info box — centered -->
                     <div class="profile-info-box">
                         <p class="profile-title">PhD Aspirant in Astrophysics &amp; Cosmology</p>
                         <div class="profile-info">
@@ -857,47 +279,31 @@
                         <div class="education-icon">🎓</div>
                         <div class="education-content">
                             <h3>Bachelor of Science (Honours) in Physics</h3>
-                            <p class="education-university"><a href="https://www.usm.my/en/" target="_blank" style="color: #e8dcc4; text-decoration: underline; text-decoration-color: #e8dcc4; text-underline-offset: 3px; transition: all 0.3s ease;">Universiti Sains Malaysia</a></p>
+                            <p class="education-university"><a href="https://www.usm.my/en/" target="_blank" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:3px;transition:all 0.3s ease;">Universiti Sains Malaysia</a></p>
                             <p class="education-location">School of Physics, Gelugor, Penang, Malaysia</p>
                         </div>
                     </div>
-
                     <div class="education-meta">
                         <div class="meta-badge">Sep 2019 – Sep 2023</div>
                         <div class="meta-badge">Honours Degree</div>
                         <div class="meta-badge">Major in Physics</div>
                         <div class="meta-badge">Minor in Astronomy</div>
                     </div>
-
                     <div class="thesis-section">
                         <h4 class="section-title">Undergraduate Thesis</h4>
                         <p class="thesis-title">Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations</p>
-                        <p class="thesis-supervisor"><strong>Supervisor:</strong> <a href="https://fizik.usm.my/index.php/about-us/our-people/academic/senior-lecturer?view=article&id=1095&catid=27" target="_blank" style="color: #e8dcc4; text-decoration: underline; text-decoration-color: #e8dcc4; text-underline-offset: 2px; transition: all 0.3s ease;">Dr. M. Rabie Omar</a></p>
+                        <p class="thesis-supervisor"><strong>Supervisor:</strong> <a href="https://fizik.usm.my/index.php/about-us/our-people/academic/senior-lecturer?view=article&id=1095&catid=27" target="_blank" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:all 0.3s ease;">Dr. M. Rabie Omar</a></p>
                     </div>
-
-                    <div style="margin-top: 2rem;">
+                    <div style="margin-top:2rem;">
                         <h4 class="section-title">Academic Achievements</h4>
                         <div class="achievements-grid">
-                            <div class="achievement-item">
-                                <div class="achievement-icon"></div>
-                                <div class="achievement-text">Dean's List recipient for Semesters II, III, and VI</div>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon"></div>
-                                <div class="achievement-text">Completed Honours research in nuclear physics</div>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon"></div>
-                                <div class="achievement-text">Specialized in Astronomy with astrophysical focus</div>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon"></div>
-                                <div class="achievement-text">Developed C++ expertise for scientific computing</div>
-                            </div>
+                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Dean's List recipient for Semesters II, III, and VI</div></div>
+                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Completed Honours research in nuclear physics</div></div>
+                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Specialized in Astronomy with astrophysical focus</div></div>
+                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Developed C++ expertise for scientific computing</div></div>
                         </div>
                     </div>
-
-                    <div style="margin-top: 2rem;">
+                    <div style="margin-top:2rem;">
                         <h4 class="section-title">Technical Skills</h4>
                         <div class="skills-grid">
                             <div class="skill-item"><div class="skill-name">Python</div></div>
@@ -912,107 +318,23 @@
             </div>
 
             <div class="coursework-section">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem;">
-                    <h3 class="section-title" style="margin-bottom: 0;">Comprehensive Coursework (8 Semesters)</h3>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(201, 169, 97, 0.12); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px;">
-                            <span style="color: #b8c5d0; font-size: 0.85rem;">Total Courses:</span>
-                            <span style="color: #c9a961; font-size: 1rem; font-weight: 700;">43</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(201, 169, 97, 0.12); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px;">
-                            <span style="color: #b8c5d0; font-size: 0.85rem;">Semesters:</span>
-                            <span style="color: #c9a961; font-size: 1rem; font-weight: 700;">8</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(201, 169, 97, 0.12); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px;">
-                            <span style="color: #b8c5d0; font-size: 0.85rem;">Credit Units:</span>
-                            <span style="color: #c9a961; font-size: 1rem; font-weight: 700;">136</span>
-                        </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem;">
+                    <h3 class="section-title" style="margin-bottom:0;">Comprehensive Coursework (8 Semesters)</h3>
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.8rem;background:rgba(201,169,97,0.12);border:1px solid rgba(201,169,97,0.3);border-radius:8px;"><span style="color:#b8c5d0;font-size:0.85rem;">Total Courses:</span><span style="color:#c9a961;font-size:1rem;font-weight:700;">43</span></div>
+                        <div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.8rem;background:rgba(201,169,97,0.12);border:1px solid rgba(201,169,97,0.3);border-radius:8px;"><span style="color:#b8c5d0;font-size:0.85rem;">Semesters:</span><span style="color:#c9a961;font-size:1rem;font-weight:700;">8</span></div>
+                        <div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.8rem;background:rgba(201,169,97,0.12);border:1px solid rgba(201,169,97,0.3);border-radius:8px;"><span style="color:#b8c5d0;font-size:0.85rem;">Credit Units:</span><span style="color:#c9a961;font-size:1rem;font-weight:700;">136</span></div>
                     </div>
                 </div>
                 <div class="coursework-grid">
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester I (2019/2020)</h5>
-                        <div class="course-list">
-                            <div class="course-item">Bahasa Malaysia I</div>
-                            <div class="course-item">Core Entrepreneurship</div>
-                            <div class="course-item">Physics I (Mechanics)</div>
-                            <div class="course-item">Calculus</div>
-                            <div class="course-item">Physics III (Waves & Optics)</div>
-                            <div class="course-item">Physics Practical I</div>
-                        </div>
-                    </div>
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester II (2019/2020)</h5>
-                        <div class="course-list">
-                            <div class="course-item">Professional Writing</div>
-                            <div class="course-item">Physics II (E&M)</div>
-                            <div class="course-item">Physics IV (Modern Physics)</div>
-                            <div class="course-item">Electronics I</div>
-                            <div class="course-item">Linear Algebra & Vectors</div>
-                            <div class="course-item">Physics Practical II</div>
-                        </div>
-                    </div>
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester I (2020/2021)</h5>
-                        <div class="course-list">
-                            <div class="course-item">Scientific English</div>
-                            <div class="course-item">Electronics II</div>
-                            <div class="course-item">Complex Analysis & ODEs</div>
-                            <div class="course-item">Thermodynamics</div>
-                            <div class="course-item">Optics</div>
-                            <div class="course-item">Physics Practical III</div>
-                        </div>
-                    </div>
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester II (2020/2021)</h5>
-                        <div class="course-list">
-                            <div class="course-item">Classical Mechanics</div>
-                            <div class="course-item">Structure of Universe</div>
-                            <div class="course-item">Quantum Mechanics</div>
-                            <div class="course-item">Mathematical Methods</div>
-                            <div class="course-item">Physics Practical IV</div>
-                        </div>
-                    </div>
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester I (2021/2022)</h5>
-                        <div class="course-list">
-                            <div class="course-item">Data Analytics Principles</div>
-                            <div class="course-item">Sustainability</div>
-                            <div class="course-item">Atomic & Nuclear Physics</div>
-                            <div class="course-item">Solid State Physics I</div>
-                            <div class="course-item">Statistical Mechanics</div>
-                            <div class="course-item">Physics Project</div>
-                            <div class="course-item">Radiation Biophysics</div>
-                        </div>
-                    </div>
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester II (2021/2022)</h5>
-                        <div class="course-list">
-                            <div class="course-item">English Poetry</div>
-                            <div class="course-item">Malaysian Studies</div>
-                            <div class="course-item">Electricity & Magnetism</div>
-                            <div class="course-item">Solid State Physics II</div>
-                            <div class="course-item">Physics Project</div>
-                        </div>
-                    </div>
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester I (2022/2023)</h5>
-                        <div class="course-list">
-                            <div class="course-item">Public Speaking</div>
-                            <div class="course-item">AI Literacy</div>
-                            <div class="course-item">Introduction to Astronomy</div>
-                            <div class="course-item">Principles in Astronomy</div>
-                        </div>
-                    </div>
-                    <div class="semester-card">
-                        <h5 class="semester-title">Semester II (2022/2023)</h5>
-                        <div class="course-list">
-                            <div class="course-item">Spoken English</div>
-                            <div class="course-item">Laser Applications</div>
-                            <div class="course-item">Non-Destructive Testing</div>
-                            <div class="course-item">Radio Astronomy</div>
-                        </div>
-                    </div>
+                    <div class="semester-card"><h5 class="semester-title">Semester I (2019/2020)</h5><div class="course-list"><div class="course-item">Bahasa Malaysia I</div><div class="course-item">Core Entrepreneurship</div><div class="course-item">Physics I (Mechanics)</div><div class="course-item">Calculus</div><div class="course-item">Physics III (Waves & Optics)</div><div class="course-item">Physics Practical I</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester II (2019/2020)</h5><div class="course-list"><div class="course-item">Professional Writing</div><div class="course-item">Physics II (E&M)</div><div class="course-item">Physics IV (Modern Physics)</div><div class="course-item">Electronics I</div><div class="course-item">Linear Algebra & Vectors</div><div class="course-item">Physics Practical II</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester I (2020/2021)</h5><div class="course-list"><div class="course-item">Scientific English</div><div class="course-item">Electronics II</div><div class="course-item">Complex Analysis & ODEs</div><div class="course-item">Thermodynamics</div><div class="course-item">Optics</div><div class="course-item">Physics Practical III</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester II (2020/2021)</h5><div class="course-list"><div class="course-item">Classical Mechanics</div><div class="course-item">Structure of Universe</div><div class="course-item">Quantum Mechanics</div><div class="course-item">Mathematical Methods</div><div class="course-item">Physics Practical IV</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester I (2021/2022)</h5><div class="course-list"><div class="course-item">Data Analytics Principles</div><div class="course-item">Sustainability</div><div class="course-item">Atomic & Nuclear Physics</div><div class="course-item">Solid State Physics I</div><div class="course-item">Statistical Mechanics</div><div class="course-item">Physics Project</div><div class="course-item">Radiation Biophysics</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester II (2021/2022)</h5><div class="course-list"><div class="course-item">English Poetry</div><div class="course-item">Malaysian Studies</div><div class="course-item">Electricity & Magnetism</div><div class="course-item">Solid State Physics II</div><div class="course-item">Physics Project</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester I (2022/2023)</h5><div class="course-list"><div class="course-item">Public Speaking</div><div class="course-item">AI Literacy</div><div class="course-item">Introduction to Astronomy</div><div class="course-item">Principles in Astronomy</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester II (2022/2023)</h5><div class="course-list"><div class="course-item">Spoken English</div><div class="course-item">Laser Applications</div><div class="course-item">Non-Destructive Testing</div><div class="course-item">Radio Astronomy</div></div></div>
                 </div>
             </div>
 
@@ -1025,39 +347,24 @@
                         <p class="education-location">Machine Learning in Astrophysics</p>
                     </div>
                 </div>
-                <div class="education-meta">
-                    <div class="meta-badge">Jul – Dec 2021</div>
-                    <div class="meta-badge">Machine Learning</div>
-                    <div class="meta-badge">Astrophysics</div>
-                </div>
+                <div class="education-meta"><div class="meta-badge">Jul – Dec 2021</div><div class="meta-badge">Machine Learning</div><div class="meta-badge">Astrophysics</div></div>
                 <div class="thesis-section">
                     <h4 class="section-title">Research Project</h4>
                     <p class="thesis-title">Photometric Redshifts using Gaussian Processes: Tested machine learning methods for photometric redshift estimation from astronomical survey data</p>
-                    <p class="thesis-supervisor"><strong>Supervisor:</strong> <a href="https://www.tonima-ananna.com/" target="_blank" style="color: #e8dcc4; text-decoration: underline; text-decoration-color: #e8dcc4; text-underline-offset: 2px; transition: all 0.3s ease;">Dr. Tonima Tasnim Ananna</a></p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" style="display: inline-block; padding: 0.6rem 1.2rem; background: rgba(201, 169, 97, 0.15); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px; color: #c9a961; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">📂 View Project on GitHub</a>
-                    </div>
+                    <p class="thesis-supervisor"><strong>Supervisor:</strong> <a href="https://www.tonima-ananna.com/" target="_blank" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:all 0.3s ease;">Dr. Tonima Tasnim Ananna</a></p>
+                    <div style="margin-top:1rem;"><a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" style="display:inline-block;padding:0.6rem 1.2rem;background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.3);border-radius:8px;color:#c9a961;text-decoration:none;font-size:0.9rem;transition:all 0.3s ease;">📂 View Project on GitHub</a></div>
                 </div>
-                <div style="margin-top: 1.5rem;">
+                <div style="margin-top:1.5rem;">
                     <h4 class="section-title">Key Outcomes</h4>
-                    <div class="achievements-grid" style="grid-template-columns: 1fr;">
-                        <div class="achievement-item">
-                            <div class="achievement-icon"></div>
-                            <div class="achievement-text">Applied Gaussian Processes for astronomical data analysis</div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-icon"></div>
-                            <div class="achievement-text">Developed ML models for photometric redshift estimation</div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-icon"></div>
-                            <div class="achievement-text">Worked with astronomical survey data and observations</div>
-                        </div>
+                    <div class="achievements-grid" style="grid-template-columns:1fr;">
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Applied Gaussian Processes for astronomical data analysis</div></div>
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Developed ML models for photometric redshift estimation</div></div>
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Worked with astronomical survey data and observations</div></div>
                     </div>
                 </div>
             </div>
 
-            <div class="internship-section" style="grid-column: 7 / -1;">
+            <div class="internship-section" style="grid-column:7 / -1;">
                 <div class="education-header">
                     <div class="education-icon">🌟</div>
                     <div class="education-content">
@@ -1066,32 +373,18 @@
                         <p class="education-location">Member & Active Participant</p>
                     </div>
                 </div>
-                <div class="education-meta">
-                    <div class="meta-badge">Exco: 2019 - 2020</div>
-                    <div class="meta-badge">Member: 2019 - Present</div>
-                    <div class="meta-badge">Leadership</div>
-                    <div class="meta-badge">Outreach</div>
-                </div>
-                <div style="margin-top: 1.5rem;">
+                <div class="education-meta"><div class="meta-badge">Exco: 2019 - 2020</div><div class="meta-badge">Member: 2019 - Present</div><div class="meta-badge">Leadership</div><div class="meta-badge">Outreach</div></div>
+                <div style="margin-top:1.5rem;">
                     <h4 class="section-title">Contributions & Activities</h4>
-                    <div class="achievements-grid" style="grid-template-columns: 1fr;">
-                        <div class="achievement-item">
-                            <div class="achievement-icon"></div>
-                            <div class="achievement-text">Represented and coordinated activities among students from over 10 nationalities, fostering inclusivity and cross-cultural collaboration</div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-icon"></div>
-                            <div class="achievement-text">Actively participated in stargazing sessions, public outreach programs, workshops, and valuable training sessions</div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-icon"></div>
-                            <div class="achievement-text">Attended Physics colloquia, workshops, coffee talks, and various engaging activities as part of the community</div>
-                        </div>
+                    <div class="achievements-grid" style="grid-template-columns:1fr;">
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Represented and coordinated activities among students from over 10 nationalities, fostering inclusivity and cross-cultural collaboration</div></div>
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Actively participated in stargazing sessions, public outreach programs, workshops, and valuable training sessions</div></div>
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Attended Physics colloquia, workshops, coffee talks, and various engaging activities as part of the community</div></div>
                     </div>
                 </div>
             </div>
 
-            <div class="future-section" style="grid-column: 1 / -1;">
+            <div class="future-section" style="grid-column:1 / -1;">
                 <div class="future-header">
                     <div class="education-icon">⚛️</div>
                     <div class="future-title-group">
@@ -1099,10 +392,7 @@
                         <p class="education-university">PhD Aspirant in Astrophysics and Cosmology</p>
                     </div>
                 </div>
-                <div class="education-meta">
-                    <div class="meta-badge">Upcoming</div>
-                    <div class="meta-badge">Planning Phase</div>
-                </div>
+                <div class="education-meta"><div class="meta-badge">Upcoming</div><div class="meta-badge">Planning Phase</div></div>
                 <div class="future-description">
                     <p>Currently exploring opportunities for graduate studies in Physics and Astronomy. Research interests include Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter & Dark Energy, High-Energy Astrophysics, Galaxy Evolution & Dynamics, and Astrostatistics with Machine Learning.</p>
                 </div>
@@ -1112,9 +402,7 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-left">
-                <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
-            </div>
+            <div class="footer-left"><p>&copy; 2026 Adrita Khan. All rights reserved.</p></div>
         </div>
     </footer>
 </body>
