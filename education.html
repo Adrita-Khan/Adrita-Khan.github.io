@@ -49,6 +49,99 @@
         .star:nth-child(48) { top: 12%; right: 52%; } .star:nth-child(49) { top: 75%; right: 8%; }
         .star:nth-child(50) { top: 35%; left: 82%; }
 
+        /* ── Side Navigation Arrows ── */
+        .side-nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            text-decoration: none;
+            color: #c9a961;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .side-nav-arrow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .side-nav-arrow:hover::before { opacity: 1; }
+
+        .side-nav-arrow svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .side-nav-label {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            opacity: 0.75;
+            transition: opacity 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-nav-arrow:hover .side-nav-label { opacity: 1; }
+
+        /* Left arrow — prev page */
+        .side-nav-left {
+            left: 0;
+            border-right: none;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 14px 14px 10px;
+        }
+
+        .side-nav-left:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-left: 14px;
+            color: #d4b56d;
+            box-shadow: 6px 0 30px rgba(201, 169, 97, 0.2), 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-left:hover svg { transform: translateX(-3px); }
+
+        /* Right arrow — next page */
+        .side-nav-right {
+            right: 0;
+            border-left: none;
+            border-radius: 12px 0 0 12px;
+            padding: 18px 10px 14px 14px;
+        }
+
+        .side-nav-right:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-right: 14px;
+            color: #d4b56d;
+            box-shadow: -6px 0 30px rgba(201, 169, 97, 0.2), -2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-right:hover svg { transform: translateX(3px); }
+
+        @media (max-width: 640px) {
+            .side-nav-left { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
+            .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
+            .side-nav-label { font-size: 8px; }
+        }
+
         #quick-links {
             position: relative; z-index: 10;
             background: rgba(10,14,20,0.6); backdrop-filter: blur(10px);
@@ -78,7 +171,6 @@
 
         .hero-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; gap: 0; }
 
-        /* Image + text side by side — same as original */
         .profile-card { display: flex; align-items: center; gap: 2rem; position: relative; margin-top: 0; }
 
         .profile-image {
@@ -88,7 +180,6 @@
         }
         .profile-image:hover { transform: scale(1.05); border-color: rgba(201,169,97,0.6); box-shadow: 0 15px 50px rgba(201,169,97,0.4); }
 
-        /* Text block: centered alignment */
         .profile-text-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
 
         .page-title-right { text-align: center; width: 100%; }
@@ -97,7 +188,6 @@
             position: relative; display: inline-block; line-height: 1.2;
             margin: 0; padding-bottom: 0.5rem; overflow: hidden;
         }
-        /* Centered underline */
         .page-title-right h1::after {
             content: ''; position: absolute; bottom: 0;
             left: 50%; transform: translateX(-50%);
@@ -217,6 +307,22 @@
         <div class="star medium"></div><div class="star small"></div><div class="star large"></div>
         <div class="star medium"></div><div class="star small"></div>
     </div>
+
+    <!-- Left arrow: back to Home -->
+    <a href="index.html" class="side-nav-arrow side-nav-left" title="Previous: Home" aria-label="Go to Home page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Home</span>
+    </a>
+
+    <!-- Right arrow: forward to Publications -->
+    <a href="publications.html" class="side-nav-arrow side-nav-right" title="Next: Publications" aria-label="Go to Publications page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Publications</span>
+    </a>
 
     <section id="quick-links">
         <div class="nav-container">
