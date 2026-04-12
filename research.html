@@ -19,6 +19,97 @@
             line-height: 1.6;
         }
 
+        /* ── Side Navigation Arrows ── */
+        .side-nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            text-decoration: none;
+            color: #c9a961;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .side-nav-arrow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .side-nav-arrow:hover::before { opacity: 1; }
+
+        .side-nav-arrow svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .side-nav-label {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            opacity: 0.75;
+            transition: opacity 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-nav-arrow:hover .side-nav-label { opacity: 1; }
+
+        .side-nav-left {
+            left: 0;
+            border-right: none;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 14px 14px 10px;
+        }
+
+        .side-nav-left:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-left: 14px;
+            color: #d4b56d;
+            box-shadow: 6px 0 30px rgba(201, 169, 97, 0.2), 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-left:hover svg { transform: translateX(-3px); }
+
+        .side-nav-right {
+            right: 0;
+            border-left: none;
+            border-radius: 12px 0 0 12px;
+            padding: 18px 10px 14px 14px;
+        }
+
+        .side-nav-right:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-right: 14px;
+            color: #d4b56d;
+            box-shadow: -6px 0 30px rgba(201, 169, 97, 0.2), -2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-right:hover svg { transform: translateX(3px); }
+
+        @media (max-width: 640px) {
+            .side-nav-left { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
+            .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
+            .side-nav-label { font-size: 8px; }
+        }
+
         /* Main Container */
         .container {
             max-width: 1000px;
@@ -239,58 +330,23 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 1.5rem 1rem;
-            }
-
-            .research-intro,
-            .research-item {
-                padding: 1.2rem;
-            }
-
-            .research-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .research-title {
-                font-size: 1.3rem;
-            }
+            .section-title { font-size: 2rem; }
+            .container { padding: 1.5rem 1rem; }
+            .research-intro, .research-item { padding: 1.2rem; }
+            .research-header { flex-direction: column; text-align: center; }
+            .research-title { font-size: 1.3rem; }
         }
 
         /* Special styling for different research types */
-        .research-item[data-type="interference"] .research-icon {
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
-        }
-
-        .research-item[data-type="classifier"] .research-icon {
-            background: linear-gradient(135deg, #c9a961, #d4b56d);
-        }
-
-        .research-item[data-type="gravity"] .research-icon {
-            background: linear-gradient(135deg, #b89d55, #c9a961);
-        }
-
-        .research-item[data-type="jets"] .research-icon {
-            background: linear-gradient(135deg, #d4b56d, #e8c484);
-        }
-
-        .research-item[data-type="grb"] .research-icon {
-            background: linear-gradient(135deg, #c9a961, #d9b875);
-        }
-
-        .research-item[data-type="paper"] .research-icon {
-            background: linear-gradient(135deg, #c9a961, #b89d55);
-        }
+        .research-item[data-type="interference"] .research-icon { background: linear-gradient(135deg, #c9a961, #d4b56d); }
+        .research-item[data-type="classifier"] .research-icon { background: linear-gradient(135deg, #c9a961, #d4b56d); }
+        .research-item[data-type="gravity"] .research-icon { background: linear-gradient(135deg, #b89d55, #c9a961); }
+        .research-item[data-type="jets"] .research-icon { background: linear-gradient(135deg, #d4b56d, #e8c484); }
+        .research-item[data-type="grb"] .research-icon { background: linear-gradient(135deg, #c9a961, #d9b875); }
+        .research-item[data-type="paper"] .research-icon { background: linear-gradient(135deg, #c9a961, #b89d55); }
 
         /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         /* Navigation Styles */
         #quick-links {
@@ -346,7 +402,6 @@
             box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
 
-        /* Color coding */
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -377,255 +432,240 @@
             gap: 1rem;
         }
 
-        .footer-left {
-            text-align: center;
-        }
-
-        .footer-left p {
-            color: #b8c5d0;
-            font-size: 0.88rem;
-        }
+        .footer-left { text-align: center; }
+        .footer-left p { color: #b8c5d0; font-size: 0.88rem; }
 
         @media (max-width: 768px) {
-            footer {
-                padding: 1.2rem 0;
-                margin-top: 1.5rem;
-            }
-
-            .footer-content {
-                padding: 0 1rem;
-            }
+            footer { padding: 1.2rem 0; margin-top: 1.5rem; }
+            .footer-content { padding: 0 1rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Left arrow: back to Publications -->
+    <a href="publications.html" class="side-nav-arrow side-nav-left" title="Previous: Publications" aria-label="Go to Publications page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Publications</span>
+    </a>
+
+    <!-- Right arrow: forward to Projects -->
+    <a href="projects.html" class="side-nav-arrow side-nav-right" title="Next: Projects" aria-label="Go to Projects page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Projects</span>
+    </a>
+
     <!-- Quick Links Navigation -->
     <section id="quick-links">
         <div class="nav-container">
-          <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="academic_experience.html">Academic Experience</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="notes.html">Study Notes</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </section>
 
-<!-- Research Section -->
-<div class="container">
-    <h2 class="section-title">Ongoing Research</h2>
-    
-    <div class="research-intro">
-        <p>My research focuses on the intersection of observation, computation, and theory. My current and ongoing research projects are:</p>
-    </div>
+    <!-- Research Section -->
+    <div class="container">
+        <h2 class="section-title">Ongoing Research</h2>
 
-    <ul class="research-list">
-        <li class="research-item" data-type="gravity">
-            <div class="research-header">
-                <div class="research-icon">R1</div>
-                <div>
-                    <h3 class="research-title">Modified Gravity with Cross-Correlation</h3>
-                    <p class="research-description">Testing Modified Gravity theories via galaxy clustering and CMB lensing data</p>
-                </div>
-            </div>
-            <p class="research-description">
-                This project forecasts signatures of modified gravity (including f(R) and DGP gravity) using cross-correlation analyses between galaxy clustering and CMB lensing. Incorporates simulation and survey specifications (LSST/DESC, Simons Observatory), Fisher matrix forecasting, MCMC parameter inference, and fast emulators for theoretical predictions.
-            </p>
-            <p class="research-supervisors">
-                <strong>Supervisors:</strong> <a href="https://tanveerkarim.com/" target="_blank">Dr. Tanveer Karim</a>; <a href="https://astrophysics.uchicago.edu/people/profile/georgios-valogiannis/" target="_blank">Dr. Georgios Valogiannis</a>
-            </p>
-            <div class="research-keywords">
-                <span class="keyword-tag">Modified Gravity</span>
-                <span class="keyword-tag">CMB Lensing</span>
-                <span class="keyword-tag">Galaxy Clustering</span>
-                <span class="keyword-tag">Fisher Matrix</span>
-                <span class="keyword-tag">MCMC</span>
-                <span class="keyword-tag">Large-Scale Structure</span>
-                <span class="keyword-tag">Cosmology</span>
-            </div>
-            <div style="margin-top: 1rem;">
-            <a href="https://github.com/Adrita-Khan/Modified-Gravity" target="_blank" class="research-link">
-                GitHub Repo 
-            </a>
-            </div>
-        </li>
-
-        <li class="research-item" data-type="jets">
-            <div class="research-header">
-                <div class="research-icon">R2</div>
-                <div>
-                    <h3 class="research-title">Interaction Feature Guided Jet Tagging (E-PCN)</h3>
-                    <p class="research-description">Machine Learning for High-Energy Physics Jet Classification</p>
-                </div>
-            </div>
-            <p class="research-description">
-                The Jet-Tagging-Experiments repository develops an explainable Particle Chebyshev Network that uses physics-motivated interaction features (ln Δ, ln kT, ln z, ln m²) to classify jets on CERN Open Data (JetClass), advancing QCD-informed machine learning for particle physics.
-            </p>
-            <p class="research-supervisors">
-                <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>; <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/aminali" target="_blank">Dr. Amin Ahsan Ali</a>; <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
-            </p>
-            <div class="research-keywords">
-                <span class="keyword-tag">Jet Tagging</span>
-                <span class="keyword-tag">Graph Neural Networks</span>
-                <span class="keyword-tag">High-Energy Physics</span>
-                <span class="keyword-tag">QCD</span>
-                <span class="keyword-tag">CERN Open Data</span>
-                <span class="keyword-tag">Explainable AI</span>
-            </div>
-            <div style="margin-top: 1rem;">
-            <a href="https://github.com/Adrita-Khan/Jet-Tagging-Experiments" target="_blank" class="research-link">
-                GitHub Repo 
-            </a>
-            </div>
-        </li>
-
-        <li class="research-item" data-type="paper">
-            <div class="research-header">
-                <div class="research-icon">R3</div>
-                <div>
-                    <h3 class="research-title">PINNs for Stochastic Inflation</h3>
-                    <p class="research-description">Physics-Informed Neural Networks for Cosmological Inflation (Exploratory Work)</p>
-                </div>
-            </div>
-            <p class="research-description">
-                Explores the application of Physics-Informed Neural Networks (PINNs) to model stochastic inflation in early universe cosmology. This exploratory work investigates how machine learning techniques can be integrated with physical constraints to solve differential equations governing inflationary dynamics.
-            </p>
-            <p class="research-supervisors">
-                <strong>Supervisor:</strong> <a href="https://inspirehep.net/authors/1622353" target="_blank">Dr. Rafid Mahbub</a>
-            </p>
-            <div class="research-keywords">
-                <span class="keyword-tag">PINNs</span>
-                <span class="keyword-tag">Stochastic Inflation</span>
-                <span class="keyword-tag">Early Universe Cosmology</span>
-                <span class="keyword-tag">Neural Networks</span>
-                <span class="keyword-tag">Differential Equations</span>
-            </div>
-            <div style="margin-top: 1rem;">
-            <a href="https://github.com/Adrita-Khan/pinns-stochastic-inflation" target="_blank" class="research-link">
-                GitHub Repo 
-            </a>
-            </div>
-        </li>
-
-        <li class="research-item" data-type="grb">
-            <div class="research-header">
-                <div class="research-icon">R4</div>
-                <div>
-                    <h3 class="research-title">Gamma-Ray Burst ML (GRB-ML)</h3>
-                    <p class="research-description">Machine Learning for GRB Data & Redshift Estimation</p>
-                </div>
-            </div>
-            <p class="research-description">
-                Contains tools and experiments focused on using machine learning to estimate redshifts and classify gamma-ray bursts using Fermi and other astrophysical data. Explores advanced algorithms and astrophysical feature engineering for transient phenomena.
-            </p>
-            <p class="research-supervisors">
-                <strong>Supervisors:</strong> <a href="https://www.uj.ac.za/members/soebur-razzaque/" target="_blank">Dr. Soebur Razzaque</a>; <a href="https://www.uj.ac.za/members/prof-saeeda-sajjad/" target="_blank">Dr. Saeeda Sajjad</a>
-            </p>
-            <div class="research-keywords">
-                <span class="keyword-tag">Gamma-Ray Bursts</span>
-                <span class="keyword-tag">Redshift Estimation</span>
-                <span class="keyword-tag">Machine Learning</span>
-                <span class="keyword-tag">Fermi Data</span>
-                <span class="keyword-tag">Transient Astrophysics</span>
-                <span class="keyword-tag">Feature Engineering</span>
-            </div>
-            <div style="margin-top: 1rem;">
-            <a href="https://github.com/Adrita-Khan/GRB-ML" target="_blank" class="research-link">
-                GitHub Repo 
-            </a>
-            </div>
-        </li>
-
-        <li class="research-item" data-type="classifier">
-            <div class="research-header">
-                <div class="research-icon">R5</div>
-                <div>
-                    <h3 class="research-title">RGC</h3>
-                    <p class="research-description">Radha Gobinda Chandra, a Radio Galaxy Classifier</p>
-                </div>
-            </div>
-            <p class="research-description">
-                An advanced machine learning-based classifier designed to identify and categorize radio galaxies from astronomical survey data. This tool leverages deep learning techniques to automatically classify different types of radio sources, significantly improving the efficiency of radio astronomy research.
-            </p>
-            <p class="research-supervisors">
-                <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/kasad" target="_blank">Dr. Khan Muhammad Bin Asad</a>, <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>; <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/aminali" target="_blank">Dr. Amin Ahsan Ali</a>, <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
-            </p>
-            <div class="research-keywords">
-                <span class="keyword-tag">Radio Astronomy</span>
-                <span class="keyword-tag">Deep Learning</span>
-                <span class="keyword-tag">Galaxy Classification</span>
-                <span class="keyword-tag">AGN</span>
-                <span class="keyword-tag">Survey Data</span>
-                <span class="keyword-tag">Computer Vision</span>
-            </div>
-            <div style="margin-top: 1rem;">
-            <a href="https://cassa.site/entry/p2023001/" target="_blank" class="research-link">
-                Explore
-            </a>
-            </div>
-        </li>
-
-        <li class="research-item" data-type="interference">
-            <div class="research-header">
-                <div class="research-icon">R6</div>
-                <div>
-                    <h3 class="research-title">RiFInE</h3>
-                    <p class="research-description">Radio Frequency Interference Identification and Elimination</p>
-                </div>
-            </div>
-            <p class="research-description">
-                This research is on identifying and eliminating radio frequency interference in astronomical observations. It addresses one of the most critical challenges in radio astronomy, where interference from human-made sources can significantly impact the quality of astronomical data.
-            </p>
-            <p class="research-supervisors">
-                <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/kasad" target="_blank">Dr. Khan Muhammad Bin Asad</a>, <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>, <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
-            </p>
-            <div class="research-keywords">
-                <span class="keyword-tag">RFI Mitigation</span>
-                <span class="keyword-tag">Radio Astronomy</span>
-                <span class="keyword-tag">Signal Processing</span>
-                <span class="keyword-tag">Interference Detection</span>
-                <span class="keyword-tag">Data Quality</span>
-            </div>
-            <div style="margin-top: 1rem;">
-            <a href="https://cassa.site/entry/rifine/" target="_blank" class="research-link">
-                Read more
-            </a>
-            <a href="https://github.com/Adrita-Khan/RFI_Mitigation_Review" target="_blank" class="research-link">
-                GitHub Repo 
-            </a>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-left">
-            <p>&copy; 2026 Adrita Khan. All rights reserved.</p> 
+        <div class="research-intro">
+            <p>My research focuses on the intersection of observation, computation, and theory. My current and ongoing research projects are:</p>
         </div>
-    </div>
-</footer>
 
-<script>
-    // Add smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+        <ul class="research-list">
+            <li class="research-item" data-type="gravity">
+                <div class="research-header">
+                    <div class="research-icon">R1</div>
+                    <div>
+                        <h3 class="research-title">Modified Gravity with Cross-Correlation</h3>
+                        <p class="research-description">Testing Modified Gravity theories via galaxy clustering and CMB lensing data</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    This project forecasts signatures of modified gravity (including f(R) and DGP gravity) using cross-correlation analyses between galaxy clustering and CMB lensing. Incorporates simulation and survey specifications (LSST/DESC, Simons Observatory), Fisher matrix forecasting, MCMC parameter inference, and fast emulators for theoretical predictions.
+                </p>
+                <p class="research-supervisors">
+                    <strong>Supervisors:</strong> <a href="https://tanveerkarim.com/" target="_blank">Dr. Tanveer Karim</a>; <a href="https://astrophysics.uchicago.edu/people/profile/georgios-valogiannis/" target="_blank">Dr. Georgios Valogiannis</a>
+                </p>
+                <div class="research-keywords">
+                    <span class="keyword-tag">Modified Gravity</span>
+                    <span class="keyword-tag">CMB Lensing</span>
+                    <span class="keyword-tag">Galaxy Clustering</span>
+                    <span class="keyword-tag">Fisher Matrix</span>
+                    <span class="keyword-tag">MCMC</span>
+                    <span class="keyword-tag">Large-Scale Structure</span>
+                    <span class="keyword-tag">Cosmology</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://github.com/Adrita-Khan/Modified-Gravity" target="_blank" class="research-link">GitHub Repo</a>
+                </div>
+            </li>
+
+            <li class="research-item" data-type="jets">
+                <div class="research-header">
+                    <div class="research-icon">R2</div>
+                    <div>
+                        <h3 class="research-title">Interaction Feature Guided Jet Tagging (E-PCN)</h3>
+                        <p class="research-description">Machine Learning for High-Energy Physics Jet Classification</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    The Jet-Tagging-Experiments repository develops an explainable Particle Chebyshev Network that uses physics-motivated interaction features (ln Δ, ln kT, ln z, ln m²) to classify jets on CERN Open Data (JetClass), advancing QCD-informed machine learning for particle physics.
+                </p>
+                <p class="research-supervisors">
+                    <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>; <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/aminali" target="_blank">Dr. Amin Ahsan Ali</a>; <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
+                </p>
+                <div class="research-keywords">
+                    <span class="keyword-tag">Jet Tagging</span>
+                    <span class="keyword-tag">Graph Neural Networks</span>
+                    <span class="keyword-tag">High-Energy Physics</span>
+                    <span class="keyword-tag">QCD</span>
+                    <span class="keyword-tag">CERN Open Data</span>
+                    <span class="keyword-tag">Explainable AI</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://github.com/Adrita-Khan/Jet-Tagging-Experiments" target="_blank" class="research-link">GitHub Repo</a>
+                </div>
+            </li>
+
+            <li class="research-item" data-type="paper">
+                <div class="research-header">
+                    <div class="research-icon">R3</div>
+                    <div>
+                        <h3 class="research-title">PINNs for Stochastic Inflation</h3>
+                        <p class="research-description">Physics-Informed Neural Networks for Cosmological Inflation (Exploratory Work)</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    Explores the application of Physics-Informed Neural Networks (PINNs) to model stochastic inflation in early universe cosmology. This exploratory work investigates how machine learning techniques can be integrated with physical constraints to solve differential equations governing inflationary dynamics.
+                </p>
+                <p class="research-supervisors">
+                    <strong>Supervisor:</strong> <a href="https://inspirehep.net/authors/1622353" target="_blank">Dr. Rafid Mahbub</a>
+                </p>
+                <div class="research-keywords">
+                    <span class="keyword-tag">PINNs</span>
+                    <span class="keyword-tag">Stochastic Inflation</span>
+                    <span class="keyword-tag">Early Universe Cosmology</span>
+                    <span class="keyword-tag">Neural Networks</span>
+                    <span class="keyword-tag">Differential Equations</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://github.com/Adrita-Khan/pinns-stochastic-inflation" target="_blank" class="research-link">GitHub Repo</a>
+                </div>
+            </li>
+
+            <li class="research-item" data-type="grb">
+                <div class="research-header">
+                    <div class="research-icon">R4</div>
+                    <div>
+                        <h3 class="research-title">Gamma-Ray Burst ML (GRB-ML)</h3>
+                        <p class="research-description">Machine Learning for GRB Data & Redshift Estimation</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    Contains tools and experiments focused on using machine learning to estimate redshifts and classify gamma-ray bursts using Fermi and other astrophysical data. Explores advanced algorithms and astrophysical feature engineering for transient phenomena.
+                </p>
+                <p class="research-supervisors">
+                    <strong>Supervisors:</strong> <a href="https://www.uj.ac.za/members/soebur-razzaque/" target="_blank">Dr. Soebur Razzaque</a>; <a href="https://www.uj.ac.za/members/prof-saeeda-sajjad/" target="_blank">Dr. Saeeda Sajjad</a>
+                </p>
+                <div class="research-keywords">
+                    <span class="keyword-tag">Gamma-Ray Bursts</span>
+                    <span class="keyword-tag">Redshift Estimation</span>
+                    <span class="keyword-tag">Machine Learning</span>
+                    <span class="keyword-tag">Fermi Data</span>
+                    <span class="keyword-tag">Transient Astrophysics</span>
+                    <span class="keyword-tag">Feature Engineering</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://github.com/Adrita-Khan/GRB-ML" target="_blank" class="research-link">GitHub Repo</a>
+                </div>
+            </li>
+
+            <li class="research-item" data-type="classifier">
+                <div class="research-header">
+                    <div class="research-icon">R5</div>
+                    <div>
+                        <h3 class="research-title">RGC</h3>
+                        <p class="research-description">Radha Gobinda Chandra, a Radio Galaxy Classifier</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    An advanced machine learning-based classifier designed to identify and categorize radio galaxies from astronomical survey data. This tool leverages deep learning techniques to automatically classify different types of radio sources, significantly improving the efficiency of radio astronomy research.
+                </p>
+                <p class="research-supervisors">
+                    <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/kasad" target="_blank">Dr. Khan Muhammad Bin Asad</a>, <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>; <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/aminali" target="_blank">Dr. Amin Ahsan Ali</a>, <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
+                </p>
+                <div class="research-keywords">
+                    <span class="keyword-tag">Radio Astronomy</span>
+                    <span class="keyword-tag">Deep Learning</span>
+                    <span class="keyword-tag">Galaxy Classification</span>
+                    <span class="keyword-tag">AGN</span>
+                    <span class="keyword-tag">Survey Data</span>
+                    <span class="keyword-tag">Computer Vision</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://cassa.site/entry/p2023001/" target="_blank" class="research-link">Explore</a>
+                </div>
+            </li>
+
+            <li class="research-item" data-type="interference">
+                <div class="research-header">
+                    <div class="research-icon">R6</div>
+                    <div>
+                        <h3 class="research-title">RiFInE</h3>
+                        <p class="research-description">Radio Frequency Interference Identification and Elimination</p>
+                    </div>
+                </div>
+                <p class="research-description">
+                    This research is on identifying and eliminating radio frequency interference in astronomical observations. It addresses one of the most critical challenges in radio astronomy, where interference from human-made sources can significantly impact the quality of astronomical data.
+                </p>
+                <p class="research-supervisors">
+                    <strong>Supervisors:</strong> <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/kasad" target="_blank">Dr. Khan Muhammad Bin Asad</a>, <a href="https://iub.ac.bd/academics/departments/cse/faculty-and-staff/akmmrahman" target="_blank">Dr. AKM Mahbubur Rahman</a>, <a href="https://iub.ac.bd/academics/departments/ps/faculty-and-staff/arshad" target="_blank">Dr. Arshad Momen (PI)</a>
+                </p>
+                <div class="research-keywords">
+                    <span class="keyword-tag">RFI Mitigation</span>
+                    <span class="keyword-tag">Radio Astronomy</span>
+                    <span class="keyword-tag">Signal Processing</span>
+                    <span class="keyword-tag">Interference Detection</span>
+                    <span class="keyword-tag">Data Quality</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://cassa.site/entry/rifine/" target="_blank" class="research-link">Read more</a>
+                    <a href="https://github.com/Adrita-Khan/RFI_Mitigation_Review" target="_blank" class="research-link">GitHub Repo</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
