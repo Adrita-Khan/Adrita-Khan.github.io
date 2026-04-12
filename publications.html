@@ -19,6 +19,99 @@
             line-height: 1.6;
         }
 
+        /* ── Side Navigation Arrows ── */
+        .side-nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            text-decoration: none;
+            color: #c9a961;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .side-nav-arrow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .side-nav-arrow:hover::before { opacity: 1; }
+
+        .side-nav-arrow svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .side-nav-label {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            opacity: 0.75;
+            transition: opacity 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-nav-arrow:hover .side-nav-label { opacity: 1; }
+
+        /* Left arrow */
+        .side-nav-left {
+            left: 0;
+            border-right: none;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 14px 14px 10px;
+        }
+
+        .side-nav-left:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-left: 14px;
+            color: #d4b56d;
+            box-shadow: 6px 0 30px rgba(201, 169, 97, 0.2), 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-left:hover svg { transform: translateX(-3px); }
+
+        /* Right arrow */
+        .side-nav-right {
+            right: 0;
+            border-left: none;
+            border-radius: 12px 0 0 12px;
+            padding: 18px 10px 14px 14px;
+        }
+
+        .side-nav-right:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-right: 14px;
+            color: #d4b56d;
+            box-shadow: -6px 0 30px rgba(201, 169, 97, 0.2), -2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-right:hover svg { transform: translateX(3px); }
+
+        @media (max-width: 640px) {
+            .side-nav-left { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
+            .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
+            .side-nav-label { font-size: 8px; }
+        }
+
         /* Main Container */
         .container {
             max-width: 1000px;
@@ -409,45 +502,15 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 1.5rem 1rem;
-            }
-
-            .filter-section {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box {
-                min-width: auto;
-                width: 100%;
-            }
-
-            .publication-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .publication-actions {
-                flex-direction: column;
-            }
-
-            .stats-section {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            footer {
-                padding: 1.2rem 0;
-                margin-top: 1.5rem;
-            }
-
-            .footer-content {
-                padding: 0 1rem;
-            }
+            .section-title { font-size: 2rem; }
+            .container { padding: 1.5rem 1rem; }
+            .filter-section { flex-direction: column; align-items: stretch; }
+            .search-box { min-width: auto; width: 100%; }
+            .publication-header { flex-direction: column; text-align: center; }
+            .publication-actions { flex-direction: column; }
+            .stats-section { grid-template-columns: repeat(2, 1fr); }
+            footer { padding: 1.2rem 0; margin-top: 1.5rem; }
+            .footer-content { padding: 0 1rem; }
         }
 
         /* No results message */
@@ -465,9 +528,7 @@
         }
 
         /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         /* Navigation Styles */
         #quick-links {
@@ -523,7 +584,6 @@
             box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
 
-        /* Color coding */
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -554,113 +614,97 @@
             gap: 1rem;
         }
 
-        .footer-left {
-            text-align: center;
-        }
-
-        .footer-left p {
-            color: #b8c5d0;
-            font-size: 0.88rem;
-        }
+        .footer-left { text-align: center; }
+        .footer-left p { color: #b8c5d0; font-size: 0.88rem; }
     </style>
 </head>
 <body>
 
+    <!-- Left arrow: back to Education -->
+    <a href="education.html" class="side-nav-arrow side-nav-left" title="Previous: Education" aria-label="Go to Education page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Education</span>
+    </a>
+
+    <!-- Right arrow: forward to Research -->
+    <a href="research.html" class="side-nav-arrow side-nav-right" title="Next: Research" aria-label="Go to Research page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Research</span>
+    </a>
+
     <!-- Quick Links Navigation -->
     <section id="quick-links">
         <div class="nav-container">
-          <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="academic_experience.html">Academic Experience</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="notes.html">Study Notes</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </section>
 
-<!-- Publications Section -->
-<div class="container">
-    <h2 class="section-title">Publications</h2>
-    
-    <!-- Publications List -->
-    <div class="publications-list" id="publicationsList">
-        
-        <!-- Publication 1: ICIP 2025 -->
-        <div class="publication-card" data-type="conference" data-year="2025" data-keywords="bent radio agn dataset machine learning deep learning radio astronomy classification nat wat">
-            <div class="publication-header">
-                <div class="publication-icon">P1</div>
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank">RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification</a>
-                    </h3>
-                    <p class="publication-authors">
-                        <strong>Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman
-                    </p>
-                    <p class="publication-journal">2025 IEEE International Conference on Image Processing, IEEE ICIP 2025, Anchorage Alaska, USA</p>
-                    <div class="publication-meta">
-                        <span class="meta-item">
-                            <span>Conference:</span>
-                            <span>14-17 September 2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Added to IEEE Xplore:</span>
-                            <span>18 August 2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>DOI:</span>
-                            <span><a href="https://doi.org/10.1109/ICIP55913.2025.11084387" target="_blank" style="color: #c9a961; text-decoration: none;">10.1109/ICIP55913.2025.11084387</a></span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Publisher:</span>
-                            <span>IEEE</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Location:</span>
-                            <span>Anchorage, AK, USA</span>
-                        </span>
+    <!-- Publications Section -->
+    <div class="container">
+        <h2 class="section-title">Publications</h2>
+
+        <!-- Publications List -->
+        <div class="publications-list" id="publicationsList">
+
+            <!-- Publication 1: ICIP 2025 -->
+            <div class="publication-card" data-type="conference" data-year="2025" data-keywords="bent radio agn dataset machine learning deep learning radio astronomy classification nat wat">
+                <div class="publication-header">
+                    <div class="publication-icon">P1</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank">RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification</a>
+                        </h3>
+                        <p class="publication-authors">
+                            <strong>Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman
+                        </p>
+                        <p class="publication-journal">2025 IEEE International Conference on Image Processing, IEEE ICIP 2025, Anchorage Alaska, USA</p>
+                        <div class="publication-meta">
+                            <span class="meta-item"><span>Conference:</span><span>14-17 September 2025</span></span>
+                            <span class="meta-item"><span>Added to IEEE Xplore:</span><span>18 August 2025</span></span>
+                            <span class="meta-item"><span>DOI:</span><span><a href="https://doi.org/10.1109/ICIP55913.2025.11084387" target="_blank" style="color: #c9a961; text-decoration: none;">10.1109/ICIP55913.2025.11084387</a></span></span>
+                            <span class="meta-item"><span>Publisher:</span><span>IEEE</span></span>
+                            <span class="meta-item"><span>Location:</span><span>Anchorage, AK, USA</span></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="publication-tags">
-                <span class="tag">Radio Astronomy</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Deep Learning</span>
-                <span class="tag">Dataset</span>
-                <span class="tag">AGN Classification</span>
-            </div>
-            <div class="publication-actions">
-                <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="action-btn">
-                    <span>IEEE Xplore</span>
-                </a>
-                <a href="https://arxiv.org/pdf/2505.19249" target="_blank" class="action-btn">
-                    <span>arXiv PDF</span>
-                </a>
-                <a href="https://www.researchgate.net/publication/394896407_RGC-Bent_A_Novel_Dataset_for_Bent_Radio_Galaxy_Classification" target="_blank" class="action-btn">
-                    <span>ResearchGate</span>
-                </a>
-                <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="action-btn">
-                    <span>GitHub</span>
-                </a>
-                <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification,&quot; in 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Hyderabad, India, 2025, doi: 10.1109/ICASSP48485.2025.11084387.">
-                    <span>Cite</span>
-                </a>
-            </div>
-            <!-- BibTeX -->
-            <div class="bibtex-wrapper">
-                <button class="bibtex-toggle" onclick="toggleBibtex(this)">
-                    <span>BibTeX</span><span class="arrow">&#9660;</span>
-                </button>
-                <div class="bibtex-block">
-                    <div class="bibtex-header">
-                        <span class="bibtex-label">BibTeX</span>
-                        <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
-                    </div>
-                    <pre class="bibtex-code">@inproceedings{hossain2025rgcbent,
+                <div class="publication-tags">
+                    <span class="tag">Radio Astronomy</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Dataset</span>
+                    <span class="tag">AGN Classification</span>
+                </div>
+                <div class="publication-actions">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="action-btn"><span>IEEE Xplore</span></a>
+                    <a href="https://arxiv.org/pdf/2505.19249" target="_blank" class="action-btn"><span>arXiv PDF</span></a>
+                    <a href="https://www.researchgate.net/publication/394896407_RGC-Bent_A_Novel_Dataset_for_Bent_Radio_Galaxy_Classification" target="_blank" class="action-btn"><span>ResearchGate</span></a>
+                    <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="action-btn"><span>GitHub</span></a>
+                    <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification,&quot; in 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Hyderabad, India, 2025, doi: 10.1109/ICASSP48485.2025.11084387."><span>Cite</span></a>
+                </div>
+                <div class="bibtex-wrapper">
+                    <button class="bibtex-toggle" onclick="toggleBibtex(this)">
+                        <span>BibTeX</span><span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="bibtex-block">
+                        <div class="bibtex-header">
+                            <span class="bibtex-label">BibTeX</span>
+                            <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
+                        </div>
+                        <pre class="bibtex-code">@inproceedings{hossain2025rgcbent,
   title     = {{RGC-BENT}: A Novel Dataset for Bent Radio Galaxy Classification},
   author    = {Hossain, Mir Sazzat and Asad, Khan Muhammad Bin and
                Saikia, Payaswini and Khan, Adrita and Iftee, Md Akil Raihan and
@@ -673,71 +717,53 @@
   publisher = {IEEE},
   doi       = {10.1109/ICIP55913.2025.11084387}
 }</pre>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Publication 2: arXiv Preprint -->
-        <div class="publication-card" data-type="preprint" data-year="2025" data-keywords="radio agn classifier deep learning semi-supervised vla bent radio galaxies wat nat">
-            <div class="publication-header">
-                <div class="publication-icon">P2</div>
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="https://arxiv.org/pdf/2510.22190" target="_blank">RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs</a>
-                    </h3>
-                    <p class="publication-authors">
-                        <strong>M.S. Hossain, M.S.H. Shahal, A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A.A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman
-                    </p>
-                    <p class="publication-journal">arXiv preprint arXiv:2510.22190 (Submitted to Astronomy &amp; Astrophysics)</p>
-                    <div class="publication-meta">
-                        <span class="meta-item">
-                            <span>Year:</span>
-                            <span>2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Type:</span>
-                            <span>Preprint</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Status:</span>
-                            <span>arXiv</span>
-                        </span>
+            <!-- Publication 2: arXiv Preprint -->
+            <div class="publication-card" data-type="preprint" data-year="2025" data-keywords="radio agn classifier deep learning semi-supervised vla bent radio galaxies wat nat">
+                <div class="publication-header">
+                    <div class="publication-icon">P2</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://arxiv.org/pdf/2510.22190" target="_blank">RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs</a>
+                        </h3>
+                        <p class="publication-authors">
+                            <strong>M.S. Hossain, M.S.H. Shahal, A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A.A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman
+                        </p>
+                        <p class="publication-journal">arXiv preprint arXiv:2510.22190 (Submitted to Astronomy &amp; Astrophysics)</p>
+                        <div class="publication-meta">
+                            <span class="meta-item"><span>Year:</span><span>2025</span></span>
+                            <span class="meta-item"><span>Type:</span><span>Preprint</span></span>
+                            <span class="meta-item"><span>Status:</span><span>arXiv</span></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="publication-tags">
-                <span class="tag">Radio AGN</span>
-                <span class="tag">Semi-supervised Learning</span>
-                <span class="tag">Deep Learning</span>
-                <span class="tag">VLA</span>
-                <span class="tag">BYOL</span>
-                <span class="tag">E2CNN</span>
-            </div>
-            <div class="publication-actions">
-                <a href="https://arxiv.org/pdf/2510.22190" target="_blank" class="action-btn">
-                    <span>arXiv PDF</span>
-                </a>
-                <a href="https://www.researchgate.net/publication/396967381_RGC_a_radio_AGN_classifier_based_on_deep_learning_I_A_semi-supervised_model_for_the_VLA_images_of_bent_radio_AGNs" target="_blank" class="action-btn">
-                    <span>ResearchGate</span>
-                </a>
-                <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251022190H/abstract" target="_blank" class="action-btn">
-                    <span>ADS</span>
-                </a>
-                <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs,&quot; arXiv preprint arXiv:2510.22190, 2025.">
-                    <span>Cite</span>
-                </a>
-            </div>
-            <!-- BibTeX -->
-            <div class="bibtex-wrapper">
-                <button class="bibtex-toggle" onclick="toggleBibtex(this)">
-                    <span>BibTeX</span><span class="arrow">&#9660;</span>
-                </button>
-                <div class="bibtex-block">
-                    <div class="bibtex-header">
-                        <span class="bibtex-label">BibTeX</span>
-                        <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
-                    </div>
-                    <pre class="bibtex-code">@misc{hossain2025rgc,
+                <div class="publication-tags">
+                    <span class="tag">Radio AGN</span>
+                    <span class="tag">Semi-supervised Learning</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">VLA</span>
+                    <span class="tag">BYOL</span>
+                    <span class="tag">E2CNN</span>
+                </div>
+                <div class="publication-actions">
+                    <a href="https://arxiv.org/pdf/2510.22190" target="_blank" class="action-btn"><span>arXiv PDF</span></a>
+                    <a href="https://www.researchgate.net/publication/396967381_RGC_a_radio_AGN_classifier_based_on_deep_learning_I_A_semi-supervised_model_for_the_VLA_images_of_bent_radio_AGNs" target="_blank" class="action-btn"><span>ResearchGate</span></a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251022190H/abstract" target="_blank" class="action-btn"><span>ADS</span></a>
+                    <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs,&quot; arXiv preprint arXiv:2510.22190, 2025."><span>Cite</span></a>
+                </div>
+                <div class="bibtex-wrapper">
+                    <button class="bibtex-toggle" onclick="toggleBibtex(this)">
+                        <span>BibTeX</span><span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="bibtex-block">
+                        <div class="bibtex-header">
+                            <span class="bibtex-label">BibTeX</span>
+                            <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
+                        </div>
+                        <pre class="bibtex-code">@misc{hossain2025rgc,
   title         = {{RGC}: a radio {AGN} classifier based on deep learning.
                    {I}. {A} semi-supervised model for the {VLA}
                    images of bent radio {AGN}s},
@@ -751,75 +777,51 @@
   primaryClass  = {astro-ph.GA},
   note          = {Submitted to Astronomy \& Astrophysics}
 }</pre>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Publication 3: arXiv Preprint -->
-        <div class="publication-card" data-type="preprint" data-year="2025" data-keywords="jet tagging explainable ai particle physics chebyshev networks e-pcn lhc">
-            <div class="publication-header">
-                <div class="publication-icon">P3</div>
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="https://arxiv.org/pdf/2512.07420" target="_blank">
-                            E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features
-                        </a>
-                    </h3>
-                    <p class="publication-authors">
-                        <strong>Md Raqibul Islam†, Adrita Khan†</strong>, Mir Sazzat Hossain, 
-                        Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, 
-                        Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, 
-                        AKM Mahbubur Rahman
-                    </p>
-                    <p class="publication-journal">
-                        arXiv preprint arXiv:2512.07420 (Submitted to Journal of High Energy Physics)
-                    </p>
-                    <div class="publication-meta">
-                        <span class="meta-item">
-                            <span>Year:</span>
-                            <span>2025</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Type:</span>
-                            <span>Preprint</span>
-                        </span>
-                        <span class="meta-item">
-                            <span>Status:</span>
-                            <span>arXiv</span>
-                        </span>
+            <!-- Publication 3: arXiv Preprint -->
+            <div class="publication-card" data-type="preprint" data-year="2025" data-keywords="jet tagging explainable ai particle physics chebyshev networks e-pcn lhc">
+                <div class="publication-header">
+                    <div class="publication-icon">P3</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://arxiv.org/pdf/2512.07420" target="_blank">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</a>
+                        </h3>
+                        <p class="publication-authors">
+                            <strong>Md Raqibul Islam†, Adrita Khan†</strong>, Mir Sazzat Hossain, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman
+                        </p>
+                        <p class="publication-journal">arXiv preprint arXiv:2512.07420 (Submitted to Journal of High Energy Physics)</p>
+                        <div class="publication-meta">
+                            <span class="meta-item"><span>Year:</span><span>2025</span></span>
+                            <span class="meta-item"><span>Type:</span><span>Preprint</span></span>
+                            <span class="meta-item"><span>Status:</span><span>arXiv</span></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="publication-tags">
-                <span class="tag">Jet Tagging</span>
-                <span class="tag">Explainable AI</span>
-                <span class="tag">Particle Physics</span>
-                <span class="tag">Graph Neural Networks</span>
-                <span class="tag">Chebyshev Networks</span>
-            </div>
-            <div class="publication-actions">
-                <a href="https://arxiv.org/pdf/2512.07420" target="_blank" class="action-btn">
-                    <span>arXiv PDF</span>
-                </a>
-                <a href="https://www.researchgate.net/publication/398475962_E-PCN_Jet_Tagging_with_Explainable_Particle_Chebyshev_Networks_Using_Kinematic_Features" target="_blank" class="action-btn">
-                    <span>ResearchGate</span>
-                </a>
-                <a href="#" class="action-btn cite-btn"
-                   data-citation="M. R. Islam et al., &quot;E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features,&quot; arXiv preprint arXiv:2512.07420, 2025.">
-                    <span>Cite</span>
-                </a>
-            </div>
-            <!-- BibTeX -->
-            <div class="bibtex-wrapper">
-                <button class="bibtex-toggle" onclick="toggleBibtex(this)">
-                    <span>BibTeX</span><span class="arrow">&#9660;</span>
-                </button>
-                <div class="bibtex-block">
-                    <div class="bibtex-header">
-                        <span class="bibtex-label">BibTeX</span>
-                        <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
-                    </div>
-                    <pre class="bibtex-code">@misc{islam2025epcn,
+                <div class="publication-tags">
+                    <span class="tag">Jet Tagging</span>
+                    <span class="tag">Explainable AI</span>
+                    <span class="tag">Particle Physics</span>
+                    <span class="tag">Graph Neural Networks</span>
+                    <span class="tag">Chebyshev Networks</span>
+                </div>
+                <div class="publication-actions">
+                    <a href="https://arxiv.org/pdf/2512.07420" target="_blank" class="action-btn"><span>arXiv PDF</span></a>
+                    <a href="https://www.researchgate.net/publication/398475962_E-PCN_Jet_Tagging_with_Explainable_Particle_Chebyshev_Networks_Using_Kinematic_Features" target="_blank" class="action-btn"><span>ResearchGate</span></a>
+                    <a href="#" class="action-btn cite-btn" data-citation="M. R. Islam et al., &quot;E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features,&quot; arXiv preprint arXiv:2512.07420, 2025."><span>Cite</span></a>
+                </div>
+                <div class="bibtex-wrapper">
+                    <button class="bibtex-toggle" onclick="toggleBibtex(this)">
+                        <span>BibTeX</span><span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="bibtex-block">
+                        <div class="bibtex-header">
+                            <span class="bibtex-label">BibTeX</span>
+                            <button class="copy-bibtex-btn" onclick="copyBibtex(this)">Copy</button>
+                        </div>
+                        <pre class="bibtex-code">@misc{islam2025epcn,
   title         = {{E-PCN}: Jet Tagging with Explainable Particle
                    Chebyshev Networks Using Kinematic Features},
   author        = {Islam, Md Raqibul and Khan, Adrita and
@@ -833,140 +835,123 @@
   primaryClass  = {hep-ph},
   note          = {Submitted to Journal of High Energy Physics}
 }</pre>
+                    </div>
                 </div>
             </div>
+
         </div>
-        
-    </div>
 
-    <!-- No Results Message -->
-    <div class="no-results" id="noResults" style="display: none;">
-        <div class="no-results-icon">No Results</div>
-        <p>No publications found matching your search criteria.</p>
-    </div>
-</div>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-left">
-            <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">No Results</div>
+            <p>No publications found matching your search criteria.</p>
         </div>
     </div>
-</footer>
 
-<script>
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    const publicationsList = document.getElementById('publicationsList');
-    const noResults = document.getElementById('noResults');
-    const filterTags = document.querySelectorAll('.filter-tag');
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    let currentFilter = 'all';
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const publicationsList = document.getElementById('publicationsList');
+        const noResults = document.getElementById('noResults');
+        const filterTags = document.querySelectorAll('.filter-tag');
 
-    // Search function
-    function searchPublications() {
-        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-        const publications = document.querySelectorAll('.publication-card');
-        let visibleCount = 0;
+        let currentFilter = 'all';
 
-        publications.forEach(publication => {
-            const keywords = publication.dataset.keywords.toLowerCase();
-            const title = publication.querySelector('.publication-title').textContent.toLowerCase();
-            const authors = publication.querySelector('.publication-authors').textContent.toLowerCase();
-            const journal = publication.querySelector('.publication-journal').textContent.toLowerCase();
-            
-            const matchesSearch = keywords.includes(searchTerm) || 
-                                title.includes(searchTerm) || 
-                                authors.includes(searchTerm) ||
-                                journal.includes(searchTerm);
-            
-            const matchesFilter = currentFilter === 'all' || 
-                                publication.dataset.type === currentFilter || 
-                                publication.dataset.year === currentFilter;
+        function searchPublications() {
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+            const publications = document.querySelectorAll('.publication-card');
+            let visibleCount = 0;
 
-            if (matchesSearch && matchesFilter) {
-                publication.style.display = 'block';
-                visibleCount++;
-            } else {
-                publication.style.display = 'none';
+            publications.forEach(publication => {
+                const keywords = publication.dataset.keywords.toLowerCase();
+                const title = publication.querySelector('.publication-title').textContent.toLowerCase();
+                const authors = publication.querySelector('.publication-authors').textContent.toLowerCase();
+                const journal = publication.querySelector('.publication-journal').textContent.toLowerCase();
+
+                const matchesSearch = keywords.includes(searchTerm) ||
+                                    title.includes(searchTerm) ||
+                                    authors.includes(searchTerm) ||
+                                    journal.includes(searchTerm);
+
+                const matchesFilter = currentFilter === 'all' ||
+                                    publication.dataset.type === currentFilter ||
+                                    publication.dataset.year === currentFilter;
+
+                if (matchesSearch && matchesFilter) {
+                    publication.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    publication.style.display = 'none';
+                }
+            });
+
+            if (noResults) {
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
             }
-        });
-
-        if (noResults) {
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
         }
-    }
 
-    // Filter function
-    function filterPublications(filterType) {
-        currentFilter = filterType;
+        function filterPublications(filterType) {
+            currentFilter = filterType;
+            filterTags.forEach(tag => {
+                tag.classList.remove('active');
+                if (tag.dataset.filter === filterType) tag.classList.add('active');
+            });
+            searchPublications();
+        }
+
+        if (searchInput) searchInput.addEventListener('input', searchPublications);
+
         filterTags.forEach(tag => {
-            tag.classList.remove('active');
-            if (tag.dataset.filter === filterType) {
-                tag.classList.add('active');
-            }
+            tag.addEventListener('click', () => filterPublications(tag.dataset.filter));
         });
-        searchPublications();
-    }
 
-    // Event listeners
-    if (searchInput) searchInput.addEventListener('input', searchPublications);
-
-    filterTags.forEach(tag => {
-        tag.addEventListener('click', () => {
-            filterPublications(tag.dataset.filter);
-        });
-    });
-
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
-    // Copy citation functionality
-    document.querySelectorAll('.cite-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const citation = this.dataset.citation;
-            navigator.clipboard.writeText(citation).then(() => {
-                const originalText = this.innerHTML;
-                this.innerHTML = '<span>Copied!</span>';
-                setTimeout(() => { this.innerHTML = originalText; }, 2000);
-            }).catch(() => {
-                alert('Citation: ' + citation);
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
-    });
 
-    // BibTeX toggle
-    function toggleBibtex(btn) {
-        btn.classList.toggle('open');
-        const block = btn.parentElement.querySelector('.bibtex-block');
-        block.classList.toggle('visible');
-    }
-
-    // Copy BibTeX
-    function copyBibtex(btn) {
-        const code = btn.closest('.bibtex-block').querySelector('.bibtex-code').textContent;
-        navigator.clipboard.writeText(code).then(() => {
-            btn.textContent = 'Copied!';
-            btn.classList.add('copied');
-            setTimeout(() => {
-                btn.textContent = 'Copy';
-                btn.classList.remove('copied');
-            }, 2000);
-        }).catch(() => {
-            alert(code);
+        document.querySelectorAll('.cite-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const citation = this.dataset.citation;
+                navigator.clipboard.writeText(citation).then(() => {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span>Copied!</span>';
+                    setTimeout(() => { this.innerHTML = originalText; }, 2000);
+                }).catch(() => { alert('Citation: ' + citation); });
+            });
         });
-    }
-</script>
+
+        function toggleBibtex(btn) {
+            btn.classList.toggle('open');
+            const block = btn.parentElement.querySelector('.bibtex-block');
+            block.classList.toggle('visible');
+        }
+
+        function copyBibtex(btn) {
+            const code = btn.closest('.bibtex-block').querySelector('.bibtex-code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(() => { alert(code); });
+        }
+    </script>
 </body>
 </html>
