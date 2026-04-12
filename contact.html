@@ -86,7 +86,6 @@
             box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
 
-        /* Color coding for navigation */
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -96,12 +95,163 @@
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
-        /* Main Content */
-        .main-content {
+        /* ── Page Layout with Sidebars ── */
+        .page-layout {
             position: relative;
             z-index: 10;
-            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: stretch;
             min-height: calc(100vh - 120px);
+        }
+
+        /* ── Sidebars ── */
+        .sidebar {
+            width: 60px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .sidebar-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            text-decoration: none;
+            color: rgba(201, 169, 97, 0.5);
+            transition: all 0.3s ease;
+            padding: 1.5rem 0.5rem;
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .sidebar-link:hover {
+            color: #c9a961;
+            background: rgba(201, 169, 97, 0.04);
+        }
+
+        .sidebar-link:hover .sidebar-arrow-circle {
+            background: rgba(201, 169, 97, 0.15);
+            border-color: rgba(201, 169, 97, 0.4);
+            box-shadow: 0 0 20px rgba(201, 169, 97, 0.15);
+        }
+
+        .sidebar-link:hover .sidebar-label {
+            opacity: 1;
+            color: #c9a961;
+        }
+
+        .sidebar-arrow-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            background: rgba(201, 169, 97, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .sidebar-arrow-circle svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .sidebar-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            color: #b8c5d0;
+        }
+
+        .sidebar-left .sidebar-label {
+            transform: rotate(180deg);
+        }
+
+        .sidebar-page-name {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            color: #c9a961;
+        }
+
+        .sidebar-left .sidebar-page-name {
+            transform: rotate(180deg);
+        }
+
+        .sidebar-link:hover .sidebar-page-name {
+            opacity: 0.8;
+        }
+
+        /* Hover tooltip style page name */
+        .sidebar-tooltip {
+            position: absolute;
+            background: rgba(10, 14, 20, 0.92);
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            border-radius: 10px;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #c9a961;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        .sidebar-left .sidebar-tooltip {
+            left: calc(100% + 8px);
+            top: 50%;
+            transform: translateY(-50%) translateX(-6px);
+        }
+
+        .sidebar-right .sidebar-tooltip {
+            right: calc(100% + 8px);
+            top: 50%;
+            transform: translateY(-50%) translateX(6px);
+        }
+
+        .sidebar-link:hover .sidebar-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Divider lines on sidebars */
+        .sidebar-left {
+            border-right: 1px solid rgba(201, 169, 97, 0.08);
+        }
+
+        .sidebar-right {
+            border-left: 1px solid rgba(201, 169, 97, 0.08);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 1.5rem 2rem;
         }
 
         .container {
@@ -257,77 +407,38 @@
             gap: 1.5rem;
         }
 
-        .footer-left {
-            text-align: center;
-        }
-
         .footer-left p {
             color: #b8c5d0;
             font-size: 0.9rem;
-        }
-
-        .footer-stats {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-stat-item {
             text-align: center;
         }
 
-        .footer-stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #c9a961;
-            margin-bottom: 0.3rem;
-        }
-
-        .footer-stat-label {
-            font-size: 0.85rem;
-            color: #b8c5d0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-stat-divider {
-            width: 1px;
-            height: 40px;
-            background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.3), transparent);
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 0.5rem;
+            .sidebar {
+                width: 36px;
             }
 
-            .nav-list {
-                gap: 0.5rem;
+            .sidebar-label,
+            .sidebar-page-name {
+                display: none;
             }
 
-            .nav-list a {
-                font-size: 0.8rem;
-                padding: 0.6rem 1rem;
+            .sidebar-arrow-circle {
+                width: 30px;
+                height: 30px;
+            }
+
+            .sidebar-tooltip {
+                display: none;
+            }
+
+            .main-content {
+                padding: 1rem 0.8rem;
             }
 
             .page-header h1 {
                 font-size: 2rem;
-            }
-
-            .page-subtitle {
-                font-size: 0.9rem;
-            }
-
-            .page-description {
-                font-size: 0.85rem;
-                text-align: left;
-            }
-
-            .main-content {
-                padding: 1rem 1rem;
             }
 
             .contact-grid {
@@ -343,29 +454,13 @@
             .footer-content {
                 padding: 0 1rem;
             }
-
-            .footer-stats {
-                gap: 1rem;
-            }
-
-            .footer-stat-number {
-                font-size: 1.5rem;
-            }
-
-            .footer-stat-label {
-                font-size: 0.75rem;
-            }
-
-            .footer-stat-divider {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
     <div class="cosmic-bg"></div>
 
-    <!-- Quick Links Navigation -->
+    <!-- Navigation -->
     <section id="quick-links">
         <div class="nav-container">
             <ul class="nav-list">
@@ -382,76 +477,108 @@
         </div>
     </section>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="container">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1>Let's Connect</h1>
-                <p class="page-subtitle">Ready to collaborate, discuss research, or just say hello?</p>
-                <div class="section-divider"></div>
-                <p class="page-description">
-                    I'd love to hear from you! Whether you're interested in collaborating on research, discussing cosmology and physics, exploring potential projects, or simply want to connect with a fellow researcher, I'm always open to meaningful conversations. Choose your preferred way to get in touch below.
-                </p>
+    <!-- Page Layout with Sidebars -->
+    <div class="page-layout">
+
+        <!-- Left Sidebar → Previous Page (Study Notes) -->
+        <aside class="sidebar sidebar-left">
+            <a href="notes.html" class="sidebar-link" aria-label="Previous page: Study Notes">
+                <span class="sidebar-label">Previous</span>
+                <div class="sidebar-arrow-circle">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 12L6 8L10 4" stroke="#c9a961" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="sidebar-label">Notes</span>
+                <div class="sidebar-tooltip">← Study Notes</div>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1>Let's Connect</h1>
+                    <p class="page-subtitle">Ready to collaborate, discuss research, or just say hello?</p>
+                    <div class="section-divider"></div>
+                    <p class="page-description">
+                        I'd love to hear from you! Whether you're interested in collaborating on research, discussing cosmology and physics, exploring potential projects, or simply want to connect with a fellow researcher, I'm always open to meaningful conversations. Choose your preferred way to get in touch below.
+                    </p>
+                </div>
+
+                <!-- Contact Cards Grid -->
+                <div class="contact-grid">
+
+                    <!-- Email Card -->
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h3 class="contact-title">Email</h3>
+                        <p class="contact-info">Drop me a line and I'll get back to you as soon as possible. Perfect for detailed discussions about research, collaboration opportunities, or academic inquiries.</p>
+                        <a href="mailto:adrita.khan.official@gmail.com" class="contact-link">
+                            <span>Send Email</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <!-- Twitter Card -->
+                    <div class="contact-card">
+                        <div class="contact-icon">𝕏</div>
+                        <h3 class="contact-title">Twitter / X</h3>
+                        <p class="contact-info">Follow me for updates on research progress, academic discussions, and insights.</p>
+                        <a href="https://x.com/Adrita_" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <span>Follow on X</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <!-- LinkedIn Card -->
+                    <div class="contact-card">
+                        <div class="contact-icon" style="font-weight: 700; font-size: 1.5rem; font-family: Arial, sans-serif;">in</div>
+                        <h3 class="contact-title">LinkedIn</h3>
+                        <p class="contact-info">Connect with me to explore collaboration opportunities, share academic experiences, and expand our research networks.</p>
+                        <a href="https://linkedin.com/in/adrita-khan" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <span>Connect on LinkedIn</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                </div>
             </div>
+        </main>
 
-            <!-- Contact Cards Grid -->
-            <div class="contact-grid">
-                <!-- Email Card -->
-                <div class="contact-card">
-                    <div class="contact-icon">📧</div>
-                    <h3 class="contact-title">Email</h3>
-                    <p class="contact-info">Drop me a line and I'll get back to you as soon as possible. Perfect for detailed discussions about research, collaboration opportunities, or academic inquiries.</p>
-                    <a href="mailto:adrita.khan.official@gmail.com" class="contact-link">
-                        <span>Send Email</span>
-                        <span>→</span>
-                    </a>
+        <!-- Right Sidebar → Next Page (Home, wraps around) -->
+        <aside class="sidebar sidebar-right">
+            <a href="index.html" class="sidebar-link" aria-label="Next page: Home">
+                <span class="sidebar-label">Next</span>
+                <div class="sidebar-arrow-circle">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 4L10 8L6 12" stroke="#c9a961" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
+                <span class="sidebar-label">Home</span>
+                <div class="sidebar-tooltip">Home →</div>
+            </a>
+        </aside>
 
-                <!-- Twitter Card -->
-                <div class="contact-card">
-                    <div class="contact-icon">𝕏</div>
-                    <h3 class="contact-title">Twitter / X</h3>
-                    <p class="contact-info">Follow me for updates on research progress, academic discussions, and insights.</p>
-                    <a href="https://x.com/Adrita_" target="_blank" rel="noopener noreferrer" class="contact-link">
-                        <span>Follow on X</span>
-                        <span>→</span>
-                    </a>
-                </div>
-
-                <!-- LinkedIn Card -->
-                <div class="contact-card">
-                    <div class="contact-icon" style="font-weight: 700; font-size: 1.5rem; font-family: Arial, sans-serif;">in</div>
-                    <h3 class="contact-title">LinkedIn</h3>
-                    <p class="contact-info">Connect with me to explore collaboration opportunities, share academic experiences, and expand our research networks.</p>
-                    <a href="https://linkedin.com/in/adrita-khan" target="_blank" rel="noopener noreferrer" class="contact-link">
-                        <span>Connect on LinkedIn</span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 
     <footer>
         <div class="footer-content">
             <div class="footer-left">
-                <p>&copy; 2026 Adrita Khan. All rights reserved.</p> 
+                <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Add smooth scrolling for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
