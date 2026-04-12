@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achievements - Adrita Khan</title>
+    <title>Academic Experience - Adrita Khan</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
@@ -19,294 +14,197 @@
             line-height: 1.6;
         }
 
-        /* Main Container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem 2rem 2rem 2rem;
+        /* ── Side Navigation Arrows ── */
+        .side-nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            text-decoration: none;
+            color: #c9a961;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-
-        .section-title::after {
+        .side-nav-arrow::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #c9a961, #d4b56d);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .side-nav-arrow:hover::before { opacity: 1; }
+
+        .side-nav-arrow svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .side-nav-label {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            opacity: 0.75;
+            transition: opacity 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-nav-arrow:hover .side-nav-label { opacity: 1; }
+
+        .side-nav-left {
+            left: 0;
+            border-right: none;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 14px 14px 10px;
+        }
+
+        .side-nav-left:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-left: 14px;
+            color: #d4b56d;
+            box-shadow: 6px 0 30px rgba(201, 169, 97, 0.2), 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-left:hover svg { transform: translateX(-3px); }
+
+        .side-nav-right {
+            right: 0;
+            border-left: none;
+            border-radius: 12px 0 0 12px;
+            padding: 18px 10px 14px 14px;
+        }
+
+        .side-nav-right:hover {
+            background: rgba(201, 169, 97, 0.16);
+            border-color: rgba(201, 169, 97, 0.45);
+            padding-right: 14px;
+            color: #d4b56d;
+            box-shadow: -6px 0 30px rgba(201, 169, 97, 0.2), -2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-nav-right:hover svg { transform: translateX(3px); }
+
+        @media (max-width: 640px) {
+            .side-nav-left { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
+            .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
+            .side-nav-label { font-size: 8px; }
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 1rem 2rem 2rem 2rem; }
+        .section-title {
+            font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem;
+            color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); position: relative;
+        }
+        .section-title::after {
+            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d);
             border-radius: 2px;
         }
-
-        .section-subtitle {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-top: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: left;
-            position: relative;
-            padding-left: 1rem;
-            border-left: 4px solid #c9a961;
+        .container > ul { list-style: none; display: grid; gap: 1.5rem; }
+        .container > ul > li {
+            background: rgba(201, 169, 97, 0.08); backdrop-filter: blur(10px); border-radius: 15px;
+            padding: 1.5rem; border: 1px solid rgba(201, 169, 97, 0.2); transition: all 0.3s ease;
+            position: relative; overflow: hidden;
         }
-
-        .intro-text {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #b8c5d0;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .container > ul > li::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
+            transform: translateX(-100%); transition: transform 0.3s ease;
         }
-
-        /* Statistics */
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 0.9rem;
-            text-align: center;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
+        .container > ul > li:hover::before { transform: translateX(0); }
+        .container > ul > li:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.3), 0 0 20px rgba(201, 169, 97, 0.15);
             background: rgba(201, 169, 97, 0.12);
+            border-color: rgba(201, 169, 97, 0.4);
         }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #c9a961;
-            margin-bottom: 0.2rem;
+        .container > ul > li > h3 {
+            font-size: 1.5rem; font-weight: 600; color: #c9a961; margin-bottom: 0.8rem;
+            position: relative; display: inline-block;
         }
-
-        .stat-label {
-            color: #b8c5d0;
-            font-size: 0.8rem;
+        .container > ul > li > h3 a {
+            color: #e8dcc4; text-decoration: none; transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(232, 220, 196, 0.4);
         }
-
-        /* Achievements List */
-        .achievements-list {
-            display: grid;
-            gap: 0.8rem;
+        .container > ul > li > h3 a:hover { color: #f5ead6; border-bottom-color: #f5ead6; }
+        .container > ul > li > h3::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d); transition: width 0.3s ease;
         }
-
-        /* Compact Achievement Item */
-        .achievement-item {
-            background: rgba(201, 169, 97, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 1rem 1.2rem;
-            border-left: 3px solid #c9a961;
-            transition: all 0.3s ease;
-            color: #b8c5d0;
-            line-height: 1.6;
-            font-size: 0.98rem;
+        .container > ul > li:hover > h3::after { width: 100%; }
+        .container > ul > li > p { color: #b8c5d0; font-size: 1rem; margin-bottom: 0.6rem; }
+        .container > ul > li > p:first-of-type { font-weight: 600; color: #ffffff; font-size: 1.1rem; }
+        .container > ul > li > p:nth-of-type(2) { color: #c9a961; font-weight: 500; font-style: italic; }
+        .container > ul > li > p:last-of-type {
+            color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;
         }
-
-        .achievement-item:hover {
-            background: rgba(201, 169, 97, 0.15);
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.2);
+        .container > ul > li ul { list-style: none; padding-left: 0; margin-top: 0.8rem; }
+        .container > ul > li ul li {
+            background: rgba(201, 169, 97, 0.1); border-left: 3px solid #c9a961;
+            padding: 0.8rem 1.2rem; margin-bottom: 0.6rem; border-radius: 0 10px 10px 0;
+            color: #b8c5d0; font-size: 0.98rem; transition: all 0.3s ease; position: relative;
         }
-
-        .achievement-item strong {
-            color: #c9a961;
-            font-weight: 600;
+        .container > ul > li ul li::before {
+            content: '•'; color: #c9a961; font-weight: bold; margin-right: 0.5rem; font-size: 1.1rem;
         }
-
-        .achievement-item a {
-            color: #d4b56d;
-            text-decoration: none;
-            border-bottom: 1px dotted #d4b56d;
-            transition: all 0.3s ease;
+        .container > ul > li ul li:hover {
+            background: rgba(201, 169, 97, 0.15); border-left-color: #d4b56d; transform: translateX(5px);
         }
-
-        .achievement-item a:hover {
-            color: #c9a961;
-            border-bottom-style: solid;
+        .container > ul > li > p a {
+            color: #e8dcc4; text-decoration: none; transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(232, 220, 196, 0.4);
         }
-
-        /* Membership Cards */
-        .membership-card {
-            background: rgba(201, 169, 97, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1.3rem;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
+        .container > ul > li > p a:hover { color: #f5ead6; border-bottom-color: #f5ead6; }
+        .position-subsection {
+            margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(201, 169, 97, 0.2);
         }
-
-        .membership-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
-            background: rgba(201, 169, 97, 0.12);
+        .position-subsection h4 { font-size: 1.3rem; color: #ffffff; margin-bottom: 0.4rem; }
+        .position-subsection > p:first-of-type { color: #c9a961 !important; font-weight: 500; font-style: italic; margin-bottom: 0.6rem; }
+        .position-subsection p { color: #b8c5d0; }
+        .position-subsection p[style*="color: #c9a961"],
+        .position-subsection p[style*="color: #e3c297"] { color: #c9a961 !important; }
+        .position-subsection span { color: #b8c5d0; }
+        .position-subsection a {
+            color: #e8dcc4; text-decoration: none; transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(232, 220, 196, 0.4);
         }
-
-        .membership-header {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #c9a961;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .membership-role {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
-            color: #b8c5d0;
-            font-size: 0.95rem;
-        }
-
-        .membership-role:last-of-type {
-            border-bottom: none;
-        }
-
-        .membership-role-title {
-            font-style: italic;
-            color: #b8c5d0;
-        }
-
-        .membership-role-date {
-            font-weight: 600;
-            color: #c9a961;
-        }
-
-        .membership-details {
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
-            border-top: 1px solid rgba(201, 169, 97, 0.2);
-        }
-
-        .membership-detail-item {
-            color: #b8c5d0;
-            padding: 0.4rem 0;
-            padding-left: 1.2rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .membership-detail-item::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #c9a961;
-            font-weight: bold;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* No results message */
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            color: #b8c5d0;
-            font-size: 1.05rem;
-        }
-
-        .no-results-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.8rem;
-            opacity: 0.5;
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
+        .position-subsection a:hover { color: #f5ead6; border-bottom-color: #f5ead6; }
+        html { scroll-behavior: smooth; }
+        .container > ul > li { cursor: pointer; }
 
         /* Navigation Styles */
         #quick-links {
-            position: relative;
-            z-index: 10;
-            background: rgba(10, 14, 20, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
-            display: flex;
-            justify-content: center;
-            overflow-x: hidden;
+            position: relative; z-index: 10; background: rgba(10, 14, 20, 0.6);
+            backdrop-filter: blur(10px); padding: 1.5rem 0; border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            display: flex; justify-content: center; overflow-x: hidden;
         }
-
-        .nav-container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 1rem;
-        }
-
-        .nav-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
+        .nav-container { width: 100%; max-width: 1200px; padding: 0 1rem; }
+        .nav-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; list-style: none; padding: 0; margin: 0; }
         .nav-list a {
-            display: block;
-            background: rgba(201, 169, 97, 0.1);
-            border: 1px solid rgba(201, 169, 97, 0.2);
-            border-radius: 25px;
-            padding: 0.7rem 1.2rem;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            white-space: nowrap;
-            flex-shrink: 0;
+            display: block; background: rgba(201, 169, 97, 0.1); border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 25px; padding: 0.7rem 1.2rem; text-decoration: none; color: #ffffff;
+            font-size: 0.9rem; font-weight: 500; text-align: center; transition: all 0.3s ease;
+            backdrop-filter: blur(5px); white-space: nowrap; flex-shrink: 0;
         }
-
         .nav-list a:hover {
-            background: rgba(201, 169, 97, 0.2);
-            border-color: rgba(201, 169, 97, 0.4);
-            transform: translateY(-3px);
-            color: #c9a961;
-            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.2); border-color: rgba(201, 169, 97, 0.4);
+            transform: translateY(-3px); color: #c9a961; box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
-
-        /* Color coding */
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -318,293 +216,268 @@
 
         /* Footer */
         footer {
-            position: relative;
-            z-index: 10;
-            background: rgba(10, 14, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 1.5rem 0;
-            margin-top: 2rem;
+            position: relative; z-index: 10; background: rgba(10, 14, 20, 0.8);
+            backdrop-filter: blur(10px); border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 1.5rem 0; margin-top: 2rem;
         }
-
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; flex-direction: column; align-items: center; gap: 1rem;
         }
+        .footer-left { text-align: center; }
+        .footer-left p { color: #b8c5d0; font-size: 0.88rem; }
 
-        .footer-left {
-            text-align: center;
-        }
-
-        .footer-left p {
-            color: #b8c5d0;
-            font-size: 0.88rem;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1.4rem;
-            }
-
-            .container {
-                padding: 1.5rem 1rem;
-            }
-
-            .stats-section {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .membership-role {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.3rem;
-            }
-
-            footer {
-                padding: 1.2rem 0;
-                margin-top: 1.5rem;
-            }
-
-            .footer-content {
-                padding: 0 1rem;
-            }
+            .section-title { font-size: 2rem; }
+            .container { padding: 1.5rem 1rem; }
+            .container > ul > li { padding: 1.2rem; }
+            .container > ul > li > h3 { font-size: 1.3rem; }
+            footer { padding: 1.2rem 0; margin-top: 1.5rem; }
+            .footer-content { padding: 0 1rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Left arrow: back to Projects -->
+    <a href="projects.html" class="side-nav-arrow side-nav-left" title="Previous: Projects" aria-label="Go to Projects page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Projects</span>
+    </a>
+
+    <!-- Right arrow: forward to Achievements -->
+    <a href="achievements.html" class="side-nav-arrow side-nav-right" title="Next: Achievements" aria-label="Go to Achievements page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+        <span class="side-nav-label">Achievements</span>
+    </a>
+
     <!-- Quick Links Navigation -->
     <section id="quick-links">
         <div class="nav-container">
-          <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="academic_experience.html">Academic Experience</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="notes.html">Study Notes</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic_experience.html">Academic Experience</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="notes.html">Study Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </section>
 
-<!-- Achievements Section -->
-<div class="container">
-    <h2 class="section-title">Achievements & Recognition</h2>
-    <p class="intro-text">Selected awards, honors, participations, and memberships in my academic and research journey.</p>
-    
-    <!-- Statistics -->
-    <div class="stats-section">
-        <div class="stat-card">
-            <div class="stat-number">18</div>
-            <div class="stat-label">Selected Academic Honors & Participations</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Dean's List Honors</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Professional Memberships</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">2025</div>
-            <div class="stat-label">Latest Recognition</div>
-        </div>
+    <!-- Formal Research Experience Section -->
+    <div class="container">
+        <h2 class="section-title">Research Experience</h2>
+        <ul>
+            <li>
+                <h3><a href="https://ccds.ai/" target="_blank">Center for Computational and Data Sciences (CCDS)</a></h3>
+                <p>Independent University, Bangladesh</p>
+                <p style="color: #b8c5d0; font-size: 1rem; margin-bottom: 0.6rem;"><a href="https://ccds.ai/?page_id=277" target="_blank" style="color: #e8dcc4; text-decoration: none; border-bottom: 1px solid rgba(232, 220, 196, 0.4); transition: all 0.3s ease;">Computational Physics & Astronomy (ComPAs) Wing</a></p>
+                <p>February 2024 – Present</p>
+                <p style="margin-top: 0.8rem; color: #ffffff; font-size: 0.9rem;">More about CCDS: <a href="https://ccds.ai/?portfolio=adrita-khan" target="_blank">My Profile</a></p>
+
+                <div class="position-subsection">
+                    <h4>Full-time Research Assistant</h4>
+                    <p>December 2024 – Present</p>
+                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <ul>
+                        <li>Cosmological data analysis and pipeline development for radio astronomical sources.</li>
+                        <li>Project: Jet tagging using PCN with interaction features (previously as intern).</li>
+                        <li>Scientific code benchmarking and validation, including ML applications in astrophysics.</li>
+                    </ul>
+                </div>
+
+                <div class="position-subsection">
+                    <h4>Research Intern</h4>
+                    <p>February 2024 – November 2024</p>
+                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <ul>
+                        <li>Assisted with jet tagging research and initial methodology design for ML in particle physics.</li>
+                        <li>Developed scripts for preprocessing and feature engineering.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h3><a href="https://cassa.site/" target="_blank">Center for Astronomy, Space Science, and Astrophysics (CASSA)</a></h3>
+                <p>Independent University, Bangladesh</p>
+                <p>April 2024 – Present</p>
+
+                <div class="position-subsection">
+                    <h4>Research Collaborator</h4>
+                    <p>October 2025 – Present</p>
+                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <ul>
+                        <li>Development of astrophysical simulation models.</li>
+                        <li>Continuation of previous intern research; extension to observational studies and analytic methods.</li>
+                        <li>Collaboration on institutional research projects and student mentoring.</li>
+                    </ul>
+                </div>
+
+                <div class="position-subsection">
+                    <h4>Research Intern</h4>
+                    <p>April 2024 – September 2025</p>
+                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <ul>
+                        <li>Initiated radio astronomy classification projects for galaxy morphologies.</li>
+                        <li>Contributed to data curation and preliminary analysis for source identification.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h3><a href="https://www.uj.ac.za/faculties/science/departments-2/physics/research/astrophysics/the-centre-for-astro-particle-physics-capp/" target="_blank">Centre for Astro-Particle Physics (CAPP)</a></h3>
+                <p>University of Johannesburg, South Africa</p>
+                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Remote Research Assistant</p>
+                <p>April 2025 – Present</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Responsibilities:</p>
+                <ul>
+                    <li>Remote collaboration on astro-particle physics and cosmology research projects.</li>
+                    <li>Data analysis and computational modeling for high-energy astrophysics studies.</li>
+                    <li>Contributing to international research collaborations and publications.</li>
+                </ul>
+            </li>
+
+            <li>
+                <h3><a href="https://www.dunlap.utoronto.ca/" target="_blank">Dunlap Institute for Astronomy & Astrophysics</a></h3>
+                <p>University of Toronto</p>
+                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Student Research Collaborator</p>
+                <p>March 2025 – Present (Remote)</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Responsibilities:</p>
+                <ul>
+                    <li>Developing forecasting pipeline to predict observational signatures of Hu-Sawicki f(R) and Dvali–Gabadadze–Porrati (DGP) modified gravity theories for LSST data release.</li>
+                    <li>Using cross-correlation observables combining galaxy clustering and CMB lensing to distinguish modified gravity from ΛCDM predictions through multi-probe analysis.</li>
+                    <li>Testing emulators (Baccoemu, e-mantis, nDGP) for both ΛCDM and MG theories, implementing Fisher forecasting and Bayesian MCMC inference.</li>
+                </ul>
+            </li>
+        </ul>
     </div>
 
-    <!-- Awards and Participations -->
-    <h3 class="section-subtitle">Selected Academic Honors & Participations</h3>
-    <div class="achievements-list" id="achievementsList">
-        
-        <!-- Dean's List -->
-        <div class="achievement-item" data-type="academic" data-keywords="deans list academic achievement semesters II III VI outstanding">
-            <strong>Dean's List</strong> awardee for outstanding academic achievement in Semesters <strong>II</strong>, <strong>III</strong>, and <strong>VI</strong>.
-        </div>
+    <!-- Mentorship and Teaching Experience Section -->
+    <div class="container">
+        <h2 class="section-title">Mentorship and Teaching Experience</h2>
+        <ul>
+            <li>
+                <h3><a href="https://www.northsouth.edu/" target="_blank">North South University (NSU)</a></h3>
+                <p>Department of Mathematics and Physics</p>
+                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Graduate Teaching Assistant</p>
+                <p>Spring 2025 (January – April)</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Courses and Responsibilities:</p>
+                <ul>
+                    <li>Supported undergraduate courses PHY107 and PHY108 (Physics I, II).</li>
+                    <li>Mentored students during weekly consultation hours.</li>
+                    <li>Graded assignments and quizzes.</li>
+                </ul>
+            </li>
 
-        <!-- ICTP PWF Bangladesh 2025 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="ictp pwf bangladesh school general relativity cosmology 2025 participant">
-            <strong>ICTP</strong> PWF Bangladesh: School On General Relativity and Cosmology <strong>(2025)</strong>, <strong>Participant</strong>
-        </div>
+            <li>
+                <h3>Mentee: Subaita Rahman Supti</h3>
+                <p>Independent University, Bangladesh (IUB)</p>
+                <p style="color: #c9a961; font-weight: 500; font-style: italic;">ICTP PWF Intern 2025</p>
+                <p>Department: Physical Sciences | Major: Physics</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <ul>
+                    <li>Scientific Computing & Programming: Introduction to LaTeX (Overleaf), C/C++ fundamentals</li>
+                    <li>Research Guidance: Discussion and development of research ideas in Cosmology and Particle Physics</li>
+                    <li>Artificial Intelligence & Data Science: Introduction to Neural Networks and Machine Learning</li>
+                </ul>
+            </li>
 
-        <!-- Journal Talk 2, CASSA, IUB 2025 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="journal talk 2 cassa iub 2025 speaker radio frequency interference radio sky imagery">
-            <strong>Journal Talk 2</strong>, CASSA, IUB (<strong>2025</strong>) on detecting radio frequency interference in radio sky imagery, <strong>Speaker</strong> <a href="https://cassa.site/event/jtalk-2/" target="_blank">(View)</a>
-        </div>
+            <li>
+                <h3>Mentee: Naima Alam Zikra</h3>
+                <p>Independent University, Bangladesh (IUB)</p>
+                <p>Department: Physical Sciences | Major: Physics</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <ul>
+                    <li>Programming & Data Analysis: Python</li>
+                    <li>Solving quantum mechanics problems using numerical methods</li>
+                    <li>Basics of cosmology in 21 cm Hydrogen Line and the Epoch of Reionization (EoR)</li>
+                </ul>
+            </li>
 
-        <!-- CERN Summer Workshop 2024 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="cern summer particle astrophysics workshop 2024 participant">
-            <strong>CERN</strong> Summer Particle Astrophysics Workshop 2024, <strong>Participant</strong> <a href="https://indico.cern.ch/event/1394318/registrations/participants" target="_blank">(View)</a>
-        </div>
+            <li>
+                <h3>Mentee: Maisha Rahman</h3>
+                <p>University of Dhaka</p>
+                <p>Department: Physics | Major: Physics</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <ul>
+                    <li>Programming & Data Analysis: Python, Statistics</li>
+                    <li>Artificial Intelligence & Machine Learning: Basics of Machine Learning and Deep Learning, Object Detection using ML</li>
+                    <li>Astronomy & Astrophysics: Introductory Astronomy, usage of astronomical core packages and databases</li>
+                </ul>
+            </li>
 
-        <!-- CCDS Workshop 2024 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="ccds deep learning code management iub 2024 research intern candidate">
-            <strong>CCDS</strong> 2nd Workshop on Deep Learning Code Management, IUB (<strong>2024</strong>): <strong>Research Intern Candidate</strong>
-        </div>
+            <li>
+                <h3>Mentee: Saidul Hossain Al-Amin</h3>
+                <p>North South University, Bangladesh</p>
+                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Bronze Awardee, IAAC</p>
+                <p>Department: Electronics and Communication Engineering (ECE) | Major: Electrical and Electronic Engineering (EEE)</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <ul>
+                    <li>Programming & Data Analysis: Python, Statistics</li>
+                    <li>Signal Processing & Astronomy: Introduction to Signal Processing, Introduction to Radio Astronomy</li>
+                    <li>Research Tools: Usage of astronomical core packages</li>
+                </ul>
+            </li>
 
-        <!-- Bangladesh Olympiad Volunteer 2024 -->
-        <div class="achievement-item" data-type="olympiad" data-keywords="bangladesh olympiad astronomy astrophysics 2024 academic volunteer iub">
-            Bangladesh Olympiad on Astronomy and Astrophysics (<strong>2024</strong>), <strong>Academic Volunteer</strong>, IUB
-        </div>
-
-        <!-- ICTP QFT School 2024 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="ictp school quantum field theory 2024 pwf bangladesh participant">
-            <strong>ICTP</strong> School on <strong>Quantum Field Theory</strong> 2024, PWF Bangladesh, <strong>Participant</strong>
-        </div>
-
-        <!-- DPS IUB Summer School 2024 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="dps iub summer school 2024 quantum world information technology applications">
-            <strong>DPS IUB Summer School 2024</strong>: Glimpses into the Quantum World - Information, Technology, and Applications
-        </div>
-
-        <!-- Decoding the Universe 2023 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="workshop decoding universe 2023 radio cosmology research laboratory university malaya">
-            Workshop on "Decoding the Universe" 2023: Organized by the Radio Cosmology Research Laboratory, University of Malaya
-        </div>
-
-        <!-- NCTS-TCA Summer Student Program 2022 -->
-        <div class="achievement-item" data-type="workshop" data-keywords="ncts tca summer student program 2022 online participant">
-            <strong>NCTS-TCA</strong> Summer Student Program (<strong>2022</strong>), <strong>Online</strong>
-        </div>
-
-        <!-- 9th Astro Olympiad National 2014 -->
-        <div class="achievement-item" data-type="olympiad" data-keywords="9th bangladesh astro olympiad national round participant 2014 faridpur">
-            The <strong>9th</strong> Bangladesh <strong>Astro</strong> Olympiad <strong>National</strong> Round, <strong>Participant</strong> (<strong>2014</strong>), representing <strong>Faridpur</strong>
-        </div>
-
-        <!-- 9th Astro Olympiad Regional 2014 -->
-        <div class="achievement-item" data-type="olympiad" data-keywords="9th bangladesh astro olympiad regional round champion organizing member 2014">
-            The <strong>9th</strong> Bangladesh <strong>Astro</strong> Olympiad <strong>Regional</strong> Round, <strong>Champion</strong> and <strong>Organizing Member</strong> (<strong>2014</strong>)
-        </div>
-
-        <!-- 36th Science Fair 2015 -->
-        <div class="achievement-item" data-type="academic" data-keywords="36th national science technology fair college representative 2015">
-            The <strong>36th</strong> National Science and Technology Fair, <strong>College Representative</strong> (<strong>2015</strong>)
-        </div>
-
-        <!-- 35th Science Fair Runner-up 2014 -->
-        <div class="achievement-item" data-type="academic" data-keywords="35th national science technology fair runner-up science public speaking 2014">
-            The <strong>35th</strong> National Science and Technology Fair, <strong>Runner-up</strong> in Science Public Speaking (<strong>2014</strong>)
-        </div>
-
-        <!-- 35th Science Fair Representative 2014 -->
-        <div class="achievement-item" data-type="academic" data-keywords="35th national science technology fair school representative 2014">
-            The <strong>35th</strong> National Science and Technology Fair, <strong>School Representative</strong> (<strong>2014</strong>)
-        </div>
-
-        <!-- Intra College English Poetry Competition 2015 -->
-        <div class="achievement-item" data-type="academic" data-keywords="intra college english poetry competition champion 2015">
-            Intra College English Poetry Competition, <strong>Champion</strong> (<strong>2015</strong>)
-        </div>
-
-        <!-- The Daily Star Spelling Bee 2014 -->
-        <div class="achievement-item" data-type="academic" data-keywords="daily star spelling bee regional round winner 2014">
-            The <strong>Daily Star</strong> Spelling Bee Regional Round, <strong>Winner</strong> (<strong>2014</strong>)
-        </div>
-
-        <!-- The Daily Star Spelling Bee 2013 -->
-        <div class="achievement-item" data-type="academic" data-keywords="daily star spelling bee regional round winner 2013">
-            The <strong>Daily Star</strong> Spelling Bee Regional Round, <strong>Winner</strong> (<strong>2013</strong>)
-        </div>
-
+            <li>
+                <h3>Mentee: Neyaz Ahmed</h3>
+                <p>Shahjalal University of Science and Technology (SUST) – BSc | North South University, Bangladesh – MSc</p>
+                <p>Department: Petroleum and Mining Engineering (BSc) | Mathematics & Physics (MSc)</p>
+                <p>Major: Petroleum and Mining Engineering, Applied Mathematics and Computational Science</p>
+                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <ul>
+                    <li>Programming & Data Analysis: Python, C++, MATLAB, Machine Learning</li>
+                    <li>Web Development: HTML, CSS</li>
+                    <li>Research Projects: Neural Ordinary Differential Equations (Neural ODE), Traffic Flow Modeling</li>
+                    <li>Research Tools: Usage of research core packages</li>
+                </ul>
+                <p style="margin-top: 0.8rem;">Portfolio: <a href="https://neyaz-ahmed.github.io/" target="_blank">Website</a> | <a href="https://github.com/neyaz-ahmed" target="_blank">GitHub</a></p>
+            </li>
+        </ul>
     </div>
 
-    <!-- Memberships Section -->
-    <h3 class="section-subtitle">Professional Memberships</h3>
-    
-    <!-- American Physical Society -->
-    <div class="membership-card" data-type="membership" data-keywords="american physical society aps member 2023 present">
-        <div class="membership-header">
-            American Physical Society (APS)
-        </div>
-        <div class="membership-role">
-            <span class="membership-role-title">Member</span>
-            <span class="membership-role-date">2023 - Present</span>
-        </div>
-    </div>
-
-    <!-- Astronomy Club USM -->
-    <div class="membership-card" data-type="membership" data-keywords="astronomy club universiti sains malaysia usm exco student representative member 2019 2020">
-        <div class="membership-header">
-            Astronomy Club, Universiti Sains Malaysia
-        </div>
-        <div class="membership-role">
-            <span class="membership-role-title">Elected Student Representative (Exco)</span>
-            <span class="membership-role-date">2019 - 2020</span>
-        </div>
-        <div class="membership-role">
-            <span class="membership-role-title">Member</span>
-            <span class="membership-role-date">2019 - 2023</span>
-        </div>
-        <div class="membership-details">
-            <div class="membership-detail-item">
-                Represented and coordinated activities among students from over 10 nationalities, promoting inclusivity and cross-cultural collaboration.
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
             </div>
-            <div class="membership-detail-item">
-                Actively participated in stargazing sessions, public outreach programs, workshops, and valuable training sessions.
-            </div>
-            <div class="membership-detail-item">
-                Attended Physics colloquia, workshops, and various engaging activities as part of the community.
-            </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Persatuan Sains Fizik USM -->
-    <div class="membership-card" data-type="membership" data-keywords="persatuan sains fizik usm physical science society universiti sains malaysia member 2019 2023">
-        <div class="membership-header">
-            Persatuan Sains Fizik USM (Physical Science Society), Universiti Sains Malaysia
-        </div>
-        <div class="membership-role">
-            <span class="membership-role-title">Member</span>
-            <span class="membership-role-date">2019 - 2023</span>
-        </div>
-        <div class="membership-details">
-            <div class="membership-detail-item">
-                As a member of this community, attended numerous Physics colloquia, workshops, coffee talks, and various engaging activities.
-            </div>
-        </div>
-    </div>
-
-    <!-- No Results Message -->
-    <div class="no-results" id="noResults" style="display: none;">
-        <div class="no-results-icon">No Results</div>
-        <p>No achievements found matching your search criteria.</p>
-    </div>
-</div>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-left">
-            <p>&copy; 2026 Adrita Khan. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
         });
-    });
-</script>
+
+        document.querySelectorAll('.container > ul > li').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.01)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        document.querySelectorAll('.container > ul > li').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px) scale(1.01)';
+                }, 100);
+            });
+        });
+    </script>
 </body>
 </html>
