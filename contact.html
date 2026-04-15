@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="theme-color" content="#060a0f">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Adrita Khan</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -27,46 +25,40 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background:
+            background: 
                 radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(212, 181, 109, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(184, 157, 85, 0.04) 0%, transparent 50%);
             z-index: 0;
-            pointer-events: none;
         }
 
-        /* ── Navigation ── */
+        /* Navigation */
         #quick-links {
             position: relative;
             z-index: 10;
             background: rgba(10, 14, 20, 0.6);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
         }
 
         .nav-container {
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
             padding: 0 1rem;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .nav-container::-webkit-scrollbar {
-            display: none;
         }
 
         .nav-list {
             display: flex;
-            flex-wrap: nowrap;
-            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
             list-style: none;
-            padding: 0.25rem 0;
-            width: max-content;
+            padding: 0;
+            margin: 0;
         }
 
         .nav-list a {
@@ -74,21 +66,24 @@
             background: rgba(201, 169, 97, 0.1);
             border: 1px solid rgba(201, 169, 97, 0.2);
             border-radius: 25px;
-            padding: 0.55rem 1rem;
+            padding: 0.7rem 1.2rem;
             text-decoration: none;
             color: #ffffff;
-            font-size: 0.82rem;
+            font-size: 0.9rem;
             font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
             white-space: nowrap;
-            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            -webkit-tap-highlight-color: transparent;
+            flex-shrink: 0;
         }
 
-        .nav-list a:hover,
-        .nav-list a:active {
+        .nav-list a:hover {
             background: rgba(201, 169, 97, 0.2);
             border-color: rgba(201, 169, 97, 0.4);
+            transform: translateY(-3px);
             color: #c9a961;
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
 
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
@@ -106,16 +101,16 @@
             z-index: 10;
             display: flex;
             align-items: stretch;
-            min-height: calc(100vh - 80px);
+            min-height: calc(100vh - 120px);
         }
 
         /* ── Sidebars ── */
         .sidebar {
-            width: 52px;
+            width: 60px;
             flex-shrink: 0;
             position: sticky;
             top: 0;
-            height: calc(100vh - 80px);
+            height: calc(100vh - 120px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -127,37 +122,35 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.2rem;
             text-decoration: none;
             color: rgba(201, 169, 97, 0.5);
             transition: all 0.3s ease;
-            padding: 1rem 0.4rem;
+            padding: 1.5rem 0.5rem;
             height: 100%;
             width: 100%;
             position: relative;
         }
 
-        .sidebar-link:hover,
-        .sidebar-link:active {
+        .sidebar-link:hover {
             color: #c9a961;
             background: rgba(201, 169, 97, 0.04);
         }
 
-        .sidebar-link:hover .sidebar-arrow-circle,
-        .sidebar-link:active .sidebar-arrow-circle {
+        .sidebar-link:hover .sidebar-arrow-circle {
             background: rgba(201, 169, 97, 0.15);
             border-color: rgba(201, 169, 97, 0.4);
+            box-shadow: 0 0 20px rgba(201, 169, 97, 0.15);
         }
 
-        .sidebar-link:hover .sidebar-label,
-        .sidebar-link:active .sidebar-label {
+        .sidebar-link:hover .sidebar-label {
             opacity: 1;
             color: #c9a961;
         }
 
         .sidebar-arrow-circle {
-            width: 34px;
-            height: 34px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             border: 1px solid rgba(201, 169, 97, 0.2);
             background: rgba(201, 169, 97, 0.06);
@@ -169,14 +162,14 @@
         }
 
         .sidebar-arrow-circle svg {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
         }
 
         .sidebar-label {
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -190,6 +183,63 @@
             transform: rotate(180deg);
         }
 
+        .sidebar-page-name {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            color: #c9a961;
+        }
+
+        .sidebar-left .sidebar-page-name {
+            transform: rotate(180deg);
+        }
+
+        .sidebar-link:hover .sidebar-page-name {
+            opacity: 0.8;
+        }
+
+        /* Hover tooltip style page name */
+        .sidebar-tooltip {
+            position: absolute;
+            background: rgba(10, 14, 20, 0.92);
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            border-radius: 10px;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #c9a961;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        .sidebar-left .sidebar-tooltip {
+            left: calc(100% + 8px);
+            top: 50%;
+            transform: translateY(-50%) translateX(-6px);
+        }
+
+        .sidebar-right .sidebar-tooltip {
+            right: calc(100% + 8px);
+            top: 50%;
+            transform: translateY(-50%) translateX(6px);
+        }
+
+        .sidebar-link:hover .sidebar-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Divider lines on sidebars */
         .sidebar-left {
             border-right: 1px solid rgba(201, 169, 97, 0.08);
         }
@@ -198,93 +248,59 @@
             border-left: 1px solid rgba(201, 169, 97, 0.08);
         }
 
-        /* Tooltip — desktop only */
-        .sidebar-tooltip {
-            position: absolute;
-            background: rgba(10, 14, 20, 0.92);
-            border: 1px solid rgba(201, 169, 97, 0.25);
-            border-radius: 10px;
-            padding: 0.4rem 0.75rem;
-            font-size: 0.72rem;
-            font-weight: 500;
-            color: #c9a961;
-            white-space: nowrap;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.25s ease;
-            backdrop-filter: blur(8px);
-            z-index: 100;
-        }
-
-        .sidebar-left .sidebar-tooltip {
-            left: calc(100% + 8px);
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .sidebar-right .sidebar-tooltip {
-            right: calc(100% + 8px);
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .sidebar-link:hover .sidebar-tooltip {
-            opacity: 1;
-        }
-
-        /* ── Main Content ── */
+        /* Main Content */
         .main-content {
             flex: 1;
-            min-width: 0;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 2rem;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        /* ── Page Header ── */
+        /* Page Header */
         .page-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .page-header h1 {
-            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-size: 2.5rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             line-height: 1.1;
         }
 
         .page-subtitle {
-            font-size: clamp(0.85rem, 3vw, 1rem);
+            font-size: 1rem;
             color: #c9a961;
             margin-bottom: 1rem;
         }
 
         .section-divider {
-            width: 100px;
+            width: 120px;
             height: 4px;
             background: linear-gradient(135deg, #c9a961, #d4b56d);
-            margin: 0.8rem auto 1rem;
+            margin: 1rem auto;
             border-radius: 2px;
         }
 
         .page-description {
-            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
             color: #b8c5d0;
-            max-width: 680px;
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        /* ── Contact Cards Grid ── */
+        /* Contact Cards Grid */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.2rem;
             margin-bottom: 1.5rem;
         }
 
@@ -294,138 +310,123 @@
             border-radius: 20px;
             padding: 1.2rem;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        @media (hover: hover) {
-            .contact-card:hover {
-                transform: translateY(-6px);
-                background: rgba(201, 169, 97, 0.12);
-                border-color: rgba(201, 169, 97, 0.3);
-                box-shadow: 0 12px 30px rgba(201, 169, 97, 0.25);
-            }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1), transparent);
+            transition: left 0.5s;
         }
 
-        .contact-card:active {
-            transform: scale(0.98);
+        .contact-card:hover {
+            transform: translateY(-8px);
+            background: rgba(201, 169, 97, 0.12);
+            border-color: rgba(201, 169, 97, 0.3);
+            box-shadow: 0 15px 35px rgba(201, 169, 97, 0.3);
+        }
+
+        .contact-card:hover::before {
+            left: 100%;
         }
 
         .contact-icon {
-            width: 44px;
-            height: 44px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             background: linear-gradient(135deg, #c9a961, #d4b56d);
             border: 2px solid rgba(201, 169, 97, 0.3);
+            backdrop-filter: blur(10px);
             color: white;
-            box-shadow: 0 6px 16px rgba(201, 169, 97, 0.3);
-            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
         }
 
         .contact-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.5rem;
         }
 
         .contact-info {
             color: #b8c5d0;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             margin-bottom: 1rem;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .contact-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.8rem;
             background: linear-gradient(135deg, #c9a961, #d4b56d);
             color: #0f1923;
             text-decoration: none;
             font-weight: 600;
-            padding: 0.6rem 1.1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 25px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
             font-size: 0.85rem;
-            touch-action: manipulation;
         }
 
-        @media (hover: hover) {
-            .contact-link:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
-            }
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
         }
 
-        .contact-link:active {
-            transform: scale(0.97);
-        }
-
-        /* ── Footer ── */
+        /* Footer */
         footer {
             position: relative;
             z-index: 10;
             background: rgba(10, 14, 20, 0.8);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid rgba(201, 169, 97, 0.2);
-            padding: 1.5rem 0;
-            margin-top: 2rem;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .footer-left p {
             color: #b8c5d0;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-align: center;
         }
 
-        /* ── Responsive Breakpoints ── */
-
-        /* Tablet: 481px – 768px */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .main-content {
-                padding: 1.5rem 1.2rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* Mobile: ≤ 480px */
-        @media (max-width: 480px) {
+        /* Responsive */
+        @media (max-width: 768px) {
             .sidebar {
-                width: 32px;
+                width: 36px;
             }
 
-            .sidebar-label {
+            .sidebar-label,
+            .sidebar-page-name {
                 display: none;
             }
 
             .sidebar-arrow-circle {
-                width: 28px;
-                height: 28px;
-            }
-
-            .sidebar-arrow-circle svg {
-                width: 12px;
-                height: 12px;
+                width: 30px;
+                height: 30px;
             }
 
             .sidebar-tooltip {
@@ -433,54 +434,43 @@
             }
 
             .main-content {
-                padding: 1.2rem 0.75rem;
+                padding: 1rem 0.8rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 0.85rem;
-            }
-
-            .contact-card {
-                padding: 1rem;
-                border-radius: 16px;
-            }
-
-            .page-header {
-                margin-bottom: 1.5rem;
+                gap: 1rem;
             }
 
             footer {
-                margin-top: 1.5rem;
-                padding: 1.2rem 0;
-            }
-        }
-
-        /* Very small screens: ≤ 360px */
-        @media (max-width: 360px) {
-            .sidebar {
-                width: 26px;
+                padding: 1.5rem 0;
+                margin-top: 2rem;
             }
 
-            .sidebar-arrow-circle {
-                width: 24px;
-                height: 24px;
+            .footer-content {
+                padding: 0 1rem;
             }
 
-            .main-content {
-                padding: 1rem 0.6rem;
-            }
-        }
-
-        /* Landscape mobile */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .sidebar {
-                height: auto;
-                position: relative;
+            /* Make nav scrollable horizontally on mobile instead of wrapping awkwardly */
+            .nav-list {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 2px;
             }
 
-            .page-layout {
-                min-height: unset;
+            .nav-list::-webkit-scrollbar {
+                display: none;
+            }
+
+            #quick-links {
+                overflow-x: auto;
             }
         }
     </style>
@@ -513,7 +503,7 @@
             <a href="notes.html" class="sidebar-link" aria-label="Previous page: Study Notes">
                 <span class="sidebar-label">Previous</span>
                 <div class="sidebar-arrow-circle">
-                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 12L6 8L10 4" stroke="#c9a961" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
@@ -552,7 +542,7 @@
 
                     <!-- Twitter Card -->
                     <div class="contact-card">
-                        <div class="contact-icon" style="font-weight: 700; font-size: 1.1rem; font-family: Arial, sans-serif; letter-spacing: -0.5px;">𝕏</div>
+                        <div class="contact-icon">𝕏</div>
                         <h3 class="contact-title">Twitter / X</h3>
                         <p class="contact-info">Follow me for updates on research progress, academic discussions, and insights.</p>
                         <a href="https://x.com/Adrita_" target="_blank" rel="noopener noreferrer" class="contact-link">
@@ -563,7 +553,7 @@
 
                     <!-- LinkedIn Card -->
                     <div class="contact-card">
-                        <div class="contact-icon" style="font-weight: 700; font-size: 1.4rem; font-family: Arial, sans-serif;">in</div>
+                        <div class="contact-icon" style="font-weight: 700; font-size: 1.5rem; font-family: Arial, sans-serif;">in</div>
                         <h3 class="contact-title">LinkedIn</h3>
                         <p class="contact-info">Connect with me to explore collaboration opportunities, share academic experiences, and expand our research networks.</p>
                         <a href="https://linkedin.com/in/adrita-khan" target="_blank" rel="noopener noreferrer" class="contact-link">
@@ -581,7 +571,7 @@
             <a href="index.html" class="sidebar-link" aria-label="Next page: Home">
                 <span class="sidebar-label">Next</span>
                 <div class="sidebar-arrow-circle">
-                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 4L10 8L6 12" stroke="#c9a961" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
