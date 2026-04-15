@@ -61,7 +61,18 @@
         .side-nav-arrow::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.08) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease; }
         .side-nav-arrow:hover::before { opacity: 1; }
         .side-nav-arrow svg { position: relative; z-index: 1; transition: transform 0.3s ease; }
-        .side-nav-label { font-size: 9px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; writing-mode: vertical-rl; opacity: 0.75; transition: opacity 0.3s ease; position: relative; z-index: 1; }
+        .side-nav-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;   /* ← changed rl to lr */
+    transform: rotate(180deg);   /* ← add this new line */
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
         .side-nav-arrow:hover .side-nav-label { opacity: 1; }
         .side-nav-left { left: 0; border-right: none; border-radius: 0 12px 12px 0; padding: 18px 14px 14px 10px; }
         .side-nav-left:hover { background: rgba(201, 169, 97, 0.16); border-color: rgba(201, 169, 97, 0.45); padding-left: 14px; color: #d4b56d; box-shadow: 6px 0 30px rgba(201, 169, 97, 0.2), 2px 0 10px rgba(0, 0, 0, 0.3); }
