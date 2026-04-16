@@ -298,7 +298,15 @@
         .scroll-to-top:hover svg { transform: translateY(-2px); }
         @media (max-width: 640px) { .scroll-to-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; } }
         @media (max-width: 400px) { .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 44px; height: 44px; } }
-    </style>
+    
+        /* Active nav link (current page) — added for cross-page consistency */
+        .nav-list a.active {
+            background: rgba(201, 169, 97, 0.22);
+            border-color: rgba(201, 169, 97, 0.55);
+            color: #d4b56d;
+            box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
+        }
+</style>
 </head>
 <body>
     <!-- Scroll-to-top button -->
@@ -345,7 +353,7 @@
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="education.html">Education</a></li>
+                <li><a href="education.html" class="active" aria-current="page">Education</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="projects.html">Projects</a></li>

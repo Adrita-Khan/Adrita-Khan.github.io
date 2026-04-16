@@ -534,7 +534,15 @@
         }
 
         .aurora-container { display: none !important; }
-    </style>
+    
+        /* Active nav link (current page) — added for cross-page consistency */
+        .nav-list a.active {
+            background: rgba(201, 169, 97, 0.22);
+            border-color: rgba(201, 169, 97, 0.55);
+            color: #d4b56d;
+            box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
+        }
+</style>
 </head>
 <body>
     <div class="cosmic-bg"></div>
@@ -550,7 +558,7 @@
 </a>
 
 <!-- Right-side navigation arrow -->
-    <a href="education.html" class="side-nav-arrow" title="Next: Education" aria-label="Go to Education page">
+    <a href="education.html" class="side-nav-arrow side-nav-right" title="Next: Education" aria-label="Go to Education page">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
@@ -567,7 +575,7 @@
     <section id="quick-links">
         <div class="nav-container">
             <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                 <li><a href="education.html">Education</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="research.html">Research</a></li>
