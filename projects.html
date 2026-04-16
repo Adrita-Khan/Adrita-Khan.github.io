@@ -6,6 +6,46 @@
     <title>Projects - Adrita Khan</title>
 
     <style>
+
+        /* Respect prefers-reduced-motion — disable ambient animations */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+
+        /* Skip to content — only visible when keyboard-focused */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            z-index: 9999;
+            padding: 0.6rem 1rem;
+            background: #0a0e14;
+            color: #d4b56d;
+            border: 1px solid rgba(201, 169, 97, 0.6);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+            outline: 2px solid #d4b56d;
+        }
+        /* Visually hidden (for <h1>s that shouldn't be seen) */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+
         *{margin:0;padding:0;box-sizing:border-box}
         :root{
             --gold:#c9a961;--gold-light:#f5d480;--gold-dim:rgba(201,169,97,0.15);
@@ -235,8 +275,35 @@
             box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
         }
 </style>
+
+    <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
+    <meta name="description" content="Open-source projects by Adrita Khan across astrophysics, cosmology, and scientific machine learning.">
+    <meta name="keywords" content="Adrita Khan, cosmology, astrophysics, observational cosmology, modified gravity, dark energy, machine learning, radio astronomy, jet tagging, Bangladesh, physics researcher">
+    <meta name="author" content="Adrita Khan">
+    <meta name="theme-color" content="#0a0e14">
+    <link rel="canonical" href="https://adrita-khan.github.io/projects.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230a0e14'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20font-family='Georgia,serif'%20font-size='22'%20font-weight='700'%20fill='%23c9a961'%3EA%3C/text%3E%3C/svg%3E">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Adrita Khan — Portfolio">
+    <meta property="og:title" content="Adrita Khan">
+    <meta property="og:description" content="Open-source projects by Adrita Khan across astrophysics, cosmology, and scientific machine learning.">
+    <meta property="og:url" content="https://adrita-khan.github.io/projects.html">
+    <meta property="og:image" content="https://adrita-khan.github.io/assets/og-preview.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Adrita_">
+    <meta name="twitter:creator" content="@Adrita_">
+    <meta name="twitter:title" content="Adrita Khan">
+    <meta name="twitter:description" content="Open-source projects by Adrita Khan across astrophysics, cosmology, and scientific machine learning.">
+    <meta name="twitter:image" content="https://adrita-khan.github.io/assets/og-preview.png">
+
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
 
     <!-- Shared SVG defs (hidden) -->
     <svg style="position:absolute;width:0;height:0"><defs>
@@ -269,10 +336,12 @@
         </svg>
         <span class="side-nav-label">Experience</span>
     </a>
-
-    <section id="quick-links"><div class="nav-container"><ul class="nav-list">
+<h1 class="visually-hidden">Adrita Khan — Projects</h1>
+<nav id="quick-links" aria-label="Main navigation"><div class="nav-container"><ul class="nav-list">
         <li><a href="index.html">Home</a></li><li><a href="education.html">Education</a></li><li><a href="publications.html">Publications</a></li><li><a href="research.html">Research</a></li><li><a href="projects.html" class="active" aria-current="page">Projects</a></li><li><a href="academic_experience.html">Academic Experience</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="notes.html">Study Notes</a></li><li><a href="contact.html">Contact</a></li>
-    </ul></div></section>
+    </ul></div></nav>
+<span id="main-content" tabindex="-1" aria-hidden="true"></span>
+
 
     <div class="container">
         <h2 class="section-title">Projects</h2>
@@ -281,7 +350,7 @@
         <div class="projects-grid">
 
 <!-- ═══════════════ 1: AstroPhotoZ ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/AstroPhotoZ" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/AstroPhotoZ" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <radialGradient id="p1a" cx="50%" cy="42%" r="65%"><stop offset="0%" stop-color="#161e30"/><stop offset="100%" stop-color="#060a10"/></radialGradient>
@@ -318,10 +387,10 @@
 <text x="50" y="208" font-family="monospace" font-size="8" fill="#4a6cf7" opacity=".9" font-weight="500">z = 0</text>
 <text x="315" y="208" font-family="monospace" font-size="8" fill="#d14545" opacity=".9" font-weight="500">z = 3+</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Photometric Redshifts</a></div><div><a href="#">| Machine Learning</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/AstroPhotoZ">AstroPhotoZ: Photometric Redshift Estimation</a></h3><p class="description">A comprehensive framework for estimating photometric redshifts using Gaussian processes and machine learning techniques, validated on Stripe 82X before applying to wide X-ray fields.</p><a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Photometric Redshifts</a></div><div><a href="#">| Machine Learning</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/AstroPhotoZ" rel="noopener noreferrer">AstroPhotoZ: Photometric Redshift Estimation</a></h3><p class="description">A comprehensive framework for estimating photometric redshifts using Gaussian processes and machine learning techniques, validated on Stripe 82X before applying to wide X-ray fields.</p><a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 2: Tremor Challenge ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="p2a" cx="22%" cy="30%" r="90%"><stop offset="0%" stop-color="#14202e"/><stop offset="100%" stop-color="#060a10"/></radialGradient></defs>
 <rect width="400" height="220" fill="url(#p2a)"/><rect width="400" height="220" fill="url(#p2a)" filter="url(#sf-noise)" opacity=".05"/>
@@ -343,10 +412,10 @@
 <rect x="102" y="180" width="70" height="17" rx="8.5" fill="rgba(201,169,97,.08)" stroke="var(--gold)" stroke-width=".5"/><text x="110" y="192" font-family="monospace" font-size="8" fill="var(--gold)" opacity="1" font-weight="500">GYRO-XYZ</text>
 <rect x="182" y="180" width="65" height="17" rx="8.5" fill="rgba(232,93,93,.08)" stroke="var(--red)" stroke-width=".5"/><text x="190" y="192" font-family="monospace" font-size="8" fill="var(--red)" opacity="1" font-weight="500">ANOMALY</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Health AI</a></div><div><a href="#">| Parkinson's Disease</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025">Tremor Activity Recognition for Parkinson's Disease</a></h3><p class="description">Recognizing normal vs unusual activities related to Parkinson's using multimodal sensor data from wearables, classifying ten distinct activity classes for early diagnosis.</p><a href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Health AI</a></div><div><a href="#">| Parkinson's Disease</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" rel="noopener noreferrer">Tremor Activity Recognition for Parkinson's Disease</a></h3><p class="description">Recognizing normal vs unusual activities related to Parkinson's using multimodal sensor data from wearables, classifying ten distinct activity classes for early diagnosis.</p><a href="https://github.com/Adrita-Khan/Tremor-Challenge-ABC2025" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 3: Radio Galaxy Classification ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/RGC-Data-Curation" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/RGC-Data-Curation" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <radialGradient id="p3a" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#151d2e"/><stop offset="100%" stop-color="#060a10"/></radialGradient>
@@ -367,10 +436,10 @@
 <rect x="306" y="155" width="42" height="14" rx="7" fill="rgba(232,131,93,.1)" stroke="var(--orange)" stroke-width=".5"/><text x="314" y="165" font-family="monospace" font-size="8" fill="var(--orange)" opacity="1" font-weight="500">FR II</text>
 <text x="174" y="74" font-family="monospace" font-size="7.5" fill="var(--gold)" opacity=".85" font-weight="500">AGN CORE</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Radio Astronomy</a></div><div><a href="#">| Data Curation</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/RGC-Data-Curation">Radio Galaxy Classification Data Curation</a></h3><p class="description">Curating and managing radio galaxy datasets from the FIRST survey with labeled morphological classifications (FRI, FRII, compact, bent) for ML training.</p><a href="https://github.com/Adrita-Khan/RGC-Data-Curation" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Radio Astronomy</a></div><div><a href="#">| Data Curation</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/RGC-Data-Curation" rel="noopener noreferrer">Radio Galaxy Classification Data Curation</a></h3><p class="description">Curating and managing radio galaxy datasets from the FIRST survey with labeled morphological classifications (FRI, FRII, compact, bent) for ML training.</p><a href="https://github.com/Adrita-Khan/RGC-Data-Curation" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 4: Exoplanet Detection ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/ExoplanetDetectionML" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/ExoplanetDetectionML" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <radialGradient id="p4a" cx="72%" cy="40%" r="65%"><stop offset="0%" stop-color="#1a2335"/><stop offset="100%" stop-color="#060a10"/></radialGradient>
@@ -397,10 +466,10 @@
 <text x="192" y="206" font-family="monospace" font-size="8" fill="var(--gold)" opacity=".9" font-weight="500">TRANSIT DIP</text>
 <text x="30" y="168" font-family="monospace" font-size="7" fill="var(--text-dim)" opacity=".8" font-weight="500">RELATIVE FLUX</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Exoplanets</a></div><div><a href="#">| Classification</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/ExoplanetDetectionML">Exoplanet Detection with Machine Learning</a></h3><p class="description">An ML pipeline for detecting exoplanets from Kepler and TESS data using logistic regression, KNN, and random forest with data augmentation techniques.</p><a href="https://github.com/Adrita-Khan/ExoplanetDetectionML" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Exoplanets</a></div><div><a href="#">| Classification</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/ExoplanetDetectionML" rel="noopener noreferrer">Exoplanet Detection with Machine Learning</a></h3><p class="description">An ML pipeline for detecting exoplanets from Kepler and TESS data using logistic regression, KNN, and random forest with data augmentation techniques.</p><a href="https://github.com/Adrita-Khan/ExoplanetDetectionML" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 5: BandGapAlign ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/BandGapAlign" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/BandGapAlign" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <radialGradient id="p5a" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#141a28"/><stop offset="100%" stop-color="#060a10"/></radialGradient>
@@ -420,10 +489,10 @@
 <g transform="translate(52,180)"><rect x="0" y="0" width="55" height="5" rx="2.5" fill="var(--teal)" opacity=".6"/><rect x="65" y="0" width="40" height="5" rx="2.5" fill="var(--gold)" opacity=".6"/><rect x="115" y="0" width="70" height="5" rx="2.5" fill="var(--blue)" opacity=".6"/><rect x="195" y="0" width="48" height="5" rx="2.5" fill="var(--orange)" opacity=".6"/><rect x="253" y="0" width="37" height="5" rx="2.5" fill="var(--purple)" opacity=".35"/></g>
 <text x="110" y="200" font-family="monospace" font-size="7.5" fill="var(--text-dim)" opacity=".8" font-weight="500">ML PREDICTED BAND GAPS (eV)</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Materials Science</a></div><div><a href="#">| Band Gap Prediction</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/BandGapAlign">BandGapAlign: Semiconductor Band Gap Prediction</a></h3><p class="description">Leveraging ML to predict semiconductor band gaps from crystal structure data using Pymatgen and Matminer for optoelectronics and photovoltaics discovery.</p><a href="https://github.com/Adrita-Khan/BandGapAlign" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Materials Science</a></div><div><a href="#">| Band Gap Prediction</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/BandGapAlign" rel="noopener noreferrer">BandGapAlign: Semiconductor Band Gap Prediction</a></h3><p class="description">Leveraging ML to predict semiconductor band gaps from crystal structure data using Pymatgen and Matminer for optoelectronics and photovoltaics discovery.</p><a href="https://github.com/Adrita-Khan/BandGapAlign" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 6: AstroSignal ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/AstroSignal" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/AstroSignal" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="p6a" cx="50%" cy="40%" r="75%"><stop offset="0%" stop-color="#141e30"/><stop offset="100%" stop-color="#060a10"/></radialGradient></defs>
 <rect width="400" height="220" fill="url(#p6a)"/><rect width="400" height="220" fill="url(#p6a)" filter="url(#sf-noise)" opacity=".04"/>
@@ -440,10 +509,10 @@
 <rect x="52" y="200" width="40" height="14" rx="7" fill="rgba(232,93,93,.08)" stroke="var(--red)" stroke-width=".5"/><text x="61" y="210" font-family="monospace" font-size="7.5" fill="var(--red)" opacity="1" font-weight="500">RFI</text>
 <rect x="102" y="200" width="50" height="14" rx="7" fill="rgba(78,205,196,.08)" stroke="var(--teal)" stroke-width=".5"/><text x="110" y="210" font-family="monospace" font-size="7.5" fill="var(--teal)" opacity="1" font-weight="500">CLEAN</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Signal Processing</a></div><div><a href="#">| RFI Detection</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/AstroSignal">AstroSignal: Radio Frequency Interference Detection</a></h3><p class="description">A signal processing and ML framework to detect and mitigate RFI in radio astronomy, integrating traditional techniques with deep learning including GANs.</p><a href="https://github.com/Adrita-Khan/AstroSignal" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Signal Processing</a></div><div><a href="#">| RFI Detection</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/AstroSignal" rel="noopener noreferrer">AstroSignal: Radio Frequency Interference Detection</a></h3><p class="description">A signal processing and ML framework to detect and mitigate RFI in radio astronomy, integrating traditional techniques with deep learning including GANs.</p><a href="https://github.com/Adrita-Khan/AstroSignal" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 7: Astroinformatics ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Astroinformatics" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Astroinformatics" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="p7a" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#121a2a"/><stop offset="100%" stop-color="#060a10"/></radialGradient></defs>
 <rect width="400" height="220" fill="url(#p7a)"/><rect width="400" height="220" fill="url(#p7a)" filter="url(#sf-noise)" opacity=".04"/>
@@ -473,10 +542,10 @@
 <text x="145" y="148" font-family="monospace" font-size="6" fill="var(--teal)" opacity=".8" font-weight="500">MAIN SEQ</text>
 <text x="22" y="210" font-family="monospace" font-size="6.5" fill="var(--gold)" opacity=".1">01001011 10110100 01101001 11010010 00101101 10010110 01001110 11001010</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Astroinformatics</a></div><div><a href="#">| Toolkit</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Astroinformatics">Astroinformatics: Computational Astronomy Toolkit</a></h3><p class="description">A comprehensive toolkit for managing petabyte-scale astronomical datasets through data mining, ML, and statistical methods with Jupyter notebooks and real SDSS data.</p><a href="https://github.com/Adrita-Khan/Astroinformatics" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Astroinformatics</a></div><div><a href="#">| Toolkit</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Astroinformatics" rel="noopener noreferrer">Astroinformatics: Computational Astronomy Toolkit</a></h3><p class="description">A comprehensive toolkit for managing petabyte-scale astronomical datasets through data mining, ML, and statistical methods with Jupyter notebooks and real SDSS data.</p><a href="https://github.com/Adrita-Khan/Astroinformatics" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 8: Neural ODEs ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/neural-differential-models" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/neural-differential-models" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="p8a" cx="40%" cy="50%" r="75%"><stop offset="0%" stop-color="#141828"/><stop offset="100%" stop-color="#060a10"/></radialGradient></defs>
 <rect width="400" height="220" fill="url(#p8a)"/><rect width="400" height="220" fill="url(#p8a)" filter="url(#sf-noise)" opacity=".04"/>
@@ -491,10 +560,10 @@
 <circle cx="325" cy="62" r="2.5" fill="var(--teal)" opacity=".5" class="pulse-node"/><circle cx="355" cy="44" r="2.5" fill="var(--teal)" opacity=".5" class="pulse-node" style="--delay:.3s"/><circle cx="335" cy="118" r="2.5" fill="var(--orange)" opacity=".5" class="pulse-node" style="--delay:.5s"/><circle cx="365" cy="130" r="2.5" fill="var(--orange)" opacity=".5" class="pulse-node" style="--delay:.7s"/><circle cx="320" cy="148" r="2.5" fill="var(--blue)" opacity=".5" class="pulse-node" style="--delay:.6s"/><circle cx="350" cy="172" r="2.5" fill="var(--blue)" opacity=".5" class="pulse-node" style="--delay:.9s"/>
 <text x="32" y="40" font-family="monospace" font-size="7" fill="var(--blue)" opacity=".85" font-weight="500">INPUT</text><text x="100" y="58" font-family="monospace" font-size="7" fill="var(--purple)" opacity=".85" font-weight="500">HIDDEN</text><text x="290" y="26" font-family="monospace" font-size="7" fill="var(--teal)" opacity=".85" font-weight="500">TRAJECTORIES</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Neural ODEs</a></div><div><a href="#">| Dynamical Systems</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/neural-differential-models">Neural Differential Equation Models</a></h3><p class="description">Exploring Neural ODEs for physics and astrophysics — continuous-depth neural networks modeling stellar evolution, gravitational dynamics, and time-dependent phenomena.</p><a href="https://github.com/Adrita-Khan/neural-differential-models" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Neural ODEs</a></div><div><a href="#">| Dynamical Systems</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/neural-differential-models" rel="noopener noreferrer">Neural Differential Equation Models</a></h3><p class="description">Exploring Neural ODEs for physics and astrophysics — continuous-depth neural networks modeling stellar evolution, gravitational dynamics, and time-dependent phenomena.</p><a href="https://github.com/Adrita-Khan/neural-differential-models" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 9: Radio Astro Tutorials ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/radio-astro-tutorials" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/radio-astro-tutorials" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="p9a" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#12192a"/><stop offset="100%" stop-color="#060a10"/></radialGradient><linearGradient id="p9s" x1="0%" x2="100%"><stop offset="0%" stop-color="var(--blue)" stop-opacity=".7"/><stop offset="50%" stop-color="var(--teal)" stop-opacity=".9"/><stop offset="100%" stop-color="var(--green)" stop-opacity=".7"/></linearGradient></defs>
 <rect width="400" height="220" fill="url(#p9a)"/><rect width="400" height="220" fill="url(#p9a)" filter="url(#sf-noise)" opacity=".04"/>
@@ -528,10 +597,10 @@
 <rect x="155" y="198" width="90" height="14" rx="7" fill="rgba(201,169,97,.08)" stroke="var(--gold)" stroke-width=".4"/><text x="163" y="208" font-family="monospace" font-size="7.5" fill="var(--gold)" opacity="1" font-weight="500">INTERFEROMETRY</text>
 <rect x="278" y="198" width="82" height="14" rx="7" fill="rgba(110,142,251,.08)" stroke="var(--blue)" stroke-width=".4"/><text x="288" y="208" font-family="monospace" font-size="7.5" fill="var(--blue)" opacity="1" font-weight="500">SPECTRAL LINE</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Radio Astronomy</a></div><div><a href="#">| Tutorials</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/radio-astro-tutorials">Radio Astronomy Tutorials</a></h3><p class="description">Educational tutorials for radio astronomy data analysis using radio-astro-tools and Astropy — spectral cubes, PV diagrams, moment maps, and parallel processing with Dask.</p><a href="https://github.com/Adrita-Khan/radio-astro-tutorials" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Radio Astronomy</a></div><div><a href="#">| Tutorials</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/radio-astro-tutorials" rel="noopener noreferrer">Radio Astronomy Tutorials</a></h3><p class="description">Educational tutorials for radio astronomy data analysis using radio-astro-tools and Astropy — spectral cubes, PV diagrams, moment maps, and parallel processing with Dask.</p><a href="https://github.com/Adrita-Khan/radio-astro-tutorials" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 10: Astro Resources ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Astro_Resources" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Astro_Resources" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="p10a" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#141a2a"/><stop offset="100%" stop-color="#060a10"/></radialGradient></defs>
 <rect width="400" height="220" fill="url(#p10a)"/><rect width="400" height="220" fill="url(#p10a)" filter="url(#sf-noise)" opacity=".04"/>
@@ -545,10 +614,10 @@
 <rect x="174" y="190" width="72" height="14" rx="7" fill="rgba(110,142,251,.06)" stroke="var(--blue)" stroke-width=".4"/><text x="184" y="200" font-family="monospace" font-size="7.5" fill="var(--blue)" opacity="1" font-weight="500">TUTORIALS</text>
 <rect x="256" y="190" width="70" height="14" rx="7" fill="rgba(232,131,93,.06)" stroke="var(--orange)" stroke-width=".4"/><text x="266" y="200" font-family="monospace" font-size="7.5" fill="var(--orange)" opacity="1" font-weight="500">CATALOGS</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Resources</a></div><div><a href="#">| Reference</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Astro_Resources">Astronomy Resources Collection</a></h3><p class="description">A curated guide to essential astronomical tools, datasets, and learning materials across various subdisciplines of astronomy for students and researchers.</p><a href="https://github.com/Adrita-Khan/Astro_Resources" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Resources</a></div><div><a href="#">| Reference</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Astro_Resources" rel="noopener noreferrer">Astronomy Resources Collection</a></h3><p class="description">A curated guide to essential astronomical tools, datasets, and learning materials across various subdisciplines of astronomy for students and researchers.</p><a href="https://github.com/Adrita-Khan/Astro_Resources" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 11: Cosmology Materials ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Cosmology-Materials" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Cosmology-Materials" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <radialGradient id="p11a" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#141830"/><stop offset="100%" stop-color="#060a10"/></radialGradient>
@@ -566,10 +635,10 @@
 <text x="306" y="208" font-family="monospace" font-size="7.5" fill="var(--orange)" opacity=".9" font-weight="500">+200μK</text>
 <text x="122" y="10" font-family="monospace" font-size="8" fill="var(--gold)" opacity=".85" font-weight="500">CMB TEMPERATURE ANISOTROPY</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Cosmology</a></div><div><a href="#">| Educational</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Cosmology-Materials">Cosmology Materials</a></h3><p class="description">Lecture notes, problem sets, and code implementations covering the CMB, large-scale structure formation, and other fundamental topics in modern cosmology.</p><a href="https://github.com/Adrita-Khan/Cosmology-Materials" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Cosmology</a></div><div><a href="#">| Educational</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Cosmology-Materials" rel="noopener noreferrer">Cosmology Materials</a></h3><p class="description">Lecture notes, problem sets, and code implementations covering the CMB, large-scale structure formation, and other fundamental topics in modern cosmology.</p><a href="https://github.com/Adrita-Khan/Cosmology-Materials" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 12: Signal Denoising ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="p12a" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#141a28"/><stop offset="100%" stop-color="#060a10"/></radialGradient></defs>
 <rect width="400" height="220" fill="url(#p12a)"/><rect width="400" height="220" fill="url(#p12a)" filter="url(#sf-noise)" opacity=".04"/>
@@ -582,10 +651,10 @@
 <path d="M20,178 C50,178 66,164 96,164 C126,164 142,192 172,192 C202,192 218,164 248,164 C278,164 294,186 324,186 C344,186 356,174 376,174" fill="none" stroke="var(--teal)" stroke-width="2" opacity=".7"/><path d="M20,178 C50,178 66,164 96,164 C126,164 142,192 172,192 C202,192 218,164 248,164 C278,164 294,186 324,186 C344,186 356,174 376,174" fill="none" stroke="var(--teal)" stroke-width="7" opacity=".04"/>
 <rect x="300" y="204" width="80" height="14" rx="7" fill="rgba(78,205,196,.08)" stroke="var(--teal)" stroke-width=".5"/><text x="308" y="214" font-family="monospace" font-size="7.5" fill="var(--teal)" opacity="1" font-weight="500">SNR +18.4 dB</text>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Signal Processing</a></div><div><a href="#">| Denoising</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison">Signal Denoising Comparison</a></h3><p class="description">Comparative study of denoising techniques — classical signal processing vs modern ML approaches — with benchmarks for time-series and spectroscopic observations.</p><a href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Signal Processing</a></div><div><a href="#">| Denoising</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison" rel="noopener noreferrer">Signal Denoising Comparison</a></h3><p class="description">Comparative study of denoising techniques — classical signal processing vs modern ML approaches — with benchmarks for time-series and spectroscopic observations.</p><a href="https://github.com/Adrita-Khan/Signal_Denoising_Comparison" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
 <!-- ═══════════════ 13: Benchmarking RadioDecays ═══════════════ -->
-<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays" class="block-20"><div class="svg-overlay">
+<div class="blog-entry"><div class="image-wrapper"><a target="_blank" href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays" class="block-20" rel="noopener noreferrer"><div class="svg-overlay">
 <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <radialGradient id="p13a" cx="30%" cy="42%" r="80%"><stop offset="0%" stop-color="#161a28"/><stop offset="100%" stop-color="#060a10"/></radialGradient>
@@ -613,7 +682,7 @@
 </g>
 <g transform="translate(66,192)" opacity=".35"><circle cx="0" cy="0" r="7" fill="none" stroke="var(--gold)" stroke-width=".7"/><text x="-4" y="3" font-family="monospace" font-size="6" fill="var(--gold)">U</text><line x1="9" y1="0" x2="30" y2="0" stroke="var(--gold)" stroke-width=".45"/><polygon points="30,0 26,-2 26,2" fill="var(--gold)"/><circle cx="40" cy="0" r="7" fill="none" stroke="var(--gold)" stroke-width=".7"/><text x="34" y="3" font-family="monospace" font-size="6" fill="var(--gold)">Th</text><line x1="49" y1="0" x2="70" y2="0" stroke="var(--gold)" stroke-width=".45"/><polygon points="70,0 66,-2 66,2" fill="var(--gold)"/><circle cx="80" cy="0" r="7" fill="none" stroke="var(--gold)" stroke-width=".7"/><text x="74" y="3" font-family="monospace" font-size="6" fill="var(--gold)">Ra</text><line x1="89" y1="0" x2="108" y2="0" stroke="var(--gold)" stroke-width=".45"/><polygon points="108,0 104,-2 104,2" fill="var(--gold)"/><text x="112" y="3" font-family="monospace" font-size="8" fill="var(--gold)">...</text><line x1="124" y1="0" x2="142" y2="0" stroke="var(--gold)" stroke-width=".45"/><polygon points="142,0 138,-2 138,2" fill="var(--gold)"/><circle cx="152" cy="0" r="7" fill="none" stroke="var(--gold)" stroke-width=".7"/><text x="146" y="3" font-family="monospace" font-size="6" fill="var(--gold)">Pb</text></g>
 </svg>
-</div></a></div><div class="text"><div class="meta"><div><a href="#">Monte Carlo</a></div><div><a href="#">| Benchmarking</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays">Benchmarking Radio Decays</a></h3><p class="description">Monte Carlo simulations of radioactive decay chains in Cython, benchmarked against Numba, Pybind11, C++, Julia, and MATLAB for performance analysis.</p><a href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays" target="_blank" class="project-link">GitHub</a></div></div>
+</div></a></div><div class="text"><div class="meta"><div><a href="#">Monte Carlo</a></div><div><a href="#">| Benchmarking</a></div></div><h3 class="heading"><a target="_blank" href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays" rel="noopener noreferrer">Benchmarking Radio Decays</a></h3><p class="description">Monte Carlo simulations of radioactive decay chains in Cython, benchmarked against Numba, Pybind11, C++, Julia, and MATLAB for performance analysis.</p><a href="https://github.com/Adrita-Khan/Benchmarking_RadioDecays" target="_blank" class="project-link" rel="noopener noreferrer">GitHub</a></div></div>
 
         </div>
     </div>

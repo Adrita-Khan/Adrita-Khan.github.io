@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Achievements - Adrita Khan</title>
     <style>
+
+        /* Respect prefers-reduced-motion — disable ambient animations */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+
+        /* Skip to content — only visible when keyboard-focused */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            z-index: 9999;
+            padding: 0.6rem 1rem;
+            background: #0a0e14;
+            color: #d4b56d;
+            border: 1px solid rgba(201, 169, 97, 0.6);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+            outline: 2px solid #d4b56d;
+        }
+        /* Visually hidden (for <h1>s that shouldn't be seen) */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
@@ -267,8 +307,35 @@
             box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
         }
 </style>
+
+    <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
+    <meta name="description" content="Awards, summer schools, conferences, and fellowships received by Adrita Khan in physics and astronomy.">
+    <meta name="keywords" content="Adrita Khan, cosmology, astrophysics, observational cosmology, modified gravity, dark energy, machine learning, radio astronomy, jet tagging, Bangladesh, physics researcher">
+    <meta name="author" content="Adrita Khan">
+    <meta name="theme-color" content="#0a0e14">
+    <link rel="canonical" href="https://adrita-khan.github.io/achievements.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230a0e14'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20font-family='Georgia,serif'%20font-size='22'%20font-weight='700'%20fill='%23c9a961'%3EA%3C/text%3E%3C/svg%3E">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Adrita Khan — Portfolio">
+    <meta property="og:title" content="Adrita Khan">
+    <meta property="og:description" content="Awards, summer schools, conferences, and fellowships received by Adrita Khan in physics and astronomy.">
+    <meta property="og:url" content="https://adrita-khan.github.io/achievements.html">
+    <meta property="og:image" content="https://adrita-khan.github.io/assets/og-preview.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Adrita_">
+    <meta name="twitter:creator" content="@Adrita_">
+    <meta name="twitter:title" content="Adrita Khan">
+    <meta name="twitter:description" content="Awards, summer schools, conferences, and fellowships received by Adrita Khan in physics and astronomy.">
+    <meta name="twitter:image" content="https://adrita-khan.github.io/assets/og-preview.png">
+
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
 
     <!-- Scroll-to-top button -->
     <button class="scroll-to-top" id="scrollToTop" title="Back to top" aria-label="Scroll to top">
@@ -294,7 +361,8 @@
     </a>
 
     <!-- Quick Links Navigation -->
-    <section id="quick-links">
+<h1 class="visually-hidden">Adrita Khan — Achievements</h1>
+<nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -308,7 +376,9 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
-    </section>
+    </nav>
+<span id="main-content" tabindex="-1" aria-hidden="true"></span>
+
 
     <!-- Achievements Section -->
     <div class="container">
@@ -348,11 +418,11 @@
             </div>
 
             <div class="achievement-item" data-type="workshop" data-keywords="journal talk 2 cassa iub 2025 speaker radio frequency interference radio sky imagery">
-                <strong>Journal Talk 2</strong>, CASSA, IUB (<strong>2025</strong>) on detecting radio frequency interference in radio sky imagery, <strong>Speaker</strong> <a href="https://cassa.site/event/jtalk-2/" target="_blank">(View)</a>
+                <strong>Journal Talk 2</strong>, CASSA, IUB (<strong>2025</strong>) on detecting radio frequency interference in radio sky imagery, <strong>Speaker</strong> <a href="https://cassa.site/event/jtalk-2/" target="_blank" rel="noopener noreferrer">(View)</a>
             </div>
 
             <div class="achievement-item" data-type="workshop" data-keywords="cern summer particle astrophysics workshop 2024 participant">
-                <strong>CERN</strong> Summer Particle Astrophysics Workshop 2024, <strong>Participant</strong> <a href="https://indico.cern.ch/event/1394318/registrations/participants" target="_blank">(View)</a>
+                <strong>CERN</strong> Summer Particle Astrophysics Workshop 2024, <strong>Participant</strong> <a href="https://indico.cern.ch/event/1394318/registrations/participants" target="_blank" rel="noopener noreferrer">(View)</a>
             </div>
 
             <div class="achievement-item" data-type="workshop" data-keywords="ccds deep learning code management iub 2024 research intern candidate">

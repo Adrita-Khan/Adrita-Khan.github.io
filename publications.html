@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Publications - Adrita Khan</title>
     <style>
+
+        /* Respect prefers-reduced-motion — disable ambient animations */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+
+        /* Skip to content — only visible when keyboard-focused */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            z-index: 9999;
+            padding: 0.6rem 1rem;
+            background: #0a0e14;
+            color: #d4b56d;
+            border: 1px solid rgba(201, 169, 97, 0.6);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+            outline: 2px solid #d4b56d;
+        }
+        /* Visually hidden (for <h1>s that shouldn't be seen) */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -690,8 +730,35 @@
             box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
         }
 </style>
+
+    <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
+    <meta name="description" content="Peer-reviewed papers, preprints, and manuscripts by Adrita Khan in astrophysics, cosmology, and machine learning.">
+    <meta name="keywords" content="Adrita Khan, cosmology, astrophysics, observational cosmology, modified gravity, dark energy, machine learning, radio astronomy, jet tagging, Bangladesh, physics researcher">
+    <meta name="author" content="Adrita Khan">
+    <meta name="theme-color" content="#0a0e14">
+    <link rel="canonical" href="https://adrita-khan.github.io/publications.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230a0e14'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20font-family='Georgia,serif'%20font-size='22'%20font-weight='700'%20fill='%23c9a961'%3EA%3C/text%3E%3C/svg%3E">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Adrita Khan — Portfolio">
+    <meta property="og:title" content="Adrita Khan">
+    <meta property="og:description" content="Peer-reviewed papers, preprints, and manuscripts by Adrita Khan in astrophysics, cosmology, and machine learning.">
+    <meta property="og:url" content="https://adrita-khan.github.io/publications.html">
+    <meta property="og:image" content="https://adrita-khan.github.io/assets/og-preview.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Adrita_">
+    <meta name="twitter:creator" content="@Adrita_">
+    <meta name="twitter:title" content="Adrita Khan">
+    <meta name="twitter:description" content="Peer-reviewed papers, preprints, and manuscripts by Adrita Khan in astrophysics, cosmology, and machine learning.">
+    <meta name="twitter:image" content="https://adrita-khan.github.io/assets/og-preview.png">
+
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
 
     <!-- Scroll-to-top button -->
     <button class="scroll-to-top" id="scrollToTop" title="Back to top" aria-label="Scroll to top">
@@ -717,7 +784,8 @@
     </a>
 
     <!-- Quick Links Navigation -->
-    <section id="quick-links">
+<h1 class="visually-hidden">Adrita Khan — Publications</h1>
+<nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -731,7 +799,9 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
-    </section>
+    </nav>
+<span id="main-content" tabindex="-1" aria-hidden="true"></span>
+
 
     <!-- Publications Section -->
     <div class="container">
@@ -746,7 +816,7 @@
                     <div class="publication-icon">P1</div>
                     <div class="publication-content">
                         <h3 class="publication-title">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank">RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification</a>
+                            <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" rel="noopener noreferrer">RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification</a>
                         </h3>
                         <p class="publication-authors">
                             <strong>Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman
@@ -755,7 +825,7 @@
                         <div class="publication-meta">
                             <span class="meta-item"><span>Conference:</span><span>14-17 September 2025</span></span>
                             <span class="meta-item"><span>Added to IEEE Xplore:</span><span>18 August 2025</span></span>
-                            <span class="meta-item"><span>DOI:</span><span><a href="https://doi.org/10.1109/ICIP55913.2025.11084387" target="_blank" style="color: #c9a961; text-decoration: none;">10.1109/ICIP55913.2025.11084387</a></span></span>
+                            <span class="meta-item"><span>DOI:</span><span><a href="https://doi.org/10.1109/ICIP55913.2025.11084387" target="_blank" style="color: #c9a961; text-decoration: none;" rel="noopener noreferrer">10.1109/ICIP55913.2025.11084387</a></span></span>
                             <span class="meta-item"><span>Publisher:</span><span>IEEE</span></span>
                             <span class="meta-item"><span>Location:</span><span>Anchorage, AK, USA</span></span>
                         </div>
@@ -769,10 +839,10 @@
                     <span class="tag">AGN Classification</span>
                 </div>
                 <div class="publication-actions">
-                    <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="action-btn"><span>IEEE Xplore</span></a>
-                    <a href="https://arxiv.org/pdf/2505.19249" target="_blank" class="action-btn"><span>arXiv PDF</span></a>
-                    <a href="https://www.researchgate.net/publication/394896407_RGC-Bent_A_Novel_Dataset_for_Bent_Radio_Galaxy_Classification" target="_blank" class="action-btn"><span>ResearchGate</span></a>
-                    <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="action-btn"><span>GitHub</span></a>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/11084387" target="_blank" class="action-btn" rel="noopener noreferrer"><span>IEEE Xplore</span></a>
+                    <a href="https://arxiv.org/pdf/2505.19249" target="_blank" class="action-btn" rel="noopener noreferrer"><span>arXiv PDF</span></a>
+                    <a href="https://www.researchgate.net/publication/394896407_RGC-Bent_A_Novel_Dataset_for_Bent_Radio_Galaxy_Classification" target="_blank" class="action-btn" rel="noopener noreferrer"><span>ResearchGate</span></a>
+                    <a href="https://github.com/mirsazzathossain/RGC-Bent" target="_blank" class="action-btn" rel="noopener noreferrer"><span>GitHub</span></a>
                     <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC-BENT: A Novel Dataset for Bent Radio Galaxy Classification,&quot; in 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Hyderabad, India, 2025, doi: 10.1109/ICASSP48485.2025.11084387."><span>Cite</span></a>
                 </div>
                 <div class="bibtex-wrapper">
@@ -807,7 +877,7 @@
                     <div class="publication-icon">P2</div>
                     <div class="publication-content">
                         <h3 class="publication-title">
-                            <a href="https://arxiv.org/pdf/2510.22190" target="_blank">RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs</a>
+                            <a href="https://arxiv.org/pdf/2510.22190" target="_blank" rel="noopener noreferrer">RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs</a>
                         </h3>
                         <p class="publication-authors">
                             <strong>M.S. Hossain, M.S.H. Shahal, A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A.A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman
@@ -829,9 +899,9 @@
                     <span class="tag">E2CNN</span>
                 </div>
                 <div class="publication-actions">
-                    <a href="https://arxiv.org/pdf/2510.22190" target="_blank" class="action-btn"><span>arXiv PDF</span></a>
-                    <a href="https://www.researchgate.net/publication/396967381_RGC_a_radio_AGN_classifier_based_on_deep_learning_I_A_semi-supervised_model_for_the_VLA_images_of_bent_radio_AGNs" target="_blank" class="action-btn"><span>ResearchGate</span></a>
-                    <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251022190H/abstract" target="_blank" class="action-btn"><span>ADS</span></a>
+                    <a href="https://arxiv.org/pdf/2510.22190" target="_blank" class="action-btn" rel="noopener noreferrer"><span>arXiv PDF</span></a>
+                    <a href="https://www.researchgate.net/publication/396967381_RGC_a_radio_AGN_classifier_based_on_deep_learning_I_A_semi-supervised_model_for_the_VLA_images_of_bent_radio_AGNs" target="_blank" class="action-btn" rel="noopener noreferrer"><span>ResearchGate</span></a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251022190H/abstract" target="_blank" class="action-btn" rel="noopener noreferrer"><span>ADS</span></a>
                     <a href="#" class="action-btn cite-btn" data-citation="M. S. Hossain et al., &quot;RGC: a radio AGN classifier based on deep learning. I. A semi-supervised model for the VLA images of bent radio AGNs,&quot; arXiv preprint arXiv:2510.22190, 2025."><span>Cite</span></a>
                 </div>
                 <div class="bibtex-wrapper">
@@ -867,7 +937,7 @@
                     <div class="publication-icon">P3</div>
                     <div class="publication-content">
                         <h3 class="publication-title">
-                            <a href="https://arxiv.org/pdf/2512.07420" target="_blank">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</a>
+                            <a href="https://arxiv.org/pdf/2512.07420" target="_blank" rel="noopener noreferrer">E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features</a>
                         </h3>
                         <p class="publication-authors">
                             <strong>Md Raqibul Islam†, Adrita Khan†</strong>, Mir Sazzat Hossain, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman
@@ -888,8 +958,8 @@
                     <span class="tag">Chebyshev Networks</span>
                 </div>
                 <div class="publication-actions">
-                    <a href="https://arxiv.org/pdf/2512.07420" target="_blank" class="action-btn"><span>arXiv PDF</span></a>
-                    <a href="https://www.researchgate.net/publication/398475962_E-PCN_Jet_Tagging_with_Explainable_Particle_Chebyshev_Networks_Using_Kinematic_Features" target="_blank" class="action-btn"><span>ResearchGate</span></a>
+                    <a href="https://arxiv.org/pdf/2512.07420" target="_blank" class="action-btn" rel="noopener noreferrer"><span>arXiv PDF</span></a>
+                    <a href="https://www.researchgate.net/publication/398475962_E-PCN_Jet_Tagging_with_Explainable_Particle_Chebyshev_Networks_Using_Kinematic_Features" target="_blank" class="action-btn" rel="noopener noreferrer"><span>ResearchGate</span></a>
                     <a href="#" class="action-btn cite-btn" data-citation="M. R. Islam et al., &quot;E-PCN: Jet Tagging with Explainable Particle Chebyshev Networks Using Kinematic Features,&quot; arXiv preprint arXiv:2512.07420, 2025."><span>Cite</span></a>
                 </div>
                 <div class="bibtex-wrapper">
