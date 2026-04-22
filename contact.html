@@ -16,7 +16,6 @@
             }
         }
 
-
         /* Skip to content — only visible when keyboard-focused */
         .skip-link {
             position: absolute;
@@ -37,7 +36,7 @@
             top: 1rem;
             outline: 2px solid #d4b56d;
         }
-        /* Visually hidden (for <h1>s that shouldn't be seen) */
+
         .visually-hidden {
             position: absolute !important;
             width: 1px; height: 1px;
@@ -45,10 +44,16 @@
             clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
         }
 
-        * {
+        /* ── Reset & Base ── */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* ── Page Shell: flex column, full viewport height ── */
+        html, body {
+            height: 100%;
         }
 
         body {
@@ -57,6 +62,10 @@
             min-height: 100vh;
             overflow-x: hidden;
             color: #b8c5d0;
+
+            /* Sticky footer: column flex */
+            display: flex;
+            flex-direction: column;
         }
 
         .cosmic-bg {
@@ -65,11 +74,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(212, 181, 109, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(184, 157, 85, 0.04) 0%, transparent 50%);
             z-index: 0;
+            pointer-events: none;
         }
 
         /* ── Scroll-to-Top Button ── */
@@ -102,10 +112,11 @@
         }
         .scroll-to-top svg { position: relative; z-index: 1; transition: transform 0.3s ease; stroke-width: 2.5; }
         .scroll-to-top:hover svg { transform: translateY(-2px); }
+
         @media (max-width: 640px) { .scroll-to-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; } }
         @media (max-width: 400px) { .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 44px; height: 44px; } }
 
-        /* ── Side Navigation Arrows (copied from education.html) ── */
+        /* ── Side Navigation Arrows ── */
         .side-nav-arrow {
             position: fixed; top: 50%; transform: translateY(-50%); z-index: 200;
             display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -126,7 +137,6 @@
         .side-nav-right:hover { background: rgba(201, 169, 97, 0.16); border-color: rgba(201, 169, 97, 0.45); padding-right: 14px; color: #d4b56d; box-shadow: -6px 0 30px rgba(201, 169, 97, 0.2), -2px 0 10px rgba(0, 0, 0, 0.3); }
         .side-nav-right:hover svg { transform: translateX(3px); }
 
-        /* Mobile side nav adjustments (copied from education.html) */
         @media (max-width: 768px) {
             .side-nav-left { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
             .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
@@ -138,22 +148,22 @@
             .side-nav-right { padding: 10px 6px 10px 9px; }
         }
 
-        /* Navigation */
+        /* ── Navigation ── */
         #quick-links {
             position: relative;
             z-index: 10;
             background: rgba(10, 14, 20, 0.6);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 1.5rem 0;
             border-bottom: 1px solid rgba(201, 169, 97, 0.2);
-            display: flex;
-            justify-content: center;
-            overflow-x: hidden;
+            flex-shrink: 0;
         }
 
         .nav-container {
             width: 100%;
             max-width: 1200px;
+            margin: 0 auto;
             padding: 0 1rem;
         }
 
@@ -192,6 +202,13 @@
             box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
         }
 
+        .nav-list a.active {
+            background: rgba(201, 169, 97, 0.22);
+            border-color: rgba(201, 169, 97, 0.55);
+            color: #d4b56d;
+            box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
+        }
+
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -201,11 +218,26 @@
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
-        /* Main Content */
+        /* Mobile nav: horizontal scroll */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 2px;
+            }
+            .nav-list::-webkit-scrollbar { display: none; }
+            #quick-links { overflow-x: hidden; }
+        }
+
+        /* ── Main Content — grows to fill available space ── */
         .main-content {
             position: relative;
             z-index: 10;
-            padding: 1.5rem 2rem;
+            padding: 2.5rem 2rem;
+            flex: 1 0 auto; /* grow to push footer down */
         }
 
         .container {
@@ -213,14 +245,14 @@
             margin: 0 auto;
         }
 
-        /* Page Header */
+        /* ── Page Header ── */
         .page-header {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .page-header h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 0.5rem;
@@ -243,30 +275,48 @@
 
         .page-description {
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
             color: #b8c5d0;
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        /* Contact Cards Grid */
+        /* ── Contact Cards Grid ── */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
+        }
+
+        /* Tablet: 2 columns */
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile: 1 column */
+        @media (max-width: 580px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
 
         .contact-card {
             background: rgba(201, 169, 97, 0.08);
             border: 1px solid rgba(201, 169, 97, 0.2);
             border-radius: 20px;
-            padding: 1.2rem;
+            padding: 1.5rem;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .contact-card::before {
@@ -292,33 +342,35 @@
         }
 
         .contact-icon {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             font-size: 1.3rem;
             background: linear-gradient(135deg, #c9a961, #d4b56d);
             border: 2px solid rgba(201, 169, 97, 0.3);
             backdrop-filter: blur(10px);
             color: white;
             box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+            flex-shrink: 0;
         }
 
         .contact-title {
             font-size: 1.1rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
         .contact-info {
             color: #b8c5d0;
             font-size: 0.9rem;
-            margin-bottom: 1rem;
-            line-height: 1.4;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            flex: 1; /* pushes the link to the bottom */
         }
 
         .contact-link {
@@ -333,6 +385,7 @@
             border-radius: 25px;
             transition: all 0.3s ease;
             font-size: 0.85rem;
+            align-self: flex-start;
         }
 
         .contact-link:hover {
@@ -340,15 +393,113 @@
             box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
         }
 
-        /* Footer */
+        /* ── Main content: padding adjustments on smaller screens ── */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 1.2rem 0.8rem;
+            }
+        }
+
+        /* ── Academic Profiles Section ── */
+        .academic-profiles {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .academic-profiles-heading {
+            font-size: 1rem;
+            color: #b8c5d0;
+            margin-bottom: 1.4rem;
+            letter-spacing: 0.01em;
+        }
+
+        .academic-profiles-heading span {
+            color: #c9a961;
+            font-weight: 600;
+        }
+
+        .profile-icons-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .profile-icon-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #b8c5d0;
+            transition: all 0.3s ease;
+        }
+
+        .profile-icon-link:hover {
+            color: #d4b56d;
+            transform: translateY(-4px);
+        }
+
+        .profile-icon-bubble {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: rgba(201, 169, 97, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .profile-icon-bubble svg {
+            width: 22px;
+            height: 22px;
+            fill: #ffffff;
+            transition: fill 0.3s ease;
+        }
+
+        .profile-icon-link:hover .profile-icon-bubble {
+            background: rgba(201, 169, 97, 0.18);
+            border-color: rgba(201, 169, 97, 0.45);
+            box-shadow: 0 8px 24px rgba(201, 169, 97, 0.3);
+        }
+
+        .profile-icon-link:hover .profile-icon-bubble svg {
+            fill: #ffffff;
+        }
+
+        .profile-icon-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-icon-link:hover .profile-icon-label {
+            opacity: 1;
+        }
+
+        /* ── Footer — never grows, sits at bottom ── */
         footer {
             position: relative;
             z-index: 10;
             background: rgba(10, 14, 20, 0.8);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid rgba(201, 169, 97, 0.2);
             padding: 2rem 0;
-            margin-top: 3rem;
+            flex-shrink: 0; /* don't shrink */
         }
 
         .footer-content {
@@ -367,58 +518,23 @@
             text-align: center;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .main-content {
-                padding: 1rem 0.8rem;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            footer {
-                padding: 1.5rem 0;
-                margin-top: 2rem;
-            }
-
-            .footer-content {
-                padding: 0 1rem;
-            }
-
-            .nav-list {
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                padding-bottom: 2px;
-            }
-
-            .nav-list::-webkit-scrollbar {
-                display: none;
-            }
-
-            #quick-links {
-                overflow-x: auto;
-            }
+            footer { padding: 1.5rem 0; }
+            .footer-content { padding: 0 1rem; }
         }
-    
-        /* Active nav link (current page) — added for cross-page consistency */
-        .nav-list a.active {
-            background: rgba(201, 169, 97, 0.22);
-            border-color: rgba(201, 169, 97, 0.55);
-            color: #d4b56d;
-            box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
-        }
-</style>
 
-    <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
+        /* ── Very large screens: cap grid and improve spacing ── */
+        @media (min-width: 1400px) {
+            .container { max-width: 1100px; }
+            .main-content { padding: 3rem 2rem; }
+            .page-header { margin-bottom: 2.5rem; }
+            .contact-grid { gap: 2rem; }
+            .contact-card { padding: 2rem; }
+        }
+
+    </style>
+
+    <!-- SEO, social cards & favicon -->
     <meta name="description" content="Contact Adrita Khan — researcher in cosmology and machine learning for astrophysics. Email, LinkedIn, ORCID, and Google Scholar.">
     <meta name="keywords" content="Adrita Khan, cosmology, astrophysics, observational cosmology, modified gravity, dark energy, machine learning, radio astronomy, jet tagging, Bangladesh, physics researcher">
     <meta name="author" content="Adrita Khan">
@@ -445,7 +561,6 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
-    
 
     <!-- Scroll-to-top button -->
     <button class="scroll-to-top" id="scrollToTop" title="Back to top" aria-label="Scroll to top">
@@ -454,7 +569,7 @@
         </svg>
     </button>
 
-    <div class="cosmic-bg"></div>
+    <div class="cosmic-bg" aria-hidden="true"></div>
 
     <!-- Side Navigation Arrows -->
     <a href="notes.html" class="side-nav-arrow side-nav-left" title="Previous: Study Notes" aria-label="Go to Study Notes page">
@@ -472,7 +587,7 @@
     </a>
 
     <!-- Navigation -->
-<nav id="quick-links" aria-label="Main navigation">
+    <nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -487,8 +602,8 @@
             </ul>
         </div>
     </nav>
-<span id="main-content" tabindex="-1" aria-hidden="true"></span>
 
+    <span id="main-content" tabindex="-1" aria-hidden="true"></span>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -541,6 +656,55 @@
                 </div>
 
             </div>
+
+            <!-- Academic Profiles Section -->
+            <div class="academic-profiles">
+                <p class="academic-profiles-heading">You can also find my other <span>academic profiles</span> here:</p>
+                <div class="profile-icons-row">
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/Adrita-Khan" target="_blank" rel="noopener noreferrer" class="profile-icon-link" title="GitHub">
+                        <div class="profile-icon-bubble">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </div>
+                        <span class="profile-icon-label">GitHub</span>
+                    </a>
+
+                    <!-- ResearchGate -->
+                    <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" rel="noopener noreferrer" class="profile-icon-link" title="ResearchGate">
+                        <div class="profile-icon-bubble">
+                            <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 32v448h448V32H0zm262.2 334.4c-6.6 3-33.2 6-50-14.2-9.2-10.6-25.3-33.3-42.2-63.6-8.9 0-14.7 0-21.4-.6v46.4c0 23.5 6 21.2 25.8 23.9v8.1c-6.9-.3-23.1-.8-35.6-.8-13.1 0-26.1.6-33.6.8v-8.1c15.5-2.9 22-1.3 22-23.9V225c0-22.6-6.4-21-22-23.9V193c25.8 1 53.1-.6 70.9-.6 31.7 0 55.9 14.4 55.9 45.6 0 21.1-16.7 42.2-39.2 47.5 13.6 24.2 30 45.6 42.2 58.9 7.2 7.8 17.2 14.7 27.2 14.7v7.3zm22.9-135c-23.3 0-32.2-15.7-32.2-32.2V167c0-12.2 8.8-30.4 34-30.4s30.4 17.9 30.4 17.9l-10.7 7.2s-5.5-12.5-19.7-12.5c-7.9 0-19.7 7.3-19.7 19.7v26.8c0 13.4 6.6 23.3 17.9 23.3 14.1 0 21.5-10.9 21.5-26.8h-17.9v-10.7h30.4c0 20.5 4.7 49.9-34 49.9zm-116.5 44.7c-9.4 0-13.6-.3-20-.8v-69.7c6.4-.6 15-.6 22.5-.6 23.3 0 37.2 12.2 37.2 34.4 0 25.1-14.2 36.7-39.7 36.7z"/></svg>
+                        </div>
+                        <span class="profile-icon-label">ResearchGate</span>
+                    </a>
+
+                    <!-- Google Scholar -->
+                    <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" rel="noopener noreferrer" class="profile-icon-link" title="Google Scholar">
+                        <div class="profile-icon-bubble">
+                            <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+                        </div>
+                        <span class="profile-icon-label">Google Scholar</span>
+                    </a>
+
+                    <!-- ORCID -->
+                    <a href="https://orcid.org/0009-0000-9304-8895" target="_blank" rel="noopener noreferrer" class="profile-icon-link" title="ORCID">
+                        <div class="profile-icon-bubble">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.525.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 4.068-1.472 4.068-3.722 0-2.016-1.247-3.722-4.068-3.722h-2.297z"/></svg>
+                        </div>
+                        <span class="profile-icon-label">ORCID</span>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/adrita-khan/" target="_blank" rel="noopener noreferrer" class="profile-icon-link" title="LinkedIn">
+                        <div class="profile-icon-bubble">
+                            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                        <span class="profile-icon-label">LinkedIn</span>
+                    </a>
+
+                </div>
+            </div>
+
         </div>
     </main>
 
