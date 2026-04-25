@@ -183,10 +183,52 @@
         .achievement-icon { width: 26px; height: 26px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
         .achievement-icon::before { content: '★'; color: #ffffff; font-size: 0.9rem; }
         .achievement-text { color: #b8c5d0; font-size: 0.92rem; line-height: 1.4; }
-        .skills-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.7rem; margin-top: 0.7rem; }
-        .skill-item { background: rgba(201,169,97,0.05); border: 1px solid rgba(201,169,97,0.3); border-radius: 10px; padding: 0.7rem; text-align: center; transition: all 0.3s ease; }
-        .skill-item:hover { background: rgba(201,169,97,0.15); transform: translateY(-3px); border-color: rgba(201,169,97,0.5); }
-        .skill-name { color: #c9a961; font-weight: 600; font-size: 1rem; }
+
+        /* ── Skills Section (standalone, after coursework) ── */
+        .skills-section {
+            grid-column: 1 / -1;
+            background: rgba(201,169,97,0.08);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(201,169,97,0.2);
+            padding: 1.6rem 2rem;
+            position: relative;
+        }
+        .skills-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
+            border-radius: 20px 20px 0 0;
+        }
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .skill-category { display: flex; flex-direction: column; gap: 0.4rem; }
+        .skill-category-label {
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.1px; color: #7a8fa0; margin-bottom: 0.2rem;
+        }
+        .skill-tags { display: flex; flex-direction: column; gap: 0.3rem; }
+        .skill-tag {
+            background: rgba(201,169,97,0.07);
+            border: 1px solid rgba(201,169,97,0.25);
+            border-radius: 8px;
+            padding: 0.35rem 0.65rem;
+            color: #c9a961;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+        .skill-tag:hover {
+            background: rgba(201,169,97,0.18);
+            border-color: rgba(201,169,97,0.5);
+            transform: translateY(-2px);
+            color: #d4b56d;
+        }
+
         .coursework-section { grid-column: 1 / -1; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 2rem; }
         .coursework-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.2rem; }
         .semester-card { background: rgba(201,169,97,0.05); border-radius: 8px; padding: 0.7rem; border: 1px solid rgba(201,169,97,0.2); transition: all 0.3s ease; display: flex; flex-direction: column; }
@@ -216,7 +258,12 @@
 
         /* ── Original tablet breakpoints (unchanged) ── */
         @media (max-width: 1400px) { .container-wide { padding: 0 6rem 2.5rem 6rem; } .coursework-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 1200px) { .container-wide { padding: 0 4.5rem 2.5rem 4.5rem; } .achievements-grid { grid-template-columns: 1fr; } .skills-grid { grid-template-columns: repeat(4, 1fr); } .internship-section, .future-section { grid-column: 1 / -1; } }
+        @media (max-width: 1200px) {
+            .container-wide { padding: 0 4.5rem 2.5rem 4.5rem; }
+            .achievements-grid { grid-template-columns: 1fr; }
+            .internship-section, .future-section { grid-column: 1 / -1; }
+            .skills-categories { grid-template-columns: repeat(3, 1fr); }
+        }
 
         /* ── NEW: Mobile overrides (≤768px) ── */
         @media (max-width: 768px) {
@@ -250,12 +297,14 @@
             .education-grid { grid-template-columns: 1fr; gap: 1rem; }
             .education-bachelor,
             .coursework-section,
+            .skills-section,
             .internship-section,
             .future-section { grid-column: 1 / -1 !important; }
 
             /* Card padding */
             .education-card-main { padding: 1.2rem; border-radius: 16px; }
             .coursework-section { padding: 1.2rem; border-radius: 16px; }
+            .skills-section { padding: 1.2rem; border-radius: 16px; }
             .internship-section { padding: 1.2rem; border-radius: 16px; }
             .future-section { padding: 1.2rem; border-radius: 16px; }
 
@@ -272,10 +321,10 @@
             /* Achievements: single column */
             .achievements-grid { grid-template-columns: 1fr; }
 
-            /* Skills: 3 per row fits well on mobile */
-            .skills-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-            .skill-name { font-size: 0.88rem; }
-            .skill-item { padding: 0.6rem 0.4rem; }
+            /* Skills: 2 columns on mobile */
+            .skills-categories { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+            .skill-tag { font-size: 0.78rem; padding: 0.3rem 0.5rem; }
+            .skill-category-label { font-size: 0.65rem; }
 
             /* Coursework: 2 columns on mobile */
             .coursework-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; margin-top: 0.8rem; }
@@ -300,7 +349,7 @@
             .profile-image { width: 160px; height: 160px; }
             .page-title-right h1 { font-size: 1.7rem; }
             .coursework-grid { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .skills-categories { grid-template-columns: 1fr; }
             .side-nav-label { display: none; }
             .side-nav-left { padding: 10px 9px 10px 6px; }
             .side-nav-right { padding: 10px 6px 10px 9px; }
@@ -502,65 +551,6 @@
                             <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Developed C++ expertise for scientific computing</div></div>
                         </div>
                     </div>
-                    <div style="margin-top:2rem;">
-    <h4 class="section-title">Technical Skills</h4>
-
-    <div style="display:flex;flex-direction:column;gap:1.2rem;margin-top:0.7rem;">
-
-        <div>
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1.1px;color:#7a8fa0;margin-bottom:0.5rem;">Programming</p>
-            <div class="skills-grid" style="grid-template-columns:repeat(4,1fr);">
-                <div class="skill-item"><div class="skill-name">Python</div></div>
-                <div class="skill-item"><div class="skill-name">C/C++</div></div>
-                <div class="skill-item"><div class="skill-name">R</div></div>
-                <div class="skill-item"><div class="skill-name">MATLAB</div></div>
-                <div class="skill-item"><div class="skill-name">Mathematica</div></div>
-                <div class="skill-item"><div class="skill-name">Bash/Linux</div></div>
-            </div>
-        </div>
-
-        <div>
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1.1px;color:#7a8fa0;margin-bottom:0.5rem;">ML &amp; Statistics</p>
-            <div class="skills-grid" style="grid-template-columns:repeat(4,1fr);">
-                <div class="skill-item"><div class="skill-name">Machine Learning</div></div>
-                <div class="skill-item"><div class="skill-name">Gaussian Processes</div></div>
-                <div class="skill-item"><div class="skill-name">Bayesian Inference</div></div>
-                <div class="skill-item"><div class="skill-name">Data Analysis</div></div>
-            </div>
-        </div>
-
-        <div>
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1.1px;color:#7a8fa0;margin-bottom:0.5rem;">Astronomy Tools</p>
-            <div class="skills-grid" style="grid-template-columns:repeat(4,1fr);">
-                <div class="skill-item"><div class="skill-name">Astropy</div></div>
-                <div class="skill-item"><div class="skill-name">Astroquery</div></div>
-                <div class="skill-item"><div class="skill-name">NumPy/SciPy</div></div>
-                <div class="skill-item"><div class="skill-name">Matplotlib</div></div>
-                <div class="skill-item"><div class="skill-name">TOPCAT</div></div>
-                <div class="skill-item"><div class="skill-name">DS9</div></div>
-            </div>
-        </div>
-
-        <div>
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1.1px;color:#7a8fa0;margin-bottom:0.5rem;">Dev &amp; Workflow</p>
-            <div class="skills-grid" style="grid-template-columns:repeat(4,1fr);">
-                <div class="skill-item"><div class="skill-name">Git/GitHub</div></div>
-                <div class="skill-item"><div class="skill-name">Jupyter</div></div>
-                <div class="skill-item"><div class="skill-name">HDF5/FITS</div></div>
-                <div class="skill-item"><div class="skill-name">Overleaf</div></div>
-            </div>
-        </div>
-
-        <div>
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1.1px;color:#7a8fa0;margin-bottom:0.5rem;">Research</p>
-            <div class="skills-grid" style="grid-template-columns:repeat(2,1fr);">
-                <div class="skill-item"><div class="skill-name">Scientific Writing</div></div>
-                <div class="skill-item"><div class="skill-name">Science Outreach</div></div>
-            </div>
-        </div>
-
-    </div>
-</div>
                 </div>
             </div>
 
@@ -582,6 +572,64 @@
                     <div class="semester-card"><h5 class="semester-title">Semester II (2021/2022)</h5><div class="course-list"><div class="course-item">English Poetry</div><div class="course-item">Malaysian Studies</div><div class="course-item">Electricity & Magnetism</div><div class="course-item">Solid State Physics II</div><div class="course-item">Physics Project</div></div></div>
                     <div class="semester-card"><h5 class="semester-title">Semester I (2022/2023)</h5><div class="course-list"><div class="course-item">Public Speaking</div><div class="course-item">AI Literacy</div><div class="course-item">Introduction to Astronomy</div><div class="course-item">Principles in Astronomy</div></div></div>
                     <div class="semester-card"><h5 class="semester-title">Semester II (2022/2023)</h5><div class="course-list"><div class="course-item">Spoken English</div><div class="course-item">Laser Applications</div><div class="course-item">Non-Destructive Testing</div><div class="course-item">Radio Astronomy</div></div></div>
+                </div>
+            </div>
+
+            <!-- ── Technical Skills (moved here, after Coursework) ── -->
+            <div class="skills-section">
+                <h3 class="section-title" style="margin-bottom:0;">Technical Skills</h3>
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <p class="skill-category-label">Programming</p>
+                        <div class="skill-tags">
+                            <div class="skill-tag">Python</div>
+                            <div class="skill-tag">C / C++</div>
+                            <div class="skill-tag">R</div>
+                            <div class="skill-tag">MATLAB</div>
+                            <div class="skill-tag">Mathematica</div>
+                            <div class="skill-tag">Bash / Linux</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <p class="skill-category-label">ML &amp; Statistics</p>
+                        <div class="skill-tags">
+                            <div class="skill-tag">Machine Learning</div>
+                            <div class="skill-tag">Gaussian Processes</div>
+                            <div class="skill-tag">Bayesian Inference</div>
+                            <div class="skill-tag">Data Analysis</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <p class="skill-category-label">Astronomy Tools</p>
+                        <div class="skill-tags">
+                            <div class="skill-tag">Astropy</div>
+                            <div class="skill-tag">Astroquery</div>
+                            <div class="skill-tag">NumPy / SciPy</div>
+                            <div class="skill-tag">Matplotlib</div>
+                            <div class="skill-tag">TOPCAT</div>
+                            <div class="skill-tag">DS9</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <p class="skill-category-label">HPC &amp; Parallelization</p>
+                        <div class="skill-tags">
+                            <div class="skill-tag">MPI / OpenMP</div>
+                            <div class="skill-tag">SLURM / PBS</div>
+                            <div class="skill-tag">GPU Computing</div>
+                            <div class="skill-tag">Vectorization</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <p class="skill-category-label">Dev &amp; Workflow</p>
+                        <div class="skill-tags">
+                            <div class="skill-tag">Git / GitHub</div>
+                            <div class="skill-tag">Jupyter</div>
+                            <div class="skill-tag">HDF5 / FITS</div>
+                            <div class="skill-tag">Overleaf</div>
+                            <div class="skill-tag">Scientific Writing</div>
+                            <div class="skill-tag">Science Outreach</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
