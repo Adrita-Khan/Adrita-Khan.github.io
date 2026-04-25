@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Education - Adrita Khan</title>
     <style>
-
-        /* Respect prefers-reduced-motion — disable ambient animations */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -16,116 +14,98 @@
             }
         }
 
-
-        /* Skip to content — only visible when keyboard-focused */
         .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 1rem;
-            z-index: 9999;
-            padding: 0.6rem 1rem;
-            background: #0a0e14;
-            color: #d4b56d;
-            border: 1px solid rgba(201, 169, 97, 0.6);
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
+            position: absolute; top: -100px; left: 1rem; z-index: 9999;
+            padding: 0.6rem 1rem; background: #0a0e14; color: #d4b56d;
+            border: 1px solid rgba(201,169,97,0.6); border-radius: 6px;
+            font-size: 0.9rem; font-weight: 600; text-decoration: none;
             transition: top 0.2s ease;
         }
-        .skip-link:focus {
-            top: 1rem;
-            outline: 2px solid #d4b56d;
-        }
-        /* Visually hidden (for <h1>s that shouldn't be seen) */
-        .visually-hidden {
-            position: absolute !important;
-            width: 1px; height: 1px;
-            padding: 0; margin: -1px; overflow: hidden;
-            clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
-        }
+        .skip-link:focus { top: 1rem; outline: 2px solid #d4b56d; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
-            min-height: 100vh;
-            color: #fff;
-            line-height: 1.7;
-            overflow-x: hidden;
+            min-height: 100vh; color: #fff; line-height: 1.7; overflow-x: hidden;
         }
+
+        /* ── Animated background ── */
         .animated-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; pointer-events: none; }
         .floating-shape { position: absolute; border-radius: 50%; background: linear-gradient(45deg, rgba(201,169,97,0.1), rgba(212,181,109,0.1)); }
         .floating-shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; }
         .floating-shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 10%; }
         .floating-shape:nth-child(3) { width: 60px; height: 60px; bottom: 20%; left: 20%; }
-        .star { position: absolute; background: #ffffff; border-radius: 50%; opacity: 0.8; }
-        .star.small { width: 2px; height: 2px; box-shadow: 0 0 4px 2px rgba(255,255,255,0.8), 0 0 8px 4px rgba(201,169,97,0.5); }
+        .star { position: absolute; background: #fff; border-radius: 50%; opacity: 0.8; }
+        .star.small  { width: 2px; height: 2px; box-shadow: 0 0 4px 2px rgba(255,255,255,0.8), 0 0 8px 4px rgba(201,169,97,0.5); }
         .star.medium { width: 3px; height: 3px; box-shadow: 0 0 6px 3px rgba(255,255,255,0.9), 0 0 12px 6px rgba(201,169,97,0.6), 0 0 18px 8px rgba(201,169,97,0.3); }
-        .star.large { width: 4px; height: 4px; box-shadow: 0 0 8px 4px rgba(255,255,255,1), 0 0 16px 8px rgba(201,169,97,0.7), 0 0 24px 12px rgba(201,169,97,0.4); }
-        .star:nth-child(4) { top: 5%; left: 8%; } .star:nth-child(5) { top: 12%; left: 85%; }
-        .star:nth-child(6) { top: 8%; right: 15%; } .star:nth-child(7) { top: 18%; left: 3%; }
-        .star:nth-child(8) { top: 22%; right: 25%; } .star:nth-child(9) { top: 35%; left: 12%; }
-        .star:nth-child(10) { top: 28%; right: 8%; } .star:nth-child(11) { top: 42%; left: 78%; }
-        .star:nth-child(12) { top: 48%; left: 22%; } .star:nth-child(13) { top: 52%; right: 32%; }
-        .star:nth-child(14) { top: 38%; left: 48%; } .star:nth-child(15) { top: 15%; left: 42%; }
-        .star:nth-child(16) { top: 58%; right: 5%; } .star:nth-child(17) { top: 45%; left: 92%; }
-        .star:nth-child(18) { top: 65%; left: 18%; } .star:nth-child(19) { top: 72%; left: 65%; }
-        .star:nth-child(20) { top: 78%; right: 22%; } .star:nth-child(21) { top: 8%; left: 58%; }
-        .star:nth-child(22) { top: 68%; right: 12%; } .star:nth-child(23) { top: 85%; left: 35%; }
-        .star:nth-child(24) { top: 25%; right: 48%; } .star:nth-child(25) { top: 55%; left: 5%; }
-        .star:nth-child(26) { top: 82%; left: 72%; } .star:nth-child(27) { top: 10%; right: 38%; }
-        .star:nth-child(28) { top: 75%; left: 52%; } .star:nth-child(29) { top: 32%; left: 32%; }
-        .star:nth-child(30) { top: 62%; right: 18%; } .star:nth-child(31) { top: 3%; left: 25%; }
-        .star:nth-child(32) { top: 88%; right: 45%; } .star:nth-child(33) { top: 20%; left: 68%; }
-        .star:nth-child(34) { top: 50%; left: 55%; } .star:nth-child(35) { top: 92%; left: 8%; }
+        .star.large  { width: 4px; height: 4px; box-shadow: 0 0 8px 4px rgba(255,255,255,1), 0 0 16px 8px rgba(201,169,97,0.7), 0 0 24px 12px rgba(201,169,97,0.4); }
+        .star:nth-child(4)  { top: 5%;  left: 8%;   } .star:nth-child(5)  { top: 12%; left: 85%;  }
+        .star:nth-child(6)  { top: 8%;  right: 15%; } .star:nth-child(7)  { top: 18%; left: 3%;   }
+        .star:nth-child(8)  { top: 22%; right: 25%; } .star:nth-child(9)  { top: 35%; left: 12%;  }
+        .star:nth-child(10) { top: 28%; right: 8%;  } .star:nth-child(11) { top: 42%; left: 78%;  }
+        .star:nth-child(12) { top: 48%; left: 22%;  } .star:nth-child(13) { top: 52%; right: 32%; }
+        .star:nth-child(14) { top: 38%; left: 48%;  } .star:nth-child(15) { top: 15%; left: 42%;  }
+        .star:nth-child(16) { top: 58%; right: 5%;  } .star:nth-child(17) { top: 45%; left: 92%;  }
+        .star:nth-child(18) { top: 65%; left: 18%;  } .star:nth-child(19) { top: 72%; left: 65%;  }
+        .star:nth-child(20) { top: 78%; right: 22%; } .star:nth-child(21) { top: 8%;  left: 58%;  }
+        .star:nth-child(22) { top: 68%; right: 12%; } .star:nth-child(23) { top: 85%; left: 35%;  }
+        .star:nth-child(24) { top: 25%; right: 48%; } .star:nth-child(25) { top: 55%; left: 5%;   }
+        .star:nth-child(26) { top: 82%; left: 72%;  } .star:nth-child(27) { top: 10%; right: 38%; }
+        .star:nth-child(28) { top: 75%; left: 52%;  } .star:nth-child(29) { top: 32%; left: 32%;  }
+        .star:nth-child(30) { top: 62%; right: 18%; } .star:nth-child(31) { top: 3%;  left: 25%;  }
+        .star:nth-child(32) { top: 88%; right: 45%; } .star:nth-child(33) { top: 20%; left: 68%;  }
+        .star:nth-child(34) { top: 50%; left: 55%;  } .star:nth-child(35) { top: 92%; left: 8%;   }
         .star:nth-child(36) { top: 40%; right: 42%; } .star:nth-child(37) { top: 70%; right: 55%; }
-        .star:nth-child(38) { top: 15%; right: 2%; } .star:nth-child(39) { top: 95%; right: 28%; }
-        .star:nth-child(40) { top: 6%; left: 95%; } .star:nth-child(41) { top: 45%; left: 2%; }
-        .star:nth-child(42) { top: 80%; left: 45%; } .star:nth-child(43) { top: 30%; right: 65%; }
-        .star:nth-child(44) { top: 60%; left: 88%; } .star:nth-child(45) { top: 25%; left: 15%; }
-        .star:nth-child(46) { top: 55%; right: 78%; } .star:nth-child(47) { top: 90%; left: 62%; }
-        .star:nth-child(48) { top: 12%; right: 52%; } .star:nth-child(49) { top: 75%; right: 8%; }
-        .star:nth-child(50) { top: 35%; left: 82%; }
+        .star:nth-child(38) { top: 15%; right: 2%;  } .star:nth-child(39) { top: 95%; right: 28%; }
+        .star:nth-child(40) { top: 6%;  left: 95%;  } .star:nth-child(41) { top: 45%; left: 2%;   }
+        .star:nth-child(42) { top: 80%; left: 45%;  } .star:nth-child(43) { top: 30%; right: 65%; }
+        .star:nth-child(44) { top: 60%; left: 88%;  } .star:nth-child(45) { top: 25%; left: 15%;  }
+        .star:nth-child(46) { top: 55%; right: 78%; } .star:nth-child(47) { top: 90%; left: 62%;  }
+        .star:nth-child(48) { top: 12%; right: 52%; } .star:nth-child(49) { top: 75%; right: 8%;  }
+        .star:nth-child(50) { top: 35%; left: 82%;  }
 
-        /* ── Side Navigation Arrows ── */
+        /* ── Side nav arrows ── */
         .side-nav-arrow {
             position: fixed; top: 50%; transform: translateY(-50%); z-index: 200;
             display: flex; flex-direction: column; align-items: center; gap: 8px;
-            background: rgba(201, 169, 97, 0.08); border: 1px solid rgba(201, 169, 97, 0.2);
-            text-decoration: none; color: #c9a961; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            background: rgba(201,169,97,0.08); border: 1px solid rgba(201,169,97,0.2);
+            text-decoration: none; color: #c9a961;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
             -webkit-tap-highlight-color: transparent;
         }
-        .side-nav-arrow::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.08) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease; }
+        .side-nav-arrow::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,97,0.08) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease; }
         .side-nav-arrow:hover::before { opacity: 1; }
         .side-nav-arrow svg { position: relative; z-index: 1; transition: transform 0.3s ease; }
         .side-nav-label { font-size: 9px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; writing-mode: vertical-rl; opacity: 0.75; transition: opacity 0.3s ease; position: relative; z-index: 1; }
         .side-nav-arrow:hover .side-nav-label { opacity: 1; }
-        .side-nav-left { left: 0; border-right: none; border-radius: 0 12px 12px 0; padding: 18px 14px 14px 10px; }
-        .side-nav-left:hover { background: rgba(201, 169, 97, 0.16); border-color: rgba(201, 169, 97, 0.45); padding-left: 14px; color: #d4b56d; box-shadow: 6px 0 30px rgba(201, 169, 97, 0.2), 2px 0 10px rgba(0, 0, 0, 0.3); }
-        .side-nav-left:hover svg { transform: translateX(-3px); }
-        .side-nav-right { right: 0; border-left: none; border-radius: 12px 0 0 12px; padding: 18px 10px 14px 14px; }
-        .side-nav-right:hover { background: rgba(201, 169, 97, 0.16); border-color: rgba(201, 169, 97, 0.45); padding-right: 14px; color: #d4b56d; box-shadow: -6px 0 30px rgba(201, 169, 97, 0.2), -2px 0 10px rgba(0, 0, 0, 0.3); }
-        .side-nav-right:hover svg { transform: translateX(3px); }
+        .side-nav-left  { left: 0;  border-right: none; border-radius: 0 12px 12px 0; padding: 18px 14px 14px 10px; }
+        .side-nav-right { right: 0; border-left:  none; border-radius: 12px 0 0 12px; padding: 18px 10px 14px 14px; }
+        .side-nav-left:hover  { background: rgba(201,169,97,0.16); border-color: rgba(201,169,97,0.45); padding-left: 14px;  color: #d4b56d; box-shadow:  6px 0 30px rgba(201,169,97,0.2),  2px 0 10px rgba(0,0,0,0.3); }
+        .side-nav-right:hover { background: rgba(201,169,97,0.16); border-color: rgba(201,169,97,0.45); padding-right: 14px; color: #d4b56d; box-shadow: -6px 0 30px rgba(201,169,97,0.2), -2px 0 10px rgba(0,0,0,0.3); }
+        .side-nav-left:hover  svg { transform: translateX(-3px); }
+        .side-nav-right:hover svg { transform: translateX( 3px); }
 
-        /* ── Top Nav ── */
+        /* ── Top nav ── */
         #quick-links {
             position: relative; z-index: 10;
             background: rgba(10,14,20,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             padding: 1.5rem 0; border-bottom: 1px solid rgba(201,169,97,0.2);
-            display: flex; justify-content: center; overflow-x: hidden;
+            display: flex; justify-content: center;
         }
         .nav-container { width: 100%; max-width: 1200px; padding: 0 1rem; }
         .nav-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; list-style: none; padding: 0; margin: 0; }
         .nav-list a {
             display: block; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2);
-            border-radius: 25px; padding: 0.7rem 1.2rem; text-decoration: none; color: #ffffff;
+            border-radius: 25px; padding: 0.7rem 1.2rem; text-decoration: none; color: #fff;
             font-size: 0.9rem; font-weight: 500; text-align: center; transition: all 0.3s ease;
             backdrop-filter: blur(5px); white-space: nowrap; flex-shrink: 0;
         }
         .nav-list a:hover { background: rgba(201,169,97,0.2); border-color: rgba(201,169,97,0.4); transform: translateY(-3px); color: #c9a961; box-shadow: 0 5px 15px rgba(201,169,97,0.3); }
+        .nav-list a.active { background: rgba(201,169,97,0.22); border-color: rgba(201,169,97,0.55); color: #d4b56d; box-shadow: 0 4px 14px rgba(201,169,97,0.18); }
         .nav-list li:nth-child(8n+1) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+2) a { border-left: 3px solid #d4b56d; }
         .nav-list li:nth-child(8n+3) a { border-left: 3px solid #b89d55; }
@@ -135,229 +115,143 @@
         .nav-list li:nth-child(8n+7) a { border-left: 3px solid #c9a961; }
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
-        /* ── Layout — DESKTOP (unchanged from original) ── */
-        .container { max-width: 1600px; margin: 0 auto; padding: 1.2rem 4.5rem 0 4.5rem; }
+        /* ── Page containers ── */
+        .container      { max-width: 1600px; margin: 0 auto; padding: 1.2rem 4.5rem 0 4.5rem; }
         .container-wide { max-width: 1600px; margin: 0 auto; padding: 0 8rem 2.5rem 8rem; }
 
-        .hero-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; gap: 0; }
-        .profile-card { display: flex; align-items: center; gap: 2rem; position: relative; margin-top: 0; }
+        /* ── Hero ── */
+        .hero-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; }
+        .profile-card { display: flex; align-items: center; gap: 2rem; }
         .profile-image { width: 280px; height: 280px; border-radius: 50%; border: 4px solid rgba(201,169,97,0.4); object-fit: cover; transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(201,169,97,0.3); flex-shrink: 0; }
         .profile-image:hover { transform: scale(1.05); border-color: rgba(201,169,97,0.6); box-shadow: 0 15px 50px rgba(201,169,97,0.4); }
-        .profile-text-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+        .profile-text-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
         .page-title-right { text-align: center; width: 100%; }
-        .page-title-right h1 { font-size: 2.8rem; font-weight: 800; color: #ffffff; position: relative; display: inline-block; line-height: 1.2; margin: 0; padding-bottom: 0.5rem; overflow: hidden; }
+        .page-title-right h1 { font-size: 2.8rem; font-weight: 800; color: #fff; position: relative; display: inline-block; line-height: 1.2; margin: 0; padding-bottom: 0.5rem; }
         .page-title-right h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 4px; background: linear-gradient(90deg, #c9a961 0%, #d4b56d 50%, #c9a961 100%); border-radius: 2px; }
-        .profile-info-box { background: linear-gradient(135deg, rgba(201,169,97,0.12), rgba(201,169,97,0.08)); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(201,169,97,0.3); border-radius: 16px; padding: 1.5rem; margin-top: 0.5rem; box-shadow: 0 8px 32px rgba(201,169,97,0.2); transition: all 0.3s ease; position: relative; overflow: hidden; text-align: center; }
+        .profile-info-box { background: linear-gradient(135deg, rgba(201,169,97,0.12), rgba(201,169,97,0.08)); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(201,169,97,0.3); border-radius: 16px; padding: 1.5rem; box-shadow: 0 8px 32px rgba(201,169,97,0.2); transition: all 0.3s ease; position: relative; overflow: hidden; text-align: center; }
         .profile-info-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55); }
         .profile-info-box:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,169,97,0.3); border-color: rgba(201,169,97,0.5); }
         .profile-title { color: #c9a961; font-size: 1.35rem; margin-bottom: 0.3rem; font-weight: 600; }
         .profile-info { font-size: 1.05rem; color: #b8c5d0; line-height: 1.7; }
         .profile-info span { color: #c9a961; font-weight: 600; }
-        .social-links { display: flex; gap: 0.8rem; margin-top: 0; justify-content: center; }
+        .social-links { display: flex; gap: 0.8rem; justify-content: center; }
         .social-icon { width: 40px; height: 40px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; text-decoration: none; -webkit-tap-highlight-color: transparent; }
-        .social-icon svg { width: 20px; height: 20px; fill: #ffffff; transition: all 0.3s ease; }
+        .social-icon svg { width: 20px; height: 20px; fill: #fff; transition: all 0.3s ease; }
         .social-icon:hover { background: rgba(201,169,97,0.2); border-color: rgba(201,169,97,0.5); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(201,169,97,0.3); }
         .social-icon:hover svg { fill: #c9a961; }
 
-        .education-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-bottom: 0rem; }
-        .education-bachelor { grid-column: 1 / -1; }
-        .education-card-main { background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden; }
-        .education-card-main::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55); }
-        .education-card-main:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(201,169,97,0.3); }
-        .education-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
-        .education-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; box-shadow: 0 10px 30px rgba(201,169,97,0.4); }
-        .education-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; color: #ffffff; }
-        .education-university { font-size: 1.1rem; color: #c9a961; font-weight: 600; margin-bottom: 0.2rem; }
-        .education-university a:hover { color: #ffffff; text-decoration-color: #ffffff; }
-        .education-location { color: #b8c5d0; font-size: 1rem; }
-        .education-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
-        .meta-badge { background: rgba(201,169,97,0.15); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(201,169,97,0.3); font-size: 0.9rem; color: #ffffff; }
-        .thesis-section { background: rgba(201,169,97,0.1); border-radius: 12px; padding: 1rem; margin: 1rem 0; border: 1px solid rgba(201,169,97,0.2); }
-        .section-title { font-size: 1.1rem; font-weight: 700; color: #c9a961; margin-bottom: 0.5rem; }
-        .thesis-title { font-size: 1.02rem; color: #ffffff; line-height: 1.5; margin-bottom: 0.5rem; }
-        .thesis-supervisor { color: #b8c5d0; font-size: 0.95rem; }
-        .thesis-supervisor a:hover { color: #ffffff; text-decoration-color: #ffffff; }
-        .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
-        .achievement-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.6rem; background: rgba(201,169,97,0.05); border-radius: 8px; border: 1px solid rgba(201,169,97,0.2); transition: all 0.3s ease; }
-        .achievement-item:hover { background: rgba(201,169,97,0.15); transform: translateY(-3px); }
-        .achievement-icon { width: 26px; height: 26px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
-        .achievement-icon::before { content: '★'; color: #ffffff; font-size: 0.9rem; }
-        .achievement-text { color: #b8c5d0; font-size: 0.92rem; line-height: 1.4; }
-
-        /* ── Skills Section (standalone, after coursework) ── */
-        .skills-section {
-            grid-column: 1 / -1;
+        /* ── Shared card ── */
+        .card {
             background: rgba(201,169,97,0.08);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(201,169,97,0.2);
-            padding: 1.6rem 2rem;
-            position: relative;
+            border-radius: 20px; border: 1px solid rgba(201,169,97,0.2);
+            padding: 1.8rem 2rem; position: relative; overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .skills-section::before {
+        .card::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
             background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
             border-radius: 20px 20px 0 0;
         }
-        .skills-categories {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .skill-category { display: flex; flex-direction: column; gap: 0.4rem; }
-        .skill-category-label {
-            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1.1px; color: #7a8fa0; margin-bottom: 0.2rem;
-        }
-        .skill-tags { display: flex; flex-direction: column; gap: 0.3rem; }
-        .skill-tag {
-            background: rgba(201,169,97,0.07);
-            border: 1px solid rgba(201,169,97,0.25);
-            border-radius: 8px;
-            padding: 0.35rem 0.65rem;
-            color: #c9a961;
-            font-size: 0.82rem;
-            font-weight: 600;
-            transition: all 0.25s ease;
-            text-align: center;
-        }
-        .skill-tag:hover {
-            background: rgba(201,169,97,0.18);
-            border-color: rgba(201,169,97,0.5);
-            transform: translateY(-2px);
-            color: #d4b56d;
-        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(201,169,97,0.3); }
 
-        .coursework-section { grid-column: 1 / -1; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 2rem; }
-        .coursework-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.2rem; }
+        /* ── Single flat page grid ── */
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        /* named spans used on children */
+        .span-12 { grid-column: span 12; }
+        .span-6  { grid-column: span 6;  }
+        .span-5  { grid-column: span 5;  }
+        .span-7  { grid-column: span 7;  }
+
+        /* ── Shared typography ── */
+        .section-title { font-size: 1.1rem; font-weight: 700; color: #c9a961; margin-bottom: 0.6rem; }
+        .education-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .education-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; box-shadow: 0 10px 30px rgba(201,169,97,0.4); }
+        .education-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; color: #fff; }
+        .education-university { font-size: 1.1rem; color: #c9a961; font-weight: 600; margin-bottom: 0.2rem; }
+        .education-location { color: #b8c5d0; font-size: 1rem; }
+        .education-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
+        .meta-badge { background: rgba(201,169,97,0.15); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(201,169,97,0.3); font-size: 0.9rem; color: #fff; }
+
+        /* ── Thesis ── */
+        .thesis-section { background: rgba(201,169,97,0.1); border-radius: 12px; padding: 1rem; margin: 1rem 0; border: 1px solid rgba(201,169,97,0.2); }
+        .thesis-title { font-size: 1.02rem; color: #fff; line-height: 1.5; margin-bottom: 0.5rem; }
+        .thesis-supervisor { color: #b8c5d0; font-size: 0.95rem; }
+
+        /* ── Achievements ── */
+        .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+        .achievement-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.6rem; background: rgba(201,169,97,0.05); border-radius: 8px; border: 1px solid rgba(201,169,97,0.2); transition: all 0.3s ease; }
+        .achievement-item:hover { background: rgba(201,169,97,0.15); transform: translateY(-3px); }
+        .achievement-icon { width: 26px; height: 26px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .achievement-icon::before { content: '★'; color: #fff; font-size: 0.9rem; }
+        .achievement-text { color: #b8c5d0; font-size: 0.92rem; line-height: 1.4; }
+
+        /* ── Coursework ── */
+        .coursework-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
+        .coursework-stats { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .stat-chip { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(201,169,97,0.12); border: 1px solid rgba(201,169,97,0.3); border-radius: 8px; }
+        .stat-chip .label { color: #b8c5d0; font-size: 0.85rem; }
+        .stat-chip .value { color: #c9a961; font-size: 1rem; font-weight: 700; }
+        .coursework-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
         .semester-card { background: rgba(201,169,97,0.05); border-radius: 8px; padding: 0.7rem; border: 1px solid rgba(201,169,97,0.2); transition: all 0.3s ease; display: flex; flex-direction: column; }
         .semester-card:hover { background: rgba(201,169,97,0.1); transform: translateY(-3px); }
         .semester-title { font-size: 0.95rem; font-weight: 700; color: #c9a961; margin-bottom: 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(201,169,97,0.3); flex-shrink: 0; }
         .course-list { display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
         .course-item { color: #b8c5d0; font-size: 0.85rem; padding-left: 0.9rem; position: relative; transition: all 0.2s ease; line-height: 1.4; }
         .course-item::before { content: '•'; color: #c9a961; position: absolute; left: 0; font-weight: bold; font-size: 0.7rem; }
-        .course-item:hover { color: #ffffff; transform: translateX(2px); }
-        .internship-section { grid-column: 1 / 7; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 1.5rem; transition: all 0.3s ease; position: relative; }
-        .internship-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d); border-radius: 20px 20px 0 0; }
-        .internship-section:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(201,169,97,0.3); }
-        .future-section { grid-column: 7 / -1; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.3); padding: 1.5rem; opacity: 0.75; transition: all 0.3s ease; position: relative; overflow: hidden; }
-        .future-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d); z-index: 2; border-radius: 20px 20px 0 0; }
-        .future-section::after { content: ''; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%; background: radial-gradient(ellipse at 30% 50%, rgba(201,169,97,0.4) 0%, transparent 50%), radial-gradient(ellipse at 70% 30%, rgba(212,181,109,0.35) 0%, transparent 50%), radial-gradient(ellipse at 50% 70%, rgba(184,157,85,0.3) 0%, transparent 50%); pointer-events: none; filter: blur(40px); opacity: 0.65; }
-        .future-section:hover { opacity: 1; transform: translateY(-5px); box-shadow: 0 20px 50px rgba(201,169,97,0.5); background: rgba(201,169,97,0.12); }
+        .course-item:hover { color: #fff; transform: translateX(2px); }
+
+        /* ── Technical skills ── */
+        .skills-categories { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 1rem; }
+        .skill-category { display: flex; flex-direction: column; gap: 0.35rem; }
+        .skill-category-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.1px; color: #7a8fa0; margin-bottom: 0.2rem; }
+        .skill-tags { display: flex; flex-direction: column; gap: 0.3rem; }
+        .skill-tag { background: rgba(201,169,97,0.07); border: 1px solid rgba(201,169,97,0.25); border-radius: 8px; padding: 0.35rem 0.65rem; color: #c9a961; font-size: 0.82rem; font-weight: 600; transition: all 0.25s ease; text-align: center; }
+        .skill-tag:hover { background: rgba(201,169,97,0.18); border-color: rgba(201,169,97,0.5); transform: translateY(-2px); color: #d4b56d; }
+
+        /* ── Non-technical skills ── */
+        .soft-skills-list { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1rem; }
+        .soft-skill-tag { display: flex; align-items: center; gap: 0.6rem; padding: 0.48rem 0.85rem; background: rgba(201,169,97,0.07); border: 1px solid rgba(201,169,97,0.25); border-radius: 8px; color: #c9a961; font-size: 0.88rem; font-weight: 600; transition: all 0.25s ease; }
+        .soft-skill-tag:hover { background: rgba(201,169,97,0.18); border-color: rgba(201,169,97,0.5); transform: translateY(-2px); color: #d4b56d; }
+
+        /* ── Language skills ── */
+        .lang-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+        .lang-row { display: flex; align-items: center; gap: 0.9rem; padding: 0.55rem 0.9rem; background: rgba(201,169,97,0.07); border: 1px solid rgba(201,169,97,0.25); border-radius: 10px; transition: all 0.25s ease; }
+        .lang-row:hover { background: rgba(201,169,97,0.16); transform: translateY(-2px); }
+        .lang-flag { font-size: 1.2rem; flex-shrink: 0; }
+        .lang-name { color: #fff; font-weight: 600; font-size: 0.95rem; width: 68px; flex-shrink: 0; }
+        .lang-bar-wrap { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; min-width: 0; }
+        .lang-bar { height: 100%; background: linear-gradient(90deg, #c9a961, #d4b56d); border-radius: 3px; }
+        .lang-level { color: #c9a961; font-size: 0.78rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; text-align: right; width: 118px; }
+
+        /* ── Future card ── */
+        .future-card {
+            grid-column: span 12;
+            background: rgba(201,169,97,0.08);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px; border: 1px solid rgba(201,169,97,0.3);
+            padding: 1.8rem 2rem; position: relative; overflow: hidden;
+            opacity: 0.82; transition: all 0.3s ease;
+        }
+        .future-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d); border-radius: 20px 20px 0 0; z-index: 2; }
+        .future-card::after { content: ''; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%; background: radial-gradient(ellipse at 30% 50%, rgba(201,169,97,0.4) 0%, transparent 50%), radial-gradient(ellipse at 70% 30%, rgba(212,181,109,0.35) 0%, transparent 50%); pointer-events: none; filter: blur(40px); opacity: 0.65; }
+        .future-card:hover { opacity: 1; transform: translateY(-5px); box-shadow: 0 20px 50px rgba(201,169,97,0.5); background: rgba(201,169,97,0.12); }
         .future-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; position: relative; z-index: 3; }
-        .future-title-group h3 { font-size: 1.55rem; font-weight: 700; margin-bottom: 0.3rem; color: #ffffff; }
+        .future-title-group h3 { font-size: 1.55rem; font-weight: 700; margin-bottom: 0.3rem; color: #fff; }
         .future-title-group .education-university { color: #e8dcc0; }
         .future-description { background: rgba(201,169,97,0.1); border-radius: 12px; padding: 1.2rem; margin-top: 1rem; position: relative; z-index: 3; }
         .future-description p { color: #e8e8e8; line-height: 1.7; font-size: 1.05rem; }
 
-        footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 2rem 0; margin-top: 0rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-        .footer-left { text-align: center; }
+        /* ── Footer ── */
+        footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 2rem 0; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; }
         .footer-left p { color: #b8c5d0; font-size: 1rem; }
 
-        /* ── Original tablet breakpoints (unchanged) ── */
-        @media (max-width: 1400px) { .container-wide { padding: 0 6rem 2.5rem 6rem; } .coursework-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 1200px) {
-            .container-wide { padding: 0 4.5rem 2.5rem 4.5rem; }
-            .achievements-grid { grid-template-columns: 1fr; }
-            .internship-section, .future-section { grid-column: 1 / -1; }
-            .skills-categories { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        /* ── NEW: Mobile overrides (≤768px) ── */
-        @media (max-width: 768px) {
-            /* Side nav */
-            .side-nav-left { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
-            .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
-            .side-nav-label { font-size: 8px; }
-
-            /* Top nav: scrollable strip so all links are reachable */
-            #quick-links { overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; padding: 1rem 0; scrollbar-width: none; }
-            #quick-links::-webkit-scrollbar { display: none; }
-            .nav-container { padding: 0; overflow: visible; }
-            .nav-list { flex-wrap: nowrap; justify-content: flex-start; padding: 0 1rem; width: max-content; gap: 0.6rem; }
-            .nav-list a { padding: 0.6rem 1rem; font-size: 0.85rem; }
-
-            /* Containers */
-            .container { padding: 1rem 1rem 0 1rem; }
-            .container-wide { padding: 0 1rem 2rem 1rem; }
-
-            /* Profile: stack vertically, centred */
-            .profile-card { flex-direction: column; text-align: center; gap: 1.2rem; margin-top: 0.5rem; }
-            .profile-text-content { align-items: center; width: 100%; }
-            .profile-image { width: 200px; height: 200px; }
-            .page-title-right h1 { font-size: 2rem; }
-            .profile-info-box { padding: 1.1rem; }
-            .profile-title { font-size: 1.15rem; }
-            .profile-info { font-size: 0.95rem; }
-            .social-icon { width: 44px; height: 44px; } /* larger touch target */
-
-            /* Grid: single column stack */
-            .education-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .education-bachelor,
-            .coursework-section,
-            .skills-section,
-            .internship-section,
-            .future-section { grid-column: 1 / -1 !important; }
-
-            /* Card padding */
-            .education-card-main { padding: 1.2rem; border-radius: 16px; }
-            .coursework-section { padding: 1.2rem; border-radius: 16px; }
-            .skills-section { padding: 1.2rem; border-radius: 16px; }
-            .internship-section { padding: 1.2rem; border-radius: 16px; }
-            .future-section { padding: 1.2rem; border-radius: 16px; }
-
-            /* Typography scale-downs */
-            .education-content h3 { font-size: 1.2rem; }
-            .education-university { font-size: 1rem; }
-            .education-location { font-size: 0.9rem; }
-            .meta-badge { font-size: 0.82rem; padding: 0.25rem 0.65rem; }
-            .thesis-title { font-size: 0.92rem; }
-            .thesis-supervisor { font-size: 0.88rem; }
-            .section-title { font-size: 1rem; }
-            .achievement-text { font-size: 0.88rem; }
-
-            /* Achievements: single column */
-            .achievements-grid { grid-template-columns: 1fr; }
-
-            /* Skills: 2 columns on mobile */
-            .skills-categories { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-            /* Non-technical & language cards: stack on mobile */
-            .soft-skills-row > div { grid-column: 1 / -1 !important; }
-            .skill-tag { font-size: 0.78rem; padding: 0.3rem 0.5rem; }
-            .skill-category-label { font-size: 0.65rem; }
-
-            /* Coursework: 2 columns on mobile */
-            .coursework-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; margin-top: 0.8rem; }
-            .semester-title { font-size: 0.82rem; }
-            .course-item { font-size: 0.78rem; }
-
-            /* Future section */
-            .future-title-group h3 { font-size: 1.2rem; }
-            .future-description p { font-size: 0.92rem; }
-
-            /* Hero margin */
-            .hero-section { margin-bottom: 1.2rem; }
-
-            /* Footer */
-            footer { padding: 1.5rem 0; }
-            .footer-content { padding: 0 1rem; }
-            .footer-left p { font-size: 0.9rem; }
-        }
-
-        /* Extra-small phones */
-        @media (max-width: 400px) {
-            .profile-image { width: 160px; height: 160px; }
-            .page-title-right h1 { font-size: 1.7rem; }
-            .coursework-grid { grid-template-columns: 1fr; }
-            .skills-categories { grid-template-columns: 1fr; }
-            .side-nav-label { display: none; }
-            .side-nav-left { padding: 10px 9px 10px 6px; }
-            .side-nav-right { padding: 10px 6px 10px 9px; }
-        }
-
-        /* ── Scroll-to-Top Button ── */
+        /* ── Scroll-to-top ── */
         .scroll-to-top {
             position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
             width: 52px; height: 52px; border-radius: 50%;
@@ -368,68 +262,132 @@
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
             box-shadow: 0 4px 24px rgba(201,169,97,0.35);
-            opacity: 0; pointer-events: none;
-            transform: translateY(12px);
+            opacity: 0; pointer-events: none; transform: translateY(12px);
         }
         .scroll-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-        .scroll-to-top::before {
-            content: ''; position: absolute; inset: -3px; border-radius: 50%;
-            border: 1px solid rgba(201,169,97,0.25);
-            opacity: 0; transition: opacity 0.35s ease;
-        }
+        .scroll-to-top::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid rgba(201,169,97,0.25); opacity: 0; transition: opacity 0.35s ease; }
         .scroll-to-top:hover::before { opacity: 1; }
-        .scroll-to-top:hover {
-            background: linear-gradient(135deg, rgba(201,169,97,0.7) 0%, rgba(212,181,109,0.55) 100%);
-            border-color: rgba(201,169,97,0.9);
-            color: #0a0e14;
-            box-shadow: 0 8px 32px rgba(201,169,97,0.55), 0 0 20px rgba(201,169,97,0.3);
-            transform: translateY(-4px);
-        }
+        .scroll-to-top:hover { background: linear-gradient(135deg, rgba(201,169,97,0.7) 0%, rgba(212,181,109,0.55) 100%); border-color: rgba(201,169,97,0.9); color: #0a0e14; box-shadow: 0 8px 32px rgba(201,169,97,0.55); transform: translateY(-4px); }
         .scroll-to-top svg { position: relative; z-index: 1; transition: transform 0.3s ease; stroke-width: 2.5; }
         .scroll-to-top:hover svg { transform: translateY(-2px); }
-        @media (max-width: 640px) { .scroll-to-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; } }
-        @media (max-width: 400px) { .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 44px; height: 44px; } }
-    
-        /* Active nav link (current page) — added for cross-page consistency */
-        .nav-list a.active {
-            background: rgba(201, 169, 97, 0.22);
-            border-color: rgba(201, 169, 97, 0.55);
-            color: #d4b56d;
-            box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
-        }
-</style>
 
-    <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
+        /* ── Responsive breakpoints ── */
+
+        @media (max-width: 1400px) {
+            .container-wide { padding: 0 6rem 2.5rem 6rem; }
+        }
+
+        @media (max-width: 1200px) {
+            .container-wide { padding: 0 4.5rem 2.5rem 4.5rem; }
+            .skills-categories { grid-template-columns: repeat(3, 1fr); }
+            .achievements-grid { grid-template-columns: 1fr; }
+            .span-6, .span-5, .span-7 { grid-column: span 12; }
+            .coursework-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .coursework-grid { grid-template-columns: repeat(2, 1fr); }
+            .skills-categories { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .side-nav-left  { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
+            .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
+            .side-nav-label { font-size: 8px; }
+
+            #quick-links { overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; padding: 1rem 0; scrollbar-width: none; }
+            #quick-links::-webkit-scrollbar { display: none; }
+            .nav-container { padding: 0; }
+            .nav-list { flex-wrap: nowrap; padding: 0 1rem; width: max-content; gap: 0.6rem; }
+            .nav-list a { padding: 0.6rem 1rem; font-size: 0.85rem; }
+
+            .container { padding: 1rem 1rem 0 1rem; }
+            .container-wide { padding: 0 1rem 2rem 1rem; }
+
+            .profile-card { flex-direction: column; gap: 1.2rem; }
+            .profile-image { width: 200px; height: 200px; }
+            .page-title-right h1 { font-size: 2rem; }
+            .profile-info-box { padding: 1.1rem; }
+            .profile-title { font-size: 1.15rem; }
+            .profile-info { font-size: 0.95rem; }
+            .social-icon { width: 44px; height: 44px; }
+
+            .page-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .span-12, .span-6, .span-5, .span-7 { grid-column: span 1; }
+            .future-card { grid-column: span 1; }
+
+            .card { padding: 1.2rem; border-radius: 16px; }
+            .future-card { padding: 1.2rem; border-radius: 16px; }
+
+            .education-content h3 { font-size: 1.2rem; }
+            .education-university { font-size: 1rem; }
+            .education-location { font-size: 0.9rem; }
+            .meta-badge { font-size: 0.82rem; padding: 0.25rem 0.65rem; }
+            .thesis-title { font-size: 0.92rem; }
+            .thesis-supervisor { font-size: 0.88rem; }
+            .section-title { font-size: 1rem; }
+            .achievement-text { font-size: 0.88rem; }
+            .achievements-grid { grid-template-columns: 1fr; }
+
+            .skills-categories { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+            .skill-tag { font-size: 0.78rem; padding: 0.3rem 0.5rem; }
+            .skill-category-label { font-size: 0.65rem; }
+
+            .coursework-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+            .coursework-meta { flex-direction: column; align-items: flex-start; }
+            .semester-title { font-size: 0.82rem; }
+            .course-item { font-size: 0.78rem; }
+
+            .lang-name { width: 58px; font-size: 0.88rem; }
+            .lang-level { font-size: 0.72rem; width: auto; min-width: 80px; }
+
+            .future-title-group h3 { font-size: 1.2rem; }
+            .future-description p { font-size: 0.92rem; }
+            .hero-section { margin-bottom: 1.2rem; }
+
+            footer { padding: 1.5rem 0; }
+            .footer-content { padding: 0 1rem; }
+            .footer-left p { font-size: 0.9rem; }
+
+            .scroll-to-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; }
+        }
+
+        @media (max-width: 400px) {
+            .profile-image { width: 160px; height: 160px; }
+            .page-title-right h1 { font-size: 1.7rem; }
+            .coursework-grid { grid-template-columns: 1fr; }
+            .skills-categories { grid-template-columns: 1fr; }
+            .side-nav-label { display: none; }
+            .side-nav-left  { padding: 10px 9px 10px 6px; }
+            .side-nav-right { padding: 10px 6px 10px 9px; }
+            .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 44px; height: 44px; }
+        }
+    </style>
+
     <meta name="description" content="Educational background and coursework of Adrita Khan, B.Sc. (Hons) in Physics with a minor in Astronomy from Universiti Sains Malaysia.">
-    <meta name="keywords" content="Adrita Khan, cosmology, astrophysics, observational cosmology, modified gravity, dark energy, machine learning, radio astronomy, jet tagging, Bangladesh, physics researcher">
+    <meta name="keywords" content="Adrita Khan, cosmology, astrophysics, observational cosmology, modified gravity, dark energy, machine learning, radio astronomy, Bangladesh, physics researcher">
     <meta name="author" content="Adrita Khan">
     <meta name="theme-color" content="#0a0e14">
     <link rel="canonical" href="https://adrita-khan.github.io/education.html">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230a0e14'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20font-family='Georgia,serif'%20font-size='22'%20font-weight='700'%20fill='%23c9a961'%3EA%3C/text%3E%3C/svg%3E">
-
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Adrita Khan — Portfolio">
     <meta property="og:title" content="Adrita Khan">
     <meta property="og:description" content="Educational background and coursework of Adrita Khan, B.Sc. (Hons) in Physics with a minor in Astronomy from Universiti Sains Malaysia.">
     <meta property="og:url" content="https://adrita-khan.github.io/education.html">
     <meta property="og:image" content="https://adrita-khan.github.io/assets/og-preview.png">
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Adrita_">
     <meta name="twitter:creator" content="@Adrita_">
     <meta name="twitter:title" content="Adrita Khan">
     <meta name="twitter:description" content="Educational background and coursework of Adrita Khan, B.Sc. (Hons) in Physics with a minor in Astronomy from Universiti Sains Malaysia.">
     <meta name="twitter:image" content="https://adrita-khan.github.io/assets/og-preview.png">
-
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
-    
-    <!-- Scroll-to-top button -->
+
     <button class="scroll-to-top" id="scrollToTop" title="Back to top" aria-label="Scroll to top">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
@@ -454,19 +412,15 @@
     </div>
 
     <a href="index.html" class="side-nav-arrow side-nav-left" title="Previous: Home" aria-label="Go to Home page">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-        <span class="side-nav-label" style="writing-mode: vertical-lr; transform: rotate(180deg);">Home</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span class="side-nav-label" style="writing-mode:vertical-lr;transform:rotate(180deg);">Home</span>
     </a>
-
     <a href="publications.html" class="side-nav-arrow side-nav-right" title="Next: Publications" aria-label="Go to Publications page">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         <span class="side-nav-label">Publications</span>
     </a>
-<nav id="quick-links" aria-label="Main navigation">
+
+    <nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -481,24 +435,22 @@
             </ul>
         </div>
     </nav>
-<span id="main-content" tabindex="-1" aria-hidden="true"></span>
 
+    <span id="main-content" tabindex="-1" aria-hidden="true"></span>
 
+    <!-- ── Hero ── -->
     <div class="container">
         <div class="hero-section">
             <div class="profile-card">
-                <img src="https://github.com/Adrita-Khan/Assets/blob/main/host/new.jpg?raw=true"
-                     alt="Adrita Khan" class="profile-image">
+                <img src="https://github.com/Adrita-Khan/Assets/blob/main/host/new.jpg?raw=true" alt="Adrita Khan" class="profile-image">
                 <div class="profile-text-content">
-                    <div class="page-title-right">
-                        <h1>Educational Journey</h1>
-                    </div>
-                    <div class="social-links" style="margin-top: 0.6rem;">
+                    <div class="page-title-right"><h1>Educational Journey</h1></div>
+                    <div class="social-links" style="margin-top:0.6rem;">
                         <a href="https://github.com/Adrita-Khan" target="_blank" class="social-icon" title="GitHub" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         </a>
                         <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" class="social-icon" title="ResearchGate" rel="noopener noreferrer">
-                            <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 32v448h448V32H0zm262.2 334.4c-6.6 3-33.2 6-50-14.2-9.2-10.6-25.3-33.3-42.2-63.6-8.9 0-14.7 0-21.4-.6v46.4c0 23.5 6 21.2 25.8 23.9v8.1c-6.9-.3-23.1-.8-35.6-.8-13.1 0-26.1.6-33.6.8v-8.1c15.5-2.9 22-1.3 22-23.9V225c0-22.6-6.4-21-22-23.9V193c25.8 1 53.1-.6 70.9-.6 31.7 0 55.9 14.4 55.9 45.6 0 21.1-16.7 42.2-39.2 47.5 13.6 24.2 30 45.6 42.2 58.9 7.2 7.8 17.2 14.7 27.2 14.7v7.3zm22.9-135c-23.3 0-32.2-15.7-32.2-32.2V167c0-12.2 8.8-30.4 34-30.4s30.4 17.9 30.4 17.9l-10.7 7.2s-5.5-12.5-19.7-12.5c-7.9 0-19.7 7.3-19.7 19.7v26.8c0 13.4 6.6 23.3 17.9 23.3 14.1 0 21.5-10.9 21.5-26.8h-17.9v-10.7h30.4c0 20.5 4.7 49.9-34 49.9zm-116.5 44.7c-9.4 0-13.6-.3-20-.8v-69.7c6.4-.6 15-.6 22.5-.6 23.3 0 37.2 12.2 37.2 34.4 0 25.1-14.2 36.7-39.7 36.7z"/></svg>
+                            <svg viewBox="0 0 448 512"><path d="M0 32v448h448V32H0zm262.2 334.4c-6.6 3-33.2 6-50-14.2-9.2-10.6-25.3-33.3-42.2-63.6-8.9 0-14.7 0-21.4-.6v46.4c0 23.5 6 21.2 25.8 23.9v8.1c-6.9-.3-23.1-.8-35.6-.8-13.1 0-26.1.6-33.6.8v-8.1c15.5-2.9 22-1.3 22-23.9V225c0-22.6-6.4-21-22-23.9V193c25.8 1 53.1-.6 70.9-.6 31.7 0 55.9 14.4 55.9 45.6 0 21.1-16.7 42.2-39.2 47.5 13.6 24.2 30 45.6 42.2 58.9 7.2 7.8 17.2 14.7 27.2 14.7v7.3zm22.9-135c-23.3 0-32.2-15.7-32.2-32.2V167c0-12.2 8.8-30.4 34-30.4s30.4 17.9 30.4 17.9l-10.7 7.2s-5.5-12.5-19.7-12.5c-7.9 0-19.7 7.3-19.7 19.7v26.8c0 13.4 6.6 23.3 17.9 23.3 14.1 0 21.5-10.9 21.5-26.8h-17.9v-10.7h30.4c0 20.5 4.7 49.9-34 49.9zm-116.5 44.7c-9.4 0-13.6-.3-20-.8v-69.7c6.4-.6 15-.6 22.5-.6 23.3 0 37.2 12.2 37.2 34.4 0 25.1-14.2 36.7-39.7 36.7z"/></svg>
                         </a>
                         <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" class="social-icon" title="Google Scholar" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
@@ -521,65 +473,78 @@
         </div>
     </div>
 
+    <!-- ── Main content — single flat grid ── -->
     <div class="container-wide">
-        <div class="education-grid">
-            <div class="education-bachelor">
-                <div class="education-card-main">
-                    <div class="education-header">
-                        <div class="education-icon">🎓</div>
-                        <div class="education-content">
-                            <h3>Bachelor of Science (Honours) in Physics</h3>
-                            <p class="education-university"><a href="https://www.usm.my/en/" target="_blank" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:3px;transition:all 0.3s ease;" rel="noopener noreferrer">Universiti Sains Malaysia</a></p>
-                            <p class="education-location">School of Physics, Gelugor, Penang, Malaysia</p>
-                        </div>
+        <div class="page-grid">
+
+            <!-- 1. Bachelor degree -->
+            <div class="card span-12">
+                <div class="education-header">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-content">
+                        <h3>Bachelor of Science (Honours) in Physics</h3>
+                        <p class="education-university">
+                            <a href="https://www.usm.my/en/" target="_blank" rel="noopener noreferrer"
+                               style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:3px;transition:color 0.3s;">
+                               Universiti Sains Malaysia
+                            </a>
+                        </p>
+                        <p class="education-location">School of Physics, Gelugor, Penang, Malaysia</p>
                     </div>
-                    <div class="education-meta">
-                        <div class="meta-badge">Sep 2019 – Sep 2023</div>
-                        <div class="meta-badge">Honours Degree</div>
-                        <div class="meta-badge">Major in Physics</div>
-                        <div class="meta-badge">Minor in Astronomy</div>
-                    </div>
-                    <div class="thesis-section">
-                        <h4 class="section-title">Undergraduate Thesis</h4>
-                        <p class="thesis-title">Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations</p>
-                        <p class="thesis-supervisor"><strong>Supervisor:</strong> <a href="https://fizik.usm.my/index.php/about-us/our-people/academic/senior-lecturer?view=article&id=1095&catid=27" target="_blank" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:all 0.3s ease;" rel="noopener noreferrer">Dr. M. Rabie Omar</a></p>
-                    </div>
-                    <div style="margin-top:2rem;">
-                        <h4 class="section-title">Academic Achievements</h4>
-                        <div class="achievements-grid">
-                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Dean's List recipient for Semesters II, III, and VI</div></div>
-                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Completed Honours research in nuclear physics</div></div>
-                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Specialized in Astronomy with astrophysical focus</div></div>
-                            <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Developed C++ expertise for scientific computing</div></div>
-                        </div>
+                </div>
+                <div class="education-meta">
+                    <div class="meta-badge">Sep 2019 – Sep 2023</div>
+                    <div class="meta-badge">Honours Degree</div>
+                    <div class="meta-badge">Major in Physics</div>
+                    <div class="meta-badge">Minor in Astronomy</div>
+                </div>
+                <div class="thesis-section">
+                    <h4 class="section-title">Undergraduate Thesis</h4>
+                    <p class="thesis-title">Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations</p>
+                    <p class="thesis-supervisor"><strong>Supervisor:</strong>
+                        <a href="https://fizik.usm.my/index.php/about-us/our-people/academic/senior-lecturer?view=article&id=1095&catid=27"
+                           target="_blank" rel="noopener noreferrer"
+                           style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">
+                           Dr. M. Rabie Omar
+                        </a>
+                    </p>
+                </div>
+                <div style="margin-top:1.8rem;">
+                    <h4 class="section-title">Academic Achievements</h4>
+                    <div class="achievements-grid">
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Dean's List recipient for Semesters II, III, and VI</div></div>
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Completed Honours research in nuclear physics</div></div>
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Specialized in Astronomy with astrophysical focus</div></div>
+                        <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Developed C++ expertise for scientific computing</div></div>
                     </div>
                 </div>
             </div>
 
-            <div class="coursework-section">
-                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem;">
+            <!-- 2. Coursework -->
+            <div class="card span-12">
+                <div class="coursework-meta">
                     <h3 class="section-title" style="margin-bottom:0;">Comprehensive Coursework (8 Semesters)</h3>
-                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-                        <div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.8rem;background:rgba(201,169,97,0.12);border:1px solid rgba(201,169,97,0.3);border-radius:8px;"><span style="color:#b8c5d0;font-size:0.85rem;">Total Courses:</span><span style="color:#c9a961;font-size:1rem;font-weight:700;">43</span></div>
-                        <div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.8rem;background:rgba(201,169,97,0.12);border:1px solid rgba(201,169,97,0.3);border-radius:8px;"><span style="color:#b8c5d0;font-size:0.85rem;">Semesters:</span><span style="color:#c9a961;font-size:1rem;font-weight:700;">8</span></div>
-                        <div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.8rem;background:rgba(201,169,97,0.12);border:1px solid rgba(201,169,97,0.3);border-radius:8px;"><span style="color:#b8c5d0;font-size:0.85rem;">Credit Units:</span><span style="color:#c9a961;font-size:1rem;font-weight:700;">136</span></div>
+                    <div class="coursework-stats">
+                        <div class="stat-chip"><span class="label">Total Courses:</span><span class="value">43</span></div>
+                        <div class="stat-chip"><span class="label">Semesters:</span><span class="value">8</span></div>
+                        <div class="stat-chip"><span class="label">Credit Units:</span><span class="value">136</span></div>
                     </div>
                 </div>
                 <div class="coursework-grid">
-                    <div class="semester-card"><h5 class="semester-title">Semester I (2019/2020)</h5><div class="course-list"><div class="course-item">Bahasa Malaysia I</div><div class="course-item">Core Entrepreneurship</div><div class="course-item">Physics I (Mechanics)</div><div class="course-item">Calculus</div><div class="course-item">Physics III (Waves & Optics)</div><div class="course-item">Physics Practical I</div></div></div>
-                    <div class="semester-card"><h5 class="semester-title">Semester II (2019/2020)</h5><div class="course-list"><div class="course-item">Professional Writing</div><div class="course-item">Physics II (E&M)</div><div class="course-item">Physics IV (Modern Physics)</div><div class="course-item">Electronics I</div><div class="course-item">Linear Algebra & Vectors</div><div class="course-item">Physics Practical II</div></div></div>
-                    <div class="semester-card"><h5 class="semester-title">Semester I (2020/2021)</h5><div class="course-list"><div class="course-item">Scientific English</div><div class="course-item">Electronics II</div><div class="course-item">Complex Analysis & ODEs</div><div class="course-item">Thermodynamics</div><div class="course-item">Optics</div><div class="course-item">Physics Practical III</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester I (2019/2020)</h5><div class="course-list"><div class="course-item">Bahasa Malaysia I</div><div class="course-item">Core Entrepreneurship</div><div class="course-item">Physics I (Mechanics)</div><div class="course-item">Calculus</div><div class="course-item">Physics III (Waves &amp; Optics)</div><div class="course-item">Physics Practical I</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester II (2019/2020)</h5><div class="course-list"><div class="course-item">Professional Writing</div><div class="course-item">Physics II (E&amp;M)</div><div class="course-item">Physics IV (Modern Physics)</div><div class="course-item">Electronics I</div><div class="course-item">Linear Algebra &amp; Vectors</div><div class="course-item">Physics Practical II</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester I (2020/2021)</h5><div class="course-list"><div class="course-item">Scientific English</div><div class="course-item">Electronics II</div><div class="course-item">Complex Analysis &amp; ODEs</div><div class="course-item">Thermodynamics</div><div class="course-item">Optics</div><div class="course-item">Physics Practical III</div></div></div>
                     <div class="semester-card"><h5 class="semester-title">Semester II (2020/2021)</h5><div class="course-list"><div class="course-item">Classical Mechanics</div><div class="course-item">Structure of Universe</div><div class="course-item">Quantum Mechanics</div><div class="course-item">Mathematical Methods</div><div class="course-item">Physics Practical IV</div></div></div>
-                    <div class="semester-card"><h5 class="semester-title">Semester I (2021/2022)</h5><div class="course-list"><div class="course-item">Data Analytics Principles</div><div class="course-item">Sustainability</div><div class="course-item">Atomic & Nuclear Physics</div><div class="course-item">Solid State Physics I</div><div class="course-item">Statistical Mechanics</div><div class="course-item">Physics Project</div><div class="course-item">Radiation Biophysics</div></div></div>
-                    <div class="semester-card"><h5 class="semester-title">Semester II (2021/2022)</h5><div class="course-list"><div class="course-item">English Poetry</div><div class="course-item">Malaysian Studies</div><div class="course-item">Electricity & Magnetism</div><div class="course-item">Solid State Physics II</div><div class="course-item">Physics Project</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester I (2021/2022)</h5><div class="course-list"><div class="course-item">Data Analytics Principles</div><div class="course-item">Sustainability</div><div class="course-item">Atomic &amp; Nuclear Physics</div><div class="course-item">Solid State Physics I</div><div class="course-item">Statistical Mechanics</div><div class="course-item">Physics Project</div><div class="course-item">Radiation Biophysics</div></div></div>
+                    <div class="semester-card"><h5 class="semester-title">Semester II (2021/2022)</h5><div class="course-list"><div class="course-item">English Poetry</div><div class="course-item">Malaysian Studies</div><div class="course-item">Electricity &amp; Magnetism</div><div class="course-item">Solid State Physics II</div><div class="course-item">Physics Project</div></div></div>
                     <div class="semester-card"><h5 class="semester-title">Semester I (2022/2023)</h5><div class="course-list"><div class="course-item">Public Speaking</div><div class="course-item">AI Literacy</div><div class="course-item">Introduction to Astronomy</div><div class="course-item">Principles in Astronomy</div></div></div>
                     <div class="semester-card"><h5 class="semester-title">Semester II (2022/2023)</h5><div class="course-list"><div class="course-item">Spoken English</div><div class="course-item">Laser Applications</div><div class="course-item">Non-Destructive Testing</div><div class="course-item">Radio Astronomy</div></div></div>
                 </div>
             </div>
 
-            <!-- ── Technical Skills (moved here, after Coursework) ── -->
-            <div class="skills-section">
-                <h3 class="section-title" style="margin-bottom:0;">Technical Skills</h3>
+            <!-- 3. Technical skills -->
+            <div class="card span-12">
+                <h3 class="section-title">Technical Skills</h3>
                 <div class="skills-categories">
                     <div class="skill-category">
                         <p class="skill-category-label">Programming</p>
@@ -633,69 +598,57 @@
                 </div>
             </div>
 
-            <!-- ── Non-Technical Skills & Languages ── -->
-            <div class="education-grid soft-skills-row" style="grid-template-columns: repeat(12,1fr); gap: 1.5rem; margin-bottom: 0;">
-
-                <!-- Non-Technical Skills card -->
-                <div style="grid-column: 1 / 5; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 1.6rem 2rem; position: relative;">
-                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c9a961,#d4b56d,#b89d55);border-radius:20px 20px 0 0;"></div>
-                    <h3 class="section-title">Non-Technical Skills</h3>
-                    <div style="display:flex;flex-direction:column;gap:0.35rem;margin-top:0.9rem;">
-                        <div class="skill-tag" style="text-align:left;padding:0.45rem 0.8rem;">✍️ &nbsp;Scientific Writing</div>
-                        <div class="skill-tag" style="text-align:left;padding:0.45rem 0.8rem;">🔭 &nbsp;Science Outreach &amp; Communication</div>
-                        <div class="skill-tag" style="text-align:left;padding:0.45rem 0.8rem;">🎤 &nbsp;Public Speaking</div>
-                        <div class="skill-tag" style="text-align:left;padding:0.45rem 0.8rem;">🤝 &nbsp;Cross-Cultural Collaboration</div>
-                        <div class="skill-tag" style="text-align:left;padding:0.45rem 0.8rem;">📋 &nbsp;Research Coordination</div>
-                    </div>
+            <!-- 4. Non-technical skills -->
+            <div class="card span-5">
+                <h3 class="section-title">Non-Technical Skills</h3>
+                <div class="soft-skills-list">
+                    <div class="soft-skill-tag">✍️&nbsp; Scientific Writing</div>
+                    <div class="soft-skill-tag">🔭&nbsp; Science Outreach &amp; Communication</div>
+                    <div class="soft-skill-tag">🎤&nbsp; Public Speaking</div>
+                    <div class="soft-skill-tag">🤝&nbsp; Cross-Cultural Collaboration</div>
+                    <div class="soft-skill-tag">📋&nbsp; Research Coordination</div>
                 </div>
-
-                <!-- Language Skills card -->
-                <div style="grid-column: 5 / -1; background: rgba(201,169,97,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(201,169,97,0.2); padding: 1.6rem 2rem; position: relative;">
-                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c9a961,#d4b56d,#b89d55);border-radius:20px 20px 0 0;"></div>
-                    <h3 class="section-title">Language Skills</h3>
-                    <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.9rem;">
-
-                        <div style="display:flex;align-items:center;gap:0.9rem;padding:0.55rem 0.9rem;background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.25);border-radius:10px;transition:all 0.25s ease;" onmouseover="this.style.background='rgba(201,169,97,0.16)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(201,169,97,0.07)';this.style.transform='translateY(0)'">
-                            <span style="font-size:1.2rem;">🇧🇩</span>
-                            <span style="color:#fff;font-weight:600;font-size:0.95rem;min-width:80px;">Bengali</span>
-                            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(90deg,#c9a961,#d4b56d);border-radius:3px;"></div></div>
-                            <span style="color:#c9a961;font-size:0.78rem;font-weight:600;white-space:nowrap;">Native</span>
-                        </div>
-
-                        <div style="display:flex;align-items:center;gap:0.9rem;padding:0.55rem 0.9rem;background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.25);border-radius:10px;transition:all 0.25s ease;" onmouseover="this.style.background='rgba(201,169,97,0.16)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(201,169,97,0.07)';this.style.transform='translateY(0)'">
-                            <span style="font-size:1.2rem;">🇬🇧</span>
-                            <span style="color:#fff;font-weight:600;font-size:0.95rem;min-width:80px;">English</span>
-                            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:98%;height:100%;background:linear-gradient(90deg,#c9a961,#d4b56d);border-radius:3px;"></div></div>
-                            <span style="color:#c9a961;font-size:0.78rem;font-weight:600;white-space:nowrap;">Bilingual</span>
-                        </div>
-
-                        <div style="display:flex;align-items:center;gap:0.9rem;padding:0.55rem 0.9rem;background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.25);border-radius:10px;transition:all 0.25s ease;" onmouseover="this.style.background='rgba(201,169,97,0.16)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(201,169,97,0.07)';this.style.transform='translateY(0)'">
-                            <span style="font-size:1.2rem;">🇮🇳</span>
-                            <span style="color:#fff;font-weight:600;font-size:0.95rem;min-width:80px;">Hindi</span>
-                            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:70%;height:100%;background:linear-gradient(90deg,#c9a961,#d4b56d);border-radius:3px;"></div></div>
-                            <span style="color:#c9a961;font-size:0.78rem;font-weight:600;white-space:nowrap;">Intermediate (B2)</span>
-                        </div>
-
-                        <div style="display:flex;align-items:center;gap:0.9rem;padding:0.55rem 0.9rem;background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.25);border-radius:10px;transition:all 0.25s ease;" onmouseover="this.style.background='rgba(201,169,97,0.16)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(201,169,97,0.07)';this.style.transform='translateY(0)'">
-                            <span style="font-size:1.2rem;">🇩🇪</span>
-                            <span style="color:#fff;font-weight:600;font-size:0.95rem;min-width:80px;">German</span>
-                            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:22%;height:100%;background:linear-gradient(90deg,#c9a961,#d4b56d);border-radius:3px;"></div></div>
-                            <span style="color:#c9a961;font-size:0.78rem;font-weight:600;white-space:nowrap;">A2</span>
-                        </div>
-
-                        <div style="display:flex;align-items:center;gap:0.9rem;padding:0.55rem 0.9rem;background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.25);border-radius:10px;transition:all 0.25s ease;" onmouseover="this.style.background='rgba(201,169,97,0.16)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(201,169,97,0.07)';this.style.transform='translateY(0)'">
-                            <span style="font-size:1.2rem;">🇲🇾</span>
-                            <span style="color:#fff;font-weight:600;font-size:0.95rem;min-width:80px;">Malay</span>
-                            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:10%;height:100%;background:linear-gradient(90deg,#c9a961,#d4b56d);border-radius:3px;"></div></div>
-                            <span style="color:#c9a961;font-size:0.78rem;font-weight:600;white-space:nowrap;">Beginner</span>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
 
-            <div class="internship-section">
+            <!-- 5. Language skills -->
+            <div class="card span-7">
+                <h3 class="section-title">Language Skills</h3>
+                <div class="lang-list">
+                    <div class="lang-row">
+                        <span class="lang-flag">🇧🇩</span>
+                        <span class="lang-name">Bengali</span>
+                        <div class="lang-bar-wrap"><div class="lang-bar" style="width:100%;"></div></div>
+                        <span class="lang-level">Native</span>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                        <div class="lang-bar-wrap"><div class="lang-bar" style="width:98%;"></div></div>
+                        <span class="lang-level">Bilingual</span>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-flag">🇮🇳</span>
+                        <span class="lang-name">Hindi</span>
+                        <div class="lang-bar-wrap"><div class="lang-bar" style="width:70%;"></div></div>
+                        <span class="lang-level">Intermediate (B2)</span>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-flag">🇩🇪</span>
+                        <span class="lang-name">German</span>
+                        <div class="lang-bar-wrap"><div class="lang-bar" style="width:22%;"></div></div>
+                        <span class="lang-level">Elementary (A2)</span>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-flag">🇲🇾</span>
+                        <span class="lang-name">Malay</span>
+                        <div class="lang-bar-wrap"><div class="lang-bar" style="width:10%;"></div></div>
+                        <span class="lang-level">Beginner</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Internship -->
+            <div class="card span-6">
                 <div class="education-header">
                     <div class="education-icon">🔬</div>
                     <div class="education-content">
@@ -704,12 +657,26 @@
                         <p class="education-location">Machine Learning in Astrophysics</p>
                     </div>
                 </div>
-                <div class="education-meta"><div class="meta-badge">Jul – Dec 2021</div><div class="meta-badge">Machine Learning</div><div class="meta-badge">Astrophysics</div></div>
+                <div class="education-meta">
+                    <div class="meta-badge">Jul – Dec 2021</div>
+                    <div class="meta-badge">Machine Learning</div>
+                    <div class="meta-badge">Astrophysics</div>
+                </div>
                 <div class="thesis-section">
                     <h4 class="section-title">Research Project</h4>
                     <p class="thesis-title">Photometric Redshifts using Gaussian Processes: Tested machine learning methods for photometric redshift estimation from astronomical survey data</p>
-                    <p class="thesis-supervisor"><strong>Supervisor:</strong> <a href="https://www.tonima-ananna.com/" target="_blank" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:all 0.3s ease;" rel="noopener noreferrer">Dr. Tonima Tasnim Ananna</a></p>
-                    <div style="margin-top:1rem;"><a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" style="display:inline-block;padding:0.6rem 1.2rem;background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.3);border-radius:8px;color:#c9a961;text-decoration:none;font-size:0.9rem;transition:all 0.3s ease;" rel="noopener noreferrer">📂 View Project on GitHub</a></div>
+                    <p class="thesis-supervisor"><strong>Supervisor:</strong>
+                        <a href="https://www.tonima-ananna.com/" target="_blank" rel="noopener noreferrer"
+                           style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">
+                           Dr. Tonima Tasnim Ananna
+                        </a>
+                    </p>
+                    <div style="margin-top:1rem;">
+                        <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" rel="noopener noreferrer"
+                           style="display:inline-block;padding:0.6rem 1.2rem;background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.3);border-radius:8px;color:#c9a961;text-decoration:none;font-size:0.9rem;transition:all 0.3s ease;">
+                           📂 View Project on GitHub
+                        </a>
+                    </div>
                 </div>
                 <div style="margin-top:1.5rem;">
                     <h4 class="section-title">Key Outcomes</h4>
@@ -721,18 +688,24 @@
                 </div>
             </div>
 
-            <div class="internship-section" style="grid-column:7 / -1;">
+            <!-- 7. Astronomy Club -->
+            <div class="card span-6">
                 <div class="education-header">
                     <div class="education-icon">🌟</div>
                     <div class="education-content">
                         <h3>Astronomy Club, Universiti Sains Malaysia</h3>
                         <p class="education-university">Elected Student Representative (Exco)</p>
-                        <p class="education-location">Member & Active Participant</p>
+                        <p class="education-location">Member &amp; Active Participant</p>
                     </div>
                 </div>
-                <div class="education-meta"><div class="meta-badge">Exco: 2019 - 2020</div><div class="meta-badge">Member: 2019 - Present</div><div class="meta-badge">Leadership</div><div class="meta-badge">Outreach</div></div>
+                <div class="education-meta">
+                    <div class="meta-badge">Exco: 2019–2020</div>
+                    <div class="meta-badge">Member: 2019–Present</div>
+                    <div class="meta-badge">Leadership</div>
+                    <div class="meta-badge">Outreach</div>
+                </div>
                 <div style="margin-top:1.5rem;">
-                    <h4 class="section-title">Contributions & Activities</h4>
+                    <h4 class="section-title">Contributions &amp; Activities</h4>
                     <div class="achievements-grid" style="grid-template-columns:1fr;">
                         <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Represented and coordinated activities among students from over 10 nationalities, fostering inclusivity and cross-cultural collaboration</div></div>
                         <div class="achievement-item"><div class="achievement-icon"></div><div class="achievement-text">Actively participated in stargazing sessions, public outreach programs, workshops, and valuable training sessions</div></div>
@@ -741,7 +714,8 @@
                 </div>
             </div>
 
-            <div class="future-section" style="grid-column:1 / -1;">
+            <!-- 8. Future studies -->
+            <div class="future-card">
                 <div class="future-header">
                     <div class="education-icon">⚛️</div>
                     <div class="future-title-group">
@@ -749,19 +723,24 @@
                         <p class="education-university">PhD Aspirant in Astrophysics and Cosmology</p>
                     </div>
                 </div>
-                <div class="education-meta"><div class="meta-badge">Upcoming</div><div class="meta-badge">Planning Phase</div></div>
+                <div class="education-meta">
+                    <div class="meta-badge">Upcoming</div>
+                    <div class="meta-badge">Planning Phase</div>
+                </div>
                 <div class="future-description">
-                    <p>Currently exploring opportunities for graduate studies in Physics and Astronomy. Research interests include Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter & Dark Energy, High-Energy Astrophysics, Galaxy Evolution & Dynamics, and Astrostatistics with Machine Learning.</p>
+                    <p>Currently exploring opportunities for graduate studies in Physics and Astronomy. Research interests include Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter &amp; Dark Energy, High-Energy Astrophysics, Galaxy Evolution &amp; Dynamics, and Astrostatistics with Machine Learning.</p>
                 </div>
             </div>
-        </div>
-    </div>
+
+        </div><!-- /.page-grid -->
+    </div><!-- /.container-wide -->
 
     <footer>
         <div class="footer-content">
             <div class="footer-left"><p>&copy; 2026 Adrita Khan. All rights reserved.</p></div>
         </div>
     </footer>
+
     <script>
         const scrollBtn = document.getElementById('scrollToTop');
         window.addEventListener('scroll', () => {
