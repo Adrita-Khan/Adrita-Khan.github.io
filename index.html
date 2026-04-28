@@ -409,6 +409,111 @@
         .reveal { opacity: 1; transform: translateY(0); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* ══════════════════════
+           NEWS SECTION
+        ══════════════════════ */
+        .news-scroll {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.75rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(201,169,97,0.3) transparent;
+        }
+        .news-scroll::-webkit-scrollbar { height: 4px; }
+        .news-scroll::-webkit-scrollbar-track { background: transparent; }
+        .news-scroll::-webkit-scrollbar-thumb { background: rgba(201,169,97,0.3); border-radius: 2px; }
+
+        .news-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            border: 1px solid rgba(201,169,97,0.22);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            background: #fff;
+        }
+        .news-card:hover {
+            border-color: rgba(201,169,97,0.5);
+            box-shadow: 0 8px 28px rgba(201,169,97,0.18);
+            transform: translateY(-3px);
+        }
+
+        .news-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.85rem;
+            background: #0f1923;
+            border-bottom: 1px solid rgba(201,169,97,0.2);
+            flex-shrink: 0;
+        }
+        .news-source-badge {
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.8px;
+            text-transform: uppercase; color: #c9a961;
+        }
+        .news-expand-btn {
+            background: none; border: none; cursor: pointer;
+            color: #8fa0ae; font-size: 0.68rem; font-weight: 600;
+            letter-spacing: 0.4px; display: flex; align-items: center; gap: 3px;
+            transition: color 0.2s ease; padding: 0; white-space: nowrap; line-height: 1;
+        }
+        .news-expand-btn:hover { color: #c9a961; }
+        .news-expand-btn svg { transition: transform 0.25s ease; flex-shrink: 0; }
+        .news-expand-btn.is-expanded svg { transform: rotate(180deg); }
+
+        .news-preview-window {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: height 0.35s ease;
+        }
+
+        .news-preview-window::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, rgba(15,25,35,0.95));
+            pointer-events: none;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+        .news-preview-window.is-expanded::after { opacity: 0; }
+
+        .news-click-guard {
+            position: absolute; inset: 0; z-index: 3; cursor: pointer;
+        }
+        .news-preview-window.is-expanded .news-click-guard { display: none; }
+
+        .news-preview-window iframe {
+            width: 500px;
+            height: 900px;
+            border: none;
+            display: block;
+            transform: scale(0.6);
+            transform-origin: top left;
+            pointer-events: none;
+        }
+
+        .news-preview-window.is-expanded {
+            height: 600px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            cursor: default;
+        }
+        .news-preview-window.is-expanded iframe {
+            width: 100%;
+            height: 800px;
+            transform: none;
+            pointer-events: auto;
+        }
+
         /* ── Tablet: 769px – 1200px ── */
         @media (max-width: 1200px) {
             .research-interests-grid { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -465,6 +570,11 @@
             /* Nav arrow — hide on mid-size, content is reachable via nav bar */
             .side-nav-arrow { padding: 14px 8px 10px 10px; border-radius: 10px 0 0 10px; }
             .side-nav-label { font-size: 8px; }
+            /* News */
+            .news-card { flex: 0 0 260px; }
+            .news-preview-window iframe { transform: scale(0.52); }
+            .news-preview-window { height: 200px; }
+            .news-preview-window.is-expanded { height: 540px; }
         }
 
         /* ── Phone: ≤ 640px ── */
@@ -555,6 +665,12 @@
             .side-nav-arrow svg { width: 15px; height: 15px; }
             .side-nav-label { font-size: 7px; letter-spacing: 0.8px; }
             .scroll-to-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; }
+
+            /* News */
+            .news-card { flex: 0 0 230px; }
+            .news-preview-window iframe { transform: scale(0.46); }
+            .news-preview-window { height: 180px; }
+            .news-preview-window.is-expanded { height: 500px; }
         }
 
         /* ── Very small phone: ≤ 400px ── */
@@ -571,6 +687,10 @@
             .footer-stats { flex-direction: column; align-items: center; gap: 0.6rem; }
             .footer-stat-divider { width: 50%; height: 1px; background: linear-gradient(to right, transparent, rgba(201,169,97,0.3), transparent); }
             .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 44px; height: 44px; }
+            /* News */
+            .news-card { flex: 0 0 210px; }
+            .news-preview-window iframe { transform: scale(0.42); }
+            .news-preview-window { height: 165px; }
         }
 
         .aurora-container { display: none !important; }
@@ -974,6 +1094,102 @@
         </div>
     </section>
 
+    <!-- ══ NEWS SECTION ══ -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header"><h2>News</h2><div class="section-line"></div></div>
+            <div class="news-scroll" role="list" aria-label="News posts">
+
+                <!-- Card 1 -->
+                <div class="news-card" role="listitem">
+                    <div class="news-card-header">
+                        <span class="news-source-badge">CCDS · IUB</span>
+                        <button class="news-expand-btn" aria-expanded="false" aria-label="Expand post">
+                            Expand <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="news-preview-window">
+                        <div class="news-click-guard" aria-hidden="true"></div>
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCCDS.IUB%2Fposts%2Fpfbid0qf6Gp3ke7KbrmCab9xCvNU9hB8VdeLV5PcBAZSujuDBFoUZtqqGgsiWSWRqrMkHnl&show_text=true&width=500"
+                            scrolling="no" frameborder="0" allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            loading="lazy" title="CCDS IUB post 1"></iframe>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="news-card" role="listitem">
+                    <div class="news-card-header">
+                        <span class="news-source-badge">CCDS · IUB</span>
+                        <button class="news-expand-btn" aria-expanded="false" aria-label="Expand post">
+                            Expand <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="news-preview-window">
+                        <div class="news-click-guard" aria-hidden="true"></div>
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCCDS.IUB%2Fposts%2Fpfbid0uimSuQUHXjwxxjkoEQcodAbJH8dEWBi5twy3MvrLGKDx2tBYatRfJGkiBzVPyRaql&show_text=true&width=500"
+                            scrolling="no" frameborder="0" allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            loading="lazy" title="CCDS IUB post 2"></iframe>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="news-card" role="listitem">
+                    <div class="news-card-header">
+                        <span class="news-source-badge">CASSA · IUB</span>
+                        <button class="news-expand-btn" aria-expanded="false" aria-label="Expand post">
+                            Expand <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="news-preview-window">
+                        <div class="news-click-guard" aria-hidden="true"></div>
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcassa.iub%2Fposts%2Fpfbid02KGYohCpsZVHgrLD6H77mWfta8azo1KX9iBi4cNNjmoCpDwTD3o5kpWC6C5mxLjthl&show_text=true&width=500"
+                            scrolling="no" frameborder="0" allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            loading="lazy" title="CASSA IUB post 1"></iframe>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="news-card" role="listitem">
+                    <div class="news-card-header">
+                        <span class="news-source-badge">CASSA · IUB</span>
+                        <button class="news-expand-btn" aria-expanded="false" aria-label="Expand post">
+                            Expand <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="news-preview-window">
+                        <div class="news-click-guard" aria-hidden="true"></div>
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcassa.iub%2Fposts%2Fpfbid0HJrxEDQYiiJRvX1RdussScevDw5Y99gWM5TvfT7tbE4ipw4JpbxaTddasZh5kcaul&show_text=true&width=500"
+                            scrolling="no" frameborder="0" allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            loading="lazy" title="CASSA IUB post 2"></iframe>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="news-card" role="listitem">
+                    <div class="news-card-header">
+                        <span class="news-source-badge">CCDS · IUB</span>
+                        <button class="news-expand-btn" aria-expanded="false" aria-label="Expand post">
+                            Expand <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="news-preview-window">
+                        <div class="news-click-guard" aria-hidden="true"></div>
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCCDS.IUB%2Fposts%2Fpfbid02SQg1rV9A6cDnaa6LHuG4vJL8mth2yHed9X3MU8hXz6rzYNZkpBdXidyawckr7pHNl&show_text=true&width=500"
+                            scrolling="no" frameborder="0" allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            loading="lazy" title="CCDS IUB post 3"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- end news -->
+
     <footer>
         <div class="footer-content">
             <div class="footer-left">
@@ -1057,6 +1273,30 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
+        });
+
+        // Expand / collapse news preview windows
+        document.querySelectorAll('.news-expand-btn').forEach(btn => {
+            const card    = btn.closest('.news-card');
+            const win     = card.querySelector('.news-preview-window');
+            const iframe  = win.querySelector('iframe');
+            const guard   = win.querySelector('.news-click-guard');
+
+            function toggle() {
+                const expanded = win.classList.toggle('is-expanded');
+                btn.classList.toggle('is-expanded', expanded);
+                btn.setAttribute('aria-expanded', expanded);
+                btn.childNodes[0].textContent = expanded ? 'Collapse ' : 'Expand ';
+                if (expanded) {
+                    iframe.style.pointerEvents = 'auto';
+                } else {
+                    iframe.style.pointerEvents = 'none';
+                    win.scrollTop = 0;
+                }
+            }
+
+            btn.addEventListener('click', toggle);
+            guard.addEventListener('click', toggle);
         });
     </script>
 </body>
