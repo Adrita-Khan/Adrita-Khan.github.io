@@ -411,7 +411,17 @@
 
         /* ══════════════════════
            NEWS SECTION
+           Scale strategy: FB embed is always 500px wide, scaled down
+           via CSS custom properties so the math stays consistent across
+           every breakpoint.  scale = card-width / 500
         ══════════════════════ */
+        :root {
+            --news-card-w: 300px;
+            --news-scale:  0.60;          /* 300 / 500 */
+            --news-preview-h: 228px;      /* 380px × 0.60 */
+            --news-expanded-h: 570px;
+        }
+
         .news-scroll {
             display: flex;
             gap: 1rem;
@@ -421,13 +431,15 @@
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
             scrollbar-color: rgba(201,169,97,0.3) transparent;
+            -webkit-tap-highlight-color: transparent;
         }
         .news-scroll::-webkit-scrollbar { height: 4px; }
         .news-scroll::-webkit-scrollbar-track { background: transparent; }
         .news-scroll::-webkit-scrollbar-thumb { background: rgba(201,169,97,0.3); border-radius: 2px; }
 
         .news-card {
-            flex: 0 0 300px;
+            flex: 0 0 var(--news-card-w);
+            width: var(--news-card-w);
             scroll-snap-align: start;
             border: 1px solid rgba(201,169,97,0.22);
             border-radius: 12px;
@@ -436,6 +448,7 @@
             flex-direction: column;
             transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
             background: #fff;
+            -webkit-tap-highlight-color: transparent;
         }
         .news-card:hover {
             border-color: rgba(201,169,97,0.5);
@@ -451,6 +464,7 @@
             background: #0f1923;
             border-bottom: 1px solid rgba(201,169,97,0.2);
             flex-shrink: 0;
+            min-height: 36px;
         }
         .news-source-badge {
             font-size: 0.68rem; font-weight: 700; letter-spacing: 0.8px;
@@ -460,7 +474,10 @@
             background: none; border: none; cursor: pointer;
             color: #8fa0ae; font-size: 0.68rem; font-weight: 600;
             letter-spacing: 0.4px; display: flex; align-items: center; gap: 3px;
-            transition: color 0.2s ease; padding: 0; white-space: nowrap; line-height: 1;
+            transition: color 0.2s ease; padding: 4px 0; white-space: nowrap; line-height: 1;
+            /* generous tap target on mobile */
+            min-height: 44px; justify-content: flex-end;
+            -webkit-tap-highlight-color: transparent;
         }
         .news-expand-btn:hover { color: #c9a961; }
         .news-expand-btn svg { transition: transform 0.25s ease; flex-shrink: 0; }
@@ -468,13 +485,14 @@
 
         .news-preview-window {
             position: relative;
-            height: 230px;
+            height: var(--news-preview-h);
             overflow: hidden;
             flex-shrink: 0;
             cursor: pointer;
             transition: height 0.35s ease;
         }
 
+        /* gradient fade — hints there is more content below */
         .news-preview-window::after {
             content: '';
             position: absolute; bottom: 0; left: 0; right: 0;
@@ -486,30 +504,35 @@
         }
         .news-preview-window.is-expanded::after { opacity: 0; }
 
+        /* transparent overlay keeps tap-to-expand working in preview mode */
         .news-click-guard {
             position: absolute; inset: 0; z-index: 3; cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
         .news-preview-window.is-expanded .news-click-guard { display: none; }
 
+        /* FB iframe — always 500px wide, scaled to fit the card */
         .news-preview-window iframe {
             width: 500px;
-            height: 900px;
+            height: 950px;
             border: none;
             display: block;
-            transform: scale(0.6);
+            transform: scale(var(--news-scale));
             transform-origin: top left;
             pointer-events: none;
         }
 
+        /* Expanded: show full iframe scrollably at the card's natural width */
         .news-preview-window.is-expanded {
-            height: 600px;
+            height: var(--news-expanded-h);
             overflow-y: auto;
             overflow-x: hidden;
             cursor: default;
+            -webkit-overflow-scrolling: touch;
         }
         .news-preview-window.is-expanded iframe {
-            width: 100%;
-            height: 800px;
+            width: var(--news-card-w);
+            height: 950px;
             transform: none;
             pointer-events: auto;
         }
@@ -570,11 +593,15 @@
             /* Nav arrow — hide on mid-size, content is reachable via nav bar */
             .side-nav-arrow { padding: 14px 8px 10px 10px; border-radius: 10px 0 0 10px; }
             .side-nav-label { font-size: 8px; }
-            /* News */
-            .news-card { flex: 0 0 260px; }
-            .news-preview-window iframe { transform: scale(0.52); }
-            .news-preview-window { height: 200px; }
-            .news-preview-window.is-expanded { height: 540px; }
+        }
+        @media (max-width: 968px) {
+            /* News — card 260px → scale 260/500 = 0.52 */
+            :root {
+                --news-card-w: 260px;
+                --news-scale: 0.52;
+                --news-preview-h: 197px;   /* 380 × 0.52 */
+                --news-expanded-h: min(494px, 75vh);
+            }
         }
 
         /* ── Phone: ≤ 640px ── */
@@ -666,11 +693,15 @@
             .side-nav-label { font-size: 7px; letter-spacing: 0.8px; }
             .scroll-to-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; }
 
-            /* News */
-            .news-card { flex: 0 0 230px; }
-            .news-preview-window iframe { transform: scale(0.46); }
-            .news-preview-window { height: 180px; }
-            .news-preview-window.is-expanded { height: 500px; }
+        }
+        @media (max-width: 640px) {
+            /* News — card 240px → scale 240/500 = 0.48 */
+            :root {
+                --news-card-w: 240px;
+                --news-scale: 0.48;
+                --news-preview-h: 182px;   /* 380 × 0.48 */
+                --news-expanded-h: min(456px, 70vh);
+            }
         }
 
         /* ── Very small phone: ≤ 400px ── */
@@ -687,10 +718,15 @@
             .footer-stats { flex-direction: column; align-items: center; gap: 0.6rem; }
             .footer-stat-divider { width: 50%; height: 1px; background: linear-gradient(to right, transparent, rgba(201,169,97,0.3), transparent); }
             .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 44px; height: 44px; }
-            /* News */
-            .news-card { flex: 0 0 210px; }
-            .news-preview-window iframe { transform: scale(0.42); }
-            .news-preview-window { height: 165px; }
+        }
+        @media (max-width: 400px) {
+            /* News — card 210px → scale 210/500 = 0.42 */
+            :root {
+                --news-card-w: 210px;
+                --news-scale: 0.42;
+                --news-preview-h: 160px;   /* 380 × 0.42 */
+                --news-expanded-h: min(399px, 65vh);
+            }
         }
 
         .aurora-container { display: none !important; }
