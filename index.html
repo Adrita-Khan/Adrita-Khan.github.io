@@ -414,6 +414,7 @@
            Scale strategy: FB embed is always 500px wide, scaled down
            via CSS custom properties so the math stays consistent across
            every breakpoint.  scale = card-width / 500
+           LinkedIn embed is 504px wide — effectively the same scale.
         ══════════════════════ */
         :root {
             --news-card-w: 300px;
@@ -522,6 +523,12 @@
             pointer-events: none;
         }
 
+        /* LinkedIn iframe — 504px wide, same effective scale */
+        .news-preview-window iframe.li-embed {
+            width: 504px;
+            height: 654px;
+        }
+
         /* Expanded: show full iframe scrollably at the card's natural width */
         .news-preview-window.is-expanded {
             height: var(--news-expanded-h);
@@ -533,6 +540,12 @@
         .news-preview-window.is-expanded iframe {
             width: var(--news-card-w);
             height: 950px;
+            transform: none;
+            pointer-events: auto;
+        }
+        .news-preview-window.is-expanded iframe.li-embed {
+            width: var(--news-card-w);
+            height: 654px;
             transform: none;
             pointer-events: auto;
         }
@@ -816,7 +829,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Adrita Khan</h1>
-                <p class="subtitle">PhD Aspirant in Astrophysics & Cosmology</p>
+                <p class="subtitle">PhD Aspirant in Astrophysics &amp; Cosmology</p>
                 <div class="social-links">
                     <a href="https://github.com/Adrita-Khan" target="_blank" class="social-icon" title="GitHub" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -1060,13 +1073,13 @@
                 </div>
                 <div class="position-compact-item">
                     <div class="position-compact-title">Student Research Collaborator</div>
-                    <div class="position-compact-org">Dunlap Institute for Astronomy & Astrophysics, University of Toronto (UofT), Canada</div>
+                    <div class="position-compact-org">Dunlap Institute for Astronomy &amp; Astrophysics, University of Toronto (UofT), Canada</div>
                     <div class="position-compact-date">February 2025 – Present</div>
                     <span class="position-compact-type">Remote (Collaborative)</span>
                 </div>
                 <div class="position-compact-item">
                     <div class="position-compact-title">Teaching Assistant</div>
-                    <div class="position-compact-org">North South University, Bangladesh (PHY107 & PHY108, Spring 2025)</div>
+                    <div class="position-compact-org">North South University, Bangladesh (PHY107 &amp; PHY108, Spring 2025)</div>
                     <div class="position-compact-date">January 2025 – April 2025</div>
                     <span class="position-compact-type">Part-time (Employed)</span>
                 </div>
@@ -1075,56 +1088,6 @@
                     <div class="position-compact-org">Photometric Redshift Estimation Using Machine Learning</div>
                     <div class="position-compact-date">July – December 2021</div>
                     <span class="position-compact-type">Remote (Summer Research Intern)</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-dark">
-        <div class="container">
-            <div class="section-header"><h2>Technical Proficiency</h2><div class="section-line"></div></div>
-            <div class="tech-skills-grid">
-                <div class="tech-skill-card"><div class="tech-skill-title">Programming Languages</div><p class="tech-skill-items">Python • C/C++ • Mathematica • MATLAB • R • SQL • Bash/Shell scripting</p></div>
-                <div class="tech-skill-card"><div class="tech-skill-title">Python Scientific Stack</div><p class="tech-skill-items">NumPy • SciPy • Pandas • scikit-learn • Astropy • Astroquery • PyTorch • TensorFlow</p></div>
-                <div class="tech-skill-card"><div class="tech-skill-title">Cosmology & Astrophysics</div><p class="tech-skill-items">CAMB • CCL • HEALPix • NaMaster • emcee • pocoMC • corner • GetDist • TOPCAT • SAOImage DS9</p></div>
-                <div class="tech-skill-card"><div class="tech-skill-title">Cosmological Emulators</div><p class="tech-skill-items">CosmoPower • bacco • e-mantis • nDGP</p></div>
-                <div class="tech-skill-card"><div class="tech-skill-title">Statistical Methods & ML</div><p class="tech-skill-items">MCMC • Bayesian inference • Fisher forecasting • ML/DL frameworks • Feature engineering • Hyperparameter optimization</p></div>
-                <div class="tech-skill-card"><div class="tech-skill-title">Development Tools</div><p class="tech-skill-items">Linux/Unix • Git/GitHub • Docker • LaTeX • HPC clusters & parallelization</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="research-interests-main section-alt">
-        <div class="aurora-container">
-            <div class="aurora">
-                <div class="aurora-wave aurora-wave-1"></div>
-                <div class="aurora-wave aurora-wave-2"></div>
-                <div class="aurora-wave aurora-wave-3"></div>
-            </div>
-        </div>
-        <div class="research-container">
-            <div class="research-section-header">
-                <h2>Research Interests</h2>
-                <div class="section-line"></div>
-            </div>
-            <div style="max-width:900px;margin:0 auto;">
-                <div class="research-interest-card" style="border-left:3px solid var(--gold-primary);">
-                    <ul class="research-topics-list">
-                        <li class="research-topic-item">Observational and Theoretical Cosmology</li>
-                        <li class="research-topic-item">Large-Scale Structure (LSS)</li>
-                        <li class="research-topic-item">Dark Matter and Dark Energy</li>
-                        <li class="research-topic-item">Modified Gravity Models</li>
-                        <li class="research-topic-item">Precision Cosmology</li>
-                        <li class="research-topic-item">Universe's Origin and Evolution</li>
-                        <li class="research-topic-item">Cosmological Simulations and Modeling</li>
-                        <li class="research-topic-item">Stellar Formation and Evolution</li>
-                        <li class="research-topic-item">Stellar Properties</li>
-                        <li class="research-topic-item">Astro-Particle and High Energy Physics</li>
-                        <li class="research-topic-item">Particle Phenomenology</li>
-                        <li class="research-topic-item">Multimessenger Astronomy</li>
-                        <li class="research-topic-item">Astrostatistics and Machine Learning</li>
-                        <li class="research-topic-item">Computational Methods in Nuclear Physics</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -1255,10 +1218,77 @@
                     </div>
                 </div>
 
+                <!-- Card 8 — LinkedIn -->
+                <div class="news-card" role="listitem">
+                    <div class="news-card-header">
+                        <span class="news-source-badge">LinkedIn</span>
+                        <button class="news-expand-btn" aria-expanded="false" aria-label="Expand post">
+                            Expand <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="news-preview-window">
+                        <div class="news-click-guard" aria-hidden="true"></div>
+                        <iframe class="li-embed"
+                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7378549904895340544?collapsed=1"
+                            height="654" width="504" frameborder="0" allowfullscreen=""
+                            loading="lazy" title="Embedded LinkedIn post"></iframe>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
     <!-- end news -->
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header"><h2>Technical Proficiency</h2><div class="section-line"></div></div>
+            <div class="tech-skills-grid">
+                <div class="tech-skill-card"><div class="tech-skill-title">Programming Languages</div><p class="tech-skill-items">Python • C/C++ • Mathematica • MATLAB • R • SQL • Bash/Shell scripting</p></div>
+                <div class="tech-skill-card"><div class="tech-skill-title">Python Scientific Stack</div><p class="tech-skill-items">NumPy • SciPy • Pandas • scikit-learn • Astropy • Astroquery • PyTorch • TensorFlow</p></div>
+                <div class="tech-skill-card"><div class="tech-skill-title">Cosmology &amp; Astrophysics</div><p class="tech-skill-items">CAMB • CCL • HEALPix • NaMaster • emcee • pocoMC • corner • GetDist • TOPCAT • SAOImage DS9</p></div>
+                <div class="tech-skill-card"><div class="tech-skill-title">Cosmological Emulators</div><p class="tech-skill-items">CosmoPower • bacco • e-mantis • nDGP</p></div>
+                <div class="tech-skill-card"><div class="tech-skill-title">Statistical Methods &amp; ML</div><p class="tech-skill-items">MCMC • Bayesian inference • Fisher forecasting • ML/DL frameworks • Feature engineering • Hyperparameter optimization</p></div>
+                <div class="tech-skill-card"><div class="tech-skill-title">Development Tools</div><p class="tech-skill-items">Linux/Unix • Git/GitHub • Docker • LaTeX • HPC clusters &amp; parallelization</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-interests-main section-alt">
+        <div class="aurora-container">
+            <div class="aurora">
+                <div class="aurora-wave aurora-wave-1"></div>
+                <div class="aurora-wave aurora-wave-2"></div>
+                <div class="aurora-wave aurora-wave-3"></div>
+            </div>
+        </div>
+        <div class="research-container">
+            <div class="research-section-header">
+                <h2>Research Interests</h2>
+                <div class="section-line"></div>
+            </div>
+            <div style="max-width:900px;margin:0 auto;">
+                <div class="research-interest-card" style="border-left:3px solid var(--gold-primary);">
+                    <ul class="research-topics-list">
+                        <li class="research-topic-item">Observational and Theoretical Cosmology</li>
+                        <li class="research-topic-item">Large-Scale Structure (LSS)</li>
+                        <li class="research-topic-item">Dark Matter and Dark Energy</li>
+                        <li class="research-topic-item">Modified Gravity Models</li>
+                        <li class="research-topic-item">Precision Cosmology</li>
+                        <li class="research-topic-item">Universe's Origin and Evolution</li>
+                        <li class="research-topic-item">Cosmological Simulations and Modeling</li>
+                        <li class="research-topic-item">Stellar Formation and Evolution</li>
+                        <li class="research-topic-item">Stellar Properties</li>
+                        <li class="research-topic-item">Astro-Particle and High Energy Physics</li>
+                        <li class="research-topic-item">Particle Phenomenology</li>
+                        <li class="research-topic-item">Multimessenger Astronomy</li>
+                        <li class="research-topic-item">Astrostatistics and Machine Learning</li>
+                        <li class="research-topic-item">Computational Methods in Nuclear Physics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-content">
