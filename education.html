@@ -1004,6 +1004,110 @@
             filter: none !important;
         }
 
+    
+        /* ===== LIGHT MODE: buttons, links, tags, inline gold & low-contrast ===== */
+
+        /* Project link buttons (projects page) */
+        [data-theme="light"] .blog-entry .project-link {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.12) !important;
+            border-color: rgba(154,115,32,0.35) !important;
+        }
+        [data-theme="light"] .blog-entry .project-link:hover {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+            color: #fff !important;
+            border-color: #9a7320 !important;
+        }
+
+        /* Project card meta & description text */
+        [data-theme="light"] .blog-entry .meta,
+        [data-theme="light"] .blog-entry .meta a,
+        [data-theme="light"] .blog-entry .description { color: #3d2820 !important; }
+        [data-theme="light"] .blog-entry .heading a { color: #1e1410 !important; }
+        [data-theme="light"] .blog-entry .heading a:hover { color: #9a7320 !important; }
+
+        /* btn-primary (solid gold gradient buttons) */
+        [data-theme="light"] .btn-primary {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(154,115,32,0.3) !important;
+        }
+
+        /* read-more / generic .btn */
+        [data-theme="light"] .read-more-btn,
+        [data-theme="light"] .btn {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.35) !important;
+        }
+        [data-theme="light"] .read-more-btn:hover,
+        [data-theme="light"] .btn:hover {
+            background: rgba(154,115,32,0.22) !important;
+            color: #5a4008 !important;
+        }
+
+        /* Inline style color: #c9a961 — gold text used throughout HTML */
+        [data-theme="light"] [style*="color: #c9a961"],
+        [data-theme="light"] [style*="color:#c9a961"],
+        [data-theme="light"] [style*="color: #d4b56d"],
+        [data-theme="light"] [style*="color:#d4b56d"] { color: #7d5c10 !important; }
+
+        /* Hardcoded gold class colours (stat numbers, titles, headers, strong) */
+        [data-theme="light"] .stat-number,
+        [data-theme="light"] .profile-title,
+        [data-theme="light"] .achievement-item strong,
+        [data-theme="light"] .profile-info span,
+        [data-theme="light"] .membership-header,
+        [data-theme="light"] .position-compact-title,
+        [data-theme="light"] .position-compact-date,
+        [data-theme="light"] .research-card-title,
+        [data-theme="light"] .publication-title { color: #7d5c10 !important; }
+
+        /* Status badge (coming soon) */
+        [data-theme="light"] .status-badge.coming-soon {
+            background: rgba(154,115,32,0.10) !important;
+            color: #7d5c10 !important;
+            border-color: rgba(154,115,32,0.25) !important;
+        }
+
+        /* Publications page syntax-highlight colours (#7ec8ff blue, #6be8a0 green) */
+        [data-theme="light"] [style*="color: #7ec8ff"],
+        [data-theme="light"] [style*="color:#7ec8ff"] { color: #1a5a8a !important; }
+        [data-theme="light"] [style*="color: #6be8a0"],
+        [data-theme="light"] [style*="color:#6be8a0"] { color: #1a6b3a !important; }
+        [data-theme="light"] [style*="color: #e8c484"],
+        [data-theme="light"] [style*="color:#e8c484"] { color: #7d5c10 !important; }
+
+        /* Any remaining light-on-dark links in cards */
+        [data-theme="light"] a[style*="color: #c9a961"],
+        [data-theme="light"] a[style*="color:#c9a961"] { color: #7d5c10 !important; }
+
+        /* Nav list items that use gold color */
+        [data-theme="light"] .nav-list a { color: #1e1410 !important; }
+
+        /* pub-link & pub-tag */
+        [data-theme="light"] .pub-link {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-color: rgba(154,115,32,0.25) !important;
+        }
+        [data-theme="light"] .pub-link:hover { color: #7d5c10 !important; }
+        [data-theme="light"] .pub-tag {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.25) !important;
+        }
+
+        /* copy/bibtex buttons */
+        [data-theme="light"] .bibtex-toggle,
+        [data-theme="light"] .copy-btn {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .bibtex-toggle:hover,
+        [data-theme="light"] .copy-btn:hover { color: #1e1410 !important; }
+
     </style>
 
     <meta name="description" content="Educational background and coursework of Adrita Khan, B.Sc. (Hons) in Physics with a minor in Astronomy from Universiti Sains Malaysia.">
