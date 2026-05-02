@@ -358,6 +358,21 @@
             margin-bottom: 0.8rem;
             font-size: 0.93rem;
         }
+        .publication-journal a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: rgba(201,169,97,0.5);
+            text-underline-offset: 3px;
+            transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        }
+        .publication-journal a:hover {
+            color: #c9a961;
+            text-decoration-color: rgba(201,169,97,0.9);
+        }
+        .publication-journal .venue-plain {
+            text-decoration: none;
+            font-style: italic;
+        }
 
         .publication-meta {
             display: flex;
@@ -1692,6 +1707,8 @@
         /* Text elements */
         [data-theme="light"] .publication-authors { color: #3d2820 !important; }
         [data-theme="light"] .publication-journal { color: #5a4008 !important; }
+        [data-theme="light"] .publication-journal a { color: #7d5c10 !important; text-decoration-color: rgba(154,115,32,0.55) !important; }
+        [data-theme="light"] .publication-journal a:hover { color: #5a4008 !important; text-decoration-color: rgba(154,115,32,0.9) !important; }
         [data-theme="light"] .meta-item { color: #3d2820 !important; }
         [data-theme="light"] .meta-item span { color: #3d2820 !important; }
         [data-theme="light"] .publication-description { color: #3d2820 !important; }
@@ -1782,6 +1799,20 @@
         /* Stat cards in publications */
         [data-theme="light"] .stat-number { color: #7d5c10 !important; }
         [data-theme="light"] .stat-label { color: #3d2820 !important; }
+
+    
+        /* ===== Venue & link underlines (both themes) ===== */
+        .action-btn span { text-decoration: underline; text-decoration-color: rgba(201,169,97,0.35); text-underline-offset: 2px; }
+        .action-btn:hover span { text-decoration-color: rgba(201,169,97,0.75); }
+        .pub-link { text-decoration: underline; text-decoration-color: rgba(201,169,97,0.35); text-underline-offset: 2px; }
+        .pub-link:hover { text-decoration-color: rgba(201,169,97,0.75); }
+        .meta-item a { text-decoration: underline; text-decoration-color: rgba(201,169,97,0.45); text-underline-offset: 2px; }
+        .meta-item a:hover { text-decoration-color: rgba(201,169,97,0.8); }
+        [data-theme="light"] .publication-journal { text-decoration-color: rgba(154,115,32,0.5) !important; }
+        [data-theme="light"] .action-btn span { text-decoration-color: rgba(154,115,32,0.45) !important; }
+        [data-theme="light"] .pub-link { text-decoration-color: rgba(154,115,32,0.45) !important; }
+        [data-theme="light"] .meta-item a { text-decoration-color: rgba(154,115,32,0.55) !important; color: #7d5c10 !important; }
+        [data-theme="light"] a[style*="color: #c9a961"] { text-decoration: underline !important; text-decoration-color: rgba(154,115,32,0.5) !important; text-underline-offset: 2px !important; color: #7d5c10 !important; }
 
     </style>
 
@@ -1880,11 +1911,11 @@
                         <p class="publication-authors">
                             <strong>Mir Sazzat Hossain, Khan Muhammad Bin Asad, Payaswini Saikia, Adrita Khan</strong>, Md Akil Raihan Iftee, Rakibul Hasan Rajib, Arshad Momen, Md Ashraful Amin, Amin Ahsan Ali, AKM Mahbubur Rahman
                         </p>
-                        <p class="publication-journal">2025 IEEE International Conference on Image Processing, IEEE ICIP 2025, Anchorage Alaska, USA</p>
+                        <p class="publication-journal"><a href="https://2025.ieeeicip.org" target="_blank" rel="noopener noreferrer">2025 IEEE International Conference on Image Processing, IEEE ICIP 2025, Anchorage Alaska, USA</a></p>
                         <div class="publication-meta">
                             <span class="meta-item"><span>Conference:</span><span>14-17 September 2025</span></span>
                             <span class="meta-item"><span>Added to IEEE Xplore:</span><span>18 August 2025</span></span>
-                            <span class="meta-item"><span>DOI:</span><span><a href="https://doi.org/10.1109/ICIP55913.2025.11084387" target="_blank" style="color: #c9a961; text-decoration: none;" rel="noopener noreferrer">10.1109/ICIP55913.2025.11084387</a></span></span>
+                            <span class="meta-item"><span>DOI:</span><span><a href="https://doi.org/10.1109/ICIP55913.2025.11084387" target="_blank" style="color: #c9a961; text-decoration: underline; text-decoration-color: rgba(201,169,97,0.5); text-underline-offset: 2px;" rel="noopener noreferrer">10.1109/ICIP55913.2025.11084387</a></span></span>
                             <span class="meta-item"><span>Publisher:</span><span>IEEE</span></span>
                             <span class="meta-item"><span>Location:</span><span>Anchorage, AK, USA</span></span>
                         </div>
@@ -1941,7 +1972,7 @@
                         <p class="publication-authors">
                             <strong>M.S. Hossain, M.S.H. Shahal, A. Khan</strong>, K.M.B. Asad, P. Saikia, F. Akter, A.A. Ali, M.A. Amin, A. Momen, M. Hasan, A.K.M.M. Rahman
                         </p>
-                        <p class="publication-journal">arXiv preprint arXiv:2510.22190 (Submitted to Astronomy &amp; Astrophysics)</p>
+                        <p class="publication-journal"><a href="https://arxiv.org/abs/2510.22190" target="_blank" rel="noopener noreferrer">arXiv:2510.22190</a> <span class="venue-plain">(preprint, submitted to </span><a href="https://www.aanda.org" target="_blank" rel="noopener noreferrer">Astronomy &amp; Astrophysics</a><span class="venue-plain">)</span></p>
                         <div class="publication-meta">
                             <span class="meta-item"><span>Year:</span><span>2025</span></span>
                             <span class="meta-item"><span>Type:</span><span>Preprint</span></span>
@@ -2001,7 +2032,7 @@
                         <p class="publication-authors">
                             <strong>Md Raqibul Islam†, Adrita Khan†</strong>, Mir Sazzat Hossain, Choudhury Ben Yamin Siddiqui, Md. Zakir Hossan, Tanjib Khan, M. Arshad Momen, Amin Ahsan Ali, AKM Mahbubur Rahman
                         </p>
-                        <p class="publication-journal">arXiv preprint arXiv:2512.07420 (Submitted to Journal of High Energy Physics)</p>
+                        <p class="publication-journal"><a href="https://arxiv.org/abs/2512.07420" target="_blank" rel="noopener noreferrer">arXiv:2512.07420</a> <span class="venue-plain">(preprint, submitted to </span><a href="https://link.springer.com/journal/13130" target="_blank" rel="noopener noreferrer">Journal of High Energy Physics</a><span class="venue-plain">)</span></p>
                         <div class="publication-meta">
                             <span class="meta-item"><span>Year:</span><span>2025</span></span>
                             <span class="meta-item"><span>Type:</span><span>Preprint</span></span>
