@@ -1,5 +1,5 @@
 <!DOCTYPE html>        
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -751,7 +751,343 @@
             color: #d4b56d;
             box-shadow: 0 4px 14px rgba(201, 169, 97, 0.18);
         }
-</style>
+
+        /* ============================================================
+           LIGHT MODE — variable-first approach
+           Stars, aurora, CMB, animations: fully untouched.
+           Gold accents: identical to dark mode.
+           Only surfaces and text shift to light.
+           ============================================================ */
+
+        /* Smooth transition when toggling */
+        *, *::before, *::after {
+            transition: background-color 0.3s ease, color 0.3s ease,
+                        border-color 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        /* But don't slow down animations */
+        .star, .aurora-wave, .aurora-wave-1, .aurora-wave-2, .aurora-wave-3,
+        .nebula, .nebula::before, .nebula::after,
+        .cmb-core, .cmb-animation, .floating-shape {
+            transition: none !important;
+        }
+
+        [data-theme="light"] {
+            /* Core palette — lighter versions */
+            --bg-dark:    #e8ecf2;
+            --bg-mid:     #dde3ec;
+            --bg-light:   #d0d8e4;
+            --text-light: #111827;
+            --text-muted: #374151;
+            /* Gold stays exactly the same */
+            --gold-primary: #c9a961;
+            --gold-light:   #d4b56d;
+            --gold-dark:    #b89d55;
+            --glow-gold:    rgba(201, 169, 97, 0.4);
+        }
+
+        /* Body background */
+        [data-theme="light"] body {
+            background: linear-gradient(135deg, #e8ecf2 0%, #dde3ec 50%, #d0d8e4 100%);
+            color: #111827;
+        }
+
+        /* Cosmic bg — soften the gold glow slightly so it reads on light */
+        [data-theme="light"] .cosmic-bg {
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 80%, rgba(201,169,97,0.10) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201,169,97,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 60% at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 50%);
+        }
+
+        /* Nav — frosted light panel */
+        [data-theme="light"] #quick-links {
+            background: rgba(232, 236, 242, 0.85);
+            border-bottom: 1px solid rgba(201,169,97,0.2);
+        }
+        [data-theme="light"] .nav-list a {
+            color: #111827;
+            background: rgba(201,169,97,0.07);
+            border-color: rgba(201,169,97,0.18);
+        }
+        [data-theme="light"] .nav-list a:hover {
+            color: #c9a961;
+            background: rgba(201,169,97,0.15);
+        }
+        [data-theme="light"] .nav-list a.active {
+            background: rgba(201,169,97,0.18);
+            border-color: rgba(201,169,97,0.45);
+            color: #b89d55;
+        }
+
+        /* Section backgrounds */
+        [data-theme="light"] section {
+            border-top-color: rgba(201,169,97,0.12);
+        }
+        [data-theme="light"] .section-alt {
+            background: rgba(255,255,255,0.25);
+        }
+        [data-theme="light"] .section-dark {
+            background: rgba(255,255,255,0.35);
+        }
+        [data-theme="light"] .section-header h2 {
+            color: #111827;
+        }
+
+        /* Hero */
+        [data-theme="light"] .hero-text h1 { color: #111827; }
+        [data-theme="light"] .hero-text .bio { color: #374151; }
+
+        /* Cards — light frosted surface */
+        [data-theme="light"] .about-content,
+        [data-theme="light"] .about-content-compact,
+        [data-theme="light"] .position-card,
+        [data-theme="light"] .position-compact-item,
+        [data-theme="light"] .publication-card,
+        [data-theme="light"] .research-card,
+        [data-theme="light"] .research-interest-card,
+        [data-theme="light"] .achievement-card,
+        [data-theme="light"] .achievement-item,
+        [data-theme="light"] .education-card,
+        [data-theme="light"] .note-card,
+        [data-theme="light"] .contact-card,
+        [data-theme="light"] .category-section,
+        [data-theme="light"] .stat-card,
+        [data-theme="light"] .future-card,
+        [data-theme="light"] .membership-card,
+        [data-theme="light"] .tech-skill-card,
+        [data-theme="light"] .news-card,
+        [data-theme="light"] .semester-card,
+        [data-theme="light"] .profile-card,
+        [data-theme="light"] .blog-entry,
+        [data-theme="light"] .research-container {
+            background: rgba(255, 255, 255, 0.65) !important;
+            border-color: rgba(201,169,97,0.22) !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important;
+        }
+        [data-theme="light"] .about-content:hover,
+        [data-theme="light"] .position-card:hover,
+        [data-theme="light"] .publication-card:hover,
+        [data-theme="light"] .research-card:hover,
+        [data-theme="light"] .note-card:hover {
+            background: rgba(255, 255, 255, 0.85) !important;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.11) !important;
+        }
+
+        /* Text inside cards */
+        [data-theme="light"] .about-content p,
+        [data-theme="light"] .about-content-compact p,
+        [data-theme="light"] .research-content p,
+        [data-theme="light"] .publication-description,
+        [data-theme="light"] .publication-authors,
+        [data-theme="light"] .publication-date,
+        [data-theme="light"] .publication-footnote,
+        [data-theme="light"] .position-org,
+        [data-theme="light"] .position-compact-org,
+        [data-theme="light"] .position-subsection p,
+        [data-theme="light"] .position-subsection span,
+        [data-theme="light"] .page-description,
+        [data-theme="light"] .education-location,
+        [data-theme="light"] .thesis-supervisor,
+        [data-theme="light"] .achievement-text,
+        [data-theme="light"] .course-item,
+        [data-theme="light"] .membership-role-title,
+        [data-theme="light"] .membership-detail-item,
+        [data-theme="light"] .note-description,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .research-topic-item,
+        [data-theme="light"] .footer-left p,
+        [data-theme="light"] .profile-info,
+        [data-theme="light"] .tech-skill-items,
+        [data-theme="light"] .future-description p { color: #374151 !important; }
+
+        /* Headings inside cards */
+        [data-theme="light"] .position-subsection h4,
+        [data-theme="light"] .education-content h3,
+        [data-theme="light"] .future-title-group h3,
+        [data-theme="light"] .page-title-right h1,
+        [data-theme="light"] .page-header h1,
+        [data-theme="light"] .category-title h2,
+        [data-theme="light"] .research-section-header h2,
+        [data-theme="light"] .note-title,
+        [data-theme="light"] .meta-badge,
+        [data-theme="light"] .thesis-title,
+        [data-theme="light"] .publication-venue,
+        [data-theme="light"] .lang-name { color: #111827 !important; }
+
+        /* Hardcoded white text in HTML attributes */
+        [data-theme="light"] [style*="color: #ffffff"],
+        [data-theme="light"] [style*="color:#ffffff"],
+        [data-theme="light"] [style*="color: #fff"],
+        [data-theme="light"] [style*="color:#fff"],
+        [data-theme="light"] [style*="color: white"],
+        [data-theme="light"] [style*="color: #b8c5d0"],
+        [data-theme="light"] [style*="color:#b8c5d0"],
+        [data-theme="light"] [style*="color: #e8dcc4"],
+        [data-theme="light"] [style*="color:#e8dcc4"] { color: #374151 !important; }
+
+        /* Links in cards */
+        [data-theme="light"] .position-compact-org a,
+        [data-theme="light"] .position-subsection a,
+        [data-theme="light"] .container > ul > li > h3 a { color: #c9a961 !important; }
+
+        /* Badges / pills */
+        [data-theme="light"] .pub-link,
+        [data-theme="light"] .pub-tag,
+        [data-theme="light"] .position-type,
+        [data-theme="light"] .position-compact-type,
+        [data-theme="light"] .bibtex-toggle,
+        [data-theme="light"] .copy-btn {
+            background: rgba(201,169,97,0.10) !important;
+            border-color: rgba(201,169,97,0.25) !important;
+            color: #374151 !important;
+        }
+        [data-theme="light"] .pub-link:hover { color: #c9a961 !important; }
+
+        /* Interest tags */
+        [data-theme="light"] .interest-tag {
+            color: #111827 !important;
+            background: rgba(201,169,97,0.09) !important;
+        }
+        [data-theme="light"] .interest-tag:hover { color: #c9a961 !important; }
+
+        /* Social icons */
+        [data-theme="light"] .social-icon {
+            background: rgba(0,0,0,0.06) !important;
+            border-color: rgba(0,0,0,0.12) !important;
+            color: #374151 !important;
+        }
+        [data-theme="light"] .social-icon:hover {
+            background: rgba(201,169,97,0.15) !important;
+            border-color: rgba(201,169,97,0.4) !important;
+            color: #c9a961 !important;
+        }
+        [data-theme="light"] .social-icon svg { fill: currentColor !important; }
+
+        /* Profile icon bubbles (contact page) */
+        [data-theme="light"] .profile-icon-bubble {
+            background: rgba(0,0,0,0.06) !important;
+            border-color: rgba(0,0,0,0.12) !important;
+        }
+        [data-theme="light"] .profile-icon-bubble svg { fill: #374151 !important; }
+        [data-theme="light"] .profile-icon-link { color: #374151 !important; }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble {
+            background: rgba(201,169,97,0.15) !important;
+            border-color: rgba(201,169,97,0.4) !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble svg { fill: #c9a961 !important; }
+        [data-theme="light"] .profile-icon-link:hover { color: #c9a961 !important; }
+        [data-theme="light"] .academic-profiles-heading { color: #374151 !important; }
+
+        /* BibTeX block */
+        [data-theme="light"] .bibtex-block {
+            background: rgba(240,242,248,0.95) !important;
+            border-color: rgba(201,169,97,0.2) !important;
+        }
+        [data-theme="light"] .bibtex-code { color: #1e293b !important; }
+
+        /* Language bar track */
+        [data-theme="light"] .lang-bar-wrap { background: rgba(0,0,0,0.1) !important; }
+
+        /* Scroll-to-top & side nav */
+        [data-theme="light"] #scrollToTop,
+        [data-theme="light"] .side-nav-arrow {
+            background: rgba(232,236,242,0.85) !important;
+            border-color: rgba(201,169,97,0.25) !important;
+            color: #374151 !important;
+        }
+
+        /* Footer */
+        [data-theme="light"] footer {
+            background: rgba(208,216,228,0.9);
+            border-top: 1px solid rgba(201,169,97,0.15);
+            color: #374151;
+        }
+        [data-theme="light"] .footer-left p { color: #374151 !important; }
+        [data-theme="light"] .footer-stat-number { color: #c9a961 !important; }
+        [data-theme="light"] .footer-stat-label { color: #374151 !important; }
+
+        /* Theme toggle button */
+        #theme-toggle {
+            position: fixed;
+            bottom: 5rem;
+            right: 1.5rem;
+            z-index: 9999;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(201,169,97,0.4);
+            background: rgba(10,14,20,0.75);
+            color: #c9a961;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+        #theme-toggle:hover {
+            background: rgba(201,169,97,0.2) !important;
+            border-color: rgba(201,169,97,0.7) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(201,169,97,0.3) !important;
+        }
+        [data-theme="light"] #theme-toggle {
+            background: rgba(232,236,242,0.9);
+            border-color: rgba(201,169,97,0.4);
+            color: #b89d55;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+        #theme-toggle svg {
+            width: 20px; height: 20px;
+            fill: currentColor;
+            transition: transform 0.4s ease !important;
+        }
+        #theme-toggle:hover svg { transform: rotate(20deg) !important; }
+
+        /* ── CMB sphere: always dark regardless of theme ── */
+        [data-theme="light"] .cmb-animation {
+            background: #0d1119 !important;
+            box-shadow: 0 0 30px rgba(201,169,97,0.3), 0 0 60px rgba(201,169,97,0.2), inset 0 0 40px rgba(0,0,0,0.5) !important;
+        }
+        [data-theme="light"] .research-visual {
+            background: transparent !important;
+        }
+        /* Boost CMB core gradient opacity so colours show on dark base */
+        [data-theme="light"] .cmb-core {
+            opacity: 1 !important;
+        }
+
+        /* ── Hero section: always dark regardless of theme ── */
+        [data-theme="light"] .hero {
+            background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
+        }
+        /* Keep all hero text in dark-mode colours */
+        [data-theme="light"] .hero-text h1 { color: #ffffff !important; }
+        [data-theme="light"] .hero-text .bio { color: #b8c5d0 !important; }
+        [data-theme="light"] .interests-label { color: var(--gold-primary) !important; }
+        [data-theme="light"] .interest-tag {
+            color: #ffffff !important;
+            background: rgba(201,169,97,0.10) !important;
+            border-color: rgba(201,169,97,0.25) !important;
+        }
+        [data-theme="light"] .interest-tag:hover { color: var(--gold-primary) !important; }
+        [data-theme="light"] .social-icon {
+            background: rgba(255,255,255,0.05) !important;
+            border-color: rgba(255,255,255,0.15) !important;
+            color: #ffffff !important;
+        }
+        [data-theme="light"] .social-icon:hover {
+            background: rgba(255,255,255,0.15) !important;
+            border-color: rgba(255,255,255,0.4) !important;
+            color: #ffffff !important;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.1) !important;
+        }
+        [data-theme="light"] .social-icon svg { fill: currentColor !important; }
+
+    </style>
 
     <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
     <meta name="description" content="Adrita Khan — Physics graduate and researcher in observational cosmology, modified gravity, and machine learning for astrophysics. Based in Dhaka, Bangladesh.">
@@ -777,6 +1113,7 @@
     <meta name="twitter:description" content="Adrita Khan — Physics graduate and researcher in observational cosmology, modified gravity, and machine learning for astrophysics. Based in Dhaka, Bangladesh.">
     <meta name="twitter:image" content="https://adrita-khan.github.io/assets/og-preview.png">
 
+    <script>(function(){var t=sessionStorage.getItem('ak-theme-set')?sessionStorage.getItem('ak-theme'):'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
@@ -806,6 +1143,10 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
+    </button>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+        <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
 <nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
@@ -1415,6 +1756,52 @@
             btn.addEventListener('click', toggle);
             guard.addEventListener('click', toggle);
         });
+    </script>
+    <script>
+        (function(){
+            function repositionStars(theme) {
+                var stars = document.querySelector('.stars');
+                var hero  = document.getElementById('home');
+                var body  = document.body;
+                if (!stars || !hero) return;
+                if (theme === 'light') {
+                    // Move stars inside hero so they only appear there
+                    if (stars.parentNode !== hero) {
+                        hero.appendChild(stars);
+                        stars.style.position = 'absolute';
+                        stars.style.zIndex   = '2';
+                    }
+                } else {
+                    // Restore stars to body for full-page coverage
+                    if (stars.parentNode !== body) {
+                        body.insertBefore(stars, body.firstChild.nextSibling);
+                        stars.style.position = 'fixed';
+                        stars.style.zIndex   = '2';
+                    }
+                }
+            }
+
+            function applyTheme(theme, save) {
+                document.documentElement.setAttribute('data-theme', theme);
+                if (save) { sessionStorage.setItem('ak-theme', theme); sessionStorage.setItem('ak-theme-set','1'); }
+                var moon = document.getElementById('theme-icon-moon');
+                var sun  = document.getElementById('theme-icon-sun');
+                if (moon && sun) {
+                    moon.style.display = theme === 'dark' ? 'block' : 'none';
+                    sun.style.display  = theme === 'light' ? 'block' : 'none';
+                }
+                repositionStars(theme);
+            }
+            window.addEventListener('DOMContentLoaded', function(){
+                var t = document.documentElement.getAttribute('data-theme') || 'dark';
+                applyTheme(t, false);
+                var btn = document.getElementById('theme-toggle');
+                if (btn) btn.addEventListener('click', function(){
+                    var now = document.documentElement.getAttribute('data-theme') || 'dark';
+                    applyTheme(now === 'dark' ? 'light' : 'dark', true);
+                });
+            });
+        })();
     </script>
 </body>
 </html>
