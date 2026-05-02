@@ -1021,32 +1021,10 @@
             opacity: 1 !important;
         }
 
-        /* ── Hero section: always dark regardless of theme ── */
-        [data-theme="light"] .hero {
-            background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
-        }
-        /* Keep all hero text in dark-mode colours */
-        [data-theme="light"] .hero-text h1 { color: #ffffff !important; }
-        [data-theme="light"] .hero-text .bio { color: #b8c5d0 !important; }
-        [data-theme="light"] .interests-label { color: var(--gold-primary) !important; }
-        [data-theme="light"] .interest-tag {
-            color: #ffffff !important;
-            background: rgba(201,169,97,0.10) !important;
-            border-color: rgba(201,169,97,0.25) !important;
-        }
-        [data-theme="light"] .interest-tag:hover { color: var(--gold-primary) !important; }
-        [data-theme="light"] .social-icon {
-            background: rgba(255,255,255,0.05) !important;
-            border-color: rgba(255,255,255,0.15) !important;
-            color: #ffffff !important;
-        }
-        [data-theme="light"] .social-icon:hover {
-            background: rgba(255,255,255,0.15) !important;
-            border-color: rgba(255,255,255,0.4) !important;
-            color: #ffffff !important;
-            box-shadow: 0 10px 30px rgba(255,255,255,0.1) !important;
-        }
-        [data-theme="light"] .social-icon svg { fill: currentColor !important; }
+        /* ── Light mode: hide stars/nebula/cosmic entirely ── */
+        [data-theme="light"] .stars,
+        [data-theme="light"] .nebula,
+        [data-theme="light"] .cosmic-bg { display: none !important; }
 
     
         
@@ -1776,28 +1754,6 @@
     </script>
     <script>
         (function(){
-            function repositionStars(theme) {
-                var stars = document.querySelector('.stars');
-                var hero  = document.getElementById('home');
-                var body  = document.body;
-                if (!stars || !hero) return;
-                if (theme === 'light') {
-                    // Move stars inside hero so they only appear there
-                    if (stars.parentNode !== hero) {
-                        hero.appendChild(stars);
-                        stars.style.position = 'absolute';
-                        stars.style.zIndex   = '2';
-                    }
-                } else {
-                    // Restore stars to body for full-page coverage
-                    if (stars.parentNode !== body) {
-                        body.insertBefore(stars, body.firstChild.nextSibling);
-                        stars.style.position = 'fixed';
-                        stars.style.zIndex   = '2';
-                    }
-                }
-            }
-
             function applyTheme(theme, save) {
                 document.documentElement.setAttribute('data-theme', theme);
                 if (save) { sessionStorage.setItem('ak-theme', theme); sessionStorage.setItem('ak-theme-set','1'); }
@@ -1807,7 +1763,6 @@
                     moon.style.display = theme === 'dark' ? 'block' : 'none';
                     sun.style.display  = theme === 'light' ? 'block' : 'none';
                 }
-                repositionStars(theme);
             }
             window.addEventListener('DOMContentLoaded', function(){
                 var t = document.documentElement.getAttribute('data-theme') || 'dark';
