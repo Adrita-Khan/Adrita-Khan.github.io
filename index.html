@@ -778,10 +778,10 @@
             --bg-light:   #dccac6;
             --text-light: #1e1410;
             --text-muted: #3d2820;
-            /* Gold stays exactly the same */
-            --gold-primary: #c9a961;
-            --gold-light:   #d4b56d;
-            --gold-dark:    #b89d55;
+            /* Gold darkened for contrast on blush background */
+            --gold-primary: #9a7320;
+            --gold-light:   #b08530;
+            --gold-dark:    #7d5c10;
             --glow-gold:    rgba(201, 169, 97, 0.4);
         }
 
@@ -810,13 +810,13 @@
             border-color: rgba(201,169,97,0.18);
         }
         [data-theme="light"] .nav-list a:hover {
-            color: #c9a961;
+            color: #9a7320;
             background: rgba(201,169,97,0.15);
         }
         [data-theme="light"] .nav-list a.active {
             background: rgba(201,169,97,0.18);
             border-color: rgba(201,169,97,0.45);
-            color: #b89d55;
+            color: #7d5c10;
         }
 
         /* Section backgrounds */
@@ -928,7 +928,7 @@
         /* Links in cards */
         [data-theme="light"] .position-compact-org a,
         [data-theme="light"] .position-subsection a,
-        [data-theme="light"] .container > ul > li > h3 a { color: #c9a961 !important; }
+        [data-theme="light"] .container > ul > li > h3 a { color: #9a7320 !important; }
 
         /* Badges / pills */
         [data-theme="light"] .pub-link,
@@ -941,14 +941,14 @@
             border-color: rgba(201,169,97,0.25) !important;
             color: #3d2820 !important;
         }
-        [data-theme="light"] .pub-link:hover { color: #c9a961 !important; }
+        [data-theme="light"] .pub-link:hover { color: #9a7320 !important; }
 
         /* Interest tags */
         [data-theme="light"] .interest-tag {
             color: #1e1410 !important;
             background: rgba(201,169,97,0.09) !important;
         }
-        [data-theme="light"] .interest-tag:hover { color: #c9a961 !important; }
+        [data-theme="light"] .interest-tag:hover { color: #9a7320 !important; }
 
         /* Social icons */
         [data-theme="light"] .social-icon {
@@ -959,7 +959,7 @@
         [data-theme="light"] .social-icon:hover {
             background: rgba(201,169,97,0.15) !important;
             border-color: rgba(201,169,97,0.4) !important;
-            color: #c9a961 !important;
+            color: #9a7320 !important;
         }
         [data-theme="light"] .social-icon svg { fill: currentColor !important; }
 
@@ -974,8 +974,8 @@
             background: rgba(201,169,97,0.15) !important;
             border-color: rgba(201,169,97,0.4) !important;
         }
-        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble svg { fill: #c9a961 !important; }
-        [data-theme="light"] .profile-icon-link:hover { color: #c9a961 !important; }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble svg { fill: #9a7320 !important; }
+        [data-theme="light"] .profile-icon-link:hover { color: #9a7320 !important; }
         [data-theme="light"] .academic-profiles-heading { color: #3d2820 !important; }
 
         /* BibTeX block */
@@ -1003,7 +1003,7 @@
             color: #3d2820;
         }
         [data-theme="light"] .footer-left p { color: #3d2820 !important; }
-        [data-theme="light"] .footer-stat-number { color: #c9a961 !important; }
+        [data-theme="light"] .footer-stat-number { color: #9a7320 !important; }
         [data-theme="light"] .footer-stat-label { color: #3d2820 !important; }
 
         
@@ -1061,7 +1061,7 @@
         [data-theme="light"] #theme-toggle {
             background: rgba(240,228,226,0.92);
             border-color: rgba(201,169,97,0.4);
-            color: #b89d55;
+            color: #7d5c10;
             box-shadow: 0 4px 15px rgba(0,0,0,0.12);
         }
         [data-theme="light"] #theme-toggle:hover {
@@ -1081,6 +1081,206 @@
         @media (max-width: 480px) {
             #theme-toggle { bottom: calc(0.8rem + 44px + 0.75rem); right: 0.8rem; width: 38px; height: 38px; }
         }
+
+        /* Skill tags */
+        [data-theme="light"] .skill-tag {
+            color: #7d5c10 !important;
+            background: rgba(154, 115, 32, 0.10) !important;
+            border-color: rgba(154, 115, 32, 0.30) !important;
+        }
+        [data-theme="light"] .skill-tag:hover {
+            color: #5a4008 !important;
+            background: rgba(154, 115, 32, 0.20) !important;
+        }
+
+        /* Skill category labels (PROGRAMMING, ML & STATISTICS, etc.) */
+        [data-theme="light"] .skill-category-label {
+            color: #5a4008 !important;
+        }
+
+        /* Language section */
+        [data-theme="light"] .lang-name {
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .lang-level {
+            color: #7d5c10 !important;
+        }
+        [data-theme="light"] .lang-bar-wrap {
+            background: rgba(0, 0, 0, 0.15) !important;
+        }
+        [data-theme="light"] .lang-row {
+            background: rgba(154, 115, 32, 0.08) !important;
+            border-color: rgba(154, 115, 32, 0.25) !important;
+        }
+        [data-theme="light"] .lang-row:hover {
+            background: rgba(154, 115, 32, 0.16) !important;
+        }
+
+        /* Tech skill items (research page) */
+        [data-theme="light"] .tech-skill-items,
+        [data-theme="light"] .tech-skill-title {
+            color: #1e1410 !important;
+        }
+
+        /* Any remaining muted/light text hardcoded as vars or hex */
+        [data-theme="light"] .publication-authors,
+        [data-theme="light"] .publication-date,
+        [data-theme="light"] .publication-footnote,
+        [data-theme="light"] .position-compact-org,
+        [data-theme="light"] .position-org,
+        [data-theme="light"] .achievement-text,
+        [data-theme="light"] .course-item,
+        [data-theme="light"] .membership-detail-item,
+        [data-theme="light"] .research-topic-item,
+        [data-theme="light"] .note-description,
+        [data-theme="light"] .page-description,
+        [data-theme="light"] .profile-info,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .section-subtitle,
+        [data-theme="light"] .meta-item,
+        [data-theme="light"] .education-location,
+        [data-theme="light"] .thesis-supervisor {
+            color: #3d2820 !important;
+        }
+
+        /* Headings that use var(--text-light) — need explicit dark */
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3,
+        [data-theme="light"] h4,
+        [data-theme="light"] h5 {
+            color: #1e1410 !important;
+        }
+
+        /* Nav link text */
+        [data-theme="light"] .nav-list a {
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .nav-list a:hover {
+            color: #9a7320 !important;
+        }
+        [data-theme="light"] .nav-list a.active {
+            color: #7d5c10 !important;
+        }
+
+        /* Footer text */
+        [data-theme="light"] footer,
+        [data-theme="light"] footer p,
+        [data-theme="light"] .footer-left p {
+            color: #3d2820 !important;
+        }
+
+    
+        /* ===== LIGHT MODE: universal hardcoded-colour overrides ===== */
+
+        /* --- Inline style overrides (HTML attributes) --- */
+        [data-theme="light"] [style*="color: #ffffff"],
+        [data-theme="light"] [style*="color:#ffffff"],
+        [data-theme="light"] [style*="color: #fff"],
+        [data-theme="light"] [style*="color:#fff"],
+        [data-theme="light"] [style*="color: white"],
+        [data-theme="light"] [style*="color: #b8c5d0"],
+        [data-theme="light"] [style*="color:#b8c5d0"],
+        [data-theme="light"] [style*="color: #e8dcc4"],
+        [data-theme="light"] [style*="color:#e8dcc4"],
+        [data-theme="light"] [style*="color: #e8dcc0"],
+        [data-theme="light"] [style*="color:#e8dcc0"],
+        [data-theme="light"] [style*="color: #f5ead6"],
+        [data-theme="light"] [style*="color: #c9d8e8"],
+        [data-theme="light"] [style*="color: #8fa0ae"] { color: #3d2820 !important; }
+
+        /* --- Stylesheet class overrides --- */
+
+        /* Body-level muted text */
+        [data-theme="light"] body { color: #1e1410 !important; }
+
+        /* All #b8c5d0 usages — the standard muted/secondary text */
+        [data-theme="light"] .profile-info,
+        [data-theme="light"] .education-location,
+        [data-theme="light"] .thesis-supervisor,
+        [data-theme="light"] .achievement-text,
+        [data-theme="light"] .stat-chip .label,
+        [data-theme="light"] .course-item,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .membership-role-title,
+        [data-theme="light"] .membership-detail-item,
+        [data-theme="light"] .no-results,
+        [data-theme="light"] .page-description,
+        [data-theme="light"] .note-description,
+        [data-theme="light"] .filter-btn,
+        [data-theme="light"] .position-subsection p,
+        [data-theme="light"] .position-subsection span,
+        [data-theme="light"] .container > ul > li > p,
+        [data-theme="light"] .publication-authors,
+        [data-theme="light"] .publication-venue,
+        [data-theme="light"] .publication-date,
+        [data-theme="light"] .publication-footnote,
+        [data-theme="light"] .bibtex-toggle { color: #3d2820 !important; }
+
+        /* All #ffffff / #fff usages — primary text, headings */
+        [data-theme="light"] .page-title-right h1,
+        [data-theme="light"] .page-header h1,
+        [data-theme="light"] .education-content h3,
+        [data-theme="light"] .future-title-group h3,
+        [data-theme="light"] .category-title h2,
+        [data-theme="light"] .note-title,
+        [data-theme="light"] .position-subsection h4,
+        [data-theme="light"] .thesis-title,
+        [data-theme="light"] .container > ul > li > p:first-of-type,
+        [data-theme="light"] .meta-badge,
+        [data-theme="light"] .lang-name { color: #1e1410 !important; }
+
+        /* Non-technical / soft skill tags */
+        [data-theme="light"] .soft-skill-tag {
+            color: #7d5c10 !important;
+            background: rgba(154, 115, 32, 0.10) !important;
+            border-color: rgba(154, 115, 32, 0.30) !important;
+        }
+        [data-theme="light"] .soft-skill-tag:hover {
+            color: #5a4008 !important;
+            background: rgba(154, 115, 32, 0.20) !important;
+        }
+        [data-theme="light"] .soft-skill-tag .emoji,
+        [data-theme="light"] .soft-skill-tag svg { opacity: 0.85; }
+
+        /* Course items hover */
+        [data-theme="light"] .course-item:hover { color: #1e1410 !important; }
+
+        /* #e8dcc4 / #e8dcc0 links (academic experience, research) */
+        [data-theme="light"] .position-compact-org a,
+        [data-theme="light"] .position-subsection a,
+        [data-theme="light"] .container > ul > li > h3 a,
+        [data-theme="light"] .container > ul > li > p a { color: #9a7320 !important; }
+
+        /* #f5ead6 hover links */
+        [data-theme="light"] .position-compact-org a:hover,
+        [data-theme="light"] .position-subsection a:hover,
+        [data-theme="light"] .container > ul > li > h3 a:hover,
+        [data-theme="light"] .container > ul > li > p a:hover { color: #7d5c10 !important; }
+
+        /* #c9d8e8 (publications syntax highlight) */
+        [data-theme="light"] .bibtex-code { color: #1e1410 !important; }
+
+        /* #8fa0ae (small labels, index page) */
+        [data-theme="light"] .position-compact-date,
+        [data-theme="light"] .publication-date { color: #5a4008 !important; }
+
+        /* future-title-group university name (#e8dcc0) */
+        [data-theme="light"] .future-title-group .education-university { color: #3d2820 !important; }
+
+        /* future-description */
+        [data-theme="light"] .future-description p { color: #3d2820 !important; }
+
+        /* achievement icon star */
+        [data-theme="light"] .achievement-icon::before { color: #9a7320 !important; }
+
+        /* filter/category buttons (notes page) */
+        [data-theme="light"] .filter-btn { color: #3d2820 !important; }
+        [data-theme="light"] .filter-btn.active,
+        [data-theme="light"] .filter-btn:hover { color: #1e1410 !important; }
+
+        /* scroll-to-top button */
+        [data-theme="light"] .scroll-to-top { color: #7d5c10 !important; }
 
     </style>
 
