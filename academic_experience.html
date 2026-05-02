@@ -1379,6 +1379,89 @@
         [data-theme="light"] [style*="color: #f5ead6"],
         [data-theme="light"] [style*="color:#f5ead6"] { color: #3d2820 !important; }
 
+    
+        /* ===== LIGHT MODE: mentorship / nested li contrast ===== */
+
+        /* Base class styles (dark mode) */
+        .gold-label {
+            color: #c9a961;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            margin-top: 1rem;
+        }
+        .gold-italic {
+            color: #c9a961;
+            font-weight: 500;
+            font-style: italic;
+        }
+        .muted-text {
+            color: #b8c5d0;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        /* Light mode overrides */
+        [data-theme="light"] .gold-label { color: #7d5c10 !important; }
+        [data-theme="light"] .gold-italic { color: #7d5c10 !important; }
+        [data-theme="light"] .muted-text { color: #3d2820 !important; }
+
+        /* Outer card li */
+        [data-theme="light"] .container > ul > li {
+            background: rgba(255,248,244,0.82) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .container > ul > li:hover {
+            background: rgba(255,248,244,0.95) !important;
+            border-color: rgba(154,115,32,0.4) !important;
+            box-shadow: 0 15px 40px rgba(154,115,32,0.15) !important;
+        }
+
+        /* h3 heading (Mentee: Name) */
+        [data-theme="light"] .container > ul > li > h3 {
+            color: #7d5c10 !important;
+        }
+        [data-theme="light"] .container > ul > li > h3 a {
+            color: #7d5c10 !important;
+            border-bottom-color: rgba(125,92,16,0.35) !important;
+        }
+        [data-theme="light"] .container > ul > li > h3 a:hover {
+            color: #5a4008 !important;
+        }
+
+        /* p tags */
+        [data-theme="light"] .container > ul > li > p { color: #3d2820 !important; }
+        [data-theme="light"] .container > ul > li > p:first-of-type { color: #1e1410 !important; }
+        [data-theme="light"] .container > ul > li > p:nth-of-type(2) { color: #7d5c10 !important; }
+        [data-theme="light"] .container > ul > li > p:last-of-type { color: #7d5c10 !important; }
+
+        /* Nested ul bullet items (the focus area lines) */
+        [data-theme="light"] .container > ul > li ul li {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.07) !important;
+            border-left-color: #9a7320 !important;
+        }
+        [data-theme="light"] .container > ul > li ul li::before {
+            color: #9a7320 !important;
+        }
+        [data-theme="light"] .container > ul > li ul li:hover {
+            background: rgba(154,115,32,0.14) !important;
+            border-left-color: #b08530 !important;
+        }
+
+        /* p links inside li (portfolio/GitHub links) */
+        [data-theme="light"] .container > ul > li > p a {
+            color: #9a7320 !important;
+            border-bottom-color: rgba(154,115,32,0.4) !important;
+        }
+        [data-theme="light"] .container > ul > li > p a:hover {
+            color: #7d5c10 !important;
+        }
+
+        /* Inline style overrides for "Mentoring Focus Areas:" and italic role labels */
+        [data-theme="light"] [style*="color: #c9a961"],
+        [data-theme="light"] [style*="color:#c9a961"] { color: #7d5c10 !important; }
+
     </style>
 
     <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
@@ -1465,14 +1548,14 @@
             <li>
                 <h3><a href="https://ccds.ai/" target="_blank" rel="noopener noreferrer">Center for Computational and Data Sciences (CCDS)</a></h3>
                 <p>Independent University, Bangladesh</p>
-                <p style="color: #b8c5d0; font-size: 1rem; margin-bottom: 0.6rem;"><a href="https://ccds.ai/?page_id=277" target="_blank" style="color: #e8dcc4; text-decoration: none; border-bottom: 1px solid rgba(232, 220, 196, 0.4); transition: all 0.3s ease;" rel="noopener noreferrer">Computational Physics & Astronomy (ComPAs) Wing</a></p>
+                <p class="muted-text"><a href="https://ccds.ai/?page_id=277" target="_blank" style="color: #e8dcc4; text-decoration: none; border-bottom: 1px solid rgba(232, 220, 196, 0.4); transition: all 0.3s ease;" rel="noopener noreferrer">Computational Physics & Astronomy (ComPAs) Wing</a></p>
                 <p>February 2024 – Present</p>
                 <p style="margin-top: 0.8rem; color: #ffffff; font-size: 0.9rem;">More about CCDS: <a href="https://ccds.ai/?portfolio=adrita-khan" target="_blank" rel="noopener noreferrer">My Profile</a></p>
 
                 <div class="position-subsection">
                     <h4>Full-time Research Assistant</h4>
                     <p>December 2024 – Present</p>
-                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <p class="gold-label">Responsibilities:</p>
                     <ul>
                         <li>Cosmological data analysis and pipeline development for radio astronomical sources.</li>
                         <li>Project: Jet tagging using PCN with interaction features (previously as intern).</li>
@@ -1483,7 +1566,7 @@
                 <div class="position-subsection">
                     <h4>Research Intern</h4>
                     <p>February 2024 – November 2024</p>
-                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <p class="gold-label">Responsibilities:</p>
                     <ul>
                         <li>Assisted with jet tagging research and initial methodology design for ML in particle physics.</li>
                         <li>Developed scripts for preprocessing and feature engineering.</li>
@@ -1499,7 +1582,7 @@
                 <div class="position-subsection">
                     <h4>Research Collaborator</h4>
                     <p>October 2025 – Present</p>
-                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <p class="gold-label">Responsibilities:</p>
                     <ul>
                         <li>Development of astrophysical simulation models.</li>
                         <li>Continuation of previous intern research; extension to observational studies and analytic methods.</li>
@@ -1510,7 +1593,7 @@
                 <div class="position-subsection">
                     <h4>Research Intern</h4>
                     <p>April 2024 – September 2025</p>
-                    <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 0.8rem;">Responsibilities:</p>
+                    <p class="gold-label">Responsibilities:</p>
                     <ul>
                         <li>Initiated radio astronomy classification projects for galaxy morphologies.</li>
                         <li>Contributed to data curation and preliminary analysis for source identification.</li>
@@ -1521,9 +1604,9 @@
             <li>
                 <h3><a href="https://www.uj.ac.za/faculties/science/departments-2/physics/research/astrophysics/the-centre-for-astro-particle-physics-capp/" target="_blank" rel="noopener noreferrer">Centre for Astro-Particle Physics (CAPP)</a></h3>
                 <p>University of Johannesburg, South Africa</p>
-                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Remote Research Assistant</p>
+                <p class="gold-italic">Remote Research Assistant</p>
                 <p>April 2025 – Present</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Responsibilities:</p>
+                <p class="gold-label">Responsibilities:</p>
                 <ul>
                     <li>Remote collaboration on astro-particle physics and cosmology research projects.</li>
                     <li>Data analysis and computational modeling for high-energy astrophysics studies.</li>
@@ -1534,9 +1617,9 @@
             <li>
                 <h3><a href="https://www.dunlap.utoronto.ca/" target="_blank" rel="noopener noreferrer">Dunlap Institute for Astronomy &amp; Astrophysics</a></h3>
                 <p>University of Toronto</p>
-                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Student Research Collaborator</p>
+                <p class="gold-italic">Student Research Collaborator</p>
                 <p>March 2025 – Present (Remote)</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Responsibilities:</p>
+                <p class="gold-label">Responsibilities:</p>
                 <ul>
                     <li>Developing forecasting pipeline to predict observational signatures of Hu-Sawicki f(R) and Dvali–Gabadadze–Porrati (DGP) modified gravity theories for LSST data release.</li>
                     <li>Using cross-correlation observables combining galaxy clustering and CMB lensing to distinguish modified gravity from ΛCDM predictions through multi-probe analysis.</li>
@@ -1553,9 +1636,9 @@
             <li>
                 <h3><a href="https://www.northsouth.edu/" target="_blank" rel="noopener noreferrer">North South University (NSU)</a></h3>
                 <p>Department of Mathematics and Physics</p>
-                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Graduate Teaching Assistant</p>
+                <p class="gold-italic">Graduate Teaching Assistant</p>
                 <p>Spring 2025 (January – April)</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Courses and Responsibilities:</p>
+                <p class="gold-label">Courses and Responsibilities:</p>
                 <ul>
                     <li>Supported undergraduate courses PHY107 and PHY108 (Physics I, II).</li>
                     <li>Mentored students during weekly consultation hours.</li>
@@ -1566,9 +1649,9 @@
             <li>
                 <h3>Mentee: Subaita Rahman Supti</h3>
                 <p>Independent University, Bangladesh (IUB)</p>
-                <p style="color: #c9a961; font-weight: 500; font-style: italic;">ICTP PWF Intern 2025</p>
+                <p class="gold-italic">ICTP PWF Intern 2025</p>
                 <p>Department: Physical Sciences | Major: Physics</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <p class="gold-label">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Scientific Computing &amp; Programming: Introduction to LaTeX (Overleaf), C/C++ fundamentals</li>
                     <li>Research Guidance: Discussion and development of research ideas in Cosmology and Particle Physics</li>
@@ -1580,7 +1663,7 @@
                 <h3>Mentee: Naima Alam Zikra</h3>
                 <p>Independent University, Bangladesh (IUB)</p>
                 <p>Department: Physical Sciences | Major: Physics</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <p class="gold-label">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Programming &amp; Data Analysis: Python</li>
                     <li>Solving quantum mechanics problems using numerical methods</li>
@@ -1592,7 +1675,7 @@
                 <h3>Mentee: Maisha Rahman</h3>
                 <p>University of Dhaka</p>
                 <p>Department: Physics | Major: Physics</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <p class="gold-label">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Programming &amp; Data Analysis: Python, Statistics</li>
                     <li>Artificial Intelligence &amp; Machine Learning: Basics of Machine Learning and Deep Learning, Object Detection using ML</li>
@@ -1603,9 +1686,9 @@
             <li>
                 <h3>Mentee: Saidul Hossain Al-Amin</h3>
                 <p>North South University, Bangladesh</p>
-                <p style="color: #c9a961; font-weight: 500; font-style: italic;">Bronze Awardee, IAAC</p>
+                <p class="gold-italic">Bronze Awardee, IAAC</p>
                 <p>Department: Electronics and Communication Engineering (ECE) | Major: Electrical and Electronic Engineering (EEE)</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <p class="gold-label">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Programming &amp; Data Analysis: Python, Statistics</li>
                     <li>Signal Processing &amp; Astronomy: Introduction to Signal Processing, Introduction to Radio Astronomy</li>
@@ -1618,7 +1701,7 @@
                 <p>Shahjalal University of Science and Technology (SUST) – BSc | North South University, Bangladesh – MSc</p>
                 <p>Department: Petroleum and Mining Engineering (BSc) | Mathematics &amp; Physics (MSc)</p>
                 <p>Major: Petroleum and Mining Engineering, Applied Mathematics and Computational Science</p>
-                <p style="color: #c9a961; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; margin-top: 1rem;">Mentoring Focus Areas:</p>
+                <p class="gold-label">Mentoring Focus Areas:</p>
                 <ul>
                     <li>Programming &amp; Data Analysis: Python, C++, MATLAB, Machine Learning</li>
                     <li>Web Development: HTML, CSS</li>
