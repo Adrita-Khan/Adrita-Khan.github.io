@@ -1006,46 +1006,7 @@
         [data-theme="light"] .footer-stat-number { color: #c9a961 !important; }
         [data-theme="light"] .footer-stat-label { color: #374151 !important; }
 
-        /* Theme toggle button */
-        #theme-toggle {
-            position: fixed;
-            bottom: 5rem;
-            right: 1.5rem;
-            z-index: 9999;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid rgba(201,169,97,0.4);
-            background: rgba(10,14,20,0.75);
-            color: #c9a961;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: background 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            -webkit-tap-highlight-color: transparent;
-        }
-        #theme-toggle:hover {
-            background: rgba(201,169,97,0.2) !important;
-            border-color: rgba(201,169,97,0.7) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 6px 20px rgba(201,169,97,0.3) !important;
-        }
-        [data-theme="light"] #theme-toggle {
-            background: rgba(232,236,242,0.9);
-            border-color: rgba(201,169,97,0.4);
-            color: #b89d55;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-        }
-        #theme-toggle svg {
-            width: 20px; height: 20px;
-            fill: currentColor;
-            transition: transform 0.4s ease !important;
-        }
-        #theme-toggle:hover svg { transform: rotate(20deg) !important; }
+        
 
         /* ── CMB sphere: always dark regardless of theme ── */
         [data-theme="light"] .cmb-animation {
@@ -1086,6 +1047,57 @@
             box-shadow: 0 10px 30px rgba(255,255,255,0.1) !important;
         }
         [data-theme="light"] .social-icon svg { fill: currentColor !important; }
+
+    
+        /* ── Theme toggle: lives in the nav bar ── */
+        #theme-toggle {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(201,169,97,0.35);
+            background: rgba(201,169,97,0.08);
+            color: #c9a961;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #theme-toggle:hover {
+            background: rgba(201,169,97,0.2);
+            border-color: rgba(201,169,97,0.55);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201,169,97,0.25);
+        }
+        [data-theme="light"] #theme-toggle {
+            background: rgba(201,169,97,0.12);
+            border-color: rgba(201,169,97,0.4);
+            color: #b89d55;
+        }
+        [data-theme="light"] #theme-toggle:hover {
+            background: rgba(201,169,97,0.25);
+        }
+        #theme-toggle svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+            transition: transform 0.4s ease !important;
+        }
+        #theme-toggle:hover svg { transform: rotate(20deg); }
+
+        /* Nav container needs to accommodate the toggle button */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .nav-list {
+            flex: 1;
+        }
 
     </style>
 
@@ -1144,11 +1156,7 @@
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
-    <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
-        <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
-<nav id="quick-links" aria-label="Main navigation">
+    <nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html" class="active" aria-current="page">Home</a></li>
@@ -1161,6 +1169,10 @@
                 <li><a href="notes.html">Study Notes</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+        <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
         </div>
     </nav>
 <span id="main-content" tabindex="-1" aria-hidden="true"></span>
