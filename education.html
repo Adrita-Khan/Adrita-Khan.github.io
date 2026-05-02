@@ -875,6 +875,135 @@
         /* scroll-to-top button */
         [data-theme="light"] .scroll-to-top { color: #7d5c10 !important; }
 
+    
+        /* ===== LIGHT MODE: education hero card removal + icon visibility ===== */
+
+        /* Remove the white card from education hero (profile-info-box) */
+        [data-theme="light"] .profile-info-box {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        [data-theme="light"] .profile-info-box::before {
+            display: none !important;
+        }
+        /* Also remove card from profile-card wrapper on education page */
+        [data-theme="light"] .profile-card {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* ── Icon & SVG visibility in light mode ── */
+
+        /* Social icons (index, education, contact) */
+        [data-theme="light"] .social-icon {
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .social-icon svg {
+            fill: #3d2820 !important;
+        }
+        [data-theme="light"] .social-icon:hover {
+            background: rgba(154,115,32,0.22) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .social-icon:hover svg {
+            fill: #9a7320 !important;
+        }
+
+        /* Profile icon bubbles (contact page) */
+        [data-theme="light"] .profile-icon-bubble {
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+        }
+        [data-theme="light"] .profile-icon-bubble svg {
+            fill: #3d2820 !important;
+        }
+        [data-theme="light"] .profile-icon-link {
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble {
+            background: rgba(154,115,32,0.22) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble svg {
+            fill: #9a7320 !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover { color: #9a7320 !important; }
+
+        /* Research card icons */
+        [data-theme="light"] .research-card-icon {
+            /* gradient icons keep their colour — just ensure contrast */
+            filter: brightness(0.85) saturate(1.2);
+        }
+
+        /* Achievement icons (★ star) */
+        [data-theme="light"] .achievement-icon {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+        }
+        [data-theme="light"] .achievement-icon::before {
+            color: #fff !important;
+        }
+
+        /* Emoji in soft-skill-tag — ensure they aren't tinted */
+        [data-theme="light"] .soft-skill-tag {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.28) !important;
+            -webkit-filter: none !important;
+            filter: none !important;
+        }
+
+        /* Any inline SVGs using fill: currentColor inside cards */
+        [data-theme="light"] .pub-link svg,
+        [data-theme="light"] .bibtex-toggle svg,
+        [data-theme="light"] .copy-btn svg,
+        [data-theme="light"] .read-more-btn svg,
+        [data-theme="light"] .btn-primary svg,
+        [data-theme="light"] .scroll-to-top svg {
+            fill: currentColor !important;
+            stroke: currentColor !important;
+        }
+
+        /* Side nav arrows */
+        [data-theme="light"] .side-nav-arrow {
+            background: rgba(240,228,226,0.88) !important;
+            border-color: rgba(154,115,32,0.25) !important;
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .side-nav-arrow svg {
+            stroke: #3d2820 !important;
+        }
+        [data-theme="light"] .side-nav-arrow:hover {
+            color: #9a7320 !important;
+        }
+        [data-theme="light"] .side-nav-arrow:hover svg {
+            stroke: #9a7320 !important;
+        }
+        [data-theme="light"] .side-nav-label {
+            color: #3d2820 !important;
+        }
+
+        /* Scroll to top button icon */
+        [data-theme="light"] .scroll-to-top {
+            background: linear-gradient(135deg, rgba(154,115,32,0.25), rgba(130,95,20,0.18)) !important;
+            border-color: rgba(154,115,32,0.5) !important;
+            color: #7d5c10 !important;
+        }
+        [data-theme="light"] .scroll-to-top:hover {
+            background: linear-gradient(135deg, rgba(154,115,32,0.45), rgba(130,95,20,0.35)) !important;
+        }
+
+        /* Lang flag emojis — keep natural */
+        [data-theme="light"] .lang-flag {
+            filter: none !important;
+        }
+
     </style>
 
     <meta name="description" content="Educational background and coursework of Adrita Khan, B.Sc. (Hons) in Physics with a minor in Astronomy from Universiti Sains Malaysia.">
