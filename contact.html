@@ -893,6 +893,67 @@
         }
         #theme-toggle:hover svg { transform: rotate(20deg); }
 
+    
+        /* ===== LIGHT MODE: Social & Profile Icons ===== */
+
+        /* index.html — .social-icon (hero section) */
+        [data-theme="light"] .social-icon {
+            background: rgba(138,109,32,0.1) !important;
+            border: 1px solid rgba(138,109,32,0.35) !important;
+            color: #3a2e10 !important;
+        }
+        [data-theme="light"] .social-icon::before {
+            background: rgba(138,109,32,0.12) !important;
+        }
+        [data-theme="light"] .social-icon:hover {
+            background: rgba(138,109,32,0.22) !important;
+            border-color: rgba(138,109,32,0.6) !important;
+            box-shadow: 0 8px 20px rgba(138,109,32,0.2) !important;
+        }
+        [data-theme="light"] .social-icon svg {
+            fill: #3a2e10 !important;
+        }
+        [data-theme="light"] .social-icon:hover svg {
+            fill: #1a1200 !important;
+        }
+
+        /* contact.html — .profile-icon-bubble (academic profiles row) */
+        [data-theme="light"] .profile-icon-bubble {
+            background: rgba(138,109,32,0.1) !important;
+            border: 1px solid rgba(138,109,32,0.35) !important;
+        }
+        [data-theme="light"] .profile-icon-bubble svg {
+            fill: #3a2e10 !important;
+        }
+        [data-theme="light"] .profile-icon-link {
+            color: #4a3e28 !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble {
+            background: rgba(138,109,32,0.22) !important;
+            border-color: rgba(138,109,32,0.6) !important;
+            box-shadow: 0 8px 20px rgba(138,109,32,0.2) !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble svg {
+            fill: #1a1200 !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover {
+            color: #1a1200 !important;
+        }
+        [data-theme="light"] .academic-profiles-heading {
+            color: #4a3e28 !important;
+        }
+        [data-theme="light"] .academic-profiles-heading span {
+            color: #8a6d20 !important;
+        }
+
+        /* education.html — .social-icon (same class, different file) */
+        [data-theme="light"] .social-icon svg {
+            fill: #3a2e10 !important;
+        }
+        [data-theme="light"] .social-icon:hover svg {
+            fill: #8a6d20 !important;
+        }
+
     </style>
 
     <!-- SEO, social cards & favicon -->
