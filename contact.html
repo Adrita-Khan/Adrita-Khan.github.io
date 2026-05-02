@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -532,6 +532,1076 @@
             .contact-card { padding: 2rem; }
         }
 
+    
+        /* ============================================================
+           LIGHT MODE — variable-first approach
+           Stars, aurora, CMB, animations: fully untouched.
+           Gold accents: identical to dark mode.
+           Only surfaces and text shift to light.
+           ============================================================ */
+
+        /* Smooth transition when toggling */
+        *, *::before, *::after {
+            transition: background-color 0.3s ease, color 0.3s ease,
+                        border-color 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        /* But don't slow down animations */
+        .star, .aurora-wave, .aurora-wave-1, .aurora-wave-2, .aurora-wave-3,
+        .nebula, .nebula::before, .nebula::after,
+        .cmb-core, .cmb-animation, .floating-shape {
+            transition: none !important;
+        }
+
+        [data-theme="light"] {
+            /* Core palette — lighter versions */
+            --bg-dark:    #f0e6e4;
+            --bg-mid:     #e8d8d5;
+            --bg-light:   #dccac6;
+            --text-light: #1e1410;
+            --text-muted: #3d2820;
+            /* Gold darkened for contrast on blush background */
+            --gold-primary: #9a7320;
+            --gold-light:   #b08530;
+            --gold-dark:    #7d5c10;
+            --glow-gold:    rgba(201, 169, 97, 0.4);
+        }
+
+        /* Body background */
+        [data-theme="light"] body {
+            background: linear-gradient(135deg, #f0e6e4 0%, #e8d8d5 50%, #dccac6 100%);
+            color: #1e1410;
+        }
+
+        /* Cosmic bg — soften the gold glow slightly so it reads on light */
+        [data-theme="light"] .cosmic-bg {
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 80%, rgba(201,169,97,0.10) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201,169,97,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 60% at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 50%);
+        }
+
+        /* Nav — frosted light panel */
+        [data-theme="light"] #quick-links {
+            background: rgba(240, 228, 226, 0.88);
+            border-bottom: 1px solid rgba(201,169,97,0.2);
+        }
+        [data-theme="light"] .nav-list a {
+            color: #1e1410;
+            background: rgba(201,169,97,0.07);
+            border-color: rgba(201,169,97,0.18);
+        }
+        [data-theme="light"] .nav-list a:hover {
+            color: #9a7320;
+            background: rgba(201,169,97,0.15);
+        }
+        [data-theme="light"] .nav-list a.active {
+            background: rgba(201,169,97,0.18);
+            border-color: rgba(201,169,97,0.45);
+            color: #7d5c10;
+        }
+
+        /* Section backgrounds */
+        [data-theme="light"] section {
+            border-top-color: rgba(201,169,97,0.12);
+        }
+        [data-theme="light"] .section-alt {
+            background: rgba(255,240,237,0.22);
+        }
+        [data-theme="light"] .section-dark {
+            background: rgba(255,240,237,0.32);
+        }
+        [data-theme="light"] .section-header h2 {
+            color: #1e1410;
+        }
+
+        /* Hero */
+        [data-theme="light"] .hero-text h1 { color: #1e1410; }
+        [data-theme="light"] .hero-text .bio { color: #3d2820; }
+
+        /* Cards — light frosted surface */
+        [data-theme="light"] .about-content,
+        [data-theme="light"] .about-content-compact,
+        [data-theme="light"] .position-card,
+        [data-theme="light"] .position-compact-item,
+        [data-theme="light"] .publication-card,
+        [data-theme="light"] .research-card,
+        [data-theme="light"] .research-interest-card,
+        [data-theme="light"] .achievement-card,
+        [data-theme="light"] .achievement-item,
+        [data-theme="light"] .education-card,
+        [data-theme="light"] .note-card,
+        [data-theme="light"] .contact-card,
+        [data-theme="light"] .category-section,
+        [data-theme="light"] .stat-card,
+        [data-theme="light"] .future-card,
+        [data-theme="light"] .membership-card,
+        [data-theme="light"] .tech-skill-card,
+        [data-theme="light"] .news-card,
+        [data-theme="light"] .semester-card,
+        [data-theme="light"] .profile-card,
+        [data-theme="light"] .blog-entry,
+        [data-theme="light"] .research-container {
+            background: rgba(255, 248, 244, 0.82) !important;
+            border-color: rgba(201,169,97,0.22) !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important;
+        }
+        [data-theme="light"] .about-content:hover,
+        [data-theme="light"] .position-card:hover,
+        [data-theme="light"] .publication-card:hover,
+        [data-theme="light"] .research-card:hover,
+        [data-theme="light"] .note-card:hover {
+            background: rgba(255, 248, 244, 0.95) !important;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.11) !important;
+        }
+
+        /* Text inside cards */
+        [data-theme="light"] .about-content p,
+        [data-theme="light"] .about-content-compact p,
+        [data-theme="light"] .research-content p,
+        [data-theme="light"] .publication-description,
+        [data-theme="light"] .publication-authors,
+        [data-theme="light"] .publication-date,
+        [data-theme="light"] .publication-footnote,
+        [data-theme="light"] .position-org,
+        [data-theme="light"] .position-compact-org,
+        [data-theme="light"] .position-subsection p,
+        [data-theme="light"] .position-subsection span,
+        [data-theme="light"] .page-description,
+        [data-theme="light"] .education-location,
+        [data-theme="light"] .thesis-supervisor,
+        [data-theme="light"] .achievement-text,
+        [data-theme="light"] .course-item,
+        [data-theme="light"] .membership-role-title,
+        [data-theme="light"] .membership-detail-item,
+        [data-theme="light"] .note-description,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .research-topic-item,
+        [data-theme="light"] .footer-left p,
+        [data-theme="light"] .profile-info,
+        [data-theme="light"] .tech-skill-items,
+        [data-theme="light"] .future-description p { color: #3d2820 !important; }
+
+        /* Headings inside cards */
+        [data-theme="light"] .position-subsection h4,
+        [data-theme="light"] .education-content h3,
+        [data-theme="light"] .future-title-group h3,
+        [data-theme="light"] .page-title-right h1,
+        [data-theme="light"] .page-header h1,
+        [data-theme="light"] .category-title h2,
+        [data-theme="light"] .research-section-header h2,
+        [data-theme="light"] .note-title,
+        [data-theme="light"] .meta-badge,
+        [data-theme="light"] .thesis-title,
+        [data-theme="light"] .publication-venue,
+        [data-theme="light"] .lang-name { color: #1e1410 !important; }
+
+        /* Hardcoded white text in HTML attributes */
+        [data-theme="light"] [style*="color: #ffffff"],
+        [data-theme="light"] [style*="color:#ffffff"],
+        [data-theme="light"] [style*="color: #fff"],
+        [data-theme="light"] [style*="color:#fff"],
+        [data-theme="light"] [style*="color: white"],
+        [data-theme="light"] [style*="color: #b8c5d0"],
+        [data-theme="light"] [style*="color:#b8c5d0"],
+        [data-theme="light"] [style*="color: #e8dcc4"],
+        [data-theme="light"] [style*="color:#e8dcc4"] { color: #3d2820 !important; }
+
+        /* Links in cards */
+        [data-theme="light"] .position-compact-org a,
+        [data-theme="light"] .position-subsection a,
+        [data-theme="light"] .container > ul > li > h3 a { color: #9a7320 !important; }
+
+        /* Badges / pills */
+        [data-theme="light"] .pub-link,
+        [data-theme="light"] .pub-tag,
+        [data-theme="light"] .position-type,
+        [data-theme="light"] .position-compact-type,
+        [data-theme="light"] .bibtex-toggle,
+        [data-theme="light"] .copy-btn {
+            background: rgba(201,169,97,0.10) !important;
+            border-color: rgba(201,169,97,0.25) !important;
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .pub-link:hover { color: #9a7320 !important; }
+
+        /* Interest tags */
+        [data-theme="light"] .interest-tag {
+            color: #1e1410 !important;
+            background: rgba(201,169,97,0.09) !important;
+        }
+        [data-theme="light"] .interest-tag:hover { color: #9a7320 !important; }
+
+        /* Social icons */
+        [data-theme="light"] .social-icon {
+            background: rgba(0,0,0,0.06) !important;
+            border-color: rgba(0,0,0,0.12) !important;
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .social-icon:hover {
+            background: rgba(201,169,97,0.15) !important;
+            border-color: rgba(201,169,97,0.4) !important;
+            color: #9a7320 !important;
+        }
+        [data-theme="light"] .social-icon svg { fill: currentColor !important; }
+
+        /* Profile icon bubbles (contact page) */
+        [data-theme="light"] .profile-icon-bubble {
+            background: rgba(0,0,0,0.06) !important;
+            border-color: rgba(0,0,0,0.12) !important;
+        }
+        [data-theme="light"] .profile-icon-bubble svg { fill: #3d2820 !important; }
+        [data-theme="light"] .profile-icon-link { color: #3d2820 !important; }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble {
+            background: rgba(201,169,97,0.15) !important;
+            border-color: rgba(201,169,97,0.4) !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble svg { fill: #9a7320 !important; }
+        [data-theme="light"] .profile-icon-link:hover { color: #9a7320 !important; }
+        [data-theme="light"] .academic-profiles-heading { color: #3d2820 !important; }
+
+        /* BibTeX block */
+        [data-theme="light"] .bibtex-block {
+            background: rgba(252,243,240,0.95) !important;
+            border-color: rgba(201,169,97,0.2) !important;
+        }
+        [data-theme="light"] .bibtex-code { color: #1e293b !important; }
+
+        /* Language bar track */
+        [data-theme="light"] .lang-bar-wrap { background: rgba(0,0,0,0.1) !important; }
+
+        /* Scroll-to-top & side nav */
+        [data-theme="light"] #scrollToTop,
+        [data-theme="light"] .side-nav-arrow {
+            background: rgba(240,228,226,0.88) !important;
+            border-color: rgba(201,169,97,0.25) !important;
+            color: #3d2820 !important;
+        }
+
+        /* Footer */
+        [data-theme="light"] footer {
+            background: rgba(220,200,196,0.92);
+            border-top: 1px solid rgba(201,169,97,0.15);
+            color: #3d2820;
+        }
+        [data-theme="light"] .footer-left p { color: #3d2820 !important; }
+        [data-theme="light"] .footer-stat-number { color: #9a7320 !important; }
+        [data-theme="light"] .footer-stat-label { color: #3d2820 !important; }
+
+        
+
+    
+        
+
+    
+        /* ── Theme toggle: fixed, above scroll-to-top ── */
+        #theme-toggle {
+            position: fixed;
+            bottom: calc(2rem + 52px + 0.75rem);
+            right: 2rem;
+            z-index: 200;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(201,169,97,0.4);
+            background: rgba(10,14,20,0.75);
+            color: #c9a961;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+        #theme-toggle:hover {
+            background: rgba(201,169,97,0.2);
+            border-color: rgba(201,169,97,0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201,169,97,0.3);
+        }
+        [data-theme="light"] #theme-toggle {
+            background: rgba(240,228,226,0.92);
+            border-color: rgba(201,169,97,0.4);
+            color: #7d5c10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+        [data-theme="light"] #theme-toggle:hover {
+            background: rgba(201,169,97,0.15);
+        }
+        #theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.4s ease !important;
+        }
+        #theme-toggle:hover svg { transform: rotate(20deg); }
+        @media (max-width: 768px) {
+            #theme-toggle { bottom: calc(1rem + 48px + 0.75rem); right: 1rem; width: 40px; height: 40px; }
+            #theme-toggle svg { width: 16px; height: 16px; }
+        }
+        @media (max-width: 480px) {
+            #theme-toggle { bottom: calc(0.8rem + 44px + 0.75rem); right: 0.8rem; width: 38px; height: 38px; }
+        }
+
+        /* Skill tags */
+        [data-theme="light"] .skill-tag {
+            color: #7d5c10 !important;
+            background: rgba(154, 115, 32, 0.10) !important;
+            border-color: rgba(154, 115, 32, 0.30) !important;
+        }
+        [data-theme="light"] .skill-tag:hover {
+            color: #5a4008 !important;
+            background: rgba(154, 115, 32, 0.20) !important;
+        }
+
+        /* Skill category labels (PROGRAMMING, ML & STATISTICS, etc.) */
+        [data-theme="light"] .skill-category-label {
+            color: #5a4008 !important;
+        }
+
+        /* Language section */
+        [data-theme="light"] .lang-name {
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .lang-level {
+            color: #7d5c10 !important;
+        }
+        [data-theme="light"] .lang-bar-wrap {
+            background: rgba(0, 0, 0, 0.15) !important;
+        }
+        [data-theme="light"] .lang-row {
+            background: rgba(154, 115, 32, 0.08) !important;
+            border-color: rgba(154, 115, 32, 0.25) !important;
+        }
+        [data-theme="light"] .lang-row:hover {
+            background: rgba(154, 115, 32, 0.16) !important;
+        }
+
+        /* Tech skill items (research page) */
+        [data-theme="light"] .tech-skill-items,
+        [data-theme="light"] .tech-skill-title {
+            color: #1e1410 !important;
+        }
+
+        /* Any remaining muted/light text hardcoded as vars or hex */
+        [data-theme="light"] .publication-authors,
+        [data-theme="light"] .publication-date,
+        [data-theme="light"] .publication-footnote,
+        [data-theme="light"] .position-compact-org,
+        [data-theme="light"] .position-org,
+        [data-theme="light"] .achievement-text,
+        [data-theme="light"] .course-item,
+        [data-theme="light"] .membership-detail-item,
+        [data-theme="light"] .research-topic-item,
+        [data-theme="light"] .note-description,
+        [data-theme="light"] .page-description,
+        [data-theme="light"] .profile-info,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .section-subtitle,
+        [data-theme="light"] .meta-item,
+        [data-theme="light"] .education-location,
+        [data-theme="light"] .thesis-supervisor {
+            color: #3d2820 !important;
+        }
+
+        /* Headings that use var(--text-light) — need explicit dark */
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3,
+        [data-theme="light"] h4,
+        [data-theme="light"] h5 {
+            color: #1e1410 !important;
+        }
+
+        /* Nav link text */
+        [data-theme="light"] .nav-list a {
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .nav-list a:hover {
+            color: #9a7320 !important;
+        }
+        [data-theme="light"] .nav-list a.active {
+            color: #7d5c10 !important;
+        }
+
+        /* Footer text */
+        [data-theme="light"] footer,
+        [data-theme="light"] footer p,
+        [data-theme="light"] .footer-left p {
+            color: #3d2820 !important;
+        }
+
+    
+        /* ===== LIGHT MODE: universal hardcoded-colour overrides ===== */
+
+        /* --- Inline style overrides (HTML attributes) --- */
+        [data-theme="light"] [style*="color: #ffffff"],
+        [data-theme="light"] [style*="color:#ffffff"],
+        [data-theme="light"] [style*="color: #fff"],
+        [data-theme="light"] [style*="color:#fff"],
+        [data-theme="light"] [style*="color: white"],
+        [data-theme="light"] [style*="color: #b8c5d0"],
+        [data-theme="light"] [style*="color:#b8c5d0"],
+        [data-theme="light"] [style*="color: #e8dcc4"],
+        [data-theme="light"] [style*="color:#e8dcc4"],
+        [data-theme="light"] [style*="color: #e8dcc0"],
+        [data-theme="light"] [style*="color:#e8dcc0"],
+        [data-theme="light"] [style*="color: #f5ead6"],
+        [data-theme="light"] [style*="color: #c9d8e8"],
+        [data-theme="light"] [style*="color: #8fa0ae"] { color: #3d2820 !important; }
+
+        /* --- Stylesheet class overrides --- */
+
+        /* Body-level muted text */
+        [data-theme="light"] body { color: #1e1410 !important; }
+
+        /* All #b8c5d0 usages — the standard muted/secondary text */
+        [data-theme="light"] .profile-info,
+        [data-theme="light"] .education-location,
+        [data-theme="light"] .thesis-supervisor,
+        [data-theme="light"] .achievement-text,
+        [data-theme="light"] .stat-chip .label,
+        [data-theme="light"] .course-item,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .membership-role-title,
+        [data-theme="light"] .membership-detail-item,
+        [data-theme="light"] .no-results,
+        [data-theme="light"] .page-description,
+        [data-theme="light"] .note-description,
+        [data-theme="light"] .filter-btn,
+        [data-theme="light"] .position-subsection p,
+        [data-theme="light"] .position-subsection span,
+        [data-theme="light"] .container > ul > li > p,
+        [data-theme="light"] .publication-authors,
+        [data-theme="light"] .publication-venue,
+        [data-theme="light"] .publication-date,
+        [data-theme="light"] .publication-footnote,
+        [data-theme="light"] .bibtex-toggle { color: #3d2820 !important; }
+
+        /* All #ffffff / #fff usages — primary text, headings */
+        [data-theme="light"] .page-title-right h1,
+        [data-theme="light"] .page-header h1,
+        [data-theme="light"] .education-content h3,
+        [data-theme="light"] .future-title-group h3,
+        [data-theme="light"] .category-title h2,
+        [data-theme="light"] .note-title,
+        [data-theme="light"] .position-subsection h4,
+        [data-theme="light"] .thesis-title,
+        [data-theme="light"] .container > ul > li > p:first-of-type,
+        [data-theme="light"] .meta-badge,
+        [data-theme="light"] .lang-name { color: #1e1410 !important; }
+
+        /* Non-technical / soft skill tags */
+        [data-theme="light"] .soft-skill-tag {
+            color: #7d5c10 !important;
+            background: rgba(154, 115, 32, 0.10) !important;
+            border-color: rgba(154, 115, 32, 0.30) !important;
+        }
+        [data-theme="light"] .soft-skill-tag:hover {
+            color: #5a4008 !important;
+            background: rgba(154, 115, 32, 0.20) !important;
+        }
+        [data-theme="light"] .soft-skill-tag .emoji,
+        [data-theme="light"] .soft-skill-tag svg { opacity: 0.85; }
+
+        /* Course items hover */
+        [data-theme="light"] .course-item:hover { color: #1e1410 !important; }
+
+        /* #e8dcc4 / #e8dcc0 links (academic experience, research) */
+        [data-theme="light"] .position-compact-org a,
+        [data-theme="light"] .position-subsection a,
+        [data-theme="light"] .container > ul > li > h3 a,
+        [data-theme="light"] .container > ul > li > p a { color: #9a7320 !important; }
+
+        /* #f5ead6 hover links */
+        [data-theme="light"] .position-compact-org a:hover,
+        [data-theme="light"] .position-subsection a:hover,
+        [data-theme="light"] .container > ul > li > h3 a:hover,
+        [data-theme="light"] .container > ul > li > p a:hover { color: #7d5c10 !important; }
+
+        /* #c9d8e8 (publications syntax highlight) */
+        [data-theme="light"] .bibtex-code { color: #1e1410 !important; }
+
+        /* #8fa0ae (small labels, index page) */
+        [data-theme="light"] .position-compact-date,
+        [data-theme="light"] .publication-date { color: #5a4008 !important; }
+
+        /* future-title-group university name (#e8dcc0) */
+        [data-theme="light"] .future-title-group .education-university { color: #3d2820 !important; }
+
+        /* future-description */
+        [data-theme="light"] .future-description p { color: #3d2820 !important; }
+
+        /* achievement icon star */
+        [data-theme="light"] .achievement-icon::before { color: #9a7320 !important; }
+
+        /* filter/category buttons (notes page) */
+        [data-theme="light"] .filter-btn { color: #3d2820 !important; }
+        [data-theme="light"] .filter-btn.active,
+        [data-theme="light"] .filter-btn:hover { color: #1e1410 !important; }
+
+        /* scroll-to-top button */
+        [data-theme="light"] .scroll-to-top { color: #7d5c10 !important; }
+
+    
+        /* ===== LIGHT MODE: education hero card removal + icon visibility ===== */
+
+        /* Remove the white card from education hero (profile-info-box) */
+        [data-theme="light"] .profile-info-box {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        [data-theme="light"] .profile-info-box::before {
+            display: none !important;
+        }
+        /* Also remove card from profile-card wrapper on education page */
+        [data-theme="light"] .profile-card {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* ── Icon & SVG visibility in light mode ── */
+
+        /* Social icons (index, education, contact) */
+        [data-theme="light"] .social-icon {
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .social-icon svg {
+            fill: #3d2820 !important;
+        }
+        [data-theme="light"] .social-icon:hover {
+            background: rgba(154,115,32,0.22) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .social-icon:hover svg {
+            fill: #9a7320 !important;
+        }
+
+        /* Profile icon bubbles (contact page) */
+        [data-theme="light"] .profile-icon-bubble {
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+        }
+        [data-theme="light"] .profile-icon-bubble svg {
+            fill: #3d2820 !important;
+        }
+        [data-theme="light"] .profile-icon-link {
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble {
+            background: rgba(154,115,32,0.22) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover .profile-icon-bubble svg {
+            fill: #9a7320 !important;
+        }
+        [data-theme="light"] .profile-icon-link:hover { color: #9a7320 !important; }
+
+        /* Research card icons */
+        [data-theme="light"] .research-card-icon {
+            /* gradient icons keep their colour — just ensure contrast */
+            filter: brightness(0.85) saturate(1.2);
+        }
+
+        /* Achievement icons (★ star) */
+        [data-theme="light"] .achievement-icon {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+        }
+        [data-theme="light"] .achievement-icon::before {
+            color: #fff !important;
+        }
+
+        /* Emoji in soft-skill-tag — ensure they aren't tinted */
+        [data-theme="light"] .soft-skill-tag {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.28) !important;
+            -webkit-filter: none !important;
+            filter: none !important;
+        }
+
+        /* Any inline SVGs using fill: currentColor inside cards */
+        [data-theme="light"] .pub-link svg,
+        [data-theme="light"] .bibtex-toggle svg,
+        [data-theme="light"] .copy-btn svg,
+        [data-theme="light"] .read-more-btn svg,
+        [data-theme="light"] .btn-primary svg,
+        [data-theme="light"] .scroll-to-top svg {
+            fill: currentColor !important;
+            stroke: currentColor !important;
+        }
+
+        /* Side nav arrows */
+        [data-theme="light"] .side-nav-arrow {
+            background: rgba(240,228,226,0.88) !important;
+            border-color: rgba(154,115,32,0.25) !important;
+            color: #3d2820 !important;
+        }
+        [data-theme="light"] .side-nav-arrow svg {
+            stroke: #3d2820 !important;
+        }
+        [data-theme="light"] .side-nav-arrow:hover {
+            color: #9a7320 !important;
+        }
+        [data-theme="light"] .side-nav-arrow:hover svg {
+            stroke: #9a7320 !important;
+        }
+        [data-theme="light"] .side-nav-label {
+            color: #3d2820 !important;
+        }
+
+        /* Scroll to top button icon */
+        [data-theme="light"] .scroll-to-top {
+            background: linear-gradient(135deg, rgba(154,115,32,0.25), rgba(130,95,20,0.18)) !important;
+            border-color: rgba(154,115,32,0.5) !important;
+            color: #7d5c10 !important;
+        }
+        [data-theme="light"] .scroll-to-top:hover {
+            background: linear-gradient(135deg, rgba(154,115,32,0.45), rgba(130,95,20,0.35)) !important;
+        }
+
+        /* Lang flag emojis — keep natural */
+        [data-theme="light"] .lang-flag {
+            filter: none !important;
+        }
+
+    
+        /* ===== LIGHT MODE: buttons, links, tags, inline gold & low-contrast ===== */
+
+        /* Project link buttons (projects page) */
+        [data-theme="light"] .blog-entry .project-link {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.12) !important;
+            border-color: rgba(154,115,32,0.35) !important;
+        }
+        [data-theme="light"] .blog-entry .project-link:hover {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+            color: #fff !important;
+            border-color: #9a7320 !important;
+        }
+
+        /* Project card meta & description text */
+        [data-theme="light"] .blog-entry .meta,
+        [data-theme="light"] .blog-entry .meta a,
+        [data-theme="light"] .blog-entry .description { color: #3d2820 !important; }
+        [data-theme="light"] .blog-entry .heading a { color: #1e1410 !important; }
+        [data-theme="light"] .blog-entry .heading a:hover { color: #9a7320 !important; }
+
+        /* btn-primary (solid gold gradient buttons) */
+        [data-theme="light"] .btn-primary {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(154,115,32,0.3) !important;
+        }
+
+        /* read-more / generic .btn */
+        [data-theme="light"] .read-more-btn,
+        [data-theme="light"] .btn {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.35) !important;
+        }
+        [data-theme="light"] .read-more-btn:hover,
+        [data-theme="light"] .btn:hover {
+            background: rgba(154,115,32,0.22) !important;
+            color: #5a4008 !important;
+        }
+
+        /* Inline style color: #c9a961 — gold text used throughout HTML */
+        [data-theme="light"] [style*="color: #c9a961"],
+        [data-theme="light"] [style*="color:#c9a961"],
+        [data-theme="light"] [style*="color: #d4b56d"],
+        [data-theme="light"] [style*="color:#d4b56d"] { color: #7d5c10 !important; }
+
+        /* Hardcoded gold class colours (stat numbers, titles, headers, strong) */
+        [data-theme="light"] .stat-number,
+        [data-theme="light"] .profile-title,
+        [data-theme="light"] .achievement-item strong,
+        [data-theme="light"] .profile-info span,
+        [data-theme="light"] .membership-header,
+        [data-theme="light"] .position-compact-title,
+        [data-theme="light"] .position-compact-date,
+        [data-theme="light"] .research-card-title,
+        [data-theme="light"] .publication-title { color: #7d5c10 !important; }
+
+        /* Status badge (coming soon) */
+        [data-theme="light"] .status-badge.coming-soon {
+            background: rgba(154,115,32,0.10) !important;
+            color: #7d5c10 !important;
+            border-color: rgba(154,115,32,0.25) !important;
+        }
+
+        /* Publications page syntax-highlight colours (#7ec8ff blue, #6be8a0 green) */
+        [data-theme="light"] [style*="color: #7ec8ff"],
+        [data-theme="light"] [style*="color:#7ec8ff"] { color: #1a5a8a !important; }
+        [data-theme="light"] [style*="color: #6be8a0"],
+        [data-theme="light"] [style*="color:#6be8a0"] { color: #1a6b3a !important; }
+        [data-theme="light"] [style*="color: #e8c484"],
+        [data-theme="light"] [style*="color:#e8c484"] { color: #7d5c10 !important; }
+
+        /* Any remaining light-on-dark links in cards */
+        [data-theme="light"] a[style*="color: #c9a961"],
+        [data-theme="light"] a[style*="color:#c9a961"] { color: #7d5c10 !important; }
+
+        /* Nav list items that use gold color */
+        [data-theme="light"] .nav-list a { color: #1e1410 !important; }
+
+        /* pub-link & pub-tag */
+        [data-theme="light"] .pub-link {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-color: rgba(154,115,32,0.25) !important;
+        }
+        [data-theme="light"] .pub-link:hover { color: #7d5c10 !important; }
+        [data-theme="light"] .pub-tag {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.25) !important;
+        }
+
+        /* copy/bibtex buttons */
+        [data-theme="light"] .bibtex-toggle,
+        [data-theme="light"] .copy-btn {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .bibtex-toggle:hover,
+        [data-theme="light"] .copy-btn:hover { color: #1e1410 !important; }
+
+    
+        /* ===== LIGHT MODE: all #b8c5d0 / #8a96a3 muted-text overrides ===== */
+
+        /* Global: any element whose computed colour comes from body #b8c5d0 */
+        [data-theme="light"] body { color: #1e1410 !important; }
+
+        /* Every class that hardcodes #b8c5d0 */
+        [data-theme="light"] .page-description,
+        [data-theme="light"] .section-subtitle,
+        [data-theme="light"] .profile-info,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .stat-chip .label,
+        [data-theme="light"] .membership-role-title,
+        [data-theme="light"] .membership-detail-item,
+        [data-theme="light"] .no-results,
+        [data-theme="light"] .education-location,
+        [data-theme="light"] .thesis-supervisor,
+        [data-theme="light"] .achievement-text,
+        [data-theme="light"] .course-item,
+        [data-theme="light"] .footer-left p,
+        [data-theme="light"] .position-subsection p,
+        [data-theme="light"] .position-subsection span,
+        [data-theme="light"] .container > ul > li > p,
+        [data-theme="light"] .publication-authors,
+        [data-theme="light"] .publication-description,
+        [data-theme="light"] .publication-date,
+        [data-theme="light"] .publication-footnote,
+        [data-theme="light"] .publication-venue,
+        [data-theme="light"] .research-topic-item,
+        [data-theme="light"] .tech-skill-items,
+        [data-theme="light"] .note-description,
+        [data-theme="light"] .filter-btn,
+        [data-theme="light"] .hero-text .bio,
+        [data-theme="light"] .future-description p,
+        [data-theme="light"] .about-content p,
+        [data-theme="light"] .about-content-compact p,
+        [data-theme="light"] .research-content p { color: #3d2820 !important; }
+
+        /* #8a96a3 — projects page card meta & description */
+        [data-theme="light"] .blog-entry .meta,
+        [data-theme="light"] .blog-entry .meta a,
+        [data-theme="light"] .blog-entry .description { color: #3d2820 !important; }
+
+        /* Inline style overrides */
+        [data-theme="light"] [style*="color: #b8c5d0"],
+        [data-theme="light"] [style*="color:#b8c5d0"],
+        [data-theme="light"] [style*="color: #8a96a3"],
+        [data-theme="light"] [style*="color:#8a96a3"] { color: #3d2820 !important; }
+
+        /* Section page-level descriptions that use #b8c5d0 directly on the element */
+        [data-theme="light"] p[style*="color: #b8c5d0"],
+        [data-theme="light"] p[style*="color:#b8c5d0"],
+        [data-theme="light"] span[style*="color: #b8c5d0"],
+        [data-theme="light"] span[style*="color:#b8c5d0"],
+        [data-theme="light"] div[style*="color: #b8c5d0"],
+        [data-theme="light"] div[style*="color:#b8c5d0"] { color: #3d2820 !important; }
+
+        /* Catch all remaining elements with these muted colours via universal child selector */
+        [data-theme="light"] section p:not([class]),
+        [data-theme="light"] .container p:not([class]) { color: #3d2820; }
+
+    
+        /* ===== LIGHT MODE: high-contrast final pass ===== */
+
+        /* Research page */
+        [data-theme="light"] .research-description { color: #3d2820 !important; }
+        [data-theme="light"] .research-supervisors {
+            color: #5a4008 !important;
+            border-left-color: rgba(154,115,32,0.5) !important;
+        }
+        [data-theme="light"] .research-supervisors strong { color: #7d5c10 !important; }
+        [data-theme="light"] .research-supervisors a { color: #7d5c10 !important; border-bottom-color: rgba(125,92,16,0.4) !important; }
+        [data-theme="light"] .research-supervisors a:hover { color: #5a4008 !important; }
+        [data-theme="light"] .research-link {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.35) !important;
+        }
+        [data-theme="light"] .research-link:hover {
+            background: rgba(154,115,32,0.22) !important;
+            border-color: rgba(154,115,32,0.6) !important;
+            color: #5a4008 !important;
+        }
+        [data-theme="light"] .keyword-tag {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.12) !important;
+            border-color: rgba(154,115,32,0.28) !important;
+        }
+        [data-theme="light"] .research-icon { filter: brightness(0.82) saturate(1.1); }
+
+        /* Achievements page */
+        [data-theme="light"] .achievement-item strong { color: #7d5c10 !important; }
+        [data-theme="light"] .membership-header { color: #7d5c10 !important; }
+        [data-theme="light"] .membership-role-date { color: #7d5c10 !important; }
+        [data-theme="light"] .achievement-card,
+        [data-theme="light"] .membership-card {
+            background: rgba(255,248,244,0.82) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+
+        /* Universal: every element still showing b8c5d0 or c9a961 directly */
+        [data-theme="light"] * { --resolved-muted: #3d2820; }
+
+        /* Catch all remaining var(--text-muted) which resolves to #b8c5d0 */
+        [data-theme="light"] {
+            --text-muted: #3d2820;
+            --text-light: #1e1410;
+        }
+
+        /* Catch remaining var(--gold-primary) in text contexts */
+        [data-theme="light"] .position-compact-date { color: #7d5c10 !important; }
+        [data-theme="light"] .position-compact-title { color: #7d5c10 !important; }
+        [data-theme="light"] .section-line { background: linear-gradient(135deg, #9a7320, #b08530) !important; }
+
+        /* Notes page filter buttons */
+        [data-theme="light"] .filter-btn { color: #3d2820 !important; background: rgba(154,115,32,0.08) !important; border-color: rgba(154,115,32,0.22) !important; }
+        [data-theme="light"] .filter-btn.active,
+        [data-theme="light"] .filter-btn:hover { color: #1e1410 !important; background: rgba(154,115,32,0.18) !important; }
+
+        /* Contact page form fields */
+        [data-theme="light"] input,
+        [data-theme="light"] textarea,
+        [data-theme="light"] select {
+            background: rgba(255,248,244,0.9) !important;
+            border-color: rgba(154,115,32,0.3) !important;
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] input::placeholder,
+        [data-theme="light"] textarea::placeholder { color: #7a6050 !important; }
+
+    
+        /* ===== LIGHT MODE: achievements + remaining per-page contrast fixes ===== */
+
+        /* achievements.html */
+        [data-theme="light"] .intro-text { color: #3d2820 !important; }
+        [data-theme="light"] .section-subtitle {
+            color: #1e1410 !important;
+            border-left-color: #9a7320 !important;
+        }
+        [data-theme="light"] .achievement-item {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-left-color: #9a7320 !important;
+        }
+        [data-theme="light"] .achievement-item:hover {
+            background: rgba(154,115,32,0.14) !important;
+        }
+        [data-theme="light"] .achievement-item strong { color: #7d5c10 !important; }
+        [data-theme="light"] .achievement-item a { color: #7d5c10 !important; border-bottom-color: #9a7320 !important; }
+        [data-theme="light"] .achievement-item a:hover { color: #5a4008 !important; }
+        [data-theme="light"] .membership-role { color: #3d2820 !important; border-bottom-color: rgba(154,115,32,0.2) !important; }
+        [data-theme="light"] .membership-role-title { color: #3d2820 !important; }
+        [data-theme="light"] .membership-detail-item { color: #3d2820 !important; }
+        [data-theme="light"] .membership-detail-item::before { color: #9a7320 !important; }
+        [data-theme="light"] .membership-details { border-top-color: rgba(154,115,32,0.2) !important; }
+        [data-theme="light"] .membership-role:last-of-type { border-bottom: none !important; }
+
+        /* research.html — remaining inline b8c5d0 */
+        [data-theme="light"] .research-item {
+            background: rgba(255,248,244,0.75) !important;
+            border-color: rgba(154,115,32,0.18) !important;
+        }
+        [data-theme="light"] .research-item .research-description { color: #3d2820 !important; }
+
+        /* academic_experience.html */
+        [data-theme="light"] .container > ul > li > p { color: #3d2820 !important; }
+        [data-theme="light"] .container > ul > li > p:first-of-type { color: #1e1410 !important; }
+
+        /* publications.html */
+        [data-theme="light"] .publication-description { color: #3d2820 !important; }
+        [data-theme="light"] .publication-authors { color: #3d2820 !important; }
+
+        /* Catch ALL remaining var(--text-muted) computed values */
+        [data-theme="light"] p,
+        [data-theme="light"] li,
+        [data-theme="light"] span:not(.gold):not(.highlight) {
+            /* Only apply where colour hasn't been set more specifically */
+        }
+
+        /* Force any element still inheriting the dark #b8c5d0 body colour */
+        [data-theme="light"] .achievements-list,
+        [data-theme="light"] .stats-section,
+        [data-theme="light"] .memberships-section { color: #3d2820; }
+
+        /* notes.html note cards */
+        [data-theme="light"] .note-title { color: #1e1410 !important; }
+        [data-theme="light"] .note-description { color: #3d2820 !important; }
+        [data-theme="light"] .note-meta { color: #5a4008 !important; }
+        [data-theme="light"] .category-title h2 { color: #1e1410 !important; }
+
+        /* contact.html */
+        [data-theme="light"] .contact-method-title { color: #1e1410 !important; }
+        [data-theme="light"] .contact-method-value { color: #3d2820 !important; }
+        [data-theme="light"] .contact-method-desc { color: #3d2820 !important; }
+
+        /* Universal: any element with color still b8c5d0 via inheritance */
+        [data-theme="light"] .section-alt,
+        [data-theme="light"] .section-dark { color: #3d2820; }
+
+    
+        /* ===== LIGHT MODE: publications page full contrast fix ===== */
+
+        /* Text elements */
+        [data-theme="light"] .publication-authors { color: #3d2820 !important; }
+        [data-theme="light"] .publication-journal { color: #5a4008 !important; }
+        [data-theme="light"] .meta-item { color: #3d2820 !important; }
+        [data-theme="light"] .meta-item span { color: #3d2820 !important; }
+        [data-theme="light"] .publication-description { color: #3d2820 !important; }
+
+        /* Tags */
+        [data-theme="light"] .tag {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.12) !important;
+            border-color: rgba(154,115,32,0.28) !important;
+        }
+
+        /* Action buttons (Cite, PDF, DOI links) */
+        [data-theme="light"] .action-btn {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+        }
+        [data-theme="light"] .action-btn:hover {
+            background: rgba(154,115,32,0.22) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+            color: #5a4008 !important;
+        }
+
+        /* BibTeX toggle button */
+        [data-theme="light"] .bibtex-toggle {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+        }
+        [data-theme="light"] .bibtex-toggle:hover {
+            background: rgba(154,115,32,0.20) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+        }
+
+        /* BibTeX block */
+        [data-theme="light"] .bibtex-block {
+            background: rgba(252,243,240,0.95) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .bibtex-header {
+            background: rgba(154,115,32,0.08) !important;
+            border-bottom-color: rgba(154,115,32,0.18) !important;
+        }
+        [data-theme="light"] .bibtex-label {
+            color: #7d5c10 !important;
+        }
+        [data-theme="light"] .copy-bibtex-btn {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.28) !important;
+        }
+        [data-theme="light"] .copy-bibtex-btn:hover {
+            background: rgba(154,115,32,0.20) !important;
+        }
+        [data-theme="light"] .copy-bibtex-btn.copied {
+            color: #1a6b3a !important;
+            border-color: rgba(26,107,58,0.4) !important;
+            background: rgba(26,107,58,0.08) !important;
+        }
+        [data-theme="light"] .bibtex-code {
+            color: #1e1410 !important;
+            background: transparent !important;
+        }
+
+        /* Filter/search buttons */
+        [data-theme="light"] .filter-btn {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .filter-btn.active,
+        [data-theme="light"] .filter-btn:hover {
+            color: #1e1410 !important;
+            background: rgba(154,115,32,0.20) !important;
+            border-color: rgba(154,115,32,0.45) !important;
+        }
+
+        /* Search input */
+        [data-theme="light"] .search-input,
+        [data-theme="light"] input[type="search"],
+        [data-theme="light"] input[type="text"] {
+            background: rgba(255,248,244,0.9) !important;
+            border-color: rgba(154,115,32,0.3) !important;
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .search-input::placeholder { color: #7a6050 !important; }
+
+        /* Stat cards in publications */
+        [data-theme="light"] .stat-number { color: #7d5c10 !important; }
+        [data-theme="light"] .stat-label { color: #3d2820 !important; }
+
+    
+        /* ===== LIGHT MODE: contact page ===== */
+        [data-theme="light"] .contact-card {
+            background: rgba(255,248,244,0.82) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .contact-card:hover {
+            background: rgba(255,248,244,0.95) !important;
+            border-color: rgba(154,115,32,0.4) !important;
+            box-shadow: 0 15px 35px rgba(154,115,32,0.18) !important;
+        }
+        [data-theme="light"] .contact-title { color: #1e1410 !important; }
+        [data-theme="light"] .contact-info { color: #3d2820 !important; }
+        [data-theme="light"] .contact-icon {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+            box-shadow: 0 8px 20px rgba(154,115,32,0.25) !important;
+        }
+        [data-theme="light"] .contact-link {
+            background: linear-gradient(135deg, #9a7320, #b08530) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(154,115,32,0.3) !important;
+        }
+        [data-theme="light"] .contact-link:hover {
+            box-shadow: 0 10px 25px rgba(154,115,32,0.35) !important;
+        }
+        [data-theme="light"] .academic-profiles-heading { color: #3d2820 !important; }
+        [data-theme="light"] .academic-profiles-heading span { color: #9a7320 !important; }
+
     </style>
 
     <!-- SEO, social cards & favicon -->
@@ -558,6 +1628,7 @@
     <meta name="twitter:description" content="Contact Adrita Khan — researcher in cosmology and machine learning for astrophysics. Email, LinkedIn, ORCID, and Google Scholar.">
     <meta name="twitter:image" content="https://adrita-khan.github.io/assets/og-preview.png">
 
+    <script>(function(){var t=sessionStorage.getItem('ak-theme-set')?sessionStorage.getItem('ak-theme'):'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
@@ -587,7 +1658,11 @@
     </a>
 
     <!-- Navigation -->
-    <nav id="quick-links" aria-label="Main navigation">
+        <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+        <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+<nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -724,6 +1799,29 @@
             scrollBtn.classList.toggle('visible', window.pageYOffset > 300);
         });
         scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+    <script>
+        (function(){
+            function applyTheme(theme, save) {
+                document.documentElement.setAttribute('data-theme', theme);
+                if (save) { sessionStorage.setItem('ak-theme', theme); sessionStorage.setItem('ak-theme-set','1'); }
+                var moon = document.getElementById('theme-icon-moon');
+                var sun  = document.getElementById('theme-icon-sun');
+                if (moon && sun) {
+                    moon.style.display = theme === 'dark' ? 'block' : 'none';
+                    sun.style.display  = theme === 'light' ? 'block' : 'none';
+                }
+            }
+            window.addEventListener('DOMContentLoaded', function(){
+                var t = document.documentElement.getAttribute('data-theme') || 'dark';
+                applyTheme(t, false);
+                var btn = document.getElementById('theme-toggle');
+                if (btn) btn.addEventListener('click', function(){
+                    var now = document.documentElement.getAttribute('data-theme') || 'dark';
+                    applyTheme(now === 'dark' ? 'light' : 'dark', true);
+                });
+            });
+        })();
     </script>
 </body>
 </html>
