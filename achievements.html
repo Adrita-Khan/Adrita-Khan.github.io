@@ -1123,6 +1123,75 @@
         [data-theme="light"] input::placeholder,
         [data-theme="light"] textarea::placeholder { color: #7a6050 !important; }
 
+    
+        /* ===== LIGHT MODE: achievements + remaining per-page contrast fixes ===== */
+
+        /* achievements.html */
+        [data-theme="light"] .intro-text { color: #3d2820 !important; }
+        [data-theme="light"] .section-subtitle {
+            color: #1e1410 !important;
+            border-left-color: #9a7320 !important;
+        }
+        [data-theme="light"] .achievement-item {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-left-color: #9a7320 !important;
+        }
+        [data-theme="light"] .achievement-item:hover {
+            background: rgba(154,115,32,0.14) !important;
+        }
+        [data-theme="light"] .achievement-item strong { color: #7d5c10 !important; }
+        [data-theme="light"] .achievement-item a { color: #7d5c10 !important; border-bottom-color: #9a7320 !important; }
+        [data-theme="light"] .achievement-item a:hover { color: #5a4008 !important; }
+        [data-theme="light"] .membership-role { color: #3d2820 !important; border-bottom-color: rgba(154,115,32,0.2) !important; }
+        [data-theme="light"] .membership-role-title { color: #3d2820 !important; }
+        [data-theme="light"] .membership-detail-item { color: #3d2820 !important; }
+        [data-theme="light"] .membership-detail-item::before { color: #9a7320 !important; }
+        [data-theme="light"] .membership-details { border-top-color: rgba(154,115,32,0.2) !important; }
+        [data-theme="light"] .membership-role:last-of-type { border-bottom: none !important; }
+
+        /* research.html — remaining inline b8c5d0 */
+        [data-theme="light"] .research-item {
+            background: rgba(255,248,244,0.75) !important;
+            border-color: rgba(154,115,32,0.18) !important;
+        }
+        [data-theme="light"] .research-item .research-description { color: #3d2820 !important; }
+
+        /* academic_experience.html */
+        [data-theme="light"] .container > ul > li > p { color: #3d2820 !important; }
+        [data-theme="light"] .container > ul > li > p:first-of-type { color: #1e1410 !important; }
+
+        /* publications.html */
+        [data-theme="light"] .publication-description { color: #3d2820 !important; }
+        [data-theme="light"] .publication-authors { color: #3d2820 !important; }
+
+        /* Catch ALL remaining var(--text-muted) computed values */
+        [data-theme="light"] p,
+        [data-theme="light"] li,
+        [data-theme="light"] span:not(.gold):not(.highlight) {
+            /* Only apply where colour hasn't been set more specifically */
+        }
+
+        /* Force any element still inheriting the dark #b8c5d0 body colour */
+        [data-theme="light"] .achievements-list,
+        [data-theme="light"] .stats-section,
+        [data-theme="light"] .memberships-section { color: #3d2820; }
+
+        /* notes.html note cards */
+        [data-theme="light"] .note-title { color: #1e1410 !important; }
+        [data-theme="light"] .note-description { color: #3d2820 !important; }
+        [data-theme="light"] .note-meta { color: #5a4008 !important; }
+        [data-theme="light"] .category-title h2 { color: #1e1410 !important; }
+
+        /* contact.html */
+        [data-theme="light"] .contact-method-title { color: #1e1410 !important; }
+        [data-theme="light"] .contact-method-value { color: #3d2820 !important; }
+        [data-theme="light"] .contact-method-desc { color: #3d2820 !important; }
+
+        /* Universal: any element with color still b8c5d0 via inheritance */
+        [data-theme="light"] .section-alt,
+        [data-theme="light"] .section-dark { color: #3d2820; }
+
     </style>
 
     <meta name="description" content="Awards, summer schools, conferences, and fellowships received by Adrita Khan in physics and astronomy.">
