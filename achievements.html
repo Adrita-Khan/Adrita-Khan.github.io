@@ -494,7 +494,7 @@
 
         /* Footer */
         [data-theme="light"] footer {
-            background: rgba(220,200,196,0.92);
+            background: rgba(195,172,168,0.95);
             border-top: 1px solid rgba(201,169,97,0.15);
             color: #3d2820;
         }
@@ -511,11 +511,11 @@
         /* ── Theme toggle: fixed, above scroll-to-top ── */
         #theme-toggle {
             position: fixed;
-            bottom: calc(2rem + 52px + 0.75rem);
+            bottom: 25rem;
             right: 2rem;
             z-index: 200;
-            width: 44px;
-            height: 44px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             border: 1px solid rgba(201,169,97,0.4);
             background: rgba(10,14,20,0.75);
@@ -546,18 +546,18 @@
             background: rgba(201,169,97,0.15);
         }
         #theme-toggle svg {
-            width: 18px;
-            height: 18px;
+            width: 24px;
+            height: 24px;
             fill: currentColor;
             transition: transform 0.4s ease !important;
         }
         #theme-toggle:hover svg { transform: rotate(20deg); }
         @media (max-width: 768px) {
-            #theme-toggle { bottom: calc(1rem + 48px + 0.75rem); right: 1rem; width: 40px; height: 40px; }
-            #theme-toggle svg { width: 16px; height: 16px; }
+            #theme-toggle { bottom: 25rem; right: 1rem; width: 50px; height: 50px; }
+            #theme-toggle svg { width: 22px; height: 22px; }
         }
         @media (max-width: 480px) {
-            #theme-toggle { bottom: calc(0.8rem + 44px + 0.75rem); right: 0.8rem; width: 38px; height: 38px; }
+            #theme-toggle { bottom: 25rem; right: 0.8rem; width: 48px; height: 48px; }
         }
 
         /* Skill tags */
@@ -1191,6 +1191,103 @@
         /* Universal: any element with color still b8c5d0 via inheritance */
         [data-theme="light"] .section-alt,
         [data-theme="light"] .section-dark { color: #3d2820; }
+
+    
+        /* ===== LIGHT MODE: publications page full contrast fix ===== */
+
+        /* Text elements */
+        [data-theme="light"] .publication-authors { color: #3d2820 !important; }
+        [data-theme="light"] .publication-journal { color: #5a4008 !important; }
+        [data-theme="light"] .meta-item { color: #3d2820 !important; }
+        [data-theme="light"] .meta-item span { color: #3d2820 !important; }
+        [data-theme="light"] .publication-description { color: #3d2820 !important; }
+
+        /* Tags */
+        [data-theme="light"] .tag {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.12) !important;
+            border-color: rgba(154,115,32,0.28) !important;
+        }
+
+        /* Action buttons (Cite, PDF, DOI links) */
+        [data-theme="light"] .action-btn {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+        }
+        [data-theme="light"] .action-btn:hover {
+            background: rgba(154,115,32,0.22) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+            color: #5a4008 !important;
+        }
+
+        /* BibTeX toggle button */
+        [data-theme="light"] .bibtex-toggle {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.30) !important;
+        }
+        [data-theme="light"] .bibtex-toggle:hover {
+            background: rgba(154,115,32,0.20) !important;
+            border-color: rgba(154,115,32,0.55) !important;
+        }
+
+        /* BibTeX block */
+        [data-theme="light"] .bibtex-block {
+            background: rgba(252,243,240,0.95) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .bibtex-header {
+            background: rgba(154,115,32,0.08) !important;
+            border-bottom-color: rgba(154,115,32,0.18) !important;
+        }
+        [data-theme="light"] .bibtex-label {
+            color: #7d5c10 !important;
+        }
+        [data-theme="light"] .copy-bibtex-btn {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.10) !important;
+            border-color: rgba(154,115,32,0.28) !important;
+        }
+        [data-theme="light"] .copy-bibtex-btn:hover {
+            background: rgba(154,115,32,0.20) !important;
+        }
+        [data-theme="light"] .copy-bibtex-btn.copied {
+            color: #1a6b3a !important;
+            border-color: rgba(26,107,58,0.4) !important;
+            background: rgba(26,107,58,0.08) !important;
+        }
+        [data-theme="light"] .bibtex-code {
+            color: #1e1410 !important;
+            background: transparent !important;
+        }
+
+        /* Filter/search buttons */
+        [data-theme="light"] .filter-btn {
+            color: #3d2820 !important;
+            background: rgba(154,115,32,0.08) !important;
+            border-color: rgba(154,115,32,0.22) !important;
+        }
+        [data-theme="light"] .filter-btn.active,
+        [data-theme="light"] .filter-btn:hover {
+            color: #1e1410 !important;
+            background: rgba(154,115,32,0.20) !important;
+            border-color: rgba(154,115,32,0.45) !important;
+        }
+
+        /* Search input */
+        [data-theme="light"] .search-input,
+        [data-theme="light"] input[type="search"],
+        [data-theme="light"] input[type="text"] {
+            background: rgba(255,248,244,0.9) !important;
+            border-color: rgba(154,115,32,0.3) !important;
+            color: #1e1410 !important;
+        }
+        [data-theme="light"] .search-input::placeholder { color: #7a6050 !important; }
+
+        /* Stat cards in publications */
+        [data-theme="light"] .stat-number { color: #7d5c10 !important; }
+        [data-theme="light"] .stat-label { color: #3d2820 !important; }
 
     </style>
 
