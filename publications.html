@@ -705,8 +705,7 @@
             .footer-content { padding: 0 1rem; }
 
             /* Scroll-to-top */
-            .scroll-to-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; }
-        }
+            }
 
         /* Phone */
         @media (max-width: 640px) {
@@ -739,8 +738,7 @@
             .side-nav-label { display: none; }
             .side-nav-left { padding: 10px 9px 10px 6px; }
             .side-nav-right { padding: 10px 6px 10px 9px; }
-            .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 44px; height: 44px; }
-        }
+            }
     
         /* Active nav link (current page) — added for cross-page consistency */
         .nav-list a.active {
@@ -1013,7 +1011,7 @@
         /* ── Theme toggle: fixed, above scroll-to-top ── */
         #theme-toggle {
             position: fixed;
-            bottom: 25rem;
+            bottom: 28rem;
             right: 2rem;
             z-index: 200;
             width: 56px;
@@ -1054,13 +1052,6 @@
             transition: transform 0.4s ease !important;
         }
         #theme-toggle:hover svg { transform: rotate(20deg); }
-        @media (max-width: 768px) {
-            #theme-toggle { bottom: 25rem; right: 1rem; width: 50px; height: 50px; }
-            #theme-toggle svg { width: 22px; height: 22px; }
-        }
-        @media (max-width: 480px) {
-            #theme-toggle { bottom: 25rem; right: 0.8rem; width: 48px; height: 48px; }
-        }
 
         /* Skill tags */
         [data-theme="light"] .skill-tag {
@@ -1813,6 +1804,31 @@
         [data-theme="light"] .pub-link { text-decoration-color: rgba(154,115,32,0.45) !important; }
         [data-theme="light"] .meta-item a { text-decoration-color: rgba(154,115,32,0.55) !important; color: #7d5c10 !important; }
         [data-theme="light"] a[style*="color: #c9a961"] { text-decoration: underline !important; text-decoration-color: rgba(154,115,32,0.5) !important; text-underline-offset: 2px !important; color: #7d5c10 !important; }
+
+    
+        /* ── Responsive: scroll-to-top + theme toggle ── */
+        /* Desktop (default): already defined above */
+
+        /* Tablet ≤ 1024px */
+        @media (max-width: 1024px) {
+            .scroll-to-top { bottom: 1.5rem; right: 1.5rem; width: 48px; height: 48px; }
+            #theme-toggle  { bottom: 23rem;  right: 1.5rem; width: 52px; height: 52px; }
+            #theme-toggle svg { width: 22px; height: 22px; }
+        }
+
+        /* Mobile ≤ 768px */
+        @media (max-width: 768px) {
+            .scroll-to-top { bottom: 1rem; right: 1rem; width: 44px; height: 44px; }
+            #theme-toggle  { bottom: 19rem; right: 1rem;  width: 46px; height: 46px; }
+            #theme-toggle svg { width: 20px; height: 20px; }
+        }
+
+        /* Small mobile ≤ 480px */
+        @media (max-width: 480px) {
+            .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 40px; height: 40px; }
+            #theme-toggle  { bottom: 15rem;  right: 0.8rem; width: 42px; height: 42px; }
+            #theme-toggle svg { width: 18px; height: 18px; }
+        }
 
     </style>
 
