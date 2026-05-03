@@ -1003,7 +1003,18 @@
             color: #3d2820;
         }
         [data-theme="light"] .footer-left p { color: #3d2820 !important; }
-        [data-theme="light"] .footer-stat-number { color: #9a7320 !important; }
+        [data-theme="light"] .footer-stat-number {
+            background: linear-gradient(135deg, #5a3e08 0%, #7d5c10 50%, #9a7320 100%) !important;
+            background-clip: text !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        [data-theme="light"] .footer-stat-label { color: #1e1410 !important; }
+        [data-theme="light"] .footer-left p { color: #1e1410 !important; }
+        [data-theme="light"] .footer-left p:first-child { color: #1e1410 !important; }
+        [data-theme="light"] .footer-stat-divider {
+            background: linear-gradient(to bottom, transparent, rgba(90,62,8,0.4), transparent) !important;
+        }
         [data-theme="light"] .footer-stat-label { color: #3d2820 !important; }
 
         
