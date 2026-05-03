@@ -1450,6 +1450,54 @@
         /* Nav/profile links */
         [data-theme="light"] .nav-list a { color: #1e1410 !important; }
         [data-theme="light"] a.active-nav, [data-theme="light"] .nav-list a.active { color: #7d5c10 !important; }
+        /* Ensure emoji inside renders at full colour */
+        [data-theme="light"] .education-icon,
+        [data-theme="light"] .education-icon * {
+            -webkit-filter: none !important;
+            filter: none !important;
+            opacity: 1 !important;
+        }
+
+    
+        /* ===== View Project button + emoji icon contrast ===== */
+        .view-project-btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: rgba(201,169,97,0.15);
+            border: 1px solid rgba(201,169,97,0.3);
+            border-radius: 8px;
+            color: #c9a961;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .view-project-btn:hover {
+            background: rgba(201,169,97,0.28);
+            border-color: rgba(201,169,97,0.6);
+        }
+        [data-theme="light"] .view-project-btn {
+            color: #7d5c10 !important;
+            background: rgba(154,115,32,0.12) !important;
+            border-color: rgba(154,115,32,0.35) !important;
+        }
+        [data-theme="light"] .view-project-btn:hover {
+            background: rgba(154,115,32,0.22) !important;
+        }
+
+        /* education-icon: white background in light mode so emojis pop */
+        [data-theme="light"] .education-icon {
+            background: rgba(255,255,255,0.95) !important;
+            box-shadow: 0 4px 16px rgba(154,115,32,0.18), 0 0 0 1.5px rgba(154,115,32,0.22) !important;
+            filter: none !important;
+        }
+
+        /* All emoji characters — no colour distortion */
+        [data-theme="light"] .education-icon,
+        [data-theme="light"] .soft-skill-tag,
+        [data-theme="light"] .view-project-btn {
+            -webkit-filter: none !important;
+            filter: none !important;
+        }
 
     </style>
 
@@ -1766,7 +1814,7 @@
                     </p>
                     <div style="margin-top:1rem;">
                         <a href="https://github.com/Adrita-Khan/AstroPhotoZ" target="_blank" rel="noopener noreferrer"
-                           style="display:inline-block;padding:0.6rem 1.2rem;background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.3);border-radius:8px;color:#c9a961;text-decoration:none;font-size:0.9rem;transition:all 0.3s ease;">
+                           class="view-project-btn">
                            📂 View Project on GitHub
                         </a>
                     </div>
