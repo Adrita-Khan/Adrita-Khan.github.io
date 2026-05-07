@@ -552,49 +552,122 @@
 
     
         /* ── Theme toggle: fixed, above scroll-to-top ── */
-        #theme-toggle {
+        #theme-toggle-wrap {
             position: fixed;
-            bottom: 28rem;
-            right: 2rem;
+            bottom: 2rem;
+            left: 2rem;
             z-index: 200;
-            width: 56px;
-            height: 56px;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Pulse ring */
+        #theme-toggle-wrap::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
-            border: 1px solid rgba(201,169,97,0.4);
-            background: rgba(10,14,20,0.75);
+            border: 2px solid rgba(201,169,97,0.5);
+            transform: translate(-50%, -50%) scale(1);
+            animation: togglePulse 2.5s ease-out infinite;
+            pointer-events: none;
+        }
+        @keyframes togglePulse {
+            0%   { transform: translate(-50%,-50%) scale(0.9); opacity: 0.8; }
+            70%  { transform: translate(-50%,-50%) scale(1.55); opacity: 0; }
+            100% { transform: translate(-50%,-50%) scale(1.55); opacity: 0; }
+        }
+
+        #theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid rgba(201,169,97,0.55);
+            background: rgba(10,14,20,0.88);
             color: #c9a961;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 0 0 0 rgba(201,169,97,0), 0 6px 24px rgba(0,0,0,0.4);
+            animation: toggleGlow 2.5s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes toggleGlow {
+            0%, 100% { box-shadow: 0 0 8px 2px rgba(201,169,97,0.25), 0 6px 24px rgba(0,0,0,0.4); }
+            50%       { box-shadow: 0 0 22px 6px rgba(201,169,97,0.45), 0 6px 24px rgba(0,0,0,0.4); }
         }
         #theme-toggle:hover {
-            background: rgba(201,169,97,0.2);
-            border-color: rgba(201,169,97,0.7);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(201,169,97,0.3);
+            background: rgba(201,169,97,0.22);
+            border-color: rgba(201,169,97,0.85);
+            transform: scale(1.1);
+            box-shadow: 0 0 28px 8px rgba(201,169,97,0.5), 0 8px 28px rgba(0,0,0,0.4) !important;
+            animation: none;
         }
+
+        /* Floating label that appears on hover */
+        #theme-toggle-label {
+            position: absolute;
+            left: 72px;
+            white-space: nowrap;
+            background: rgba(10,14,20,0.92);
+            border: 1px solid rgba(201,169,97,0.35);
+            color: #d4b56d;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 0.4rem 0.85rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+        }
+        #theme-toggle-wrap:hover #theme-toggle-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         [data-theme="light"] #theme-toggle {
-            background: rgba(240,228,226,0.92);
-            border-color: rgba(201,169,97,0.4);
+            background: rgba(240,228,226,0.95);
+            border-color: rgba(154,115,32,0.55);
             color: #7d5c10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
         }
-        [data-theme="light"] #theme-toggle:hover {
-            background: rgba(201,169,97,0.15);
+        [data-theme="light"] #theme-toggle-wrap::before {
+            border-color: rgba(154,115,32,0.4);
         }
+        [data-theme="light"] #theme-toggle-label {
+            background: rgba(240,228,226,0.95);
+            border-color: rgba(154,115,32,0.35);
+            color: #7d5c10;
+        }
+        @keyframes toggleGlowLight {
+            0%, 100% { box-shadow: 0 0 8px 2px rgba(154,115,32,0.2), 0 6px 24px rgba(0,0,0,0.12); }
+            50%       { box-shadow: 0 0 20px 6px rgba(154,115,32,0.38), 0 6px 24px rgba(0,0,0,0.12); }
+        }
+        [data-theme="light"] #theme-toggle { animation: toggleGlowLight 2.5s ease-in-out infinite; }
+        [data-theme="light"] #theme-toggle:hover { animation: none; }
+
         #theme-toggle svg {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             fill: currentColor;
             transition: transform 0.4s ease !important;
+            position: relative;
+            z-index: 1;
         }
-        #theme-toggle:hover svg { transform: rotate(20deg); }
+        #theme-toggle:hover svg { transform: rotate(25deg) scale(1.15); }
 
         /* Skill tags */
         [data-theme="light"] .skill-tag {
@@ -1460,22 +1533,40 @@
         /* Tablet ≤ 1024px */
         @media (max-width: 1024px) {
             .scroll-to-top { bottom: 1.5rem; right: 1.5rem; width: 48px; height: 48px; }
-            #theme-toggle  { bottom: 23rem;  right: 1.5rem; width: 52px; height: 52px; }
-            #theme-toggle svg { width: 22px; height: 22px; }
+            #theme-toggle-wrap { bottom: 1.5rem; left: 1.5rem; } #theme-toggle { width: 56px; height: 56px; } #theme-toggle-wrap::before { width: 60px; height: 60px; }
+            #theme-toggle svg { width: 24px; height: 24px; }
         }
 
         /* Mobile ≤ 768px */
         @media (max-width: 768px) {
             .scroll-to-top { bottom: 1rem; right: 1rem; width: 44px; height: 44px; }
-            #theme-toggle  { bottom: 19rem; right: 1rem;  width: 46px; height: 46px; }
-            #theme-toggle svg { width: 20px; height: 20px; }
+            #theme-toggle-wrap { bottom: 1.2rem; left: 1.2rem; } #theme-toggle { width: 50px; height: 50px; } #theme-toggle-wrap::before { width: 56px; height: 56px; } #theme-toggle-label { display: none; }
+            #theme-toggle svg { width: 22px; height: 22px; }
         }
 
         /* Small mobile ≤ 480px */
         @media (max-width: 480px) {
             .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 40px; height: 40px; }
-            #theme-toggle  { bottom: 15rem;  right: 0.8rem; width: 42px; height: 42px; }
+            #theme-toggle-wrap { bottom: 1rem; left: 1rem; } #theme-toggle { width: 46px; height: 46px; } #theme-toggle-wrap::before { width: 52px; height: 52px; } #theme-toggle-label { display: none; }
+            #theme-toggle svg { width: 20px; height: 20px; }
+        }
+
+        /* ── Very small phones ≤ 400px ── */
+        @media (max-width: 400px) {
+            #theme-toggle-wrap { bottom: 0.9rem; left: 0.9rem; }
+            #theme-toggle { width: 42px; height: 42px; }
+            #theme-toggle-wrap::before { width: 48px; height: 48px; }
             #theme-toggle svg { width: 18px; height: 18px; }
+            #theme-toggle-label { display: none; }
+        }
+
+        /* ── Landscape mobile: shorter viewport, keep toggle visible ── */
+        @media (max-height: 500px) and (max-width: 900px) {
+            #theme-toggle-wrap { bottom: 0.6rem; left: 0.6rem; }
+            #theme-toggle { width: 40px; height: 40px; }
+            #theme-toggle-wrap::before { width: 46px; height: 46px; }
+            #theme-toggle svg { width: 18px; height: 18px; }
+            #theme-toggle-label { display: none; }
         }
 
     </style>
@@ -1535,10 +1626,13 @@
 
     <!-- Quick Links Navigation -->
 <h1 class="visually-hidden">Adrita Khan — Academic Experience</h1>
+    <div id="theme-toggle-wrap">
         <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
-        <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
+            <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <span id="theme-toggle-label">Toggle Theme</span>
+    </div>
 <nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
