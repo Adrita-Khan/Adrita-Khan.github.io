@@ -140,11 +140,3 @@ This repository hosts the source code for my academic portfolio website: **[adri
 [![ORCID](https://img.shields.io/badge/ORCID-ff8c00?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/YOUR_ORCID)
 
 </div>
-
----
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,50:ff8c00,100:ff6600&height=100&section=footer" width="100%" />
-
-</div>
