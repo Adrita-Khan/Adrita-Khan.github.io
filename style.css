@@ -10,7 +10,7 @@
      --gold-primary  #c9a961    main accent
      --gold-light    #d4b56d    hover / highlight
      --gold-dark     #b89d55    pressed / deep accent
-     --bg-dark       #0a0e14    gradient stop 1
+     --bg-dark       #0a0e14    gradient stop 1 
      --bg-mid        #0f1923    gradient stop 2
      --bg-light      #152232    gradient stop 3
      --text-light    #ffffff    headings
@@ -274,7 +274,7 @@ a:hover {
     font-weight: 600;
     color: #fff;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     -webkit-tap-highlight-color: transparent;
 }
 
