@@ -1556,6 +1556,359 @@
         /* Hide any leftover floating toggle wrapper */
         #theme-toggle-wrap { display: none !important; }
 
+    
+        /* ── Sub-section heading for grouping content within a page ── */
+        .subsection-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .subsection-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px; height: 22px;
+            background: linear-gradient(180deg, #c9a961, #d4b56d);
+            border-radius: 2px;
+        }
+        [data-theme="light"] .subsection-title {
+            color: #1e1410 !important;
+            border-bottom-color: rgba(154,115,32,0.3);
+        }
+        @media (max-width: 640px) {
+            .subsection-title { font-size: 1.3rem; margin: 2rem 0 1rem; }
+        }
+        /* Research-intro style block (matches research.html) */
+        .research-intro {
+            background: rgba(201, 169, 97, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
+        }
+        .research-intro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            background: rgba(201, 169, 97, 0.12);
+        }
+        .research-intro p {
+            font-size: 1.05rem;
+            color: #b8c5d0;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        [data-theme="light"] .research-intro p { color: #3d2820 !important; }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d);
+            border-radius: 2px;
+        }
+        [data-theme="light"] .section-title { color: #1e1410 !important; }
+        @media (max-width: 768px) { .section-title { font-size: 2rem; } }
+        @media (max-width: 640px) { .section-title { font-size: 1.75rem; } }
+        @media (max-width: 400px) { .section-title { font-size: 1.5rem; } }
+        /* Container padding to match other pages */
+        .container { padding: 1.5rem 2rem 2rem; }
+        @media (max-width: 768px) { .container { padding: 1.2rem 1rem 2rem; } }
+        @media (max-width: 640px) { .container { padding: 1rem 0.9rem 1.5rem; } }
+        @media (max-width: 400px) { .container { padding: 0.9rem 0.75rem 1.5rem; } }
+
+    
+        /* ════════════════════════════════════════════════════════════════════
+           BLOG PAGE REDESIGN  —  align with research.html aesthetic
+           Overrides several rules above. Keep at end of styles.
+           ════════════════════════════════════════════════════════════════════ */
+
+        /* Tighter page rhythm */
+        .container { max-width: 1100px; }
+        .section-title { margin-bottom: 1.5rem; }
+        .research-intro { padding: 1.5rem 1.8rem; }
+        .research-intro p { text-align: center; }
+        .research-intro p + p { margin-top: 0.5rem; }
+
+        /* Subsection rhythm */
+        .subsection-title { margin: 3rem 0 1.8rem; }
+
+        /* Category section */
+        .category-section { margin-bottom: 3rem; animation: sectionFadeIn 0.6s ease both; }
+        .category-section:last-child { margin-bottom: 1rem; }
+
+        /* Category header — slim, like a section sub-label */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.95rem;
+            margin-bottom: 1.4rem;
+            padding-bottom: 0;
+            border-bottom: none;
+            position: relative;
+        }
+        .category-header::after { display: none; }
+
+        /* Category icon — gold-gradient circle that matches .research-icon on research.html */
+        .category-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c9a961, #d4b56d);
+            border: none;
+            box-shadow: 0 4px 14px rgba(201, 169, 97, 0.35);
+            margin-right: 0;
+            padding: 0;
+            backdrop-filter: none;
+            position: relative;
+            overflow: visible;
+        }
+        .category-icon::after { display: none; }
+        .category-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        /* Invert SVG strokes inside the gold-gradient circle so they read as dark */
+        .category-icon svg path,
+        .category-icon svg line,
+        .category-icon svg circle,
+        .category-icon svg ellipse,
+        .category-icon svg rect,
+        .category-icon svg polyline,
+        .category-icon svg polygon {
+            stroke: #0a0e14 !important;
+        }
+        .category-icon svg path[fill]:not([fill="none"]),
+        .category-icon svg circle[fill]:not([fill="none"]),
+        .category-icon svg rect[fill]:not([fill="none"]),
+        .category-icon svg ellipse[fill]:not([fill="none"]) {
+            fill: rgba(10, 14, 20, 0.85) !important;
+        }
+        .category-icon svg *[stroke^="rgba(201"],
+        .category-icon svg *[stroke^="#c9a961"],
+        .category-icon svg *[stroke="#c9a961"] {
+            stroke: #0a0e14 !important;
+        }
+
+        .category-title h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+        }
+        .category-description {
+            font-size: 0.88rem;
+            color: rgba(201, 169, 97, 0.85);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        [data-theme="light"] .category-title h2 { color: #1e1410 !important; }
+        [data-theme="light"] .category-description { color: #7d5c10 !important; }
+
+        /* Cards — research-item style: subtle bg, top accent on hover */
+        .notes-grid { gap: 1.2rem; margin-top: 0.4rem; }
+        .note-card {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.16);
+            border-radius: 14px;
+            padding: 2.2rem 1.5rem 1.4rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease,
+                        background 0.35s ease, border-color 0.35s ease;
+        }
+        .note-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            opacity: 1;
+        }
+        .note-card:hover::before { transform: translateX(0); }
+        .note-card::after { display: none !important; }
+        .note-card:hover {
+            transform: translateY(-4px);
+            background: rgba(201, 169, 97, 0.09);
+            border-color: rgba(201, 169, 97, 0.32);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3),
+                        0 0 26px rgba(201, 169, 97, 0.06);
+        }
+
+        /* Drop the noisy SVG corner decorations */
+        .card-corner { display: none !important; }
+
+        /* Card header — small gold gradient icon, tighter alignment */
+        .note-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            margin-bottom: 0.85rem;
+        }
+        .note-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.85), rgba(212, 181, 109, 0.85));
+            border: none;
+            box-shadow: 0 3px 10px rgba(201, 169, 97, 0.28);
+            flex-shrink: 0;
+            margin-right: 0;
+        }
+        .note-icon svg { width: 16px; height: 16px; }
+        .note-icon svg path,
+        .note-icon svg line,
+        .note-icon svg circle,
+        .note-icon svg ellipse,
+        .note-icon svg rect,
+        .note-icon svg polyline,
+        .note-icon svg polygon {
+            stroke: #0a0e14 !important;
+        }
+        .note-icon svg path[fill]:not([fill="none"]),
+        .note-icon svg circle[fill]:not([fill="none"]),
+        .note-icon svg rect[fill]:not([fill="none"]) {
+            fill: rgba(10, 14, 20, 0.75) !important;
+        }
+
+        .note-title {
+            font-size: 1.04rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.35;
+            margin-bottom: 0.18rem;
+        }
+        .note-subtitle {
+            font-size: 0.78rem;
+            color: rgba(201, 169, 97, 0.85);
+            font-weight: 500;
+        }
+        .note-description {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: rgba(184, 197, 208, 0.85);
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        [data-theme="light"] .note-description { color: #3d2820 !important; }
+
+        /* Tags */
+        .note-tags { gap: 0.4rem; margin-bottom: 1.1rem; }
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.22rem 0.65rem;
+            border-radius: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Single action button — pill, matches .research-link on research.html */
+        .note-actions { display: flex; gap: 0.5rem; justify-content: flex-start; align-items: center; }
+        .note-btn {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(201, 169, 97, 0.1);
+            color: #c9a961;
+            border: 1.5px solid rgba(201, 169, 97, 0.3);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        .note-btn::after {
+            content: '→';
+            transition: transform 0.3s ease;
+            font-size: 1.05rem;
+            line-height: 1;
+        }
+        .note-btn:hover {
+            background: rgba(201, 169, 97, 0.2);
+            border-color: #c9a961;
+            color: #d4b56d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(201, 169, 97, 0.25);
+        }
+        .note-btn:hover::after { transform: translateX(3px); }
+        .note-btn.secondary {
+            background: transparent;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            color: rgba(201, 169, 97, 0.75);
+        }
+        .note-btn.secondary::after { content: ''; }
+        .note-btn.secondary:hover {
+            background: rgba(201, 169, 97, 0.12);
+            color: #d4b56d;
+            box-shadow: none;
+            transform: translateY(-1px);
+        }
+        [data-theme="light"] .note-btn {
+            background: rgba(154, 115, 32, 0.10);
+            color: #7d5c10;
+            border-color: rgba(154, 115, 32, 0.35);
+        }
+        [data-theme="light"] .note-btn:hover {
+            background: linear-gradient(135deg, #9a7320, #b08530);
+            color: #fff;
+            border-color: #9a7320;
+        }
+        [data-theme="light"] .note-btn.secondary {
+            background: transparent;
+            color: #7d5c10;
+            border-color: rgba(154, 115, 32, 0.3);
+        }
+
+        /* Status badge — subtle pill on top-right */
+        .status-badge {
+            top: 0.85rem;
+            right: 1rem;
+            padding: 0.2rem 0.65rem;
+            font-size: 0.6rem;
+            border-radius: 12px;
+            letter-spacing: 0.06em;
+        }
+
+        /* Light mode: research-intro background tweak (already styled above but reinforce) */
+        [data-theme="light"] .research-intro p { color: #3d2820 !important; }
+
+        /* Responsive: single-column at narrow widths */
+        @media (max-width: 768px) {
+            .notes-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .note-card { padding: 2rem 1.2rem 1.2rem; }
+            .category-icon { width: 40px; height: 40px; }
+            .category-icon svg { width: 20px; height: 20px; }
+            .category-title h2 { font-size: 1.15rem; }
+        }
+        @media (max-width: 640px) {
+            .container { padding: 1rem 1rem 1.5rem; }
+            .research-intro { padding: 1.2rem 1.3rem; }
+            .note-card { padding: 1.9rem 1.1rem 1.1rem; }
+        }
+
     </style>
 
     <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
@@ -1631,31 +1984,460 @@
 <span id="main-content" tabindex="-1" aria-hidden="true"></span>
 
 
-    <div class="main-content">
-        <div class="container">
-            <div class="page-header">
-                <h1>Blog</h1>
-                <div class="section-divider"></div>
-                <p class="page-description">
-                    Welcome to my collection of study notes! Here you'll find comprehensive materials covering the mathematical foundations essential for physics, cosmology, computer science, and machine learning, along with detailed notes on cosmology, physics, and various other topics. These notes are designed to serve as both learning resources and quick references for advanced concepts.
-                </p>
-                <p style="text-align: center; color: #c9a961; font-style: italic; margin-top: 1rem; font-size: 0.95rem;">
-                    [This page will be updated soon with all materials]
-                </p>
+    <div class="container">
+            <h2 class="section-title">Blog</h2>
+
+            <div class="research-intro">
+                <p>Personal reflections, practical guides for aspiring students, and explainer posts. Below, you will also find some of my study notes covering the mathematical and physical foundations of these fields.</p>
+                <p style="margin-top: 0.8rem; color: #d4b56d; font-style: italic; font-size: 0.95rem;">[Most posts are placeholders for now. This page will be updated soon with all materials.]</p>
             </div>
 
-            <div class="controls-section">
-                <div class="search-box">
-                    <input type="text" class="search-input" placeholder="Search through notes..." id="searchInput">
+            <h3 class="subsection-title">Posts &amp; Guides</h3>
+
+            <!-- ═══════════════ PERSONAL REFLECTIONS ═══════════════ -->
+            <div class="category-section reflections" data-category="reflections">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9" stroke="#c9a961" stroke-width="1.4" fill="none"/><path d="M14 7 Q19 14 14 21 Q9 14 14 7 Z" stroke="#c9a961" stroke-width="1.2" fill="rgba(201,169,97,0.12)"/><circle cx="14" cy="14" r="2" fill="#c9a961" opacity="0.6"/></svg>
+                    </div>
+                    <div class="category-title">
+                        <h2>Personal Reflections</h2>
+                        <p class="category-description">Honest thoughts on the path through research — what I've learned, struggled with, and grown from</p>
+                    </div>
                 </div>
-                <div class="filter-tabs">
-                    <button class="filter-btn active" data-filter="all">All Notes</button>
-                    <button class="filter-btn" data-filter="math">Mathematics</button>
-                    <button class="filter-btn" data-filter="cosmology">Cosmology</button>
-                    <button class="filter-btn" data-filter="physics">Physics</button>
-                    <button class="filter-btn" data-filter="miscellaneous">Miscellaneous</button>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="rgba(201,169,97,0.25)" stroke-width="0.8" fill="none"/><circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.18)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3 L13 9 L19 9 L14 13 L16 19 L11 15 L6 19 L8 13 L3 9 L9 9 Z" stroke="#c9a961" stroke-width="1.2" fill="rgba(201,169,97,0.12)" stroke-linejoin="round"/></svg></div>
+                            <div>
+                                <h3 class="note-title">Why Cosmology?</h3>
+                                <p class="note-subtitle">A personal motivation</p>
+                            </div>
+                        </div>
+                        <p class="note-description">On the questions that first pulled me toward studying the universe, and why I keep returning to them. A note for anyone wondering whether to chase the big questions.</p>
+                        <div class="note-tags"><span class="tag">Personal</span><span class="tag">Motivation</span><span class="tag">Cosmology</span></div>
+                        <div class="note-actions"><a href="#" class="note-btn">Read Post</a></div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M10 60 L40 20 L70 60" stroke="rgba(201,169,97,0.25)" stroke-width="1" fill="none"/><circle cx="40" cy="20" r="2" fill="rgba(201,169,97,0.25)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 4 L11 4 L11 19 L3 18 Z" stroke="#c9a961" stroke-width="1.2" fill="none"/><path d="M11 4 L19 4 L19 18 L11 19 Z" stroke="#c9a961" stroke-width="1.2" fill="none"/><line x1="5" y1="8" x2="9" y2="8" stroke="rgba(201,169,97,0.5)" stroke-width="0.7"/><line x1="13" y1="8" x2="17" y2="8" stroke="rgba(201,169,97,0.5)" stroke-width="0.7"/></svg></div>
+                            <div>
+                                <h3 class="note-title">Lessons from My First Research Project</h3>
+                                <p class="note-subtitle">Notes from the trenches</p>
+                            </div>
+                        </div>
+                        <p class="note-description">What worked, what completely failed, and the things I wish someone had told me before I sent my first email to a professor. Plenty of honest mistakes.</p>
+                        <div class="note-tags"><span class="tag">Reflection</span><span class="tag">Research Life</span><span class="tag">Beginnings</span></div>
+                        <div class="note-actions"><a href="#" class="note-btn">Read Post</a></div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="18" y="18" width="44" height="44" rx="6" stroke="rgba(201,169,97,0.18)" stroke-width="0.8" fill="none"/><path d="M28 40 L36 48 L52 32" stroke="rgba(201,169,97,0.3)" stroke-width="1.2" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M7 14 C5 12 5 9 7 7 C9 5 13 5 15 7 C17 9 17 12 15 14 L15 16 L7 16 Z" stroke="#c9a961" stroke-width="1.2" fill="none" stroke-linejoin="round"/><line x1="9" y1="18" x2="13" y2="18" stroke="#c9a961" stroke-width="1.2" stroke-linecap="round"/><line x1="9" y1="20" x2="13" y2="20" stroke="#c9a961" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+                            <div>
+                                <h3 class="note-title">On Failure and Slow Progress</h3>
+                                <p class="note-subtitle">The unglamorous side of science</p>
+                            </div>
+                        </div>
+                        <p class="note-description">Most days in research don't feel like a discovery. A short essay on staying motivated when results take months — or years — to appear.</p>
+                        <div class="note-tags"><span class="tag">Mindset</span><span class="tag">Resilience</span><span class="tag">Process</span></div>
+                        <div class="note-actions"><a href="#" class="note-btn">Read Post</a></div>
+                    </div>
+
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M20 20 Q40 10 60 20 Q70 40 60 60 Q40 70 20 60 Q10 40 20 20 Z" stroke="rgba(201,169,97,0.2)" stroke-width="0.8" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 5 C5 5 4 8 5 11 C4 14 6 17 9 17 L13 17 C16 17 18 14 17 11 C18 8 17 5 14 5 C12 4 10 4 8 5 Z" stroke="#c9a961" stroke-width="1.2" fill="none" stroke-linejoin="round"/><path d="M11 7 L11 16" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/></svg></div>
+                            <div>
+                                <h3 class="note-title">Balancing Curiosity and Output</h3>
+                                <p class="note-subtitle">The deep-vs-fast tension</p>
+                            </div>
+                        </div>
+                        <p class="note-description">How I think about chasing the topics that genuinely fascinate me versus the very real pressure to publish, ship code, and graduate.</p>
+                        <div class="note-tags"><span class="tag">Career</span><span class="tag">Curiosity</span><span class="tag">Productivity</span></div>
+                        <div class="note-actions"><a href="#" class="note-btn">Read Post</a></div>
+                    </div>
                 </div>
             </div>
+
+            <!-- ═══════════════ FOR ASPIRING RESEARCHERS ═══════════════ -->
+            <div class="category-section research-guide" data-category="research-guide">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M5 8 L14 4 L23 8 L14 12 Z" stroke="#c9a961" stroke-width="1.4" fill="rgba(201,169,97,0.12)" stroke-linejoin="round"/><path d="M9 14 L9 20 C9 22 11 23 14 23 C17 23 19 22 19 20 L19 14" stroke="#c9a961" stroke-width="1.4" fill="none"/><line x1="14" y1="12" x2="14" y2="20" stroke="rgba(201,169,97,0.5)" stroke-width="1"/></svg>
+                    </div>
+                    <div class="category-title">
+                        <h2>For Aspiring Researchers</h2>
+                        <p class="category-description">Practical guides on graduate school applications, internships, and building real research experience</p>
+                    </div>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="rgba(201,169,97,0.25)" stroke-width="0.8" fill="none"/><circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.18)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 4 L17 4 C18 4 18 6 17 7 L17 18 C17 19 16 20 15 20 L7 20 C6 20 5 19 5 18 Z" stroke="#c9a961" stroke-width="1.2" fill="none"/><line x1="8" y1="9" x2="14" y2="9" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="8" y1="12" x2="14" y2="12" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="8" y1="15" x2="12" y2="15" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Applying to Graduate School</h3>
+                                <p class="note-subtitle">PhD applications, demystified</p>
+                            </div>
+                        </div>
+                        <p class="note-description">A timeline, reading list, and breakdown of what each part of a PhD application is actually testing — SOP, recommendation letters, GRE/PGRE, and fit.</p>
+                        <div class="note-tags"><span class="tag">Grad School</span><span class="tag">PhD</span><span class="tag">Applications</span><span class="tag">SOP</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M10 60 L40 20 L70 60" stroke="rgba(201,169,97,0.25)" stroke-width="1" fill="none"/><circle cx="40" cy="20" r="2" fill="rgba(201,169,97,0.25)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2 C8 6 6 10 6 14 L8 14 L8 18 L14 18 L14 14 L16 14 C16 10 14 6 11 2 Z" stroke="#c9a961" stroke-width="1.2" fill="none" stroke-linejoin="round"/><circle cx="11" cy="9" r="1.6" stroke="#c9a961" stroke-width="1" fill="rgba(201,169,97,0.2)"/><path d="M9 18 L9 20 M13 18 L13 20" stroke="#c9a961" stroke-width="1" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Finding Research Internships</h3>
+                                <p class="note-subtitle">REUs, summer schools, fellowships</p>
+                            </div>
+                        </div>
+                        <p class="note-description">Where to look for undergraduate research opportunities (REUs, DAAD-RISE, IUSSTF, summer schools), how to time applications, and what makes a strong one.</p>
+                        <div class="note-tags"><span class="tag">Internships</span><span class="tag">REU</span><span class="tag">Summer Schools</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="18" y="18" width="44" height="44" rx="6" stroke="rgba(201,169,97,0.18)" stroke-width="0.8" fill="none"/><path d="M28 40 L36 48 L52 32" stroke="rgba(201,169,97,0.3)" stroke-width="1.2" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 19 L7 15 L17 5 L19 7 L9 17 L5 21 L3 19 Z" stroke="#c9a961" stroke-width="1.3" stroke-linejoin="round" fill="none"/><line x1="14" y1="8" x2="16" y2="10" stroke="#c9a961" stroke-width="1"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Cold-Emailing Professors</h3>
+                                <p class="note-subtitle">A template that actually works</p>
+                            </div>
+                        </div>
+                        <p class="note-description">How to write the first email to a researcher whose work excites you — what to say, what to never say, and how to follow up without being a nuisance.</p>
+                        <div class="note-tags"><span class="tag">Outreach</span><span class="tag">Networking</span><span class="tag">Email</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M20 20 Q40 10 60 20 Q70 40 60 60 Q40 70 20 60 Q10 40 20 20 Z" stroke="rgba(201,169,97,0.2)" stroke-width="0.8" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11 L7 7 L11 9 L15 7 L19 11 L17 14 L13 12 L11 14 L9 12 L5 14 Z" stroke="#c9a961" stroke-width="1.2" fill="none" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Building Research Collaborations</h3>
+                                <p class="note-subtitle">Working with PIs and peers</p>
+                            </div>
+                        </div>
+                        <p class="note-description">On finding co-authors, navigating long-distance collaborations, joining open-source astronomy projects, and being someone people want to work with again.</p>
+                        <div class="note-tags"><span class="tag">Collaboration</span><span class="tag">Networking</span><span class="tag">Community</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="rgba(201,169,97,0.25)" stroke-width="0.8" fill="none"/><circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.18)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="3" width="14" height="16" rx="1" stroke="#c9a961" stroke-width="1.2" fill="none"/><line x1="7" y1="7" x2="15" y2="7" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="7" y1="10" x2="15" y2="10" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="7" y1="13" x2="13" y2="13" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Writing Your First Paper</h3>
+                                <p class="note-subtitle">From notebook to manuscript</p>
+                            </div>
+                        </div>
+                        <p class="note-description">How to turn a tangle of code, plots, and half-formed ideas into a paper your collaborators will sign off on. Tools, structure, and submission tips.</p>
+                        <div class="note-tags"><span class="tag">Writing</span><span class="tag">Papers</span><span class="tag">LaTeX</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M10 60 L40 20 L70 60" stroke="rgba(201,169,97,0.25)" stroke-width="1" fill="none"/><circle cx="40" cy="20" r="2" fill="rgba(201,169,97,0.25)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#c9a961" stroke-width="1.3" fill="none"/><path d="M11 4 L13 11 L11 18 L9 11 Z" fill="#c9a961" opacity="0.6"/><circle cx="11" cy="11" r="1.2" fill="#c9a961"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Choosing a Research Topic</h3>
+                                <p class="note-subtitle">Picking problems that matter to you</p>
+                            </div>
+                        </div>
+                        <p class="note-description">Heuristics for spotting topics that are tractable, interesting, and aligned with where you want to be in five years — without getting stuck in someone else's agenda.</p>
+                        <div class="note-tags"><span class="tag">Strategy</span><span class="tag">Topics</span><span class="tag">Career</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ SKILL BUILDING ═══════════════ -->
+            <div class="category-section skills" data-category="skills">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><polyline points="9 9 5 14 9 19" stroke="#c9a961" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round"/><polyline points="19 9 23 14 19 19" stroke="#c9a961" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round"/><line x1="17" y1="6" x2="11" y2="22" stroke="#c9a961" stroke-width="1.4" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="category-title">
+                        <h2>Skill Building</h2>
+                        <p class="category-description">How to develop the technical and soft skills that make research actually feasible</p>
+                    </div>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="rgba(201,169,97,0.25)" stroke-width="0.8" fill="none"/><circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.18)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polyline points="7 7 3 11 7 15" stroke="#c9a961" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round"/><polyline points="15 7 19 11 15 15" stroke="#c9a961" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round"/><line x1="13" y1="5" x2="9" y2="17" stroke="#c9a961" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Python for Astrophysics</h3>
+                                <p class="note-subtitle">From numpy to astropy</p>
+                            </div>
+                        </div>
+                        <p class="note-description">A learning path through the Python ecosystem every working astronomer relies on: numpy, scipy, astropy, healpy, scikit-learn, and JAX. With small projects to practice each.</p>
+                        <div class="note-tags"><span class="tag">Python</span><span class="tag">Astropy</span><span class="tag">Programming</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M10 60 L40 20 L70 60" stroke="rgba(201,169,97,0.25)" stroke-width="1" fill="none"/><circle cx="40" cy="20" r="2" fill="rgba(201,169,97,0.25)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 4 L17 4 C18 4 18 6 17 7 L17 18 C17 19 16 20 15 20 L7 20 C6 20 5 19 5 18 Z" stroke="#c9a961" stroke-width="1.2" fill="none"/><line x1="8" y1="9" x2="14" y2="9" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="8" y1="12" x2="14" y2="12" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="8" y1="15" x2="12" y2="15" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Mastering LaTeX & arXiv</h3>
+                                <p class="note-subtitle">Writing like a physicist</p>
+                            </div>
+                        </div>
+                        <p class="note-description">How to set up LaTeX painlessly, write equations that read well, manage references with BibTeX, and submit your first preprint to arXiv without panic.</p>
+                        <div class="note-tags"><span class="tag">LaTeX</span><span class="tag">Writing</span><span class="tag">arXiv</span><span class="tag">Tools</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="18" y="18" width="44" height="44" rx="6" stroke="rgba(201,169,97,0.18)" stroke-width="0.8" fill="none"/><path d="M28 40 L36 48 L52 32" stroke="rgba(201,169,97,0.3)" stroke-width="1.2" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="3" width="14" height="16" rx="1" stroke="#c9a961" stroke-width="1.2" fill="none"/><line x1="7" y1="7" x2="15" y2="7" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="7" y1="10" x2="15" y2="10" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/><line x1="7" y1="13" x2="13" y2="13" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Reading Research Papers Effectively</h3>
+                                <p class="note-subtitle">Don't read top to bottom</p>
+                            </div>
+                        </div>
+                        <p class="note-description">A three-pass method for cutting through dense astrophysics papers, taking notes that stick, and knowing when to read deeply versus skim and move on.</p>
+                        <div class="note-tags"><span class="tag">Reading</span><span class="tag">Papers</span><span class="tag">Study Skills</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M20 20 Q40 10 60 20 Q70 40 60 60 Q40 70 20 60 Q10 40 20 20 Z" stroke="rgba(201,169,97,0.2)" stroke-width="0.8" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="6" cy="6" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><circle cx="6" cy="16" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><circle cx="16" cy="11" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><path d="M6 8 L6 14" stroke="#c9a961" stroke-width="1"/><path d="M8 6 Q14 6 14 10" stroke="#c9a961" stroke-width="1" fill="none"/><path d="M8 16 Q14 16 14 12" stroke="#c9a961" stroke-width="1" fill="none"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Building a Research Portfolio</h3>
+                                <p class="note-subtitle">GitHub, website, talks</p>
+                            </div>
+                        </div>
+                        <p class="note-description">How to set up a personal site (yes, like this one), structure GitHub repos so people actually want to read them, and prepare clean talks that get remembered.</p>
+                        <div class="note-tags"><span class="tag">Portfolio</span><span class="tag">GitHub</span><span class="tag">Personal Brand</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="rgba(201,169,97,0.25)" stroke-width="0.8" fill="none"/><circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.18)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 5 C5 5 4 8 5 11 C4 14 6 17 9 17 L13 17 C16 17 18 14 17 11 C18 8 17 5 14 5 C12 4 10 4 8 5 Z" stroke="#c9a961" stroke-width="1.2" fill="none" stroke-linejoin="round"/><path d="M11 7 L11 16" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Machine Learning Foundations</h3>
+                                <p class="note-subtitle">For physicists who never took an ML class</p>
+                            </div>
+                        </div>
+                        <p class="note-description">The bare minimum ML you need to do credible work at the intersection of astrophysics and machine learning: linear algebra, optimization, neural nets, and best practices.</p>
+                        <div class="note-tags"><span class="tag">ML</span><span class="tag">Foundations</span><span class="tag">Deep Learning</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M10 60 L40 20 L70 60" stroke="rgba(201,169,97,0.25)" stroke-width="1" fill="none"/><circle cx="40" cy="20" r="2" fill="rgba(201,169,97,0.25)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="6" cy="6" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><circle cx="16" cy="6" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><circle cx="11" cy="16" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><line x1="7" y1="8" x2="10" y2="14" stroke="rgba(201,169,97,0.6)" stroke-width="1"/><line x1="15" y1="8" x2="12" y2="14" stroke="rgba(201,169,97,0.6)" stroke-width="1"/><line x1="8" y1="6" x2="14" y2="6" stroke="rgba(201,169,97,0.6)" stroke-width="1"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Open-Source Astronomy Tools</h3>
+                                <p class="note-subtitle">A guided tour</p>
+                            </div>
+                        </div>
+                        <p class="note-description">A curated tour of the software stack working astronomers use day to day: TOPCAT, ds9, CASA, JupyterLab, Snakemake, and how to learn each one fast.</p>
+                        <div class="note-tags"><span class="tag">Tools</span><span class="tag">Open Source</span><span class="tag">Workflow</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ TOPICS IN ASTROPHYSICS, COSMOLOGY & ML ═══════════════ -->
+            <div class="category-section topics" data-category="topics">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="4" fill="#c9a961" opacity="0.6"/><circle cx="14" cy="14" r="9" stroke="#c9a961" stroke-width="0.8" fill="none"/><ellipse cx="14" cy="14" rx="11" ry="4" stroke="#c9a961" stroke-width="0.8" fill="none" transform="rotate(-30 14 14)"/><ellipse cx="14" cy="14" rx="11" ry="4" stroke="#c9a961" stroke-width="0.8" fill="none" transform="rotate(30 14 14)"/></svg>
+                    </div>
+                    <div class="category-title">
+                        <h2>Topics in Astrophysics, Cosmology & ML</h2>
+                        <p class="category-description">Explainer posts on the ideas I find most exciting — written for curious students, not specialists</p>
+                    </div>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="rgba(201,169,97,0.25)" stroke-width="0.8" fill="none"/><circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.18)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 11 C4 5 6 5 8 11 C10 17 12 17 14 11 C16 5 18 5 20 11" stroke="#c9a961" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Demystifying the CMB</h3>
+                                <p class="note-subtitle">A picture of the early universe</p>
+                            </div>
+                        </div>
+                        <p class="note-description">What the cosmic microwave background actually is, why its tiny temperature fluctuations matter so much, and how Planck, ACT, and SO read history off of it.</p>
+                        <div class="note-tags"><span class="tag">CMB</span><span class="tag">Cosmology</span><span class="tag">Observational</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M10 60 L40 20 L70 60" stroke="rgba(201,169,97,0.25)" stroke-width="1" fill="none"/><circle cx="40" cy="20" r="2" fill="rgba(201,169,97,0.25)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3 L13 9 L19 9 L14 13 L16 19 L11 15 L6 19 L8 13 L3 9 L9 9 Z" stroke="#c9a961" stroke-width="1.2" fill="rgba(201,169,97,0.12)" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Modified Gravity, Plainly Explained</h3>
+                                <p class="note-subtitle">Beyond General Relativity</p>
+                            </div>
+                        </div>
+                        <p class="note-description">Why some cosmologists take alternatives to GR seriously, what f(R) and DGP gravity actually predict, and how upcoming surveys will rule them in or out.</p>
+                        <div class="note-tags"><span class="tag">Modified Gravity</span><span class="tag">GR</span><span class="tag">Dark Energy</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="18" y="18" width="44" height="44" rx="6" stroke="rgba(201,169,97,0.18)" stroke-width="0.8" fill="none"/><path d="M28 40 L36 48 L52 32" stroke="rgba(201,169,97,0.3)" stroke-width="1.2" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 5 C5 5 4 8 5 11 C4 14 6 17 9 17 L13 17 C16 17 18 14 17 11 C18 8 17 5 14 5 C12 4 10 4 8 5 Z" stroke="#c9a961" stroke-width="1.2" fill="none" stroke-linejoin="round"/><path d="M11 7 L11 16" stroke="rgba(201,169,97,0.5)" stroke-width="0.8"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Machine Learning for Astronomers</h3>
+                                <p class="note-subtitle">Where ML helps and where it hurts</p>
+                            </div>
+                        </div>
+                        <p class="note-description">When neural networks genuinely speed up astronomy (emulators, classifiers, denoisers) and when they introduce more problems than they solve. With examples.</p>
+                        <div class="note-tags"><span class="tag">ML</span><span class="tag">Astronomy</span><span class="tag">Emulators</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M20 20 Q40 10 60 20 Q70 40 60 60 Q40 70 20 60 Q10 40 20 20 Z" stroke="rgba(201,169,97,0.2)" stroke-width="0.8" fill="none"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#c9a961" stroke-width="1.3" fill="none"/><path d="M11 4 L13 11 L11 18 L9 11 Z" fill="#c9a961" opacity="0.6"/><circle cx="11" cy="11" r="1.2" fill="#c9a961"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Photometric Redshifts, From Scratch</h3>
+                                <p class="note-subtitle">Estimating distance from colors</p>
+                            </div>
+                        </div>
+                        <p class="note-description">How astronomers turn a handful of broadband magnitudes into a redshift, why the problem is hard, and what changes in the LSST era.</p>
+                        <div class="note-tags"><span class="tag">Photo-z</span><span class="tag">LSST</span><span class="tag">Galaxies</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="rgba(201,169,97,0.25)" stroke-width="0.8" fill="none"/><circle cx="40" cy="40" r="3" fill="rgba(201,169,97,0.18)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 11 C4 5 6 5 8 11 C10 17 12 17 14 11 C16 5 18 5 20 11" stroke="#c9a961" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">What Is a Gravitational Wave, Really?</h3>
+                                <p class="note-subtitle">A geometric intuition</p>
+                            </div>
+                        </div>
+                        <p class="note-description">A short visual essay on what's actually wiggling when LIGO detects a wave, why detection took a century, and what's coming with LISA and beyond.</p>
+                        <div class="note-tags"><span class="tag">Gravitational Waves</span><span class="tag">LIGO</span><span class="tag">GR</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                    <div class="note-card">
+                        <div class="status-badge coming-soon">Coming Soon</div>
+                        <svg class="card-corner" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M10 60 L40 20 L70 60" stroke="rgba(201,169,97,0.25)" stroke-width="1" fill="none"/><circle cx="40" cy="20" r="2" fill="rgba(201,169,97,0.25)"/></svg>
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="6" cy="6" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><circle cx="16" cy="6" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><circle cx="11" cy="16" r="2" stroke="#c9a961" stroke-width="1.2" fill="none"/><line x1="7" y1="8" x2="10" y2="14" stroke="rgba(201,169,97,0.6)" stroke-width="1"/><line x1="15" y1="8" x2="12" y2="14" stroke="rgba(201,169,97,0.6)" stroke-width="1"/><line x1="8" y1="6" x2="14" y2="6" stroke="rgba(201,169,97,0.6)" stroke-width="1"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="note-title">Radio Astronomy for the Uninitiated</h3>
+                                <p class="note-subtitle">Listening to the universe</p>
+                            </div>
+                        </div>
+                        <p class="note-description">How radio telescopes (and arrays like SKA and MeerKAT) see things optical instruments can't — pulsars, AGN, HI, and 21cm cosmology.</p>
+                        <div class="note-tags"><span class="tag">Radio Astronomy</span><span class="tag">SKA</span><span class="tag">21cm</span></div>
+                        <div class="note-actions">
+                            <a href="#" class="note-btn">Read Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title" id="study-notes">Study Notes</h3>
 
             <!-- ═══════════════ MATHEMATICS ═══════════════ -->
             <div class="category-section math" data-category="math">
@@ -2307,8 +3089,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+
+</div>
 
     <footer>
         <div class="footer-content">
@@ -2326,42 +3109,6 @@
         });
         scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        function initSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const noteCards = document.querySelectorAll('.note-card');
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                noteCards.forEach(card => {
-                    const title = card.querySelector('.note-title').textContent.toLowerCase();
-                    const description = card.querySelector('.note-description').textContent.toLowerCase();
-                    const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
-                    const matches = title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm);
-                    card.style.display = matches ? 'block' : 'none';
-                });
-            });
-        }
-
-        function initFilters() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const categorySections = document.querySelectorAll('.category-section');
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filter = this.getAttribute('data-filter');
-                    categorySections.forEach(section => {
-                        if (filter === 'all' || section.getAttribute('data-category') === filter) {
-                            section.style.display = 'block';
-                            section.style.opacity = '0';
-                            setTimeout(() => { section.style.opacity = '1'; section.style.transition = 'opacity 0.3s ease'; }, 50);
-                        } else {
-                            section.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        }
-
         function initSmoothScroll() {
             document.querySelectorAll('.nav-list a').forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -2375,10 +3122,7 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            initSearch();
-            initFilters();
-            initSmoothScroll();
+        document.addEventListener('DOMContentLoaded', function() {initSmoothScroll();
         });
     </script>
     <script>
