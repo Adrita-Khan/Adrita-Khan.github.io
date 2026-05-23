@@ -1921,6 +1921,52 @@
             #theme-toggle-label { display: none; }
         }
 
+    
+        /* ── Theme toggle inside main navigation ── */
+        .nav-theme-toggle { list-style: none; display: flex; align-items: stretch; }
+        .nav-theme-toggle #theme-toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            color: #c9a961;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            animation: none !important;
+            box-shadow: none !important;
+        }
+        .nav-theme-toggle #theme-toggle:hover {
+            background: rgba(201, 169, 97, 0.22);
+            border-color: rgba(201, 169, 97, 0.55);
+            color: #d4b56d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3) !important;
+        }
+        .nav-theme-toggle #theme-toggle svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+        .nav-theme-toggle #theme-toggle:hover svg { transform: rotate(20deg) scale(1.08); }
+        [data-theme="light"] .nav-theme-toggle #theme-toggle {
+            background: rgba(154, 115, 32, 0.10);
+            border-color: rgba(154, 115, 32, 0.30);
+            color: #7d5c10;
+        }
+        [data-theme="light"] .nav-theme-toggle #theme-toggle:hover {
+            background: rgba(154, 115, 32, 0.22);
+            border-color: rgba(154, 115, 32, 0.55);
+            color: #5a4008;
+        }
+        /* Hide any leftover floating toggle wrapper */
+        #theme-toggle-wrap { display: none !important; }
+
     </style>
 
     <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
@@ -1969,34 +2015,29 @@
     </a>
 
     <!-- Right arrow: forward to Research -->
-    <a href="research.html" class="side-nav-arrow side-nav-right" title="Next: Research" aria-label="Go to Research page">
+    <a href="research.html" class="side-nav-arrow side-nav-right" title="Next: Research &amp; Projects" aria-label="Go to Research &amp; Projects page">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
-        <span class="side-nav-label">Research</span>
+        <span class="side-nav-label">Research &amp; Projects</span>
     </a>
 
     <!-- Quick Links Navigation -->
 <h1 class="visually-hidden">Adrita Khan — Publications</h1>
-    <div id="theme-toggle-wrap">
-        <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
-            <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <span id="theme-toggle-label">Toggle Theme</span>
-    </div>
-<nav id="quick-links" aria-label="Main navigation">
+    <nav id="quick-links" aria-label="Main navigation">
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="education.html">Education</a></li>
                 <li><a href="publications.html" class="active" aria-current="page">Publications</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="research.html">Research &amp; Projects</a></li>
                 <li><a href="academic_experience.html">Academic Experience</a></li>
                 <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="notes.html">Study Notes</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="notes.html">Blog</a></li>
+                <li class="nav-theme-toggle"><button id="theme-toggle" type="button" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+                    <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5" fill="currentColor"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button></li>
             </ul>
         </div>
     </nav>
