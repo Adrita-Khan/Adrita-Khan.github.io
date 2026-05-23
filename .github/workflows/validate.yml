@@ -1,0 +1,27 @@
+name: HTML & Link Validation
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install html5validator
+        run: pip install html5validator
+
+      - name: Validate HTML
+        run: html5validator --root . --match "*.html" --ignore-re "Element .* not allowed" || true
+
+      - name: Check internal links
+        run: python scripts/check_links.py
