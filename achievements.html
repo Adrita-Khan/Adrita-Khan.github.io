@@ -1546,8 +1546,11 @@
 
 <style>
     /* ── 528 Hz cosmic orb ── */
-    #hz528-wrap {
+    #sound-panel {
       position: fixed; bottom: 2rem; left: 2rem; z-index: 300;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    #hz528-wrap {
       display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
       -webkit-tap-highlight-color: transparent;
     }
@@ -1604,8 +1607,49 @@
     [data-theme="light"] #hz528-label { color: rgba(154,115,32,0.7); }
     [data-theme="light"] #hz528-btn.hz-playing ~ #hz528-label { color: rgba(154,115,32,0.95); }
     @media (max-width: 480px) {
-      #hz528-wrap { bottom: 1rem; left: 1rem; }
+      #sound-panel { bottom: 1rem; left: 1rem; }
       #hz528-btn { width: 48px; height: 48px; }
+      #bell-btn { width: 44px; height: 44px; }
+    }
+    /* ── Church Bell button ── */
+    #bell-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; -webkit-tap-highlight-color: transparent; }
+    #bell-btn {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 2px solid rgba(201,169,97,0.65);
+      background: radial-gradient(circle at 38% 38%, rgba(201,169,97,0.15) 0%, rgba(30,20,5,0.85) 100%);
+      color: rgba(201,169,97,0.75); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 18px rgba(201,169,97,0.25), 0 0 36px rgba(201,169,97,0.1), 0 4px 16px rgba(0,0,0,0.45);
+      transition: all 0.35s ease; position: relative; overflow: visible;
+    }
+    #bell-btn:hover {
+      border-color: rgba(201,169,97,0.95); color: #ffe08a; transform: scale(1.1);
+      box-shadow: 0 0 36px rgba(201,169,97,0.85), 0 0 70px rgba(201,169,97,0.4), 0 4px 24px rgba(0,0,0,0.5);
+    }
+    #bell-btn svg { width: 20px; height: 20px; position: relative; z-index: 1; filter: drop-shadow(0 0 4px rgba(212,181,109,0.9)); }
+    #bell-btn.hz-playing { border-color: rgba(201,169,97,0.9); color: #ffe08a; }
+    #bell-btn.hz-playing svg { filter: drop-shadow(0 0 7px rgba(255,220,100,1)); }
+    #bell-label {
+      font-size: 0.55rem; font-weight: 700; letter-spacing: 0.09em;
+      color: rgba(201,169,97,0.65); text-transform: uppercase; pointer-events: none;
+      transition: color 0.4s; text-shadow: 0 0 8px rgba(201,169,97,0.4);
+      text-align: center; max-width: 82px; line-height: 1.35;
+    }
+    #bell-btn.hz-playing ~ #bell-label { color: rgba(201,169,97,0.95); text-shadow: 0 0 10px rgba(201,169,97,0.7); }
+    [data-theme="light"] #bell-btn {
+      background: radial-gradient(circle at 38% 38%, rgba(230,200,120,0.45) 0%, rgba(255,248,235,0.92) 100%);
+      border-color: rgba(154,115,32,0.65); color: #9a7320;
+      box-shadow: 0 0 20px rgba(154,115,32,0.35), 0 0 40px rgba(154,115,32,0.15), 0 4px 16px rgba(0,0,0,0.12);
+    }
+    [data-theme="light"] #bell-btn svg { filter: drop-shadow(0 0 3px rgba(154,115,32,0.7)); }
+    [data-theme="light"] #bell-btn:hover { color: #7d5c10; border-color: rgba(154,115,32,0.9); }
+    [data-theme="light"] #bell-label { color: rgba(154,115,32,0.7); }
+    [data-theme="light"] #bell-btn.hz-playing ~ #bell-label { color: rgba(154,115,32,0.95); }
+    @media (prefers-reduced-motion: no-preference) {
+      #bell-btn.hz-playing .hz-ring-1 { animation: hzRing 2.8s ease-out infinite; }
+      #bell-btn.hz-playing .hz-ring-2 { animation: hzRing 2.8s ease-out infinite 0.93s; }
+      #bell-btn.hz-playing .hz-ring-3 { animation: hzRing 2.8s ease-out infinite 1.86s; }
+      #bell-btn.hz-playing { animation: hzPulse 2.2s ease-in-out infinite; }
     }
     </style>
 </head>
@@ -1838,6 +1882,7 @@
 </script>
 
 
+<div id="sound-panel">
 <div id="hz528-wrap">
   <button id="hz528-btn" type="button" aria-label="528 Hz Love Frequency" title="528 Hz">
     <div class="hz-ring hz-ring-1"></div>
@@ -1849,6 +1894,20 @@
     </svg>
   </button>
   <span id="hz528-label">528 Hz</span>
+</div>
+<div id="bell-wrap">
+  <button id="bell-btn" type="button" aria-label="Carillon" title="Carillon">
+    <div class="hz-ring hz-ring-1"></div>
+    <div class="hz-ring hz-ring-2"></div>
+    <div class="hz-ring hz-ring-3"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 17H6a1 1 0 0 1-.85-1.53L7 12V9a5 5 0 0 1 10 0v3l1.85 2.47A1 1 0 0 1 18 17z"></path>
+      <line x1="12" y1="21" x2="12" y2="17"></line>
+      <line x1="9" y1="21" x2="15" y2="21"></line>
+    </svg>
+  </button>
+  <span id="bell-label">Carillon</span>
+</div>
 </div>
 <script>
 (function(){
@@ -1907,8 +1966,88 @@
   }
   document.addEventListener('DOMContentLoaded',function(){
     var b=document.getElementById('hz528-btn');
-    if(b)b.addEventListener('click',function(){playing?stop():start();});
+    if(b)b.addEventListener('click',function(){
+      if(playing){stop();}
+      else{if(window._bellPlaying&&window._bellPlaying())window._bellStop&&window._bellStop();start();}
+    });
   });
+  window._hz528Stop=stop;
+  window._hz528Playing=function(){return playing;};
+})();
+</script>
+
+<script>
+(function(){
+  var bctx=null,bGain=null,bPlaying=false,bTimer=null;
+  function bac(){if(!bctx)bctx=new(window.AudioContext||window.webkitAudioContext)();return bctx;}
+  function mkBellReverb(c){
+    var cv=c.createConvolver(),rate=c.sampleRate,len=rate*3,buf=c.createBuffer(2,len,rate);
+    for(var ch=0;ch<2;ch++){var d=buf.getChannelData(ch);for(var i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.5);}
+    cv.buffer=buf;return cv;
+  }
+  function strike(){
+    var c=bac();
+    if(!bGain)return;
+    var now=c.currentTime;
+    var ps=[
+      {f:78.4,  a:0.10,decay:5.2},
+      {f:156.8, a:0.14,decay:3.8},
+      {f:216.1, a:0.20,decay:2.8},
+      {f:274.4, a:0.13,decay:2.2},
+      {f:392.0, a:0.26,decay:3.2},
+      {f:627.2, a:0.08,decay:1.6},
+      {f:805.4, a:0.05,decay:1.1}
+    ];
+    ps.forEach(function(p){
+      var osc=c.createOscillator(),env=c.createGain();
+      osc.type='sine';
+      osc.frequency.setValueAtTime(p.f,now);
+      env.gain.setValueAtTime(0.001,now);
+      env.gain.linearRampToValueAtTime(p.a,now+0.006);
+      env.gain.exponentialRampToValueAtTime(0.001,now+p.decay);
+      osc.connect(env);env.connect(bGain);
+      osc.start(now);osc.stop(now+p.decay+0.15);
+    });
+  }
+  function startBell(){
+    var c=bac();
+    if(c.state==='suspended')c.resume();
+    bGain=c.createGain();
+    bGain.gain.setValueAtTime(0.0,c.currentTime);
+    bGain.gain.linearRampToValueAtTime(1.5,c.currentTime+0.5);
+    var rv=mkBellReverb(c),rvg=c.createGain();
+    rvg.gain.setValueAtTime(0.55,c.currentTime);
+    rv.connect(rvg);rvg.connect(c.destination);
+    bGain.connect(rv);bGain.connect(c.destination);
+    bPlaying=true;bellUi(true);
+    strike();
+    bTimer=setInterval(strike,3800);
+  }
+  function stopBell(){
+    bPlaying=false;bellUi(false);
+    if(bTimer){clearInterval(bTimer);bTimer=null;}
+    if(bGain){
+      var c=bac(),g=bGain;
+      g.gain.setValueAtTime(g.gain.value,c.currentTime);
+      g.gain.linearRampToValueAtTime(0,c.currentTime+0.8);
+      setTimeout(function(){if(bGain===g)bGain=null;},1000);
+    }
+  }
+  function bellUi(on){
+    var b=document.getElementById('bell-btn');
+    if(!b)return;
+    if(on){b.classList.add('hz-playing');b.title='Carillon playing — click to stop';}
+    else{b.classList.remove('hz-playing');b.title='Carillon';}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var b=document.getElementById('bell-btn');
+    if(b)b.addEventListener('click',function(){
+      if(bPlaying){stopBell();}
+      else{if(window._hz528Playing&&window._hz528Playing())window._hz528Stop&&window._hz528Stop();startBell();}
+    });
+  });
+  window._bellStop=stopBell;
+  window._bellPlaying=function(){return bPlaying;};
 })();
 </script>
 </body>
