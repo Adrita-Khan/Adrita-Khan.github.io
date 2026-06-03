@@ -2252,6 +2252,69 @@
     [data-theme="light"] .sr-snippet { color: rgba(60,40,20,0.65); }
     [data-theme="light"] .sr-page { color: #7d5c10; }
     </style>
+
+<style>
+    /* ── 528 Hz cosmic orb ── */
+    #hz528-wrap {
+      position: fixed; bottom: 2rem; left: 2rem; z-index: 300;
+      display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #hz528-btn {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1.5px solid rgba(201,169,97,0.4);
+      background: radial-gradient(circle at 38% 38%, rgba(230,200,120,0.18) 0%, rgba(10,14,20,0.88) 100%);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 0 18px rgba(201,169,97,0.22), 0 4px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      color: rgba(201,169,97,0.75); transition: all 0.4s ease;
+      position: relative; overflow: visible;
+    }
+    #hz528-btn:hover {
+      border-color: rgba(201,169,97,0.7); color: #d4b56d; transform: scale(1.08);
+      box-shadow: 0 0 28px rgba(201,169,97,0.45), 0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    #hz528-btn svg { width: 22px; height: 22px; position: relative; z-index: 1; }
+    .hz-ring {
+      position: absolute; border-radius: 50%; border: 1px solid rgba(201,169,97,0.35);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 56px; height: 56px; opacity: 0; pointer-events: none;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      #hz528-btn.hz-playing .hz-ring-1 { animation: hzRing 2.8s ease-out infinite; }
+      #hz528-btn.hz-playing .hz-ring-2 { animation: hzRing 2.8s ease-out infinite 0.93s; }
+      #hz528-btn.hz-playing .hz-ring-3 { animation: hzRing 2.8s ease-out infinite 1.86s; }
+      #hz528-btn.hz-playing { animation: hzPulse 2.2s ease-in-out infinite; }
+    }
+    @keyframes hzRing {
+      0%   { width: 56px;  height: 56px;  opacity: 0.55; }
+      100% { width: 140px; height: 140px; opacity: 0; }
+    }
+    @keyframes hzPulse {
+      0%,100% { box-shadow: 0 0 18px rgba(201,169,97,0.35), 0 4px 20px rgba(0,0,0,0.4); }
+      50%     { box-shadow: 0 0 38px rgba(201,169,97,0.75), 0 0 80px rgba(201,169,97,0.2), 0 4px 20px rgba(0,0,0,0.4); }
+    }
+    #hz528-btn.hz-playing { border-color: rgba(201,169,97,0.65); color: #d4b56d; }
+    #hz528-label {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+      color: rgba(201,169,97,0.45); text-transform: uppercase; pointer-events: none;
+      transition: color 0.4s;
+    }
+    #hz528-btn.hz-playing ~ #hz528-label { color: rgba(201,169,97,0.8); }
+    [data-theme="light"] #hz528-btn {
+      background: radial-gradient(circle at 38% 38%, rgba(230,200,120,0.35) 0%, rgba(255,248,235,0.92) 100%);
+      border-color: rgba(154,115,32,0.38); color: rgba(154,115,32,0.75);
+      box-shadow: 0 0 14px rgba(154,115,32,0.18), 0 4px 16px rgba(0,0,0,0.12);
+    }
+    [data-theme="light"] #hz528-btn:hover { color: #7d5c10; border-color: rgba(154,115,32,0.65); }
+    [data-theme="light"] .hz-ring { border-color: rgba(154,115,32,0.3); }
+    [data-theme="light"] #hz528-label { color: rgba(154,115,32,0.5); }
+    [data-theme="light"] #hz528-btn.hz-playing ~ #hz528-label { color: rgba(154,115,32,0.85); }
+    @media (max-width: 480px) {
+      #hz528-wrap { bottom: 1rem; left: 1rem; }
+      #hz528-btn { width: 48px; height: 48px; }
+    }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
@@ -3004,6 +3067,81 @@
       if(e.key==='Escape')closeS();
       if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();ovl&&ovl.classList.contains('open')?closeS():openS();}
     });
+  });
+})();
+</script>
+
+
+<div id="hz528-wrap">
+  <button id="hz528-btn" type="button" aria-label="528 Hz Love Frequency" title="528 Hz · Love Frequency">
+    <div class="hz-ring hz-ring-1"></div>
+    <div class="hz-ring hz-ring-2"></div>
+    <div class="hz-ring hz-ring-3"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 3v7a3 3 0 0 0 6 0V3"></path>
+      <line x1="12" y1="13" x2="12" y2="21"></line>
+    </svg>
+  </button>
+  <span id="hz528-label">528 Hz</span>
+</div>
+<script>
+(function(){
+  var ctx=null,mainOsc=null,harmOsc=null,subOsc=null,masterGain=null,playing=false;
+  function ac(){if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();return ctx;}
+  function mkReverb(c){
+    var cv=c.createConvolver(),rate=c.sampleRate,len=rate*5,buf=c.createBuffer(2,len,rate);
+    for(var ch=0;ch<2;ch++){var d=buf.getChannelData(ch);for(var i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,1.7);}
+    cv.buffer=buf;return cv;
+  }
+  function start(){
+    var c=ac();
+    if(c.state==='suspended')c.resume();
+    masterGain=c.createGain();
+    masterGain.gain.setValueAtTime(0,c.currentTime);
+    masterGain.gain.linearRampToValueAtTime(1,c.currentTime+2.0);
+    masterGain.connect(c.destination);
+    var rv=mkReverb(c),rvg=c.createGain();
+    rvg.gain.setValueAtTime(0.32,c.currentTime);
+    rv.connect(rvg);rvg.connect(masterGain);
+    var lfo=c.createOscillator(),lfog=c.createGain();
+    lfo.type='sine';lfo.frequency.setValueAtTime(0.2,c.currentTime);
+    lfog.gain.setValueAtTime(0.05,c.currentTime);
+    lfo.connect(lfog);lfo.start();
+    var g1=c.createGain();g1.gain.setValueAtTime(0.08,c.currentTime);
+    lfog.connect(g1.gain);
+    mainOsc=c.createOscillator();mainOsc.type='sine';
+    mainOsc.frequency.setValueAtTime(528,c.currentTime);
+    mainOsc.connect(g1);g1.connect(masterGain);g1.connect(rv);
+    mainOsc.start();
+    var g2=c.createGain();g2.gain.setValueAtTime(0.013,c.currentTime);
+    harmOsc=c.createOscillator();harmOsc.type='sine';
+    harmOsc.frequency.setValueAtTime(1056,c.currentTime);
+    harmOsc.connect(g2);g2.connect(masterGain);
+    harmOsc.start();
+    var g3=c.createGain();g3.gain.setValueAtTime(0.025,c.currentTime);
+    subOsc=c.createOscillator();subOsc.type='sine';
+    subOsc.frequency.setValueAtTime(264,c.currentTime);
+    subOsc.connect(g3);g3.connect(masterGain);
+    subOsc.start();
+    playing=true;ui(true);
+  }
+  function stop(){
+    if(!masterGain)return;
+    var c=ac(),m=masterGain,refs=[mainOsc,harmOsc,subOsc];
+    m.gain.setValueAtTime(m.gain.value,c.currentTime);
+    m.gain.linearRampToValueAtTime(0,c.currentTime+2.0);
+    setTimeout(function(){refs.forEach(function(o){try{o&&o.stop();}catch(e){}});},2400);
+    mainOsc=null;harmOsc=null;subOsc=null;masterGain=null;playing=false;ui(false);
+  }
+  function ui(on){
+    var b=document.getElementById('hz528-btn');
+    if(!b)return;
+    if(on){b.classList.add('hz-playing');b.title='528 Hz · Playing — click to stop';}
+    else{b.classList.remove('hz-playing');b.title='528 Hz · Love Frequency';}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var b=document.getElementById('hz528-btn');
+    if(b)b.addEventListener('click',function(){playing?stop():start();});
   });
 })();
 </script>
