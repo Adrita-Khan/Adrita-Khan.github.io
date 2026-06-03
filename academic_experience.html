@@ -1732,21 +1732,21 @@
     }
     #hz528-btn {
       width: 56px; height: 56px; border-radius: 50%;
-      border: 1.5px solid rgba(201,169,97,0.4);
-      background: radial-gradient(circle at 38% 38%, rgba(230,200,120,0.18) 0%, rgba(10,14,20,0.88) 100%);
+      border: 2px solid rgba(201,169,97,0.75);
+      background: radial-gradient(circle at 38% 38%, rgba(240,210,130,0.35) 0%, rgba(10,14,20,0.88) 100%);
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 0 18px rgba(201,169,97,0.22), 0 4px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+      box-shadow: 0 0 22px rgba(201,169,97,0.6), 0 0 48px rgba(201,169,97,0.25), 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      color: rgba(201,169,97,0.75); transition: all 0.4s ease;
+      color: #d4b56d; transition: all 0.4s ease;
       position: relative; overflow: visible;
     }
     #hz528-btn:hover {
-      border-color: rgba(201,169,97,0.7); color: #d4b56d; transform: scale(1.08);
-      box-shadow: 0 0 28px rgba(201,169,97,0.45), 0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+      border-color: rgba(201,169,97,0.95); color: #ffe08a; transform: scale(1.1);
+      box-shadow: 0 0 36px rgba(201,169,97,0.85), 0 0 70px rgba(201,169,97,0.4), 0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
     }
-    #hz528-btn svg { width: 22px; height: 22px; position: relative; z-index: 1; }
+    #hz528-btn svg { width: 22px; height: 22px; position: relative; z-index: 1; filter: drop-shadow(0 0 4px rgba(212,181,109,0.9)); }
     .hz-ring {
-      position: absolute; border-radius: 50%; border: 1px solid rgba(201,169,97,0.35);
+      position: absolute; border-radius: 50%; border: 1px solid rgba(201,169,97,0.45);
       top: 50%; left: 50%; transform: translate(-50%,-50%);
       width: 56px; height: 56px; opacity: 0; pointer-events: none;
     }
@@ -1757,29 +1757,31 @@
       #hz528-btn.hz-playing { animation: hzPulse 2.2s ease-in-out infinite; }
     }
     @keyframes hzRing {
-      0%   { width: 56px;  height: 56px;  opacity: 0.55; }
-      100% { width: 140px; height: 140px; opacity: 0; }
+      0%   { width: 56px;  height: 56px;  opacity: 0.65; }
+      100% { width: 150px; height: 150px; opacity: 0; }
     }
     @keyframes hzPulse {
-      0%,100% { box-shadow: 0 0 18px rgba(201,169,97,0.35), 0 4px 20px rgba(0,0,0,0.4); }
-      50%     { box-shadow: 0 0 38px rgba(201,169,97,0.75), 0 0 80px rgba(201,169,97,0.2), 0 4px 20px rgba(0,0,0,0.4); }
+      0%,100% { box-shadow: 0 0 24px rgba(201,169,97,0.65), 0 0 50px rgba(201,169,97,0.25), 0 4px 20px rgba(0,0,0,0.45); }
+      50%     { box-shadow: 0 0 48px rgba(201,169,97,0.95), 0 0 90px rgba(201,169,97,0.45), 0 0 130px rgba(201,169,97,0.15), 0 4px 20px rgba(0,0,0,0.4); }
     }
-    #hz528-btn.hz-playing { border-color: rgba(201,169,97,0.65); color: #d4b56d; }
+    #hz528-btn.hz-playing { border-color: rgba(201,169,97,0.9); color: #ffe08a; }
+    #hz528-btn.hz-playing svg { filter: drop-shadow(0 0 7px rgba(255,220,100,1)); }
     #hz528-label {
       font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
-      color: rgba(201,169,97,0.45); text-transform: uppercase; pointer-events: none;
-      transition: color 0.4s;
+      color: rgba(201,169,97,0.65); text-transform: uppercase; pointer-events: none;
+      transition: color 0.4s; text-shadow: 0 0 8px rgba(201,169,97,0.4);
     }
-    #hz528-btn.hz-playing ~ #hz528-label { color: rgba(201,169,97,0.8); }
+    #hz528-btn.hz-playing ~ #hz528-label { color: rgba(201,169,97,0.95); text-shadow: 0 0 10px rgba(201,169,97,0.7); }
     [data-theme="light"] #hz528-btn {
-      background: radial-gradient(circle at 38% 38%, rgba(230,200,120,0.35) 0%, rgba(255,248,235,0.92) 100%);
-      border-color: rgba(154,115,32,0.38); color: rgba(154,115,32,0.75);
-      box-shadow: 0 0 14px rgba(154,115,32,0.18), 0 4px 16px rgba(0,0,0,0.12);
+      background: radial-gradient(circle at 38% 38%, rgba(230,200,120,0.45) 0%, rgba(255,248,235,0.92) 100%);
+      border-color: rgba(154,115,32,0.65); color: #9a7320;
+      box-shadow: 0 0 20px rgba(154,115,32,0.35), 0 0 40px rgba(154,115,32,0.15), 0 4px 16px rgba(0,0,0,0.12);
     }
-    [data-theme="light"] #hz528-btn:hover { color: #7d5c10; border-color: rgba(154,115,32,0.65); }
-    [data-theme="light"] .hz-ring { border-color: rgba(154,115,32,0.3); }
-    [data-theme="light"] #hz528-label { color: rgba(154,115,32,0.5); }
-    [data-theme="light"] #hz528-btn.hz-playing ~ #hz528-label { color: rgba(154,115,32,0.85); }
+    [data-theme="light"] #hz528-btn svg { filter: drop-shadow(0 0 3px rgba(154,115,32,0.7)); }
+    [data-theme="light"] #hz528-btn:hover { color: #7d5c10; border-color: rgba(154,115,32,0.9); }
+    [data-theme="light"] .hz-ring { border-color: rgba(154,115,32,0.35); }
+    [data-theme="light"] #hz528-label { color: rgba(154,115,32,0.7); }
+    [data-theme="light"] #hz528-btn.hz-playing ~ #hz528-label { color: rgba(154,115,32,0.95); }
     @media (max-width: 480px) {
       #hz528-wrap { bottom: 1rem; left: 1rem; }
       #hz528-btn { width: 48px; height: 48px; }
@@ -2141,7 +2143,7 @@
 
 
 <div id="hz528-wrap">
-  <button id="hz528-btn" type="button" aria-label="528 Hz Love Frequency" title="528 Hz · Love Frequency">
+  <button id="hz528-btn" type="button" aria-label="528 Hz Love Frequency" title="528 Hz">
     <div class="hz-ring hz-ring-1"></div>
     <div class="hz-ring hz-ring-2"></div>
     <div class="hz-ring hz-ring-3"></div>
