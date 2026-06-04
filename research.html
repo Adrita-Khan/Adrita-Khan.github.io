@@ -2110,6 +2110,46 @@
       #bell-btn.hz-playing .hz-ring-3 { animation: hzRing 2.8s ease-out infinite 1.86s; }
       #bell-btn.hz-playing { animation: hzPulse 2.2s ease-in-out infinite; }
     }
+    /* ── Wind Chime button ── */
+    #chime-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; -webkit-tap-highlight-color: transparent; }
+    #chime-btn {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 2px solid rgba(201,169,97,0.65);
+      background: radial-gradient(circle at 38% 38%, rgba(201,169,97,0.15) 0%, rgba(30,20,5,0.85) 100%);
+      color: rgba(201,169,97,0.75); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 18px rgba(201,169,97,0.25), 0 0 36px rgba(201,169,97,0.1), 0 4px 16px rgba(0,0,0,0.45);
+      transition: all 0.35s ease; position: relative; overflow: visible;
+    }
+    #chime-btn:hover {
+      border-color: rgba(201,169,97,0.95); color: #ffe08a; transform: scale(1.1);
+      box-shadow: 0 0 36px rgba(201,169,97,0.85), 0 0 70px rgba(201,169,97,0.4), 0 4px 24px rgba(0,0,0,0.5);
+    }
+    #chime-btn svg { width: 20px; height: 20px; position: relative; z-index: 1; filter: drop-shadow(0 0 4px rgba(212,181,109,0.9)); }
+    #chime-btn.hz-playing { border-color: rgba(201,169,97,0.9); color: #ffe08a; }
+    #chime-btn.hz-playing svg { filter: drop-shadow(0 0 7px rgba(255,220,100,1)); }
+    #chime-label {
+      font-size: 0.55rem; font-weight: 700; letter-spacing: 0.09em;
+      color: rgba(201,169,97,0.65); text-transform: uppercase; pointer-events: none;
+      transition: color 0.4s; text-shadow: 0 0 8px rgba(201,169,97,0.4);
+      text-align: center; max-width: 82px; line-height: 1.35;
+    }
+    #chime-btn.hz-playing ~ #chime-label { color: rgba(201,169,97,0.95); text-shadow: 0 0 10px rgba(201,169,97,0.7); }
+    [data-theme="light"] #chime-btn {
+      background: radial-gradient(circle at 38% 38%, rgba(230,200,120,0.45) 0%, rgba(255,248,235,0.92) 100%);
+      border-color: rgba(154,115,32,0.65); color: #9a7320;
+      box-shadow: 0 0 20px rgba(154,115,32,0.35), 0 0 40px rgba(154,115,32,0.15), 0 4px 16px rgba(0,0,0,0.12);
+    }
+    [data-theme="light"] #chime-btn svg { filter: drop-shadow(0 0 3px rgba(154,115,32,0.7)); }
+    [data-theme="light"] #chime-btn:hover { color: #7d5c10; border-color: rgba(154,115,32,0.9); }
+    [data-theme="light"] #chime-label { color: rgba(154,115,32,0.7); }
+    [data-theme="light"] #chime-btn.hz-playing ~ #chime-label { color: rgba(154,115,32,0.95); }
+    @media (prefers-reduced-motion: no-preference) {
+      #chime-btn.hz-playing .hz-ring-1 { animation: hzRing 2.8s ease-out infinite; }
+      #chime-btn.hz-playing .hz-ring-2 { animation: hzRing 2.8s ease-out infinite 0.93s; }
+      #chime-btn.hz-playing .hz-ring-3 { animation: hzRing 2.8s ease-out infinite 1.86s; }
+      #chime-btn.hz-playing { animation: hzPulse 2.2s ease-in-out infinite; }
+    }
     </style>
 </head>
 <body>
@@ -2831,6 +2871,23 @@
   </button>
   <span id="bell-label">Carillon</span>
 </div>
+<div id="chime-wrap">
+  <button id="chime-btn" type="button" aria-label="Wind Chime" title="Wind Chime">
+    <div class="hz-ring hz-ring-1"></div>
+    <div class="hz-ring hz-ring-2"></div>
+    <div class="hz-ring hz-ring-3"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="3" x2="19" y2="3"></line>
+      <line x1="8" y1="3" x2="8" y2="13"></line>
+      <line x1="12" y1="3" x2="12" y2="17"></line>
+      <line x1="16" y1="3" x2="16" y2="11"></line>
+      <line x1="6" y1="13" x2="10" y2="13"></line>
+      <line x1="10" y1="17" x2="14" y2="17"></line>
+      <line x1="14" y1="11" x2="18" y2="11"></line>
+    </svg>
+  </button>
+  <span id="chime-label">Wind Chime</span>
+</div>
 </div>
 <script>
 (function(){
@@ -2891,7 +2948,7 @@
     var b=document.getElementById('hz528-btn');
     if(b)b.addEventListener('click',function(){
       if(playing){stop();}
-      else{if(window._bellPlaying&&window._bellPlaying())window._bellStop&&window._bellStop();start();}
+      else{if(window._bellPlaying&&window._bellPlaying())window._bellStop&&window._bellStop();if(window._chimePlaying&&window._chimePlaying())window._chimeStop&&window._chimeStop();start();}
     });
   });
   window._hz528Stop=stop;
@@ -2966,11 +3023,78 @@
     var b=document.getElementById('bell-btn');
     if(b)b.addEventListener('click',function(){
       if(bPlaying){stopBell();}
-      else{if(window._hz528Playing&&window._hz528Playing())window._hz528Stop&&window._hz528Stop();startBell();}
+      else{if(window._hz528Playing&&window._hz528Playing())window._hz528Stop&&window._hz528Stop();if(window._chimePlaying&&window._chimePlaying())window._chimeStop&&window._chimeStop();startBell();}
     });
   });
   window._bellStop=stopBell;
   window._bellPlaying=function(){return bPlaying;};
+})();
+</script>
+<script>
+(function(){
+  var cctx=null,cGain=null,cPlaying=false,cTimer=null;
+  var notes=[392,440,523.25,587.33,659.25,783.99];
+  function cac(){if(!cctx)cctx=new(window.AudioContext||window.webkitAudioContext)();return cctx;}
+  function chimeStrike(){
+    var c=cac();
+    if(!cGain)return;
+    var now=c.currentTime;
+    var n=notes[Math.floor(Math.random()*notes.length)];
+    var ps=[{f:n,a:0.35,decay:3.0},{f:n*2.756,a:0.07,decay:1.2}];
+    ps.forEach(function(p){
+      var osc=c.createOscillator(),env=c.createGain();
+      osc.type='sine';
+      osc.frequency.setValueAtTime(p.f,now);
+      env.gain.setValueAtTime(0.001,now);
+      env.gain.linearRampToValueAtTime(p.a*1.5,now+0.002);
+      env.gain.exponentialRampToValueAtTime(0.001,now+p.decay);
+      osc.connect(env);env.connect(cGain);
+      osc.start(now);osc.stop(now+p.decay+0.1);
+    });
+  }
+  function scheduleChimes(){
+    chimeStrike();
+    cTimer=setTimeout(function(){if(cPlaying)scheduleChimes();},800+Math.random()*2200);
+  }
+  function startChime(){
+    var c=cac();
+    if(c.state==='suspended')c.resume();
+    cGain=c.createGain();
+    cGain.gain.setValueAtTime(0.0,c.currentTime);
+    cGain.gain.linearRampToValueAtTime(1.0,c.currentTime+0.3);
+    cGain.connect(c.destination);
+    cPlaying=true;chimeUi(true);
+    scheduleChimes();
+  }
+  function stopChime(){
+    cPlaying=false;chimeUi(false);
+    if(cTimer){clearTimeout(cTimer);cTimer=null;}
+    if(cGain){
+      var c=cac(),g=cGain;
+      g.gain.setValueAtTime(g.gain.value,c.currentTime);
+      g.gain.linearRampToValueAtTime(0,c.currentTime+0.5);
+      setTimeout(function(){if(cGain===g)cGain=null;},700);
+    }
+  }
+  function chimeUi(on){
+    var b=document.getElementById('chime-btn');
+    if(!b)return;
+    if(on){b.classList.add('hz-playing');b.title='Wind Chime playing — click to stop';}
+    else{b.classList.remove('hz-playing');b.title='Wind Chime';}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var b=document.getElementById('chime-btn');
+    if(b)b.addEventListener('click',function(){
+      if(cPlaying){stopChime();}
+      else{
+        if(window._hz528Playing&&window._hz528Playing())window._hz528Stop&&window._hz528Stop();
+        if(window._bellPlaying&&window._bellPlaying())window._bellStop&&window._bellStop();
+        startChime();
+      }
+    });
+  });
+  window._chimeStop=stopChime;
+  window._chimePlaying=function(){return cPlaying;};
 })();
 </script>
 </body>
