@@ -136,7 +136,7 @@ This repository hosts the source code for my academic portfolio website: **[adri
 [![Email](https://img.shields.io/badge/Email-D4A5A5?style=for-the-badge&logo=gmail&logoColor=white)](mailto:adrita.khan.official@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-D4A5A5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adrita-khan)
 [![Twitter](https://img.shields.io/badge/Twitter-D4A5A5?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Adrita_)
-[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-D4A5A5?style=for-the-badge&logo=googlescholar&logoColor=white)](https://scholar.google.com/citations?user=YOUR_ID)
-[![ORCID](https://img.shields.io/badge/ORCID-D4A5A5?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/YOUR_ORCID)
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-D4A5A5?style=for-the-badge&logo=googlescholar&logoColor=white)](https://scholar.google.com/citations?user=by7-MiMAAAAJ)
+[![ORCID](https://img.shields.io/badge/ORCID-D4A5A5?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0000-9304-8895)
 
 </div>
