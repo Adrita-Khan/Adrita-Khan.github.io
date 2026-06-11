@@ -127,14 +127,14 @@
         /* ── Navigation ── */
         #quick-links {
             position: relative; z-index: 10;
-            background: rgba(10,14,20,0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            background: rgba(10,14,20,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             padding: 1.5rem 0; border-bottom: 1px solid rgba(201,169,97,0.2);
             display: flex; justify-content: center; overflow-x: hidden;
         }
         .nav-container { width: 100%; max-width: 1200px; padding: 0 1rem; }
         .nav-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; list-style: none; padding: 0; margin: 0; }
         .nav-list a {
-            display: block; background: rgba(201,169,97,0.12); border: 1px solid rgba(201,169,97,0.25);
+            display: block; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2);
             border-radius: 25px; padding: 0.7rem 1.2rem; text-decoration: none; color: #ffffff;
             font-size: 0.9rem; font-weight: 500; text-align: center; transition: all 0.3s ease;
             backdrop-filter: blur(5px); white-space: nowrap; flex-shrink: 0;
@@ -197,12 +197,7 @@
         .filter-btn:hover, .filter-btn.active { background: rgba(201,169,97,0.18); border-color: #c9a961; color: #c9a961; box-shadow: 0 0 12px rgba(201,169,97,0.15); }
 
         /* ── Category Section ── */
-        .category-section { margin-bottom: 2.8rem; animation: sectionFadeIn 0.6s ease both; }
-        .category-section:nth-child(1) { animation-delay: 0.1s; }
-        .category-section:nth-child(2) { animation-delay: 0.2s; }
-        .category-section:nth-child(3) { animation-delay: 0.3s; }
-        .category-section:nth-child(4) { animation-delay: 0.4s; }
-        @keyframes sectionFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .category-section { margin-bottom: 2.8rem; padding: 1.2rem 1.5rem; }
 
         .category-header {
             display: flex; align-items: center; margin-bottom: 1.2rem;
@@ -1652,7 +1647,7 @@
         .subsection-title { margin: 3rem 0 1.8rem; }
 
         /* Category section */
-        .category-section { margin-bottom: 3rem; animation: sectionFadeIn 0.6s ease both; }
+        .category-section { margin-bottom: 3rem; }
         .category-section:last-child { margin-bottom: 1rem; }
 
         /* Category header — slim, like a section sub-label */
