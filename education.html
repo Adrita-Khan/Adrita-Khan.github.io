@@ -246,6 +246,117 @@
         .future-description { background: rgba(201,169,97,0.1); border-radius: 12px; padding: 1.2rem; margin-top: 1rem; position: relative; z-index: 3; }
         .future-description p { color: #e8e8e8; line-height: 1.7; font-size: 1.05rem; }
 
+        /* ── MSc card (image-matched layout) ── */
+        .msc-card {
+            background: linear-gradient(180deg, rgba(35,22,18,0.92) 0%, rgba(28,18,14,0.96) 100%) !important;
+            border: 1px solid rgba(201,169,97,0.28) !important;
+            border-radius: 14px !important;
+            padding: 2.2rem 2.4rem !important;
+        }
+        .msc-status { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.3rem; }
+        .msc-status-dot {
+            width: 9px; height: 9px; border-radius: 50%;
+            background: #d4b56d; box-shadow: 0 0 12px rgba(212,181,109,0.65);
+            display: inline-block; flex-shrink: 0;
+        }
+        .msc-status-text {
+            font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
+            color: #d4b56d; font-weight: 600;
+        }
+        .msc-title {
+            font-size: 1.5rem !important; font-weight: 500 !important;
+            color: #f4f0ea !important; line-height: 1.15 !important;
+            margin: 0 0 0.6rem 0 !important;
+        }
+        .msc-university {
+            font-size: 1.05rem !important; color: #ede4d6 !important;
+            font-weight: 500 !important; margin: 0 0 0.35rem 0 !important;
+        }
+        .msc-subline {
+            font-size: 0.92rem !important; color: rgba(237,228,214,0.55) !important;
+            margin: 0 0 1.6rem 0 !important; padding-bottom: 1.6rem;
+            border-bottom: 1px solid rgba(201,169,97,0.12);
+        }
+        .msc-meta-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.4rem; padding: 0.4rem 0 1.6rem 0;
+            border-bottom: 1px solid rgba(201,169,97,0.12); margin-bottom: 1.6rem;
+        }
+        .msc-meta-label {
+            font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: rgba(237,228,214,0.5); font-weight: 600; margin-bottom: 0.45rem;
+        }
+        .msc-meta-value {
+            font-size: 0.98rem; color: #f4f0ea; font-weight: 500;
+            line-height: 1.35;
+        }
+        .msc-meta-value.msc-meta-accent { color: #d4b56d; }
+        .msc-body p {
+            font-size: 0.98rem; line-height: 1.7;
+            color: rgba(237,228,214,0.78) !important; margin: 0 0 1.05rem 0;
+        }
+        .msc-body p:last-child { margin-bottom: 0; }
+        .msc-body a {
+            color: #d4b56d; text-decoration: underline;
+            text-decoration-color: rgba(212,181,109,0.4); text-underline-offset: 3px;
+            transition: color 0.3s, text-decoration-color 0.3s;
+        }
+        .msc-body a:hover { color: #e8c97e; text-decoration-color: rgba(212,181,109,0.8); }
+        .msc-links {
+            display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem;
+        }
+        .msc-link-pill {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.7rem; letter-spacing: 1.6px; text-transform: uppercase;
+            font-weight: 600; color: rgba(237,228,214,0.7);
+            padding: 0.55rem 0.95rem; border: 1px solid rgba(201,169,97,0.22);
+            border-radius: 4px; text-decoration: none; background: transparent;
+            transition: all 0.25s ease;
+        }
+        .msc-link-pill:hover {
+            color: #f4f0ea; border-color: rgba(212,181,109,0.55);
+            background: rgba(201,169,97,0.08);
+        }
+        [data-theme="light"] .msc-card {
+            background: rgba(255, 248, 244, 0.85) !important;
+            border-color: rgba(154,115,32,0.3) !important;
+        }
+        [data-theme="light"] .msc-title { color: #1e1410 !important; }
+        [data-theme="light"] .msc-university { color: #2a1d15 !important; }
+        [data-theme="light"] .msc-subline { color: #5a3f30 !important; border-bottom-color: rgba(154,115,32,0.18); }
+        [data-theme="light"] .msc-meta-label { color: #6b5040 !important; }
+        [data-theme="light"] .msc-meta-value { color: #1e1410 !important; }
+        [data-theme="light"] .msc-meta-value.msc-meta-accent { color: #9a7320 !important; }
+        [data-theme="light"] .msc-body p { color: #3d2820 !important; }
+        [data-theme="light"] .msc-body a { color: #9a7320 !important; }
+        [data-theme="light"] .msc-link-pill { color: #5a3f30 !important; border-color: rgba(154,115,32,0.3) !important; }
+        [data-theme="light"] .msc-link-pill:hover { color: #1e1410 !important; border-color: rgba(154,115,32,0.6) !important; background: rgba(154,115,32,0.08) !important; }
+        @media (max-width: 700px) {
+            .msc-card { padding: 1.5rem 1.4rem !important; }
+            .msc-title { font-size: 1.3rem !important; }
+            .msc-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+        }
+
+        /* ── BSc card: match MSc card typography ── */
+        .msc-card .education-content h3 { color: #f4f0ea !important; font-weight: 500 !important; }
+        .msc-card .education-university,
+        .msc-card .education-university a { color: #ede4d6 !important; text-decoration-color: rgba(237,228,214,0.35) !important; }
+        .msc-card .education-location { color: rgba(237,228,214,0.55) !important; }
+        .msc-card .section-title { color: #d4b56d !important; }
+        .msc-card .thesis-title,
+        .msc-card .thesis-supervisor { color: rgba(237,228,214,0.78) !important; }
+        .msc-card .achievement-text { color: rgba(237,228,214,0.78) !important; }
+        .msc-card .meta-badge { background: rgba(201,169,97,0.1) !important; border-color: rgba(201,169,97,0.2) !important; color: rgba(237,228,214,0.85) !important; }
+        [data-theme="light"] .msc-card .education-content h3 { color: #1e1410 !important; }
+        [data-theme="light"] .msc-card .education-university,
+        [data-theme="light"] .msc-card .education-university a { color: #2a1d15 !important; }
+        [data-theme="light"] .msc-card .education-location { color: #5a3f30 !important; }
+        [data-theme="light"] .msc-card .section-title { color: #9a7320 !important; }
+        [data-theme="light"] .msc-card .thesis-title,
+        [data-theme="light"] .msc-card .thesis-supervisor,
+        [data-theme="light"] .msc-card .achievement-text { color: #3d2820 !important; }
+        [data-theme="light"] .msc-card .meta-badge { background: rgba(154,115,32,0.1) !important; border-color: rgba(154,115,32,0.25) !important; color: #3d2820 !important; }
+
         /* ── Footer ── */
         footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 2rem 0; }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; }
@@ -2005,8 +2116,49 @@
     <div class="container-wide">
         <div class="page-grid">
 
+            <!-- 0. Current M.Sc. -->
+            <div class="card span-12 msc-card">
+                <div class="msc-status">
+                    <span class="msc-status-dot"></span>
+                    <span class="msc-status-text">Incoming &middot; Winter 2026</span>
+                </div>
+                <h3 class="msc-title">MSc in Astrophysics</h3>
+                <p class="msc-university">Rheinische Friedrich&#8209;Wilhelms&#8209;Universit&auml;t Bonn</p>
+                <p class="msc-subline">Argelander&#8209;Institut f&uuml;r Astronomie &amp; Faculty of Mathematics and Natural Sciences &middot; Bonn, Germany</p>
+
+                <div class="msc-meta-grid">
+                    <div class="msc-meta-cell">
+                        <div class="msc-meta-label">Programme</div>
+                        <div class="msc-meta-value">MSc Astrophysics</div>
+                    </div>
+                    <div class="msc-meta-cell">
+                        <div class="msc-meta-label">Starting</div>
+                        <div class="msc-meta-value msc-meta-accent">Winter Semester 2026 / 27</div>
+                    </div>
+                    <div class="msc-meta-cell">
+                        <div class="msc-meta-label">Duration</div>
+                        <div class="msc-meta-value">4 semesters</div>
+                    </div>
+                    <div class="msc-meta-cell">
+                        <div class="msc-meta-label">Funding</div>
+                        <div class="msc-meta-value msc-meta-accent">BCGS Scholarship</div>
+                    </div>
+                </div>
+
+                <div class="msc-body">
+                    <p>Bonn's MSc Astrophysics is hosted by the <a href="https://astro.uni-bonn.de/" target="_blank" rel="noopener noreferrer">Argelander&#8209;Institut f&uuml;r Astronomie</a> with strong ties to MPIfR (Max Planck Institute for Radio Astronomy) and the wider Bonn&ndash;Cologne astrophysics community. The two&#8209;year programme combines advanced coursework in cosmology, galactic dynamics, radio astronomy, and instrumentation with an extended research thesis.</p>
+                    <p>The <a href="https://www.bcgs.uni-bonn.de/" target="_blank" rel="noopener noreferrer">Bonn&#8209;Cologne Graduate School of Physics and Astronomy (BCGS)</a> is a joint excellence&#8209;funded graduate school of the Universities of Bonn and Cologne, supporting outstanding students with full scholarships, mentoring, and access to the joint research infrastructure of both universities.</p>
+                </div>
+
+                <div class="msc-links">
+                    <a href="https://www.uni-bonn.de/en/studying/a-z-of-degree-programs/master-of-science-physics" target="_blank" rel="noopener noreferrer" class="msc-link-pill">Programme page <span aria-hidden="true">&#8599;</span></a>
+                    <a href="https://astro.uni-bonn.de/" target="_blank" rel="noopener noreferrer" class="msc-link-pill">Argelander&#8209;Institut <span aria-hidden="true">&#8599;</span></a>
+                    <a href="https://www.gradschool.physics.uni-bonn.de/applying/applying-for-a-scholarship" target="_blank" rel="noopener noreferrer" class="msc-link-pill">BCGS <span aria-hidden="true">&#8599;</span></a>
+                </div>
+            </div>
+
             <!-- 1. Bachelor degree -->
-            <div class="card span-12">
+            <div class="card span-12 msc-card">
                 <div class="education-header">
                     <div class="education-icon">🎓</div>
                     <div class="education-content">
@@ -2014,7 +2166,7 @@
                         <p class="education-university">
                             <a href="https://www.usm.my/en/" target="_blank" rel="noopener noreferrer"
                                style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:3px;transition:color 0.3s;">
-                               University of Science, Malaysia (Universiti Sains Malaysia, USM)
+                               Universiti Sains Malaysia
                             </a>
                         </p>
                         <p class="education-location">School of Physics, Gelugor, Penang, Malaysia</p>
@@ -2242,23 +2394,7 @@
                 </div>
             </div>
 
-            <!-- 8. Future studies -->
-            <div class="future-card">
-                <div class="future-header">
-                    <div class="education-icon">⚛️</div>
-                    <div class="future-title-group">
-                        <h3>Future Graduate Studies</h3>
-                        <p class="education-university">PhD Aspirant in Astrophysics and Cosmology</p>
-                    </div>
-                </div>
-                <div class="education-meta">
-                    <div class="meta-badge">Upcoming</div>
-                    <div class="meta-badge">Planning Phase</div>
-                </div>
-                <div class="future-description">
-                    <p>Currently exploring opportunities for graduate studies in Physics and Astronomy. Research interests include Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter &amp; Dark Energy, High-Energy Astrophysics, Galaxy Evolution &amp; Dynamics, and Astrostatistics with Machine Learning.</p>
-                </div>
-            </div>
+
 
         </div><!-- /.page-grid -->
     </div><!-- /.container-wide -->
