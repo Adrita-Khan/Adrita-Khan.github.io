@@ -29,9 +29,8 @@ This repository hosts the source code for my academic portfolio website: **[adri
 |------|-------------|
 | [**Home**](https://adrita-khan.github.io/) | Landing page |
 | [**Education**](https://adrita-khan.github.io/education) | Academic background & coursework |
-| [**Research**](https://adrita-khan.github.io/research) | Research experience & collaborations |
+| [**Research & Projects**](https://adrita-khan.github.io/research) | Research experience, collaborations & selected projects |
 | [**Publications**](https://adrita-khan.github.io/publications) | Papers & manuscripts |
-| [**Projects**](https://adrita-khan.github.io/projects) | Selected projects |
 | [**Academic Experience**](https://adrita-khan.github.io/academic_experience) | Teaching, mentorship & service |
 | [**Achievements**](https://adrita-khan.github.io/achievements) | Awards, schools & participations |
 | [**Notes**](https://adrita-khan.github.io/notes) | Study notes & learning resources |
