@@ -17,7 +17,8 @@
 
 ## About
 
-I'm a physics graduate (B.Sc. Hons., Major in Physics, Minor in Astronomy — Universiti Sains Malaysia) and researcher based in Dhaka, Bangladesh, working across **observational cosmology**, **modified gravity**, and **machine learning for astrophysics**.
+I'm an incoming M.Sc. Astrophysics student at the Rheinische Friedrich-Wilhelms-Universität Bonn (BCGS Scholar) and a researcher based in Dhaka, Bangladesh. I hold my B.Sc. (Hons.) in Physics (Major) and Astronomy (Minor) from Universiti Sains Malaysia, and my research interests span large-scale structure, dark energy, gravity beyond General Relativity, and data-driven approaches to astrophysical problems.
+
 
 This repository hosts the source code for my academic portfolio website: **[adrita-khan.github.io](https://adrita-khan.github.io)**
 
