@@ -738,6 +738,24 @@
             }
         }
 
+        /* ── Education entry cards (index.html): phone layout ── */
+        @media (max-width: 640px) {
+            /* Tighten the icon-to-text gap */
+            .about-content > div > div { gap: 0.75rem !important; }
+            /* Allow content column to shrink + wrap at any point (incl. non-breaking hyphens) */
+            .about-content > div > div > div:last-child {
+                min-width: 0;
+                overflow-wrap: anywhere;
+            }
+            .about-content > div > div > div:last-child h3 { font-size: 1.1rem !important; }
+            .about-content > div > div > div:last-child p  { font-size: 0.9rem !important; }
+            /* Collapse 2-col detail grid to 1-col */
+            .about-content > div > div > div:last-child > div[style*="grid-template-columns:repeat(2"] {
+                grid-template-columns: 1fr !important;
+                gap: 0.4rem !important;
+            }
+        }
+
         .aurora-container { display: none !important; }
     
         /* Active nav link (current page) — added for cross-page consistency */
