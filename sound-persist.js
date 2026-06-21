@@ -55,10 +55,36 @@
         });
     }
 
+    function currentPage() {
+        return location.pathname.split('/').pop() || 'index.html';
+    }
+
+    function scrollToHash(hash) {
+        if (!hash) { window.scrollTo(0, 0); return; }
+        var el = document.getElementById(hash.slice(1));
+        if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - 10);
+        else window.scrollTo(0, 0);
+    }
+
     /* ── core navigation ─────────────────────────────────────────────────── */
 
-    function navigate(url) {
+    function navigate(rawUrl) {
         if (busy) return;
+
+        /* Separate any #hash from the page URL */
+        var hash = '', url = rawUrl;
+        var hi = url.indexOf('#');
+        if (hi !== -1) { hash = url.slice(hi); url = url.slice(0, hi); }
+
+        var targetPage = url.split('/').pop() || 'index.html';
+
+        /* Same page, hash only → just scroll, no re-render */
+        if (targetPage === currentPage() && hash) {
+            history.pushState({ url: rawUrl }, document.title, rawUrl);
+            scrollToHash(hash);
+            return;
+        }
+
         busy = true;
 
         /* Nodes we must keep alive across the swap */
@@ -71,6 +97,23 @@
 
                 var parser = new DOMParser();
                 var newDoc = parser.parseFromString(html, 'text/html');
+
+                /* Follow a meta-refresh redirect stub
+                   (e.g. contact.html → index.html#contact) so audio survives */
+                var redirectUrl = null;
+                var metas = newDoc.querySelectorAll('meta[http-equiv]');
+                for (var mi = 0; mi < metas.length; mi++) {
+                    if ((metas[mi].getAttribute('http-equiv') || '').toLowerCase() === 'refresh') {
+                        var rm = /url\s*=\s*(.+?)\s*$/i.exec(metas[mi].getAttribute('content') || '');
+                        if (rm && rm[1]) redirectUrl = rm[1].trim();
+                        break;
+                    }
+                }
+                if (redirectUrl) {
+                    busy = false;
+                    navigate(redirectUrl);
+                    return;
+                }
 
                 /* 1 ── Title ─────────────────────────────────────────────── */
                 document.title = newDoc.title;
@@ -118,8 +161,8 @@
                 document.body.insertBefore(frag, soundPanel || null);
 
                 /* 6 ── URL / scroll / nav ────────────────────────────────── */
-                history.pushState({ url: url }, document.title, url);
-                window.scrollTo(0, 0);
+                history.pushState({ url: rawUrl }, document.title, rawUrl);
+                scrollToHash(hash);
                 updateActiveNav(url);
 
                 /* 7 ── Re-execute page scripts ───────────────────────────── */
@@ -141,8 +184,20 @@
                     /* Skip external scripts (nav-prefetch, sound-persist,
                        search-data — all already loaded) */
                     if (s.src) return;
+                    /* Wrap in an IIFE so top-level const/let/class declarations
+                       (e.g. `const scrollBtn`) don't clash with the globals left
+                       behind by the initial page load. Then re-expose any
+                       top-level function declarations to window so inline
+                       onclick="" handlers (toggleBibtex, copyBibtex, …) still
+                       resolve. */
+                    var code = s.text;
+                    var fns = [], re = /(?:^|\n)[ \t]*function[ \t]+([A-Za-z_$][\w$]*)/g, mm;
+                    while ((mm = re.exec(code)) !== null) fns.push(mm[1]);
+                    var expose = fns.map(function (n) {
+                        return 'try{window.' + n + '=' + n + ';}catch(e){}';
+                    }).join('');
                     var ns = document.createElement('script');
-                    ns.textContent = s.text;
+                    ns.textContent = '(function(){' + code + '\n' + expose + '\n})();';
                     document.body.appendChild(ns);
                     ns.remove(); /* executed synchronously; clean up the node */
                 });
@@ -154,7 +209,7 @@
             .catch(function () {
                 /* On any error fall back to a normal navigation */
                 busy = false;
-                window.location.href = url;
+                window.location.href = rawUrl;
             });
     }
 
