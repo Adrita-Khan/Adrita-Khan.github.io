@@ -2131,9 +2131,57 @@
         [data-theme="light"] .mentee-table .focus-list a { color: #7d5c10; border-bottom-color: rgba(125,92,16,0.4); }
         [data-theme="light"] .mentee-table .focus-list a:hover { color: #5a4008; }
         @media (max-width: 640px) {
-            .mentee-table { font-size: 0.8rem; }
-            .mentee-table th, .mentee-table td { padding: 0.6rem 0.7rem; }
-            .mentee-table .mentee-name { white-space: normal; }
+            /* Stack both tables into cards — no horizontal scroll / cut-off */
+            .mentee-table-wrap { overflow-x: visible; border: none; border-radius: 0; margin-top: 0.5rem; }
+            .mentee-table { font-size: 0.85rem; display: block; }
+            .mentee-table thead { display: none; }
+            .mentee-table tbody { display: block; }
+            .mentee-table tr { display: block; }
+            .mentee-table td { display: block; padding: 0; border-bottom: none; }
+
+            /* Institution / group banners stay full-width */
+            .mentee-table tr.rt-inst-header { margin: 1rem 0 0.6rem; }
+            .mentee-table tr.rt-inst-header:first-child { margin-top: 0; }
+            .mentee-table tr.rt-inst-header td {
+                padding: 0.6rem 0.85rem; border-radius: 8px;
+                border: 1px solid rgba(201,169,97,0.2);
+                line-height: 1.5;
+            }
+
+            /* Data rows → cards */
+            .mentee-table tbody tr:not(.rt-inst-header) {
+                background: rgba(201,169,97,0.05);
+                border: 1px solid rgba(201,169,97,0.15);
+                border-radius: 10px;
+                padding: 0.9rem 1rem;
+                margin-bottom: 0.7rem;
+            }
+            .mentee-table tbody tr:not(.rt-inst-header):hover td { background: none; }
+            .mentee-table .mentee-name { white-space: normal; font-size: 0.96rem !important; }
+            .mentee-table .rt-period { white-space: normal; }
+
+            /* Field labels derived from column headers */
+            .mentee-table tbody tr:not(.rt-inst-header) td:not(:first-child) { margin-top: 0.65rem; }
+            .mentee-table tbody tr:not(.rt-inst-header) td:not(:first-child)::before {
+                display: block;
+                font-size: 0.62rem; font-weight: 700;
+                letter-spacing: 0.09em; text-transform: uppercase;
+                color: #c9a961; opacity: 0.85; margin-bottom: 0.2rem;
+            }
+            /* Research Experience table */
+            .research-table tbody tr:not(.rt-inst-header) td:nth-child(2)::before { content: "Period"; }
+            .research-table tbody tr:not(.rt-inst-header) td:nth-child(3)::before { content: "Responsibilities"; }
+            /* Mentorship & Teaching table */
+            .mentee-table:not(.research-table) tbody tr:not(.rt-inst-header) td:nth-child(2)::before { content: "Institution"; }
+            .mentee-table:not(.research-table) tbody tr:not(.rt-inst-header) td:nth-child(3)::before { content: "Program / Status"; }
+            .mentee-table:not(.research-table) tbody tr:not(.rt-inst-header) td:nth-child(4)::before { content: "Mentoring Focus"; }
+
+            [data-theme="light"] .mentee-table tbody tr:not(.rt-inst-header) {
+                background: rgba(154,115,32,0.06);
+                border-color: rgba(154,115,32,0.18);
+            }
+            [data-theme="light"] .mentee-table tr.rt-inst-header td { border-color: rgba(154,115,32,0.2); }
+            [data-theme="light"] .mentee-table tbody tr:not(.rt-inst-header) td:not(:first-child)::before { color: #7d5c10; }
         }
     </style>
 
