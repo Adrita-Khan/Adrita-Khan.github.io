@@ -22,13 +22,18 @@
             transition: top 0.2s ease;
         }
         .skip-link:focus { top: 1rem; outline: 2px solid #d4b56d; }
+        .visually-hidden {
+            position: absolute !important; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0a0e14 0%, #0f1923 50%, #152232 100%);
-            min-height: 100vh; color: #fff; line-height: 1.7; overflow-x: hidden;
+            min-height: 100vh; color: #b8c5d0; line-height: 1.6; overflow-x: hidden;
         }
 
         /* ── Animated background ── */
@@ -94,7 +99,7 @@
             position: relative; z-index: 10;
             background: rgba(10,14,20,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             padding: 1.5rem 0; border-bottom: 1px solid rgba(201,169,97,0.2);
-            display: flex; justify-content: center;
+            display: flex; justify-content: center; overflow-x: hidden;
         }
         .nav-container { width: 100%; max-width: 1200px; padding: 0 1rem; }
         .nav-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; list-style: none; padding: 0; margin: 0; }
@@ -116,8 +121,8 @@
         .nav-list li:nth-child(8n+8) a { border-left: 3px solid #d4b56d; }
 
         /* ── Page containers ── */
-        .container      { max-width: 1600px; margin: 0 auto; padding: 1.2rem 4.5rem 0 4.5rem; }
-        .container-wide { max-width: 1600px; margin: 0 auto; padding: 0 8rem 2.5rem 8rem; }
+        .container      { max-width: 1000px; margin: 0 auto; padding: 1.2rem 2rem 0 2rem; }
+        .container-wide { max-width: 1000px; margin: 0 auto; padding: 0 2rem 2.5rem 2rem; }
 
         /* ── Hero ── */
         .hero-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; }
@@ -145,7 +150,7 @@
             background: rgba(201,169,97,0.08);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-radius: 20px; border: 1px solid rgba(201,169,97,0.28);
-            padding: 1.8rem 2rem; position: relative; overflow: hidden;
+            padding: 2rem; position: relative; overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card::before {
@@ -234,7 +239,7 @@
             background: rgba(201,169,97,0.08);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-radius: 20px; border: 1px solid rgba(201,169,97,0.3);
-            padding: 1.8rem 2rem; position: relative; overflow: hidden;
+            padding: 2rem; position: relative; overflow: hidden;
             opacity: 0.82; transition: all 0.3s ease;
         }
         .future-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #c9a961, #d4b56d); border-radius: 20px 20px 0 0; z-index: 2; }
@@ -358,9 +363,9 @@
         [data-theme="light"] .msc-card .meta-badge { background: rgba(154,115,32,0.1) !important; border-color: rgba(154,115,32,0.25) !important; color: #3d2820 !important; }
 
         /* ── Footer ── */
-        footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 2rem 0; }
-        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; }
-        .footer-left p { color: #b8c5d0; font-size: 1rem; }
+        footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 1.5rem 0; margin-top: 2rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .footer-left p { color: #b8c5d0; font-size: 0.88rem; }
 
         /* ── Scroll-to-top ── */
         .scroll-to-top {
@@ -384,12 +389,10 @@
 
         /* ── Responsive breakpoints ── */
 
-        @media (max-width: 1400px) {
-            .container-wide { padding: 0 6rem 2.5rem 6rem; }
-        }
+
 
         @media (max-width: 1200px) {
-            .container-wide { padding: 0 4.5rem 2.5rem 4.5rem; }
+
             .skills-categories { grid-template-columns: repeat(3, 1fr); }
             .achievements-grid { grid-template-columns: 1fr; }
             .span-6, .span-5, .span-7 { grid-column: span 12; }
@@ -2046,6 +2049,7 @@
         <div class="star medium"></div><div class="star small"></div>
     </div>
 
+    <h1 class="visually-hidden">Adrita Khan — Education</h1>
     <a href="index.html" class="side-nav-arrow side-nav-left" title="Previous: Home" aria-label="Go to Home page">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
         <span class="side-nav-label" style="writing-mode:vertical-lr;transform:rotate(180deg);">Home</span>
