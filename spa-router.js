@@ -80,13 +80,22 @@
     for (var i = 0; i < sides.length; i++) {
       var newEl = doc.querySelector(sides[i]);
       var curEl = document.querySelector(sides[i]);
-      if (!newEl || !curEl) continue;
-      curEl.setAttribute('href',       newEl.getAttribute('href')       || '');
-      curEl.setAttribute('title',      newEl.getAttribute('title')      || '');
-      curEl.setAttribute('aria-label', newEl.getAttribute('aria-label') || '');
-      var curLbl = curEl.querySelector('.side-nav-label');
-      var newLbl = newEl.querySelector('.side-nav-label');
-      if (curLbl && newLbl) curLbl.textContent = newLbl.textContent;
+
+      if (newEl && curEl) {
+        /* update existing arrow in place */
+        curEl.setAttribute('href',       newEl.getAttribute('href')       || '');
+        curEl.setAttribute('title',      newEl.getAttribute('title')      || '');
+        curEl.setAttribute('aria-label', newEl.getAttribute('aria-label') || '');
+        var curLbl = curEl.querySelector('.side-nav-label');
+        var newLbl = newEl.querySelector('.side-nav-label');
+        if (curLbl && newLbl) curLbl.textContent = newLbl.textContent;
+      } else if (newEl && !curEl) {
+        /* new page has this arrow but DOM doesn't — insert it */
+        document.body.appendChild(newEl.cloneNode(true));
+      } else if (!newEl && curEl) {
+        /* new page has no arrow — remove it from DOM */
+        curEl.parentNode.removeChild(curEl);
+      }
     }
   }
 
