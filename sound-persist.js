@@ -1,238 +1,39 @@
-/**
- * sound-persist.js
- * SPA-style navigation that keeps the three ambient sounds (528 Hz, Carillon,
- * Wind Chime) playing uninterrupted across page transitions.
- *
- * Strategy
- * ─────────
- * All three sounds run in Web Audio API closures whose state is referenced by
- * window._hz528Stop / _bellStop / _chimeStop (etc.). Those globals live on
- * window, which is only destroyed by a true page reload.  If we intercept
- * internal nav clicks, fetch the target page, and swap the <body> content
- * (preserving #sound-panel in place), window is never reloaded → audio never
- * stops.
- *
- * Works together with nav-prefetch.js: fetched pages arrive from the browser's
- * prefetch cache in < 10 ms, so the swap feels instant.
- */
+/* sound-persist.js — persist audio-button state across page loads via localStorage */
 (function () {
-    'use strict';
+  var KEY = 'ak_sound_state';
 
-    var PAGES = [
-        'index.html', 'education.html', 'publications.html',
-        'research.html', 'academic_experience.html',
-        'achievements.html', 'notes.html', 'contact.html'
-    ];
+  function save(id, playing) {
+    try {
+      var state = JSON.parse(localStorage.getItem(KEY) || '{}');
+      state[id] = playing;
+      localStorage.setItem(KEY, JSON.stringify(state));
+    } catch (e) { /* storage unavailable */ }
+  }
 
-    /* Substrings that identify the three sound-panel IIFEs.
-       Scripts containing any of these are skipped on SPA navigation so the
-       existing Audio contexts / closures keep running. */
-    var SOUND_MARKERS = ['_hz528Stop', '_bellStop', '_chimeStop'];
+  function load() {
+    try {
+      return JSON.parse(localStorage.getItem(KEY) || '{}');
+    } catch (e) { return {}; }
+  }
 
-    var busy = false;
+  document.addEventListener('DOMContentLoaded', function () {
+    var state = load();
+    var btns = ['hz528-btn', 'bell-btn', 'chime-btn'];
 
-    /* ── helpers ─────────────────────────────────────────────────────────── */
+    btns.forEach(function (id) {
+      var btn = document.getElementById(id);
+      if (!btn) return;
 
-    function isInternal(href) {
-        if (!href) return false;
-        if (/^(https?:|mailto:|tel:|#|javascript:)/i.test(href)) return false;
-        var page = href.split('/').pop().split('?')[0].split('#')[0];
-        return PAGES.indexOf(page) !== -1;
-    }
+      /* Restore playing class if it was active on last visit */
+      if (state[id]) btn.classList.add('hz-playing');
 
-    function isSoundScript(text) {
-        return SOUND_MARKERS.some(function (m) { return text.indexOf(m) !== -1; });
-    }
-
-    function updateActiveNav(url) {
-        var page = url.split('/').pop().split('?')[0] || 'index.html';
-        document.querySelectorAll('.nav-list a').forEach(function (a) {
-            var h = (a.getAttribute('href') || '').split('/').pop().split('?')[0];
-            var active = (h === page) || (!h && page === 'index.html');
-            a.classList.toggle('active', active);
-            if (active) a.setAttribute('aria-current', 'page');
-            else a.removeAttribute('aria-current');
+      /* Observe class mutations to persist state changes made by the page's own audio JS */
+      if (typeof MutationObserver !== 'undefined') {
+        var mo = new MutationObserver(function () {
+          save(id, btn.classList.contains('hz-playing'));
         });
-    }
-
-    function currentPage() {
-        return location.pathname.split('/').pop() || 'index.html';
-    }
-
-    function scrollToHash(hash) {
-        if (!hash) { window.scrollTo(0, 0); return; }
-        var el = document.getElementById(hash.slice(1));
-        if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - 10);
-        else window.scrollTo(0, 0);
-    }
-
-    /* ── core navigation ─────────────────────────────────────────────────── */
-
-    function navigate(rawUrl) {
-        if (busy) return;
-
-        /* Separate any #hash from the page URL */
-        var hash = '', url = rawUrl;
-        var hi = url.indexOf('#');
-        if (hi !== -1) { hash = url.slice(hi); url = url.slice(0, hi); }
-
-        var targetPage = url.split('/').pop() || 'index.html';
-
-        /* Same page, hash only → just scroll, no re-render */
-        if (targetPage === currentPage() && hash) {
-            history.pushState({ url: rawUrl }, document.title, rawUrl);
-            scrollToHash(hash);
-            return;
-        }
-
-        busy = true;
-
-        /* Nodes we must keep alive across the swap */
-        var soundPanel    = document.getElementById('sound-panel');
-        var searchOverlay = document.getElementById('search-overlay');
-
-        fetch(url, { credentials: 'same-origin' })
-            .then(function (r) { return r.text(); })
-            .then(function (html) {
-
-                var parser = new DOMParser();
-                var newDoc = parser.parseFromString(html, 'text/html');
-
-                /* Follow a meta-refresh redirect stub
-                   (e.g. contact.html → index.html#contact) so audio survives */
-                var redirectUrl = null;
-                var metas = newDoc.querySelectorAll('meta[http-equiv]');
-                for (var mi = 0; mi < metas.length; mi++) {
-                    if ((metas[mi].getAttribute('http-equiv') || '').toLowerCase() === 'refresh') {
-                        var rm = /url\s*=\s*(.+?)\s*$/i.exec(metas[mi].getAttribute('content') || '');
-                        if (rm && rm[1]) redirectUrl = rm[1].trim();
-                        break;
-                    }
-                }
-                if (redirectUrl) {
-                    busy = false;
-                    navigate(redirectUrl);
-                    return;
-                }
-
-                /* 1 ── Title ─────────────────────────────────────────────── */
-                document.title = newDoc.title;
-
-                /* 2 ── Styles ────────────────────────────────────────────── */
-                /* Collect CSS from both <head> and <body> of the new page,
-                   inject as a single replaceable block. */
-                var old = document.getElementById('__spa-styles');
-                if (old) old.remove();
-                var css = '';
-                newDoc.querySelectorAll('head style, body style').forEach(
-                    function (s) { css += s.textContent; }
-                );
-                if (css) {
-                    var styleEl = document.createElement('style');
-                    styleEl.id = '__spa-styles';
-                    styleEl.textContent = css;
-                    document.head.appendChild(styleEl);
-                }
-
-                /* 3 ── Extract scripts before cloning (prevents inert dupes) */
-                var scripts = [];
-                newDoc.body.querySelectorAll('script').forEach(function (s) {
-                    scripts.push({
-                        src:  s.getAttribute('src'),
-                        text: s.textContent
-                    });
-                    s.parentNode.removeChild(s);
-                });
-
-                /* 4 ── Build new body fragment (skip persistent nodes) ────── */
-                var frag = document.createDocumentFragment();
-                Array.from(newDoc.body.children).forEach(function (child) {
-                    if (child.id === 'sound-panel' ||
-                        child.id === 'search-overlay') return;
-                    frag.appendChild(child.cloneNode(true));
-                });
-
-                /* 5 ── Swap body content ─────────────────────────────────── */
-                Array.from(document.body.children).forEach(function (child) {
-                    if (child === soundPanel || child === searchOverlay) return;
-                    child.remove();
-                });
-                /* Insert new content before sound-panel so it stays at the end */
-                document.body.insertBefore(frag, soundPanel || null);
-
-                /* 6 ── URL / scroll / nav ────────────────────────────────── */
-                history.pushState({ url: rawUrl }, document.title, rawUrl);
-                scrollToHash(hash);
-                updateActiveNav(url);
-
-                /* 7 ── Re-execute page scripts ───────────────────────────── */
-                /* Temporarily redirect DOMContentLoaded registrations so scripts
-                   that do document.addEventListener('DOMContentLoaded', fn)
-                   fire their callback immediately (DCL already fired). */
-                var origAddEvt = document.addEventListener;
-                document.addEventListener = function (type, fn, opts) {
-                    if (type === 'DOMContentLoaded') {
-                        try { fn(new Event('DOMContentLoaded')); } catch (e) {}
-                    } else {
-                        origAddEvt.call(document, type, fn, opts);
-                    }
-                };
-
-                scripts.forEach(function (s) {
-                    /* Keep sound closures running — never re-execute them */
-                    if (isSoundScript(s.text)) return;
-                    /* Skip external scripts (nav-prefetch, sound-persist,
-                       search-data — all already loaded) */
-                    if (s.src) return;
-                    /* Wrap in an IIFE so top-level const/let/class declarations
-                       (e.g. `const scrollBtn`) don't clash with the globals left
-                       behind by the initial page load. Then re-expose any
-                       top-level function declarations to window so inline
-                       onclick="" handlers (toggleBibtex, copyBibtex, …) still
-                       resolve. */
-                    var code = s.text;
-                    var fns = [], re = /(?:^|\n)[ \t]*function[ \t]+([A-Za-z_$][\w$]*)/g, mm;
-                    while ((mm = re.exec(code)) !== null) fns.push(mm[1]);
-                    var expose = fns.map(function (n) {
-                        return 'try{window.' + n + '=' + n + ';}catch(e){}';
-                    }).join('');
-                    var ns = document.createElement('script');
-                    ns.textContent = '(function(){' + code + '\n' + expose + '\n})();';
-                    document.body.appendChild(ns);
-                    ns.remove(); /* executed synchronously; clean up the node */
-                });
-
-                document.addEventListener = origAddEvt;
-
-                busy = false;
-            })
-            .catch(function () {
-                /* On any error fall back to a normal navigation */
-                busy = false;
-                window.location.href = rawUrl;
-            });
-    }
-
-    /* ── event wiring ────────────────────────────────────────────────────── */
-
-    /* Intercept internal link clicks (capture phase so we beat other handlers) */
-    document.addEventListener('click', function (e) {
-        /* Honour modifier keys so "open in new tab" still works */
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-        var a = e.target.closest('a[href]');
-        if (!a) return;
-        var href = a.getAttribute('href');
-        if (!isInternal(href)) return;
-        e.preventDefault();
-        navigate(href);
-    }, true);
-
-    /* Browser back / forward */
-    window.addEventListener('popstate', function (e) {
-        navigate(e.state && e.state.url ? e.state.url : location.href);
+        mo.observe(btn, { attributes: true, attributeFilter: ['class'] });
+      }
     });
-
-    /* Seed initial history entry so the back button can return to page 1 */
-    history.replaceState({ url: location.href }, document.title, location.href);
-
+  });
 })();

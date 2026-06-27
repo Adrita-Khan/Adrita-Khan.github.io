@@ -1,68 +1,33 @@
-/**
- * nav-prefetch.js
- * Prefetches all portfolio pages in the background so navigation feels instant.
- * Uses requestIdleCallback to avoid competing with page rendering,
- * and upgrades to an immediate prefetch on nav-link hover.
- */
+/* nav-prefetch.js — prefetch nav pages on link hover for faster navigation */
 (function () {
-    'use strict';
+  if (!('IntersectionObserver' in window) && !('fetch' in window)) return;
 
-    var PAGES = [
-        'index.html',
-        'education.html',
-        'publications.html',
-        'research.html',
-        'academic_experience.html',
-        'achievements.html',
-        'notes.html',
-        'contact.html'
-    ];
+  var prefetched = new Set();
 
-    // Derive the current page filename from the URL
-    var current = location.pathname.split('/').pop() || 'index.html';
+  function prefetch(href) {
+    if (prefetched.has(href)) return;
+    prefetched.add(href);
+    try {
+      var link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = href;
+      link.as = 'document';
+      document.head.appendChild(link);
+    } catch (e) { /* silent */ }
+  }
 
-    var done = {};
-
-    function hint(href, rel) {
-        if (done[href]) return;
-        done[href] = true;
-        var link = document.createElement('link');
-        link.rel  = rel || 'prefetch';
-        link.href = href;
-        link.as   = 'document';
-        document.head.appendChild(link);
-    }
-
-    // Prefetch every page (except the current one) during idle time
-    function prefetchAll() {
-        PAGES.forEach(function (page) {
-            if (page !== current) hint(page, 'prefetch');
-        });
-    }
-
-    if (window.requestIdleCallback) {
-        requestIdleCallback(prefetchAll, { timeout: 3000 });
-    } else {
-        setTimeout(prefetchAll, 1500);
-    }
-
-    // On any nav-link hover, immediately prefetch that page
-    // so clicking feels instantaneous even if idle hasn't fired yet
-    document.addEventListener('mouseover', function (e) {
-        var a = e.target.closest('a[href]');
-        if (!a) return;
-        var href = a.getAttribute('href');
-        // Skip external links, anchors, mailto, tel
-        if (!href || /^(https?:|mailto:|tel:|#|javascript:)/.test(href)) return;
-        hint(href, 'prefetch');
+  function attachHover(el) {
+    el.addEventListener('mouseenter', function () {
+      var href = el.getAttribute('href');
+      if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto')) {
+        prefetch(href);
+      }
     }, { passive: true });
+  }
 
-    // Mobile: prefetch on touchstart (fires before tap completes)
-    document.addEventListener('touchstart', function (e) {
-        var a = e.target.closest('a[href]');
-        if (!a) return;
-        var href = a.getAttribute('href');
-        if (!href || /^(https?:|mailto:|tel:|#|javascript:)/.test(href)) return;
-        hint(href, 'prefetch');
-    }, { passive: true });
+  document.addEventListener('DOMContentLoaded', function () {
+    /* Prefetch all nav links and mobile nav links */
+    var selectors = '#quick-links .nav-list a, .mobile-nav-list a';
+    document.querySelectorAll(selectors).forEach(attachHover);
+  });
 })();

@@ -1692,6 +1692,275 @@
       #chime-btn.hz-playing { animation: hzPulse 2.2s ease-in-out infinite; }
     }
     </style>
+<style>
+    /* ════════════════════════════════════════════════════════════
+       NAV REDESIGN v2 — sticky · brand · hamburger · progress bar
+       ════════════════════════════════════════════════════════════ */
+
+    /* 1. Sticky wrapper */
+    #site-header {
+        position: sticky;
+        top: 0;
+        z-index: 500;
+        background: rgba(10,14,20,0.92);
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+    }
+
+    /* 2. Scroll-progress bar — 2 px gold stripe at very top */
+    #reading-progress {
+        position: absolute;
+        top: 0; left: 0;
+        height: 2px; width: 0%;
+        background: linear-gradient(90deg, #c9a961, #d4b56d, #c9a961);
+        background-size: 200% 100%;
+        pointer-events: none;
+        z-index: 1;
+        transition: width 0.08s linear;
+    }
+
+    /* 3. Nav strip */
+    #quick-links {
+        position: relative !important;
+        z-index: 2 !important;
+        background: transparent !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        display: block !important;
+        justify-content: unset !important;
+        border-bottom: 1px solid rgba(201,169,97,0.15) !important;
+    }
+
+    /* 4. Three-column flex row */
+    .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* 5. Brand — left */
+    .nav-brand {
+        display: flex; align-items: center; gap: 0.55rem;
+        text-decoration: none; flex-shrink: 0; color: #fff;
+        transition: opacity 0.2s ease;
+    }
+    .nav-brand:hover { opacity: 0.82; color: #fff; }
+    .nav-brand-monogram {
+        width: 30px; height: 30px; border-radius: 7px;
+        background: linear-gradient(135deg, #c9a961, #d4b56d);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.74rem; font-weight: 800; color: #0a0e14;
+        letter-spacing: -0.5px; flex-shrink: 0;
+    }
+    .nav-brand-name {
+        font-size: 0.88rem; font-weight: 600; color: #fff;
+        letter-spacing: 0.1px; white-space: nowrap;
+    }
+
+    /* 6. Links — center */
+    .nav-links-wrap {
+        flex: 1; display: flex; justify-content: center;
+        min-width: 0; overflow: hidden;
+    }
+    #quick-links .nav-container { display: none !important; } /* hide old wrapper */
+    #quick-links .nav-list {
+        display: flex !important; flex-wrap: nowrap !important;
+        gap: 0.15rem !important; list-style: none !important;
+        padding: 0 !important; margin: 0 !important;
+        align-items: center !important; width: auto !important;
+    }
+    #quick-links .nav-list li { flex-shrink: 0 !important; }
+    #quick-links .nav-list a {
+        display: block !important;
+        padding: 0.38rem 0.72rem !important;
+        border-radius: 7px !important;
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        color: rgba(184,197,208,0.8) !important;
+        text-decoration: none !important;
+        border: 1px solid transparent !important;
+        background: transparent !important;
+        transform: none !important;
+        box-shadow: none !important;
+        white-space: nowrap !important;
+        transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease !important;
+        letter-spacing: 0 !important;
+    }
+    #quick-links .nav-list a:hover {
+        color: #fff !important;
+        background: rgba(201,169,97,0.1) !important;
+        border-color: rgba(201,169,97,0.18) !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    #quick-links .nav-list a.active {
+        color: #0a0e14 !important;
+        background: linear-gradient(135deg, #c9a961, #d4b56d) !important;
+        border-color: transparent !important;
+        font-weight: 600 !important;
+        box-shadow: 0 2px 8px rgba(201,169,97,0.35) !important;
+        transform: none !important;
+    }
+    /* strip old left-border color coding */
+    #quick-links .nav-list li:nth-child(n) a:not(.active) {
+        border-left: 1px solid transparent !important;
+    }
+
+    /* 7. Controls — right */
+    .nav-controls {
+        display: flex; align-items: center; gap: 0.3rem; flex-shrink: 0;
+    }
+    /* hide old search/theme list items — they're now in .nav-controls */
+    .nav-search, .nav-theme-toggle { display: none !important; }
+
+    .nav-controls #search-toggle,
+    .nav-controls #theme-toggle {
+        display: flex !important;
+        align-items: center; justify-content: center;
+        width: 32px; height: 32px; border-radius: 7px;
+        background: rgba(255,255,255,0.06) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        color: rgba(184,197,208,0.65) !important;
+        cursor: pointer;
+        transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease !important;
+        padding: 0 !important; transform: none !important; box-shadow: none !important;
+    }
+    .nav-controls #search-toggle:hover,
+    .nav-controls #theme-toggle:hover {
+        background: rgba(201,169,97,0.12) !important;
+        border-color: rgba(201,169,97,0.25) !important;
+        color: #c9a961 !important;
+        transform: none !important; box-shadow: none !important;
+    }
+    .nav-controls #search-toggle svg,
+    .nav-controls #theme-toggle svg {
+        width: 15px !important; height: 15px !important;
+    }
+
+    /* 8. Hamburger button */
+    .nav-hamburger {
+        display: none;
+        align-items: center; justify-content: center;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 7px; padding: 0; cursor: pointer;
+        color: rgba(184,197,208,0.65);
+        width: 32px; height: 32px;
+        transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .nav-hamburger:hover {
+        background: rgba(201,169,97,0.12);
+        border-color: rgba(201,169,97,0.25);
+        color: #c9a961;
+    }
+    .nav-hamburger svg { width: 15px; height: 15px; }
+    #nav-hamburger svg.hamburger-x   { display: none !important; }
+    #nav-hamburger svg.hamburger-bars { display: block !important; }
+    #nav-hamburger.open svg.hamburger-bars { display: none !important; }
+    #nav-hamburger.open svg.hamburger-x   { display: block !important; }
+
+    /* 9. Mobile drawer */
+    .mobile-nav-menu {
+        display: none;
+        background: rgba(8,12,20,0.97);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(201,169,97,0.12);
+        max-height: 0; overflow: hidden; opacity: 0;
+        transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease;
+    }
+    .mobile-nav-menu.open { max-height: 540px; opacity: 1; }
+    .mobile-nav-inner { padding: 0.75rem 1.5rem 1.1rem; }
+    .mobile-nav-list {
+        list-style: none; padding: 0; margin: 0;
+        display: flex; flex-direction: column; gap: 0.25rem;
+    }
+    .mobile-nav-list a {
+        display: block; padding: 0.68rem 1rem; border-radius: 9px;
+        font-size: 0.9rem; font-weight: 500;
+        color: rgba(184,197,208,0.82);
+        text-decoration: none; border: 1px solid transparent;
+        transition: all 0.18s ease;
+    }
+    .mobile-nav-list a:hover {
+        color: #fff;
+        background: rgba(201,169,97,0.1);
+        border-color: rgba(201,169,97,0.2);
+    }
+    .mobile-nav-list a.active {
+        color: #0a0e14;
+        background: linear-gradient(135deg, #c9a961, #d4b56d);
+        border-color: transparent; font-weight: 600;
+    }
+
+    /* 10. Scroll margin so sticky nav doesn't hide anchor targets */
+    section[id], [id="main-content"] { scroll-margin-top: 65px; }
+
+    /* 11. Responsive breakpoints */
+    @media (max-width: 1050px) {
+        #quick-links .nav-list a {
+            padding: 0.35rem 0.58rem !important;
+            font-size: 0.75rem !important;
+        }
+    }
+    @media (max-width: 860px) { .nav-brand-name { display: none; } }
+    @media (max-width: 768px) {
+        .nav-links-wrap { display: none !important; }
+        .nav-hamburger  { display: flex !important; }
+        .mobile-nav-menu { display: block !important; }
+        .nav-brand-name  { display: block; }
+    }
+
+    /* 12. Light-mode overrides */
+    [data-theme="light"] #site-header { background: rgba(240,228,226,0.94) !important; }
+    [data-theme="light"] #quick-links { border-bottom-color: rgba(201,169,97,0.2) !important; }
+    [data-theme="light"] .nav-brand-name { color: #1e1410 !important; }
+    [data-theme="light"] #quick-links .nav-list a { color: rgba(40,25,15,0.72) !important; }
+    [data-theme="light"] #quick-links .nav-list a:hover {
+        color: #1e1410 !important;
+        background: rgba(154,115,32,0.1) !important;
+        border-color: rgba(154,115,32,0.2) !important;
+    }
+    [data-theme="light"] #quick-links .nav-list a.active {
+        background: linear-gradient(135deg,#9a7320,#b08530) !important;
+        color: #fff !important;
+    }
+    [data-theme="light"] .nav-controls #search-toggle,
+    [data-theme="light"] .nav-controls #theme-toggle {
+        background: rgba(0,0,0,0.05) !important;
+        border-color: rgba(0,0,0,0.1) !important;
+        color: rgba(40,25,15,0.55) !important;
+    }
+    [data-theme="light"] .nav-controls #search-toggle:hover,
+    [data-theme="light"] .nav-controls #theme-toggle:hover {
+        background: rgba(154,115,32,0.12) !important;
+        color: #7d5c10 !important;
+        border-color: rgba(154,115,32,0.25) !important;
+    }
+    [data-theme="light"] .nav-hamburger {
+        background: rgba(0,0,0,0.05) !important;
+        border-color: rgba(0,0,0,0.1) !important;
+        color: rgba(40,25,15,0.55) !important;
+    }
+    [data-theme="light"] .nav-hamburger:hover {
+        background: rgba(154,115,32,0.12) !important;
+        border-color: rgba(154,115,32,0.25) !important;
+        color: #7d5c10 !important;
+    }
+    [data-theme="light"] .mobile-nav-menu {
+        background: rgba(240,228,226,0.97) !important;
+        border-bottom-color: rgba(201,169,97,0.15) !important;
+    }
+    [data-theme="light"] .mobile-nav-list a { color: rgba(40,25,15,0.75) !important; }
+    [data-theme="light"] .mobile-nav-list a.active {
+        color: #fff !important;
+        background: linear-gradient(135deg,#9a7320,#b08530) !important;
+    }
+</style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
@@ -1713,26 +1982,47 @@
     </a>
 
     <h1 class="visually-hidden">Adrita Khan — Achievements</h1>
-    <nav id="quick-links" aria-label="Main navigation">
-        <div class="nav-container">
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="research.html">Research &amp; Projects</a></li>
-                <li><a href="academic_experience.html">Academic Experience</a></li>
-                <li><a href="achievements.html" class="active" aria-current="page">Achievements</a></li>
-                <li><a href="notes.html">Blog</a></li>
-                <li class="nav-search"><button id="search-toggle" type="button" aria-label="Search" title="Search">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </button></li>
-                <li class="nav-theme-toggle"><button id="theme-toggle" type="button" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
-                    <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                    <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5" fill="currentColor"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                </button></li>
-            </ul>
+<header id="site-header">
+        <div id="reading-progress"></div>
+        <nav id="quick-links" aria-label="Main navigation">
+            <div class="nav-inner">
+                <a href="index.html" class="nav-brand" aria-label="Adrita Khan — Home">
+                    <span class="nav-brand-monogram">AK</span>
+                    <span class="nav-brand-name">Adrita Khan</span>
+                </a>
+                <div class="nav-links-wrap">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="academic_experience.html">Experience</a></li>
+                        <li><a href="achievements.html" class="active" aria-current="page">Achievements</a></li>
+                        <li><a href="notes.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="nav-controls">
+                    <button id="search-toggle" type="button" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                    <button id="theme-toggle" type="button" aria-label="Toggle light/dark mode" title="Toggle light/dark mode"><svg id="theme-icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5" fill="currentColor"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+                    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu"><svg class="hamburger-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg class="hamburger-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-nav-menu" class="mobile-nav-menu" aria-hidden="true">
+            <div class="mobile-nav-inner">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="academic_experience.html">Experience</a></li>
+                    <li><a href="achievements.html" class="active" aria-current="page">Achievements</a></li>
+                    <li><a href="notes.html">Blog</a></li>
+                </ul>
+            </div>
         </div>
-    </nav>
+    </header>
+
     <span id="main-content" tabindex="-1" aria-hidden="true"></span>
 
     <div class="container">
@@ -2179,5 +2469,50 @@
 </script>
 <script src="nav-prefetch.js" defer></script>
 <script src="sound-persist.js" defer></script>
+<script>
+/* NAV: reading progress + hamburger */
+(function(){
+    // Progress bar
+    var bar = document.getElementById('reading-progress');
+    if (bar) {
+        function updateBar() {
+            var s = window.pageYOffset || document.documentElement.scrollTop;
+            var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (h > 0 ? Math.min(s / h * 100, 100) : 0) + '%';
+        }
+        window.addEventListener('scroll', updateBar, { passive: true });
+        updateBar();
+    }
+    // Hamburger
+    var hbtn  = document.getElementById('nav-hamburger');
+    var hmenu = document.getElementById('mobile-nav-menu');
+    if (hbtn && hmenu) {
+        hbtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var open = hmenu.classList.toggle('open');
+            hbtn.classList.toggle('open', open);
+            hbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            hmenu.setAttribute('aria-hidden',  open ? 'false' : 'true');
+        });
+        document.addEventListener('click', function(e) {
+            if (!hbtn.contains(e.target) && !hmenu.contains(e.target)) {
+                hmenu.classList.remove('open');
+                hbtn.classList.remove('open');
+                hbtn.setAttribute('aria-expanded', 'false');
+                hmenu.setAttribute('aria-hidden',  'true');
+            }
+        });
+        // Close drawer when a link inside it is clicked
+        hmenu.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                hmenu.classList.remove('open');
+                hbtn.classList.remove('open');
+                hbtn.setAttribute('aria-expanded', 'false');
+                hmenu.setAttribute('aria-hidden',  'true');
+            });
+        });
+    }
+})();
+</script>
 </body>
 </html>
