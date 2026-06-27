@@ -126,15 +126,16 @@
         .stat-number { font-size: 1.5rem; font-weight: 700; color: #c9a961; margin-bottom: 0.2rem; }
         .stat-label { color: #b8c5d0; font-size: 0.8rem; }
 
-        .achievements-list { display: grid; gap: 0.8rem; }
+        .achievements-list { display: grid; gap: 0.8rem; min-width: 0; }
         .achievement-item {
             background: rgba(201,169,97,0.1); backdrop-filter: blur(10px);
             border-radius: 10px; padding: 1rem 1.2rem; border-left: 3px solid #c9a961;
             transition: all 0.3s ease; color: #b8c5d0; line-height: 1.6; font-size: 0.98rem;
+            overflow-wrap: break-word; word-break: break-word; min-width: 0; max-width: 100%;
         }
         .achievement-item:hover { background: rgba(201,169,97,0.15); transform: translateX(5px); box-shadow: 0 5px 20px rgba(201,169,97,0.2); }
         .achievement-item strong { color: #c9a961; font-weight: 600; }
-        .achievement-item a { color: #d4b56d; text-decoration: none; border-bottom: 1px dotted #d4b56d; transition: all 0.3s ease; }
+        .achievement-item a { color: #d4b56d; text-decoration: none; border-bottom: 1px dotted #d4b56d; transition: all 0.3s ease; overflow-wrap: break-word; word-break: break-word; }
         .achievement-item a:hover { color: #c9a961; border-bottom-style: solid; }
 
         .membership-card {
@@ -197,6 +198,8 @@
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
+            html, body { overflow-x: hidden; max-width: 100%; }
+            .container { max-width: 100%; box-sizing: border-box; }
             .side-nav-left { border-radius: 0 10px 10px 0; padding: 14px 10px 10px 8px; }
             .side-nav-right { border-radius: 10px 0 0 10px; padding: 14px 8px 10px 10px; }
             .side-nav-label { font-size: 8px; }
