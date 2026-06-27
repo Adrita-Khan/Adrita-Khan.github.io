@@ -2497,7 +2497,11 @@ transition:background 0.2s,border-color 0.2s;}
 .mpn-btn:active{background:rgba(201,169,97,0.25);border-color:rgba(201,169,97,0.55);color:#d4b56d;}
 .mpn-sp{flex:1;}
 @media(min-width:641px){.mpn{display:none!important}body{padding-bottom:0!important}}
-@media(max-width:640px){body{padding-bottom:70px}}
+@media(max-width:640px){
+  body{padding-bottom:70px}
+  .scroll-to-top{bottom:78px!important;}
+  #theme-toggle-wrap{bottom:78px!important;}
+}
 </style>
 <script id="mpn-js">
 (function(){
@@ -3580,5 +3584,23 @@ document.addEventListener('spa:navigate',rebuildNav);
   <a href="publications.html" class="mpn-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>Publications</a>
   <a href="academic_experience.html" class="mpn-btn">Experience<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
 </nav>
+
+<script id="blog-entry-fix">
+(function(){
+  function showAllEntries() {
+    document.querySelectorAll('.blog-entry:not(.visible)').forEach(function(el, i) {
+      setTimeout(function(){ el.classList.add('visible'); }, i * 60);
+    });
+  }
+  // Fallback: ensure cards are always visible after short delay
+  setTimeout(showAllEntries, 400);
+  // Re-run on SPA navigation (script doesn't re-execute after content swap)
+  document.addEventListener('spa:navigate', function(e) {
+    if (e.detail && e.detail.file === 'research.html') {
+      setTimeout(showAllEntries, 300);
+    }
+  });
+})();
+</script>
 </body>
 </html>
