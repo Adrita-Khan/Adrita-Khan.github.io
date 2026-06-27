@@ -17,46 +17,43 @@
 
   var currentFile = getFile(location.href);
   var pageCache   = {};   // file → parsed Document
-  var stylesSeen  = {};   // fingerprint → true
 
-  /* ── Seed style cache with already-present styles so we don't double-inject ── */
+  /* hrefs of <link rel="stylesheet"> that are shared across all pages (never removed) */
+  var sharedLinkHrefs = {};
+
+  /* ── Seed shared link hrefs from the initial page load ── */
   function seedStyleCache() {
-    var all = document.querySelectorAll('style');
-    for (var i = 0; i < all.length; i++) {
-      var txt = all[i].textContent || '';
-      stylesSeen[txt.length + '|' + txt.slice(0, 120)] = true;
-    }
-    /* also seed with already-present <link rel="stylesheet"> hrefs */
     var links = document.querySelectorAll('link[rel="stylesheet"]');
     for (var j = 0; j < links.length; j++) {
-      stylesSeen['link|' + links[j].href] = true;
+      sharedLinkHrefs[links[j].href] = true;
     }
   }
 
-  /* ── Inject <style> and <link rel="stylesheet"> from a parsed page ── */
+  /* ── Swap page-specific styles: remove old injected ones, inject new ones ── */
   function injectStyles(doc) {
-    /* inline <style> blocks — from anywhere in the parsed doc */
+    /* remove previously injected page-specific style tags */
+    var old = document.querySelectorAll('style[data-spa]');
+    for (var k = 0; k < old.length; k++) old[k].parentNode.removeChild(old[k]);
+
+    /* inject all <style> blocks from the new page */
     var styles = doc.querySelectorAll('style');
     for (var i = 0; i < styles.length; i++) {
-      var txt = styles[i].textContent || '';
-      var key = txt.length + '|' + txt.slice(0, 120);
-      if (stylesSeen[key]) continue;
-      stylesSeen[key] = true;
       var el = document.createElement('style');
       el.setAttribute('data-spa', '1');
-      el.textContent = txt;
+      el.textContent = styles[i].textContent || '';
       document.head.appendChild(el);
     }
-    /* external <link rel="stylesheet"> */
+
+    /* inject any new external <link rel="stylesheet"> (shared ones stay) */
     var links = doc.querySelectorAll('link[rel="stylesheet"]');
     for (var j = 0; j < links.length; j++) {
       var href = links[j].href;
-      var lkey = 'link|' + href;
-      if (stylesSeen[lkey]) continue;
-      stylesSeen[lkey] = true;
+      if (sharedLinkHrefs[href]) continue;
+      sharedLinkHrefs[href] = true;
       var lel = document.createElement('link');
       lel.rel  = 'stylesheet';
       lel.href = href;
+      lel.setAttribute('data-spa', '1');
       document.head.appendChild(lel);
     }
   }
