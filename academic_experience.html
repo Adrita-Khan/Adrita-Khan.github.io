@@ -3017,6 +3017,31 @@
 })();
 </script>
 <script src="nav-prefetch.js" defer></script>
+
+<script>
+// Bridge: nav sound buttons → original sound engine
+(function(){
+  function syncNavBtn(navBtn, origBtn) {
+    var obs = new MutationObserver(function() {
+      if (origBtn.classList.contains('hz-playing')) navBtn.classList.add('hz-playing');
+      else navBtn.classList.remove('hz-playing');
+    });
+    obs.observe(origBtn, { attributes: true, attributeFilter: ['class'] });
+    navBtn.addEventListener('click', function() { origBtn.click(); });
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var nb1 = document.getElementById('nav-hz528-btn');
+    var nb2 = document.getElementById('nav-bell-btn');
+    var nb3 = document.getElementById('nav-chime-btn');
+    var ob1 = document.getElementById('hz528-btn');
+    var ob2 = document.getElementById('bell-btn');
+    var ob3 = document.getElementById('chime-btn');
+    if (nb1 && ob1) syncNavBtn(nb1, ob1);
+    if (nb2 && ob2) syncNavBtn(nb2, ob2);
+    if (nb3 && ob3) syncNavBtn(nb3, ob3);
+  });
+})();
+</script>
 <script src="sound-persist.js" defer></script>
 <script>
 /* NAV: reading progress + hamburger */
