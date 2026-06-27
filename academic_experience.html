@@ -1726,10 +1726,7 @@
 
 <style>
     /* ── 528 Hz cosmic orb ── */
-    #sound-panel {
-      position: fixed; bottom: 2rem; left: 2rem; z-index: 300;
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
-    }
+    #sound-panel { display: none; }
     #hz528-wrap {
       display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
       -webkit-tap-highlight-color: transparent;
@@ -2107,6 +2104,53 @@
         background: linear-gradient(135deg,#9a7320,#b08530) !important;
         color: #fff !important;
     }
+    
+    /* ── Nav sound buttons ── */
+    #nav-sound {
+      display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0;
+    }
+    .nav-sound-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 0.2rem; width: 52px;
+    }
+    .nav-sound-label {
+      font-size: 0.5rem; font-weight: 700; letter-spacing: 0.1em;
+      color: rgba(201,169,97,0.6); text-transform: uppercase;
+      pointer-events: none; white-space: nowrap; transition: color 0.3s;
+    }
+    .nav-sound-btn.hz-playing ~ .nav-sound-label { color: rgba(201,169,97,0.95); }
+    [data-theme="light"] .nav-sound-label { color: rgba(154,115,32,0.65); }
+    [data-theme="light"] .nav-sound-btn.hz-playing ~ .nav-sound-label { color: rgba(154,115,32,0.95); }
+    .nav-sound-btn {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1px solid rgba(201,169,97,0.45);
+      background: rgba(201,169,97,0.08);
+      color: rgba(201,169,97,0.7);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s ease; position: relative; overflow: visible;
+      flex-shrink: 0;
+    }
+    .nav-sound-btn:hover {
+      background: rgba(201,169,97,0.18); border-color: rgba(201,169,97,0.8);
+      color: #ffe08a; transform: scale(1.1);
+    }
+    .nav-sound-btn svg { width: 13px; height: 13px; position: relative; z-index: 1; }
+    .nav-sound-btn.hz-playing {
+      border-color: rgba(201,169,97,0.9); color: #ffe08a;
+      background: rgba(201,169,97,0.15);
+      box-shadow: 0 0 10px rgba(201,169,97,0.5), 0 0 20px rgba(201,169,97,0.2);
+    }
+    .nav-sound-btn.hz-playing svg { filter: drop-shadow(0 0 4px rgba(255,220,100,0.9)); }
+    @media (prefers-reduced-motion: no-preference) {
+      .nav-sound-btn.hz-playing .hz-ring-1 { animation: hzRing 2.8s ease-out infinite; }
+      .nav-sound-btn.hz-playing .hz-ring-2 { animation: hzRing 2.8s ease-out infinite 0.93s; }
+      .nav-sound-btn.hz-playing .hz-ring-3 { animation: hzRing 2.8s ease-out infinite 1.86s; }
+    }
+    [data-theme="light"] .nav-sound-btn {
+      border-color: rgba(154,115,32,0.45); background: rgba(154,115,32,0.06); color: rgba(154,115,32,0.75);
+    }
+    [data-theme="light"] .nav-sound-btn:hover { color: #7d5c10; border-color: rgba(154,115,32,0.9); background: rgba(154,115,32,0.14); }
+    [data-theme="light"] .nav-sound-btn.hz-playing { border-color: rgba(154,115,32,0.9); color: #9a7320; box-shadow: 0 0 8px rgba(154,115,32,0.4); }
+
     [data-theme="light"] .nav-controls #search-toggle,
     [data-theme="light"] .nav-controls #theme-toggle {
         background: rgba(0,0,0,0.05) !important;
@@ -2173,6 +2217,21 @@
         <div id="reading-progress"></div>
         <nav id="quick-links" aria-label="Main navigation">
             <div class="nav-inner">
+                <div id="nav-sound">
+  <div class="nav-sound-wrap"><button class="nav-sound-btn" id="nav-hz528-btn" type="button" aria-label="528 Hz Love Frequency" title="528 Hz">
+    <div class="hz-ring hz-ring-1"></div><div class="hz-ring hz-ring-2"></div><div class="hz-ring hz-ring-3"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v7a3 3 0 0 0 6 0V3"></path><line x1="12" y1="13" x2="12" y2="21"></line></svg>
+  </button><span class="nav-sound-label">528 Hz</span></div>
+  <div class="nav-sound-wrap"><button class="nav-sound-btn" id="nav-bell-btn" type="button" aria-label="Church Bells" title="Carillon">
+    <div class="hz-ring hz-ring-1"></div><div class="hz-ring hz-ring-2"></div><div class="hz-ring hz-ring-3"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 17H6a1 1 0 0 1-.85-1.53L7 12V9a5 5 0 0 1 10 0v3l1.85 2.47A1 1 0 0 1 18 17z"></path><line x1="12" y1="21" x2="12" y2="17"></line><line x1="9" y1="21" x2="15" y2="21"></line></svg>
+  </button><span class="nav-sound-label">Carillon</span></div>
+  <div class="nav-sound-wrap"><button class="nav-sound-btn" id="nav-chime-btn" type="button" aria-label="Wind Chime" title="Wind Chime">
+    <div class="hz-ring hz-ring-1"></div><div class="hz-ring hz-ring-2"></div><div class="hz-ring hz-ring-3"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="3" x2="19" y2="3"></line><line x1="8" y1="3" x2="8" y2="13"></line><line x1="12" y1="3" x2="12" y2="17"></line><line x1="16" y1="3" x2="16" y2="11"></line><line x1="6" y1="13" x2="10" y2="13"></line><line x1="10" y1="17" x2="14" y2="17"></line><line x1="14" y1="11" x2="18" y2="11"></line></svg>
+  </button><span class="nav-sound-label">Wind Chime</span></div>
+
+</div>
                 <div class="nav-links-wrap">
                     <ul class="nav-list">
                         <li><a href="index.html">Home</a></li>
