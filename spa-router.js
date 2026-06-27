@@ -1,4 +1,4 @@
-/* spa-router.js — SPA navigation: smooth transitions, continuous audio, consistent nav
+/* spa-router.js — SPA navigation: no-flicker, continuous audio, consistent nav
    Intercepts internal .html link clicks, swaps #page-content only,
    preserving <header> (nav + sound buttons) and all <script> engines.
    ======================================================================= */
@@ -18,28 +18,15 @@
   var currentFile = getFile(location.href);
   var pageCache   = {};   // file → parsed Document
   var stylesSeen  = {};   // fingerprint → true
-  var navigating  = false;
 
-  /* ── Inject View Transition keyframes once ── */
-  function ensureVTStyles() {
-    if (document.getElementById('__spa-vt-styles')) return;
-    var s = document.createElement('style');
-    s.id = '__spa-vt-styles';
-    s.textContent =
-      '::view-transition-old(page-content){animation:110ms cubic-bezier(.4,0,.2,1) both __vt-out}' +
-      '::view-transition-new(page-content){animation:140ms cubic-bezier(.4,0,.2,1) both __vt-in}' +
-      '@keyframes __vt-out{to{opacity:0;transform:translateY(-7px)}}' +
-      '@keyframes __vt-in{from{opacity:0;transform:translateY(7px)}}';
-    document.head.appendChild(s);
-  }
-
-  /* ── Seed style cache with already-present styles ── */
+  /* ── Seed style cache with already-present styles so we don't double-inject ── */
   function seedStyleCache() {
     var all = document.querySelectorAll('style');
     for (var i = 0; i < all.length; i++) {
       var txt = all[i].textContent || '';
       stylesSeen[txt.length + '|' + txt.slice(0, 120)] = true;
     }
+    /* also seed with already-present <link rel="stylesheet"> hrefs */
     var links = document.querySelectorAll('link[rel="stylesheet"]');
     for (var j = 0; j < links.length; j++) {
       stylesSeen['link|' + links[j].href] = true;
@@ -48,6 +35,7 @@
 
   /* ── Inject <style> and <link rel="stylesheet"> from a parsed page ── */
   function injectStyles(doc) {
+    /* inline <style> blocks — from anywhere in the parsed doc */
     var styles = doc.querySelectorAll('style');
     for (var i = 0; i < styles.length; i++) {
       var txt = styles[i].textContent || '';
@@ -59,6 +47,7 @@
       el.textContent = txt;
       document.head.appendChild(el);
     }
+    /* external <link rel="stylesheet"> */
     var links = doc.querySelectorAll('link[rel="stylesheet"]');
     for (var j = 0; j < links.length; j++) {
       var href = links[j].href;
@@ -131,93 +120,61 @@
     _progressHandler();
   }
 
-  /* ── Core content swap ── */
-  function doSwap(doc, file) {
+  /* ── Swap #page-content ── */
+  function swapContent(doc, file) {
     var newMain = doc.getElementById('page-content');
     var curMain = document.getElementById('page-content');
-    if (!newMain || !curMain) { location.href = file; return; }
-    injectStyles(doc);
-    curMain.innerHTML  = newMain.innerHTML;
-    document.title     = doc.title || document.title;
-    setActiveNav(file);
-    updateSideNav(doc);
-    window.scrollTo(0, 0);
-    reinitScrollTop();
-    reinitProgress();
-    try { document.dispatchEvent(new CustomEvent('spa:navigate', { detail: { file: file } })); } catch (e) {}
-  }
 
-  /* ── Animated swap — View Transitions where available, crossfade fallback ── */
-  function swapContent(doc, file) {
-    var curMain = document.getElementById('page-content');
-    if (!curMain) { doSwap(doc, file); navigating = false; return; }
-
-    if (document.startViewTransition) {
-      /* ── Path A: View Transitions API (Chrome 111+, Safari 18+, Edge 111+)
-            Zero extra latency — browser captures old state synchronously,
-            runs the swap, then animates old→new in parallel.           ── */
-      ensureVTStyles();
-      curMain.style.viewTransitionName = 'page-content';
-
-      var transition = document.startViewTransition(function () {
-        doSwap(doc, file);
-      });
-
-      transition.finished
-        .then(function () {
-          var el = document.getElementById('page-content');
-          if (el) el.style.viewTransitionName = '';
-        })
-        .catch(function () {})
-        .finally(function () { navigating = false; });
-
-    } else {
-      /* ── Path B: CSS crossfade fallback
-            Fade out the old content (100ms), swap instantly, fade new in.
-            The fade-out started before fetch (see navigate()), so by the
-            time we arrive here content is already partially faded.     ── */
-      curMain.style.transition = 'opacity 0.09s ease';
-      curMain.style.opacity    = '0';
-
-      setTimeout(function () {
-        doSwap(doc, file);
-        /* two rAFs guarantee the browser has committed the new DOM before
-           we start fading in — avoids a flash of the old content        */
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            curMain.style.transition = 'opacity 0.13s ease';
-            curMain.style.opacity    = '1';
-            setTimeout(function () { navigating = false; }, 140);
-          });
-        });
-      }, 95);
+    if (!newMain || !curMain) {
+      /* fallback: hard navigate if wrapper missing */
+      location.href = file;
+      return;
     }
+
+    injectStyles(doc);
+
+    /* quick cross-fade */
+    curMain.style.transition = 'opacity 0.13s ease';
+    curMain.style.opacity    = '0';
+
+    setTimeout(function () {
+      curMain.innerHTML  = newMain.innerHTML;
+      document.title     = doc.title || document.title;
+
+      setActiveNav(file);
+      updateSideNav(doc);
+
+      window.scrollTo(0, 0);
+
+      /* restore opacity */
+      curMain.style.opacity = '1';
+
+      reinitScrollTop();
+      reinitProgress();
+
+      /* Reconnect sound-bridge: after innerHTML swap, nav-sound buttons
+         are still in the header (never swapped), and #sound-panel is also
+         outside #page-content so it persists — nothing to rewire. */
+
+      /* fire a lightweight custom event so page-specific code can hook in */
+      try {
+        document.dispatchEvent(new CustomEvent('spa:navigate', { detail: { file: file } }));
+      } catch (e) {}
+
+    }, 130);
   }
 
   /* ── Fetch + navigate ── */
   function navigate(href, push) {
     var file = getFile(href);
-    if (file === currentFile || navigating) return;
-    navigating = true;
+    if (file === currentFile) return;   /* already here */
 
     if (push) history.pushState({ file: file }, '', href);
     currentFile = file;
 
-    /* ── Cached: swap immediately (VT handles animation; no delay) ── */
     if (pageCache[file]) {
       swapContent(pageCache[file], file);
       return;
-    }
-
-    /* ── Not cached: start a subtle fade-out NOW so the user gets
-          instant visual feedback while the fetch is in flight.
-          swapContent() will complete the animation on arrival.   ── */
-    if (!document.startViewTransition) {
-      var curMain = document.getElementById('page-content');
-      if (curMain) {
-        curMain.style.transition = 'opacity 0.1s ease';
-        curMain.style.opacity    = '0.35';
-      }
     }
 
     fetch(href, { credentials: 'same-origin' })
@@ -232,7 +189,7 @@
         swapContent(doc, file);
       })
       .catch(function () {
-        navigating = false;
+        /* network error or page not found → hard navigate */
         location.href = href;
       });
   }
@@ -242,23 +199,25 @@
     var a = e.target.closest('a[href]');
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    /* only handle same-origin .html links */
     if (a.target === '_blank')           return;
     if (!href.endsWith('.html'))         return;
-    if (href.indexOf('//') !== -1)       return;
+    if (href.indexOf('//') !== -1)       return;   /* absolute URL */
     if (href.startsWith('mailto:'))      return;
     e.preventDefault();
     navigate(href, true);
-  }, true);
+  }, true /* capture so we beat any other click handler */);
 
   /* ── Back / forward ── */
   window.addEventListener('popstate', function () {
     var file = getFile(location.href);
+    /* reset so navigate() won't short-circuit on same-file check */
     currentFile = '__popstate__';
     navigate(location.href, false);
     currentFile = file;
   });
 
-  /* ── Hover prefetch (keeps fast-nav feeling; fills cache before click) ── */
+  /* ── Prefetch on hover (keeps fast-nav feeling) ── */
   function prefetch(href) {
     var file = getFile(href);
     if (pageCache[file]) return;
@@ -283,6 +242,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     seedStyleCache();
+    /* cache the initial page's parsed doc for back-nav */
     try {
       var parser = new DOMParser();
       pageCache[currentFile] = parser.parseFromString(document.documentElement.outerHTML, 'text/html');
