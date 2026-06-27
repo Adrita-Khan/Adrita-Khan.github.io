@@ -1900,6 +1900,7 @@
         /* Small mobile ≤ 480px */
         @media (max-width: 480px) {
             .scroll-to-top { bottom: 0.8rem; right: 0.8rem; width: 40px; height: 40px; }
+            .side-nav-arrow { display: none; }
             #theme-toggle-wrap { bottom: 1rem; left: 1rem; } #theme-toggle { width: 46px; height: 46px; } #theme-toggle-wrap::before { width: 52px; height: 52px; } #theme-toggle-label { display: none; }
             #theme-toggle svg { width: 20px; height: 20px; }
         }
@@ -1968,7 +1969,23 @@
         /* Hide any leftover floating toggle wrapper */
         #theme-toggle-wrap { display: none !important; }
 
-    </style>
+    
+        /* ── Responsive safety net (all screens) ── */
+        img { max-width: 100%; height: auto; }
+        @media (max-width: 640px) {
+            .container, .container-wide, .about-content, .about-content-compact,
+            .publication-card, .research-item, .achievement-item,
+            .position-card, .position-compact-item { overflow-wrap: break-word; word-break: break-word; }
+            .side-nav-arrow { display: none; }
+        }
+        @media (max-width: 768px) and (min-width: 641px) {
+            /* Push content inward so fixed side-nav arrows don't overlap it */
+            .container, .container-wide { padding-left: 50px !important; padding-right: 50px !important; }
+        }
+        @media (max-width: 480px) {
+            .scroll-to-top { right: 0.6rem; bottom: 0.6rem; }
+        }
+</style>
 
     <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
     <meta name="description" content="Peer-reviewed papers, preprints, and manuscripts by Adrita Khan in astrophysics, cosmology, and machine learning.">
