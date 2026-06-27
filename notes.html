@@ -2264,7 +2264,7 @@
 
     /* 8. Hamburger button */
     .nav-hamburger {
-        display: none;
+        display: flex;
         align-items: center; justify-content: center;
         background: rgba(255,255,255,0.06);
         border: 1px solid rgba(255,255,255,0.1);
@@ -2287,7 +2287,7 @@
 
     /* 9. Mobile drawer */
     .mobile-nav-menu {
-        display: none;
+        display: block;
         background: rgba(8,12,20,0.97);
         backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(201,169,97,0.12);
@@ -2331,9 +2331,7 @@
     @media (max-width: 860px) { .nav-brand-name { display: none; } }
     @media (max-width: 768px) {
         .nav-links-wrap { display: none !important; }
-        .nav-hamburger  { display: flex !important; }
-        .mobile-nav-menu { display: block !important; }
-        .nav-brand-name  { display: block; }
+        .nav-brand-name { display: block; }
     }
 
     /* 12. Light-mode overrides */
