@@ -3585,6 +3585,7 @@ document.addEventListener('spa:navigate',rebuildNav);
   <a href="academic_experience.html" class="mpn-btn">Experience<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
 </nav>
 
+
 <script id="blog-entry-fix">
 (function(){
   function showAllEntries() {
@@ -3592,14 +3593,16 @@ document.addEventListener('spa:navigate',rebuildNav);
       setTimeout(function(){ el.classList.add('visible'); }, i * 60);
     });
   }
-  // Fallback: ensure cards are always visible after short delay
-  setTimeout(showAllEntries, 400);
-  // Re-run on SPA navigation (script doesn't re-execute after content swap)
-  document.addEventListener('spa:navigate', function(e) {
-    if (e.detail && e.detail.file === 'research.html') {
-      setTimeout(showAllEntries, 300);
-    }
+  // Fire on every SPA navigation — works regardless of which page you start on
+  document.addEventListener('spa:navigate', function() {
+    setTimeout(showAllEntries, 300);
   });
+  // Also fire on initial direct load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(showAllEntries, 400); });
+  } else {
+    setTimeout(showAllEntries, 400);
+  }
 })();
 </script>
 </body>
