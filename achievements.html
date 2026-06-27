@@ -2026,77 +2026,44 @@
 
 
 
-<style id="mobile-page-nav-css">
-  /* Mobile page navigation — visible on phones, hidden on desktop */
-  .mobile-page-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    z-index: 350;
-    background: rgba(10,14,20,0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(201,169,97,0.25);
-    padding: 0.55rem 0.9rem;
-    padding-bottom: calc(0.55rem + env(safe-area-inset-bottom, 0px));
-    gap: 0.6rem;
-    align-items: center;
-  }
-  .mobile-page-nav-btn {
-    display: flex; align-items: center; gap: 0.35rem;
-    padding: 0.55rem 0.9rem;
-    background: rgba(201,169,97,0.1);
-    border: 1px solid rgba(201,169,97,0.25);
-    border-radius: 20px;
-    color: #c9a961; text-decoration: none;
-    font-size: 0.78rem; font-weight: 600;
-    font-family: inherit;
-    flex: 1; justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .mobile-page-nav-btn:active {
-    background: rgba(201,169,97,0.25);
-    border-color: rgba(201,169,97,0.55);
-    color: #d4b56d;
-  }
-  .mobile-page-nav-spacer { flex: 1; }
-  /* Hide on tablet/desktop */
-  @media (min-width: 641px) {
-    .mobile-page-nav { display: none !important; }
-    body { padding-bottom: 0 !important; }
-  }
-  /* Body padding so content isn't hidden behind bar on mobile */
-  @media (max-width: 640px) {
-    body { padding-bottom: 70px; }
-  }
+<style id="mpn-css">
+.mpn{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:350;
+background:rgba(10,14,20,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-top:1px solid rgba(201,169,97,0.25);
+padding:0.55rem 0.9rem;padding-bottom:calc(0.55rem + env(safe-area-inset-bottom,0px));
+gap:0.6rem;align-items:center;}
+.mpn-btn{display:flex;align-items:center;gap:0.35rem;padding:0.55rem 0.9rem;
+background:rgba(201,169,97,0.1);border:1px solid rgba(201,169,97,0.25);border-radius:20px;
+color:#c9a961;text-decoration:none;font-size:0.78rem;font-weight:600;font-family:inherit;
+flex:1;justify-content:center;-webkit-tap-highlight-color:transparent;
+transition:background 0.2s,border-color 0.2s;}
+.mpn-btn:active{background:rgba(201,169,97,0.25);border-color:rgba(201,169,97,0.55);color:#d4b56d;}
+.mpn-sp{flex:1;}
+@media(min-width:641px){.mpn{display:none!important}body{padding-bottom:0!important}}
+@media(max-width:640px){body{padding-bottom:70px}}
 </style>
-
-<script id="mobile-page-nav-script">
+<script id="mpn-js">
 (function(){
-  var navMap = {"index.html":{"prev":null,"next":{"href":"education.html","label":"Education"}},"education.html":{"prev":{"href":"index.html","label":"Home"},"next":{"href":"publications.html","label":"Publications"}},"publications.html":{"prev":{"href":"education.html","label":"Education"},"next":{"href":"research.html","label":"Research"}},"research.html":{"prev":{"href":"publications.html","label":"Publications"},"next":{"href":"academic_experience.html","label":"Experience"}},"academic_experience.html":{"prev":{"href":"research.html","label":"Research"},"next":{"href":"achievements.html","label":"Achievements"}},"achievements.html":{"prev":{"href":"academic_experience.html","label":"Experience"},"next":{"href":"notes.html","label":"Blog"}},"notes.html":{"prev":{"href":"achievements.html","label":"Achievements"},"next":{"href":"index.html","label":"Home"}}};
-  var chevL = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
-  var chevR = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
-
-  function updateNav(file) {
-    var nav = document.querySelector('.mobile-page-nav');
-    if (!nav) return;
-    var info = navMap[file] || null;
-    if (!info) return;
-
-    var prevBtn = info.prev
-      ? '<a href="'+info.prev.href+'" class="mobile-page-nav-btn" aria-label="Previous: '+info.prev.label+'">'+chevL+info.prev.label+'</a>'
-      : '<span class="mobile-page-nav-spacer"></span>';
-    var nextBtn = info.next
-      ? '<a href="'+info.next.href+'" class="mobile-page-nav-btn" aria-label="Next: '+info.next.label+'">'+info.next.label+chevR+'</a>'
-      : '<span class="mobile-page-nav-spacer"></span>';
-
-    nav.innerHTML = prevBtn + nextBtn;
+var CL='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
+var CR='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+function rebuildNav(){
+  var nav=document.querySelector('.mpn');
+  if(!nav)return;
+  var la=document.querySelector('.side-nav-left');
+  var ra=document.querySelector('.side-nav-right');
+  var prevH='<span class="mpn-sp"></span>';
+  var nextH='<span class="mpn-sp"></span>';
+  if(la){
+    var lbl=(la.querySelector('.side-nav-label')||{}).textContent||'Back';
+    prevH='<a href="'+la.getAttribute('href')+'" class="mpn-btn">'+CL+lbl+'</a>';
   }
-
-  document.addEventListener('spa:navigate', function(e) {
-    if (e.detail && e.detail.file) updateNav(e.detail.file);
-  });
+  if(ra){
+    var lbl=(ra.querySelector('.side-nav-label')||{}).textContent||'Next';
+    nextH='<a href="'+ra.getAttribute('href')+'" class="mpn-btn">'+lbl+CR+'</a>';
+  }
+  nav.innerHTML=prevH+nextH;
+}
+document.addEventListener('spa:navigate',rebuildNav);
 })();
 </script>
 </head>
@@ -2694,9 +2661,9 @@
 </script>
 
 <!-- Mobile page nav -->
-<nav class="mobile-page-nav" aria-label="Page navigation">
-  <a href="academic_experience.html" class="mobile-page-nav-btn" aria-label="Previous: Experience"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>Experience</a>
-  <a href="notes.html" class="mobile-page-nav-btn" aria-label="Next: Blog">Blog<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+<nav class="mpn" aria-label="Page navigation">
+  <a href="academic_experience.html" class="mpn-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>Experience</a>
+  <a href="notes.html" class="mpn-btn">Blog<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
 </nav>
 </body>
 </html>
