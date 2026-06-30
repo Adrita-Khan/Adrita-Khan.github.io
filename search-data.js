@@ -74,8 +74,8 @@ window.AK_SEARCH_IDX = [
   {
     page: "index.html", pageLabel: "Home",
     title: "Wi-STEM Bangladesh Mentee — Photometric Redshift (2021)",
-    snippet: "Remote Summer Research Internship on Photometric Redshift Estimation Using Machine Learning. July–December 2021.",
-    keywords: "home wi-stem bangladesh mentee photometric redshift estimation machine learning remote summer internship 2021"
+    snippet: "Remote Summer Research Internship on Photometric Redshift Estimation Using Machine Learning. July–December 2021. Supervisor: Dr. Tonima Tasnim Ananna.",
+    keywords: "home wi-stem bangladesh mentee photometric redshift estimation machine learning remote summer internship 2021 tonima tasnim ananna supervisor"
   },
   {
     page: "index.html", pageLabel: "Home",
@@ -83,10 +83,58 @@ window.AK_SEARCH_IDX = [
     snippet: "Contact Adrita Khan via email, GitHub, LinkedIn, Google Scholar, ResearchGate, ORCID, arXiv, Twitter/X.",
     keywords: "home contact email github linkedin google scholar researchgate orcid arxiv twitter x social"
   },
+  {
+    page: "index.html", pageLabel: "Home",
+    title: "Research Goals — Next-Generation Surveys & Precision Cosmology",
+    snippet: "Advancing precision cosmology using data from LSST/DESC, Euclid, DESI, Simons Observatory, CMB-S4, and the Atacama Cosmology Telescope (ACT). Machine learning, Bayesian inference, and cosmological emulation to constrain the universe's origin, evolution, and matter–energy composition.",
+    keywords: "home research goals precision cosmology lsst desc euclid desi simons observatory cmb-s4 atacama cosmology telescope act bayesian inference cosmological emulation gamma-ray burst redshift estimation explainable particle chebyshev network epcn diversity equity inclusion dei next-generation surveys"
+  },
+  {
+    page: "index.html", pageLabel: "Home",
+    title: "Technical Proficiency — Languages, Stack, Cosmology Tools & Emulators",
+    snippet: "Python, C/C++, Mathematica, MATLAB, R, SQL, Bash/Shell. NumPy, SciPy, Pandas, scikit-learn, Astropy, Astroquery, PyTorch, TensorFlow. CAMB, CCL, HEALPix, NaMaster, emcee, pocoMC, corner, GetDist, TOPCAT, SAOImage DS9. CosmoPower, bacco, e-mantis, nDGP emulators. MCMC, Bayesian inference, Fisher forecasting. Linux/Unix, Git/GitHub, Docker, LaTeX, HPC clusters & parallelization.",
+    keywords: "home technical proficiency programming languages python c c++ mathematica matlab r sql bash shell scripting scientific stack numpy scipy pandas scikit-learn astropy astroquery pytorch tensorflow cosmology astrophysics tools camb ccl healpix namaster emcee pocomc corner getdist topcat saoimage ds9 cosmological emulators cosmopower bacco e-mantis ndgp statistical methods machine learning mcmc bayesian inference fisher forecasting hyperparameter optimization feature engineering development tools linux unix git github docker latex hpc clusters parallelization"
+  },
 
   /* ══════════════════════════════════════════════════
      RESEARCH  (research.html)
   ══════════════════════════════════════════════════ */
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "R1 — Modified Gravity with Cross-Correlation (Ongoing Research)",
+    snippet: "Forecasts signatures of modified gravity (f(R), DGP) via cross-correlation of galaxy clustering and CMB lensing data, using LSST/DESC and Simons Observatory specs, Fisher matrix forecasting, MCMC parameter inference, and fast emulators. Supervisors: Dr. Tanveer Karim, Dr. Georgios Valogiannis.",
+    keywords: "research ongoing research r1 modified gravity cross-correlation galaxy clustering cmb lensing f(r) dgp lsst desc simons observatory fisher matrix mcmc emulators tanveer karim georgios valogiannis large-scale structure cosmology"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "R2 — Interaction Feature Guided Jet Tagging (E-PCN, Ongoing Research)",
+    snippet: "Jet-Tagging-Experiments repository: explainable Particle Chebyshev Network using physics-motivated interaction features (ln Δ, ln kT, ln z, ln m²) to classify jets on CERN Open Data (JetClass). Supervisors: Dr. AKM Mahbubur Rahman, Dr. Amin Ahsan Ali, Dr. Arshad Momen (PI).",
+    keywords: "research ongoing research r2 interaction feature guided jet tagging e-pcn machine learning high-energy physics graph neural networks qcd cern open data jetclass explainable ai akm mahbubur rahman amin ahsan ali arshad momen"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "R3 — PINNs for Stochastic Inflation (Ongoing Research)",
+    snippet: "Exploratory work applying Physics-Informed Neural Networks (PINNs) to model stochastic inflation in early-universe cosmology, integrating machine learning with physical constraints to solve inflationary differential equations. Supervisor: Dr. Rafid Mahbub.",
+    keywords: "research ongoing research r3 pinns physics-informed neural networks stochastic inflation early universe cosmology neural networks differential equations rafid mahbub exploratory"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "R4 — Gamma-Ray Burst ML / GRB-ML (Ongoing Research)",
+    snippet: "Tools and experiments using machine learning to estimate redshifts and classify gamma-ray bursts using Fermi and other astrophysical data, with feature engineering for transient phenomena. Supervisors: Dr. Soebur Razzaque, Dr. Saeeda Sajjad.",
+    keywords: "research ongoing research r4 gamma-ray burst grb ml machine learning redshift estimation classification fermi data transient astrophysics feature engineering soebur razzaque saeeda sajjad"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "R5 — RGC: Radha Gobinda Chandra Radio Galaxy Classifier (Ongoing Research)",
+    snippet: "Advanced ML-based classifier identifying and categorizing radio galaxies from survey data using deep learning techniques. Supervisors: Dr. Khan Muhammad Bin Asad, Dr. AKM Mahbubur Rahman, Dr. Amin Ahsan Ali, Dr. Arshad Momen (PI).",
+    keywords: "research ongoing research r5 rgc radha gobinda chandra radio galaxy classifier deep learning galaxy classification agn survey data computer vision khan muhammad bin asad akm mahbubur rahman amin ahsan ali arshad momen"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "R6 — RiFInE: Radio Frequency Interference Identification and Elimination (Ongoing Research)",
+    snippet: "Identifying and eliminating radio frequency interference (RFI) in astronomical observations, addressing data-quality challenges from human-made interference in radio astronomy. Supervisors: Dr. Khan Muhammad Bin Asad, Dr. AKM Mahbubur Rahman, Dr. Arshad Momen (PI).",
+    keywords: "research ongoing research r6 rifine radio frequency interference identification elimination rfi mitigation signal processing data quality khan muhammad bin asad akm mahbubur rahman arshad momen"
+  },
   {
     page: "research.html", pageLabel: "Research & Projects",
     title: "AstroPhotoZ: Photometric Redshift Estimation",
@@ -135,6 +183,36 @@ window.AK_SEARCH_IDX = [
     snippet: "Neural ODE and traffic flow modeling using neural differential equations for dynamical systems.",
     keywords: "research neural ode neural differential models traffic flow modeling dynamical systems ordinary differential equations physics engineering"
   },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "Radio Astronomy Tutorials",
+    snippet: "Educational tutorials for radio astronomy data analysis using radio-astro-tools and Astropy — spectral cubes, PV diagrams, moment maps, and parallel processing with Dask.",
+    keywords: "research radio astronomy tutorials data analysis radio-astro-tools astropy spectral cubes pv diagrams moment maps dask parallel processing educational hi 21cm"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "Astronomy Resources Collection",
+    snippet: "A curated guide to essential astronomical tools, datasets, and learning materials across various subdisciplines of astronomy for students and researchers.",
+    keywords: "research astronomy resources collection curated guide tools datasets learning materials subdisciplines students researchers reference catalogs"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "Cosmology Materials",
+    snippet: "Lecture notes, problem sets, and code implementations covering the CMB, large-scale structure formation, and other fundamental topics in modern cosmology.",
+    keywords: "research cosmology materials lecture notes problem sets code implementations cmb large-scale structure formation educational"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "Signal Denoising Comparison",
+    snippet: "Comparative study of denoising techniques — classical signal processing vs modern ML approaches — with benchmarks for time-series and spectroscopic observations.",
+    keywords: "research signal denoising comparison classical signal processing machine learning benchmarks time-series spectroscopic observations wavelet filter snr"
+  },
+  {
+    page: "research.html", pageLabel: "Research & Projects",
+    title: "Benchmarking Radio Decays",
+    snippet: "Monte Carlo simulations of radioactive decay chains in Cython, benchmarked against Numba, Pybind11, C++, Julia, and MATLAB for performance analysis.",
+    keywords: "research benchmarking radio decays monte carlo simulations radioactive decay chains cython numba pybind11 c++ julia matlab performance analysis runtime nuclear physics"
+  },
 
   /* ══════════════════════════════════════════════════
      PUBLICATIONS  (publications.html)
@@ -175,6 +253,12 @@ window.AK_SEARCH_IDX = [
   },
   {
     page: "education.html", pageLabel: "Education",
+    title: "Undergraduate Thesis — CNUCTRAN: C++ Bateman Equation Solver",
+    snippet: "Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations. Supervisor: Dr. M. Rabie Omar. Honours research in nuclear physics at Universiti Sains Malaysia.",
+    keywords: "education undergraduate honours thesis cnuctran c++ bateman equation solver nuclear decay chains benchmarking mathematica matlab m. rabie omar nuclear physics scientific computing usm"
+  },
+  {
+    page: "education.html", pageLabel: "Education",
     title: "Coursework — Physics Courses at USM",
     snippet: "Physics I Mechanics, Physics II Electromagnetism, Physics III Waves & Optics, Physics IV Modern Physics, Classical Mechanics, Quantum Mechanics, Thermodynamics, Statistical Mechanics, Atomic & Nuclear Physics, Solid State Physics I & II, Structure of Universe, Optics, Electronics I & II, Radiation Biophysics, Introduction to Astronomy, Principles in Astronomy, Radio Astronomy, Laser Applications, Mathematical Methods, Complex Analysis & ODEs, Linear Algebra.",
     keywords: "education coursework physics mechanics electromagnetism waves optics modern physics classical mechanics quantum mechanics thermodynamics statistical mechanics atomic nuclear solid state structure universe astronomy radio astronomy laser applications mathematical methods complex analysis odes linear algebra calculus data analytics ai literacy"
@@ -196,6 +280,24 @@ window.AK_SEARCH_IDX = [
     title: "Language Skills",
     snippet: "Bengali (Native, C2), English (Bilingual, C2), Hindi (B2 Upper-Intermediate), German (A1 Beginner), Malay (A1 Beginner).",
     keywords: "education languages bengali native c2 english bilingual hindi b2 german a1 malay beginner multilingual"
+  },
+  {
+    page: "education.html", pageLabel: "Education",
+    title: "Wi-STEM Bangladesh Mentee — Photometric Redshifts using Gaussian Processes (2021)",
+    snippet: "Summer Research Internship, Jul–Dec 2021. Tested machine learning methods for photometric redshift estimation from astronomical survey data. Supervisor: Dr. Tonima Tasnim Ananna. Applied Gaussian Processes; project on GitHub.",
+    keywords: "education wi-stem bangladesh mentee photometric redshifts gaussian processes summer research internship 2021 tonima tasnim ananna machine learning astropy survey data github astrophotoz"
+  },
+  {
+    page: "education.html", pageLabel: "Education",
+    title: "Astronomy Club, Universiti Sains Malaysia — Exco & Member",
+    snippet: "Elected Student Representative (Exco) 2019–2020, Member 2019–Present. Represented students from 10+ nationalities. Stargazing sessions, public outreach, workshops, training, and Physics colloquia.",
+    keywords: "education astronomy club universiti sains malaysia usm elected student representative exco leadership outreach stargazing workshops physics colloquia cross-cultural collaboration"
+  },
+  {
+    page: "education.html", pageLabel: "Education",
+    title: "Future Graduate Studies — PhD Aspirant in Astrophysics and Cosmology",
+    snippet: "Currently exploring PhD opportunities in Physics and Astronomy. Research interests: Observational Cosmology, Large-Scale Structure, Modified Gravity, Dark Matter & Dark Energy, High-Energy Astrophysics, Galaxy Evolution & Dynamics, and Astrostatistics with Machine Learning.",
+    keywords: "education future graduate studies phd aspirant astrophysics cosmology planning observational cosmology large-scale structure modified gravity dark matter dark energy high-energy astrophysics galaxy evolution dynamics astrostatistics machine learning upcoming"
   },
 
   /* ══════════════════════════════════════════════════
@@ -382,14 +484,50 @@ window.AK_SEARCH_IDX = [
   {
     page: "academic_experience.html", pageLabel: "Academic Experience",
     title: "Wi-STEM Bangladesh Mentee — Photometric Redshift (Jul–Dec 2021)",
-    snippet: "Remote Summer Research Internship. Photometric Redshift Estimation Using Machine Learning. July–December 2021.",
-    keywords: "academic experience wi-stem bangladesh mentee photometric redshift estimation machine learning remote summer internship july december 2021"
+    snippet: "Remote Summer Research Internship. Photometric Redshift Estimation Using Machine Learning. July–December 2021. Supervisor: Dr. Tonima Tasnim Ananna.",
+    keywords: "academic experience wi-stem bangladesh mentee photometric redshift estimation machine learning remote summer internship july december 2021 tonima tasnim ananna supervisor"
   },
   {
     page: "academic_experience.html", pageLabel: "Academic Experience",
     title: "Mentoring — Neural ODE & Traffic Flow Modeling",
     snippet: "Mentoring activities involving Neural ODE and Traffic Flow Modeling. Web Dev: HTML, CSS.",
     keywords: "academic experience mentoring neural ode traffic flow modeling web development html css students"
+  },
+  {
+    page: "academic_experience.html", pageLabel: "Academic Experience",
+    title: "Mentee — Subaita Rahman Supti (IUB, ICTP PWF Intern 2025)",
+    snippet: "BSc Physics student at Independent University, Bangladesh, ICTP PWF Intern 2025. Mentoring focus: scientific computing (LaTeX, C/C++), research guidance in cosmology and particle physics, AI & data science (neural networks, ML).",
+    keywords: "academic experience mentee subaita rahman supti independent university bangladesh iub ictp pwf intern 2025 scientific computing latex c++ cosmology particle physics neural networks machine learning mentorship"
+  },
+  {
+    page: "academic_experience.html", pageLabel: "Academic Experience",
+    title: "Mentee — Naima Alam Zikra (IUB)",
+    snippet: "BSc Physics student at Independent University, Bangladesh. Mentoring focus: programming & data analysis in Python, quantum mechanics (numerical methods), cosmology (21 cm line & Epoch of Reionization).",
+    keywords: "academic experience mentee naima alam zikra independent university bangladesh iub python data analysis quantum mechanics numerical methods cosmology 21 cm line epoch of reionization eor mentorship"
+  },
+  {
+    page: "academic_experience.html", pageLabel: "Academic Experience",
+    title: "Mentee — Adita Ferdous (BRAC University)",
+    snippet: "BSc Physics student at BRAC University. Mentoring focus: inflationary cosmology, introductory research skills, programming & cosmological tools.",
+    keywords: "academic experience mentee adita ferdous brac university inflationary cosmology research skills programming cosmological tools mentorship"
+  },
+  {
+    page: "academic_experience.html", pageLabel: "Academic Experience",
+    title: "Mentee — Maisha Rahman (University of Dhaka)",
+    snippet: "BSc Physics student at University of Dhaka. Mentoring focus: Python & statistics, ML/DL & object detection, introductory astronomy & packages.",
+    keywords: "academic experience mentee maisha rahman university of dhaka python statistics machine learning deep learning object detection astronomy packages mentorship"
+  },
+  {
+    page: "academic_experience.html", pageLabel: "Academic Experience",
+    title: "Mentee — Saidul Hossain Al-Amin (North South University, Bronze Awardee IAAC)",
+    snippet: "BSc ECE/EEE student at North South University, Bronze Awardee at IAAC. Mentoring focus: Python & statistics, signal processing & radio astronomy, astronomical core packages.",
+    keywords: "academic experience mentee saidul hossain al-amin north south university bronze awardee iaac ece eee python statistics signal processing radio astronomy astronomical packages mentorship"
+  },
+  {
+    page: "academic_experience.html", pageLabel: "Academic Experience",
+    title: "Mentee — Neyaz Ahmed (SUST / North South University)",
+    snippet: "Petroleum Engineering BSc (Shahjalal University of Science and Technology), Applied Mathematics & Computer Science MSc (North South University). Mentoring focus: Python, C++, MATLAB, ML; web development (HTML, CSS); Neural ODE & Traffic Flow Modeling.",
+    keywords: "academic experience mentee neyaz ahmed shahjalal university science technology sust north south university petroleum engineering applied mathematics computer science python c++ matlab machine learning web development html css neural ode traffic flow modeling mentorship"
   },
 
   /* ══════════════════════════════════════════════════
@@ -542,5 +680,63 @@ window.AK_SEARCH_IDX = [
     title: "Study Notes — Power Spectrum Analysis",
     snippet: "Power spectrum fundamentals, correlation functions, galaxy clustering, CMB angular power spectra, and cross-correlation analysis.",
     keywords: "blog notes study cosmology power spectrum analysis correlation functions galaxy clustering cmb angular cross-correlation statistical methods"
+  },
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Observational Cosmology",
+    snippet: "Overview of current and future cosmological surveys, data analysis techniques, systematic effects, and parameter estimation methods. Covers LSST and Euclid.",
+    keywords: "blog notes study cosmology observational cosmology surveys lsst euclid data analysis systematic effects parameter estimation"
+  },
+
+  /* — Study Notes: Physics — */
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — General Relativity",
+    snippet: "Complete treatment of Einstein's field equations, spacetime geometry, black holes, gravitational waves, and cosmological applications. Includes problem-solving techniques and physical interpretations.",
+    keywords: "blog notes study physics general relativity einstein field equations spacetime black holes gravitational waves cosmological applications"
+  },
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Quantum Mechanics",
+    snippet: "Schrödinger equation, quantum operators, uncertainty principle, quantum harmonic oscillator, and applications to atomic physics. Includes computational quantum mechanics methods.",
+    keywords: "blog notes study physics quantum mechanics schrodinger equation operators uncertainty principle harmonic oscillator atomic physics computational"
+  },
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Statistical Mechanics",
+    snippet: "Boltzmann distribution, partition functions, phase transitions, critical phenomena, and applications to condensed matter physics and cosmology.",
+    keywords: "blog notes study physics statistical mechanics boltzmann distribution partition functions phase transitions critical phenomena condensed matter cosmology"
+  },
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Electromagnetism",
+    snippet: "Maxwell's equations, electromagnetic waves, relativistic electrodynamics, and applications to particle accelerators and astrophysical phenomena.",
+    keywords: "blog notes study physics electromagnetism maxwell equations em waves relativistic electrodynamics particle accelerators astrophysical phenomena"
+  },
+
+  /* — Study Notes: Miscellaneous — */
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Machine Learning Fundamentals",
+    snippet: "Supervised and unsupervised learning algorithms, neural networks, deep learning architectures, and applications to scientific data analysis and cosmological surveys.",
+    keywords: "blog notes study miscellaneous machine learning fundamentals supervised unsupervised neural networks deep learning architectures scientific data analysis cosmological surveys"
+  },
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Scientific Computing",
+    snippet: "Python programming for scientific applications, numerical methods, data visualization, and computational tools for physics and cosmology research.",
+    keywords: "blog notes study miscellaneous scientific computing python numpy scipy matplotlib numerical methods data visualization computational tools physics cosmology"
+  },
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Statistics & Data Analysis",
+    snippet: "Statistical inference, Bayesian analysis, Markov Chain Monte Carlo methods, and their applications to parameter estimation in cosmology and physics.",
+    keywords: "blog notes study miscellaneous statistics data analysis statistical inference bayesian mcmc markov chain monte carlo parameter estimation cosmology physics"
+  },
+  {
+    page: "notes.html", pageLabel: "Blog & Notes",
+    title: "Study Notes — Research Methods",
+    snippet: "Academic writing techniques, research methodology, collaboration tools, version control with Git, and best practices for scientific research and publication.",
+    keywords: "blog notes study miscellaneous research methods academic writing methodology collaboration tools version control git scientific research publication best practices"
   }
 ];
