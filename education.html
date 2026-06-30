@@ -183,17 +183,17 @@
         .meta-badge { background: rgba(201,169,97,0.15); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(201,169,97,0.3); font-size: 0.9rem; color: #fff; }
 
         /* ── Thesis ── */
-        .thesis-section { background: rgba(201,169,97,0.1); border-radius: 12px; padding: 1rem; margin: 1rem 0; border: 1px solid rgba(201,169,97,0.2); }
-        .thesis-title { font-size: 1.02rem; color: #fff; line-height: 1.5; margin-bottom: 0.5rem; }
+        .thesis-section { background: transparent; border-radius: 0; padding: 1rem 0 0 0; margin: 0.8rem 0 0 0; border: none; border-top: 1px solid rgba(201,169,97,0.15); }
+        .thesis-title { font-size: 0.97rem; color: rgba(232,220,196,0.85); line-height: 1.65; margin-bottom: 0.6rem; font-style: italic; font-weight: 400; }
         .thesis-supervisor { color: #b8c5d0; font-size: 0.95rem; }
 
         /* ── Achievements ── */
-        .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
-        .achievement-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.6rem; background: rgba(201,169,97,0.05); border-radius: 8px; border: 1px solid rgba(201,169,97,0.2); transition: all 0.3s ease; }
-        .achievement-item:hover { background: rgba(201,169,97,0.15); transform: translateY(-3px); }
-        .achievement-icon { width: 26px; height: 26px; background: linear-gradient(135deg, #c9a961, #d4b56d); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .achievement-icon::before { content: '★'; color: #fff; font-size: 0.9rem; }
-        .achievement-text { color: #b8c5d0; font-size: 0.92rem; line-height: 1.4; }
+        .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin-top: 0.5rem; }
+        .achievement-item { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.55rem 0.3rem; background: transparent; border-radius: 0; border: none; border-bottom: 1px solid rgba(201,169,97,0.08); transition: all 0.2s ease; }
+        .achievement-item:hover { background: transparent; transform: translateX(3px); } .achievement-item:last-child { border-bottom: none; }
+        .achievement-icon { width: 20px; height: 20px; background: rgba(201,169,97,0.18); border: 1px solid rgba(201,169,97,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .achievement-icon::before { content: '★'; color: #c9a961; font-size: 0.65rem; }
+        .achievement-text { color: rgba(184,197,208,0.9); font-size: 0.88rem; line-height: 1.5; }
 
         /* ── Coursework ── */
         .coursework-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
@@ -2748,7 +2748,7 @@ document.addEventListener('spa:navigate',rebuildNav);
 </div>
 
             <!-- 6. Internship -->
-            <div class="card span-6">
+            <div class="card span-12">
                 <div class="education-header">
                     <div class="education-icon">🔬</div>
                     <div class="education-content">
@@ -2789,7 +2789,7 @@ document.addEventListener('spa:navigate',rebuildNav);
             </div>
 
             <!-- 7. Astronomy Club -->
-            <div class="card span-6">
+            <div class="card span-12">
                 <div class="education-header">
                     <div class="education-icon">🌟</div>
                     <div class="education-content">
