@@ -35,8 +35,6 @@ This repository hosts the source code for my academic portfolio website: **[adri
 | [**Academic Experience**](https://adrita-khan.github.io/academic_experience) | Teaching, mentorship & service |
 | [**Achievements**](https://adrita-khan.github.io/achievements) | Awards, schools & participations |
 | [**Notes**](https://adrita-khan.github.io/notes) | Study notes & learning resources |
-| [**Contact**](https://adrita-khan.github.io/contact) | Contact information |
-
 ---
 
 ## Technical Stack
