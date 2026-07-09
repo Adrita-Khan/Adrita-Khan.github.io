@@ -10,7 +10,7 @@
   },
   "build": {
     "sitemapBase": "https://adrita-khan.github.io/",
-    "excludeFromSitemap": ["404.html", "contact.html", "projects.html"]
+    "excludeFromSitemap": ["404.html", "projects.html"]
   },
   "theme": {
     "default": "dark",
