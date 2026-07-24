@@ -129,15 +129,15 @@
         .profile-card { display: flex; align-items: center; gap: 2rem; }
         .profile-image { width: 280px; height: 280px; border-radius: 50%; border: 4px solid rgba(201,169,97,0.4); object-fit: cover; transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(201,169,97,0.3); flex-shrink: 0; }
         .profile-image:hover { transform: scale(1.05); border-color: rgba(201,169,97,0.6); box-shadow: 0 15px 50px rgba(201,169,97,0.4); }
-        .profile-text-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+        .profile-text-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; min-width: 600px; }
         .page-title-right { text-align: center; width: 100%; }
         .page-title-right h1 { font-size: 2.8rem; font-weight: 800; color: #fff; position: relative; display: inline-block; line-height: 1.2; margin: 0; padding-bottom: 0.5rem; }
         .page-title-right h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 4px; background: linear-gradient(90deg, #c9a961 0%, #d4b56d 50%, #c9a961 100%); border-radius: 2px; }
-        .profile-info-box { background: linear-gradient(135deg, rgba(201,169,97,0.12), rgba(201,169,97,0.08)); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(201,169,97,0.3); border-radius: 16px; padding: 1.5rem; box-shadow: 0 8px 32px rgba(201,169,97,0.2); transition: all 0.3s ease; position: relative; overflow: hidden; text-align: center; }
+        .profile-info-box { background: linear-gradient(135deg, rgba(201,169,97,0.12), rgba(201,169,97,0.08)); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(201,169,97,0.3); border-radius: 16px; padding: 1.5rem 2.5rem; box-shadow: 0 8px 32px rgba(201,169,97,0.2); transition: all 0.3s ease; position: relative; overflow: hidden; text-align: center; width: 100%; }
         .profile-info-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55); }
         .profile-info-box:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,169,97,0.3); border-color: rgba(201,169,97,0.5); }
         .profile-title { color: #c9a961; font-size: 1.35rem; margin-bottom: 0.3rem; font-weight: 600; }
-        .profile-info { font-size: 1.05rem; color: #b8c5d0; line-height: 1.7; }
+        .profile-info { font-size: 0.95rem; color: #b8c5d0; line-height: 1.7; white-space: nowrap; }
         .profile-info span { color: #c9a961; font-weight: 600; }
         .social-links { display: flex; gap: 0.8rem; justify-content: center; }
         .social-icon { width: 40px; height: 40px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; text-decoration: none; -webkit-tap-highlight-color: transparent; }
@@ -2523,9 +2523,14 @@ document.addEventListener('spa:navigate',rebuildNav);
         <span>Incoming 2026</span> • <span>M.Sc. Astrophysics</span> • <span>Universität Bonn</span> • <span>BCGS Scholar</span>
     </div>
     <div style="width:60%;height:1px;background:rgba(201,169,97,0.25);margin:0.6rem auto;"></div>
+    <div class="profile-info" style="font-size:0.78rem;opacity:0.55;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.2rem;">Postgraduate</div>
+    <div class="profile-info">
+        <span>2024–2026</span> • <span>M.Sc. Applied Mathematics &amp; Computational Science</span> • <span>North South University</span>
+    </div>
+    <div style="width:60%;height:1px;background:rgba(201,169,97,0.25);margin:0.6rem auto;"></div>
     <div class="profile-info" style="font-size:0.78rem;opacity:0.55;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.2rem;">Undergraduate</div>
     <div class="profile-info">
-        <span>2023 Graduate</span> • <span>B.Sc. (Hons) Physics</span> • <span>Astronomy Minor</span>
+        <span>2023 Graduate</span> • <span>B.Sc. (Hons) Physics</span> • <span>Astronomy Minor</span> • <span>Universiti Sains Malaysia</span>
     </div>
 </div>
                 </div>
@@ -2584,7 +2589,89 @@ document.addEventListener('spa:navigate',rebuildNav);
                 </div>
             </div>
 
-            <!-- 1. Bachelor degree -->
+            <!-- 1. M.Sc. Applied Mathematics and Computational Science — North South University -->
+            <div class="card span-12 msc-card">
+                <div class="education-header">
+                    <div class="education-icon">🧮</div>
+                    <div class="education-content">
+                        <h3>Master of Science (M.Sc.) in Applied Mathematics and Computational Science</h3>
+                        <p class="education-university">
+                            <a href="https://www.northsouth.edu/academic/seps/math-physics/" target="_blank" rel="noopener noreferrer"
+                               style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:3px;transition:color 0.3s;">
+                               North South University
+                            </a>
+                        </p>
+                        <p class="education-location">Department of Mathematics &amp; Physics, Dhaka, Bangladesh</p>
+                    </div>
+                </div>
+                <div class="education-meta">
+                    <div class="meta-badge">Dec 2024 – Sep 2026</div>
+                    <div class="meta-badge">Master of Science</div>
+                    <div class="meta-badge">Applied Mathematics</div>
+                    <div class="meta-badge">Computational Science</div>
+                </div>
+                <div class="msc-body" style="margin: 0.8rem 0;">
+                    <p>The MSc in AMCS is intended to provide students with a working knowledge of several areas of applied mathematics and prepare them for dynamic careers in industry and academia. The programme combines advanced coursework with a thesis in topics related to Applied Mathematics and Computational Science, offered under the <a href="https://www.northsouth.edu/academic/seps/" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">School of Engineering &amp; Physical Sciences</a>.</p>
+                </div>
+                <div style="margin-top:1.5rem;">
+                    <div class="coursework-meta">
+                        <h4 class="section-title" style="margin-bottom:0;">Coursework Completed</h4>
+                        <div class="coursework-stats">
+                            <div class="stat-chip"><span class="label">Courses:</span><span class="value">11</span></div>
+                            <div class="stat-chip"><span class="label">Coursework Credits:</span><span class="value">26</span></div>
+                            <div class="stat-chip"><span class="label">Thesis Credits:</span><span class="value">6</span></div>
+                            <div class="stat-chip"><span class="label">Credits Waived:</span><span class="value">6</span></div>
+                            <div class="stat-chip"><span class="label">Total Credits:</span><span class="value">40 / 40</span></div>
+                        </div>
+                    </div>
+                    <div class="coursework-grid" style="grid-template-columns: repeat(3, 1fr); margin-top:1rem;">
+                        <div class="semester-card">
+                            <h5 class="semester-title">Spring 2025</h5>
+                            <div class="course-list">
+                                <div class="course-item">Computational Fluid Dynamics <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">Research Methodology in Mathematics Education <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">Labs on Mathematical Research Tools <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
+                            </div>
+                        </div>
+                        <div class="semester-card">
+                            <h5 class="semester-title">Summer 2025</h5>
+                            <div class="course-list">
+                                <div class="course-item">Partial Differential Equations: Modeling and Numeric <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                            </div>
+                        </div>
+                        <div class="semester-card">
+                            <h5 class="semester-title">Fall 2025</h5>
+                            <div class="course-list">
+                                <div class="course-item">Numerical Analysis <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                            </div>
+                        </div>
+                        <div class="semester-card">
+                            <h5 class="semester-title">Spring 2026</h5>
+                            <div class="course-list">
+                                <div class="course-item">Computational Linear Algebra <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">Computational Linear Algebra Lab <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
+                                <div class="course-item">Advanced Numerical Methods and Computation <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">Advanced Numerical Methods and Computation Lab <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
+                            </div>
+                        </div>
+                        <div class="semester-card">
+                            <h5 class="semester-title">Summer 2026 <span style="font-size:0.72rem;color:#c9a961;font-weight:500;">(ongoing)</span></h5>
+                            <div class="course-list">
+                                <div class="course-item">High Performance Parallel Computing <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">High Performance Parallel Computing Lab <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
+                                <div class="course-item">Mathematics for Data Science and Machine Learning <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thesis-section">
+                    <h4 class="section-title">M.Sc. Thesis</h4>
+                    <p class="thesis-title">Missing Data Imputation for Irregular Light Curves in Astronomy: A Statistical Evaluation of Imputation Methods for Preserving Periodic Signal Properties</p>
+                    <p class="thesis-supervisor"><strong>Supervisor:</strong> <a href="https://sumonhossain25.github.io/" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">Dr. Md. Sumon Hossain</a>, Associate Professor, <a href="https://www.northsouth.edu/faculty-members/seps/mathematics-physics/md.-sumon-hossain.html" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">Department of Mathematics &amp; Physics, North South University</a></p>
+                </div>
+            </div>
+
+            <!-- 2. Bachelor degree -->
             <div class="card span-12 msc-card">
                 <div class="education-header">
                     <div class="education-icon">🎓</div>
@@ -2605,6 +2692,9 @@ document.addEventListener('spa:navigate',rebuildNav);
                     <div class="meta-badge">Major in Physics</div>
                     <div class="meta-badge">Minor in Astronomy</div>
                 </div>
+                <div class="msc-body" style="margin: 0.8rem 0;">
+                    <p>The <a href="https://admission.usm.my/index.php/undergraduate/undergraduate-malaysian?view=article&id=588&catid=63" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">Bachelor of Science in Physics with Honours</a> at USM's <a href="https://fizik.usm.my/" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">School of Physics</a> provides a rigorous grounding in core and applied physics across three specialisation tracks — Pure Physics, Electronics &amp; Semiconductor, and Optics &amp; Photonics — culminating in an Honours research project. Pursuing the <a href="https://fizik.usm.my/images/E-Booklet/BSc_Physics_1.pdf" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">Pure Physics specialisation track</a> alongside the <a href="https://fizik.usm.my/index.php/programmes/undergraduate/minor-in-astronomy" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">Minor in Astronomy</a>, the programme covered advanced topics from Statistical Mechanics and Solid State Physics to observational and radio astronomy.</p>
+                </div>
                 <div class="thesis-section">
                     <h4 class="section-title">Undergraduate Thesis</h4>
                     <p class="thesis-title">Validated C++ Bateman equation solver (CNUCTRAN) for complex nuclear decay chains, achieving high-precision benchmarking against Mathematica/MATLAB implementations</p>
@@ -2613,7 +2703,7 @@ document.addEventListener('spa:navigate',rebuildNav);
                            target="_blank" rel="noopener noreferrer"
                            style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">
                            Dr. M. Rabie Omar
-                        </a>
+                        </a>, Senior Lecturer, <a href="https://fizik.usm.my/" target="_blank" rel="noopener noreferrer" style="color:#e8dcc4;text-decoration:underline;text-decoration-color:#e8dcc4;text-underline-offset:2px;transition:color 0.3s;">School of Physics, Universiti Sains Malaysia</a>
                     </p>
                 </div>
                 <div style="margin-top:1.8rem;">
@@ -2627,7 +2717,7 @@ document.addEventListener('spa:navigate',rebuildNav);
                 </div>
             </div>
 
-            <!-- 2. Coursework -->
+            <!-- 3. Coursework -->
             <div class="card span-12">
                 <div class="coursework-meta">
                     <h3 class="section-title" style="margin-bottom:0;">Comprehensive Coursework (8 Semesters)</h3>
@@ -2649,7 +2739,7 @@ document.addEventListener('spa:navigate',rebuildNav);
                 </div>
             </div>
 
-            <!-- 3. Technical skills -->
+            <!-- 4. Technical skills -->
             <div class="card span-12">
                 <h3 class="section-title">Technical Skills</h3>
                 <div class="skills-categories">
