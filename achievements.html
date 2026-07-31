@@ -126,17 +126,21 @@
         .stat-number { font-size: 1.5rem; font-weight: 700; color: #c9a961; margin-bottom: 0.2rem; }
         .stat-label { color: #b8c5d0; font-size: 0.8rem; }
 
-        .achievements-list { display: grid; gap: 0.8rem; min-width: 0; }
+        .achievements-list { display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; width: 100%; }
         .achievement-item {
             background: rgba(201,169,97,0.1); backdrop-filter: blur(10px);
             border-radius: 10px; padding: 1rem 1.2rem; border-left: 3px solid #c9a961;
             transition: all 0.3s ease; color: #b8c5d0; line-height: 1.6; font-size: 0.98rem;
-            overflow-wrap: break-word; word-break: break-word; min-width: 0; max-width: 100%;
+            overflow-wrap: break-word; word-break: break-word;
+            display: block; white-space: normal;
+            width: 100%; box-sizing: border-box;
+            break-inside: avoid; -webkit-column-break-inside: avoid;
         }
         .achievement-item:hover { background: rgba(201,169,97,0.15); transform: translateX(5px); box-shadow: 0 5px 20px rgba(201,169,97,0.2); }
-        .achievement-item strong { color: #c9a961; font-weight: 600; }
-        .achievement-item a { color: #d4b56d; text-decoration: none; border-bottom: 1px dotted #d4b56d; transition: all 0.3s ease; overflow-wrap: break-word; word-break: break-word; }
+        .achievement-item strong { color: #c9a961; font-weight: 600; display: inline; }
+        .achievement-item a { color: #d4b56d; text-decoration: none; border-bottom: 1px dotted #d4b56d; transition: color 0.3s ease, border-bottom-style 0.3s ease; overflow-wrap: break-word; word-break: break-word; display: inline; }
         .achievement-item a:hover { color: #c9a961; border-bottom-style: solid; }
+        .achievement-item strong a { display: inline; }
 
         .membership-card {
             background: rgba(201,169,97,0.08); backdrop-filter: blur(10px);
