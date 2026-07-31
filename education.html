@@ -184,7 +184,7 @@
 
         /* ── Thesis ── */
         .thesis-section { background: transparent; border-radius: 0; padding: 1rem 0 0 0; margin: 0.8rem 0 0 0; border: none; border-top: 1px solid rgba(201,169,97,0.15); }
-        .thesis-title { font-size: 0.97rem; color: rgba(232,220,196,0.85); line-height: 1.65; margin-bottom: 0.6rem; font-style: italic; font-weight: 400; }
+        .thesis-title { font-size: 0.95rem; color: rgba(232,220,196,0.85); line-height: 1.65; margin-bottom: 0.6rem; font-style: italic; font-weight: 400; }
         .thesis-supervisor { color: #b8c5d0; font-size: 0.95rem; }
 
         /* ── Achievements ── */
@@ -193,7 +193,7 @@
         .achievement-item:hover { background: transparent; transform: translateX(3px); } .achievement-item:last-child { border-bottom: none; }
         .achievement-icon { width: 20px; height: 20px; background: rgba(201,169,97,0.18); border: 1px solid rgba(201,169,97,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
         .achievement-icon::before { content: '★'; color: #c9a961; font-size: 0.65rem; }
-        .achievement-text { color: rgba(184,197,208,0.9); font-size: 0.88rem; line-height: 1.5; }
+        .achievement-text { color: rgba(184,197,208,0.9); font-size: 0.85rem; line-height: 1.5; }
 
         /* ── Coursework ── */
         .coursework-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
@@ -220,7 +220,7 @@
 
         /* ── Non-technical skills ── */
         .soft-skills-list { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1rem; }
-        .soft-skill-tag { display: flex; align-items: center; gap: 0.6rem; padding: 0.48rem 0.85rem; background: rgba(201,169,97,0.07); border: 1px solid rgba(201,169,97,0.25); border-radius: 8px; color: #c9a961; font-size: 0.88rem; font-weight: 600; transition: all 0.25s ease; }
+        .soft-skill-tag { display: flex; align-items: center; gap: 0.6rem; padding: 0.48rem 0.85rem; background: rgba(201,169,97,0.07); border: 1px solid rgba(201,169,97,0.25); border-radius: 8px; color: #c9a961; font-size: 0.85rem; font-weight: 600; transition: all 0.25s ease; }
         .soft-skill-tag:hover { background: rgba(201,169,97,0.18); border-color: rgba(201,169,97,0.5); transform: translateY(-2px); color: #d4b56d; }
 
         /* ── Language skills ── */
@@ -292,12 +292,12 @@
             color: rgba(237,228,214,0.5); font-weight: 600; margin-bottom: 0.45rem;
         }
         .msc-meta-value {
-            font-size: 0.98rem; color: #f4f0ea; font-weight: 500;
+            font-size: 0.95rem; color: #f4f0ea; font-weight: 500;
             line-height: 1.35;
         }
         .msc-meta-value.msc-meta-accent { color: #d4b56d; }
         .msc-body p {
-            font-size: 0.98rem; line-height: 1.7;
+            font-size: 0.95rem; line-height: 1.7;
             color: rgba(237,228,214,0.78) !important; margin: 0 0 1.05rem 0;
         }
         .msc-body p:last-child { margin-bottom: 0; }
@@ -437,10 +437,10 @@
             .education-university { font-size: 1rem; }
             .education-location { font-size: 0.9rem; }
             .meta-badge { font-size: 0.82rem; padding: 0.25rem 0.65rem; }
-            .thesis-title { font-size: 0.92rem; }
+            .thesis-title { font-size: 0.88rem; }
             .thesis-supervisor { font-size: 0.88rem; }
             .section-title { font-size: 1rem; }
-            .achievement-text { font-size: 0.88rem; }
+            .achievement-text { font-size: 0.82rem; }
             .achievements-grid { grid-template-columns: 1fr; }
 
             .skills-categories { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
@@ -2517,10 +2517,9 @@ document.addEventListener('spa:navigate',rebuildNav);
                     <div class="profile-info-box">
 <div style="text-align:center;padding:0.5rem 0;">
     <div class="profile-info" style="font-size:0.78rem;opacity:0.55;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.2rem;">Postgraduate</div>
-    <div class="profile-info">
+    <div class="profile-info" style="margin-bottom:0.15rem;">
         <span>Incoming Oct 2026</span> • <span>M.Sc. Astrophysics</span> • <span>Universität Bonn</span> • <span>BCGS Scholar</span>
     </div>
-    <div style="width:60%;height:1px;background:rgba(201,169,97,0.25);margin:0.6rem auto;"></div>
     <div class="profile-info">
         <span>2024–2026</span> • <span>M.Sc. Applied Mathematics &amp; Computational Science</span> • <span>North South University</span>
     </div>
@@ -2625,38 +2624,38 @@ document.addEventListener('spa:navigate',rebuildNav);
                         <div class="semester-card">
                             <h5 class="semester-title">Spring 2025</h5>
                             <div class="course-list">
-                                <div class="course-item">Computational Fluid Dynamics <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
-                                <div class="course-item">Research Methodology in Mathematics Education <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
-                                <div class="course-item">Labs on Mathematical Research Tools <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
+                                <div class="course-item">Computational Fluid Dynamics</div>
+                                <div class="course-item">Research Methodology in Mathematics Education</div>
+                                <div class="course-item">Labs on Mathematical Research Tools</div>
                             </div>
                         </div>
                         <div class="semester-card">
                             <h5 class="semester-title">Summer 2025</h5>
                             <div class="course-list">
-                                <div class="course-item">Partial Differential Equations: Modeling and Numeric <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">Partial Differential Equations: Modeling and Numeric</div>
                             </div>
                         </div>
                         <div class="semester-card">
                             <h5 class="semester-title">Fall 2025</h5>
                             <div class="course-list">
-                                <div class="course-item">Numerical Analysis <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">Numerical Analysis</div>
                             </div>
                         </div>
                         <div class="semester-card">
                             <h5 class="semester-title">Spring 2026</h5>
                             <div class="course-list">
-                                <div class="course-item">Computational Linear Algebra <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
-                                <div class="course-item">Computational Linear Algebra Lab <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
-                                <div class="course-item">Advanced Numerical Methods and Computation <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
-                                <div class="course-item">Advanced Numerical Methods and Computation Lab <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
+                                <div class="course-item">Computational Linear Algebra</div>
+                                <div class="course-item">Computational Linear Algebra Lab</div>
+                                <div class="course-item">Advanced Numerical Methods and Computation</div>
+                                <div class="course-item">Advanced Numerical Methods and Computation Lab</div>
                             </div>
                         </div>
                         <div class="semester-card">
-                            <h5 class="semester-title">Summer 2026 <span style="font-size:0.72rem;color:#c9a961;font-weight:500;">(ongoing)</span></h5>
+                            <h5 class="semester-title">Summer 2026 <span style="font-size:0.82em;color:#c9a961;font-weight:500;">(ongoing)</span></h5>
                             <div class="course-list">
-                                <div class="course-item">High Performance Parallel Computing <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
-                                <div class="course-item">High Performance Parallel Computing Lab <span style="color:#c9a961;font-size:0.78rem;">(1 cr)</span></div>
-                                <div class="course-item">Mathematics for Data Science and Machine Learning <span style="color:#c9a961;font-size:0.78rem;">(3 cr)</span></div>
+                                <div class="course-item">High Performance Parallel Computing</div>
+                                <div class="course-item">High Performance Parallel Computing Lab</div>
+                                <div class="course-item">Mathematics for Data Science and Machine Learning</div>
                             </div>
                         </div>
                     </div>
