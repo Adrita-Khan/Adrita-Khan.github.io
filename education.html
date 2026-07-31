@@ -129,7 +129,7 @@
         .profile-card { display: flex; align-items: center; gap: 2rem; }
         .profile-image { width: 280px; height: 280px; border-radius: 50%; border: 4px solid rgba(201,169,97,0.4); object-fit: cover; transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(201,169,97,0.3); flex-shrink: 0; }
         .profile-image:hover { transform: scale(1.05); border-color: rgba(201,169,97,0.6); box-shadow: 0 15px 50px rgba(201,169,97,0.4); }
-        .profile-text-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; min-width: 600px; }
+        .profile-text-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; width: 100%; min-width: 0; }
         .page-title-right { text-align: center; width: 100%; }
         .page-title-right h1 { font-size: 2.8rem; font-weight: 800; color: #fff; position: relative; display: inline-block; line-height: 1.2; margin: 0; padding-bottom: 0.5rem; }
         .page-title-right h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 4px; background: linear-gradient(90deg, #c9a961 0%, #d4b56d 50%, #c9a961 100%); border-radius: 2px; }
@@ -137,7 +137,7 @@
         .profile-info-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #c9a961, #d4b56d, #b89d55); }
         .profile-info-box:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,169,97,0.3); border-color: rgba(201,169,97,0.5); }
         .profile-title { color: #c9a961; font-size: 1.35rem; margin-bottom: 0.3rem; font-weight: 600; }
-        .profile-info { font-size: 0.95rem; color: #b8c5d0; line-height: 1.7; white-space: normal; }
+        .profile-info { font-size: 0.95rem; color: #b8c5d0; line-height: 1.7; white-space: normal; overflow-wrap: break-word; word-break: break-word; }
         .profile-info span { color: #c9a961; font-weight: 600; }
         .social-links { display: flex; gap: 0.8rem; justify-content: center; }
         .social-icon { width: 40px; height: 40px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; text-decoration: none; -webkit-tap-highlight-color: transparent; }
@@ -362,7 +362,9 @@
         [data-theme="light"] .msc-card .achievement-text { color: #3d2820 !important; }
         [data-theme="light"] .msc-card .meta-badge { background: rgba(154,115,32,0.1) !important; border-color: rgba(154,115,32,0.25) !important; color: #3d2820 !important; }
 
-        /* ── Footer ── */
+        /* NSU coursework: 3 cols on desktop (overrides the base 4-col rule) */
+        .nsu-coursework-grid { grid-template-columns: repeat(3, 1fr); }
+
         footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 1.5rem 0; margin-top: 2rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
         .footer-left p { color: #b8c5d0; font-size: 0.88rem; }
@@ -420,11 +422,14 @@
 
             .profile-card { flex-direction: column; gap: 1.2rem; }
             .profile-image { width: 200px; height: 200px; }
+            .profile-text-content { width: 100%; min-width: 0; }
             .page-title-right h1 { font-size: 2rem; }
-            .profile-info-box { padding: 1.1rem; }
+            .profile-info-box { padding: 1rem 1rem; }
             .profile-title { font-size: 1.15rem; }
-            .profile-info { font-size: 0.95rem; }
+            .profile-info { font-size: 0.88rem; }
             .social-icon { width: 44px; height: 44px; }
+            .msc-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .nsu-coursework-grid { grid-template-columns: repeat(2, 1fr); }
 
             .page-grid { grid-template-columns: 1fr; gap: 1rem; }
             .span-12, .span-6, .span-5, .span-7 { grid-column: span 1; }
@@ -467,7 +472,10 @@
 
         @media (max-width: 400px) {
             .profile-image { width: 160px; height: 160px; }
+            .profile-info-box { padding: 0.8rem 0.75rem; }
+            .profile-info { font-size: 0.82rem; }
             .msc-meta-grid { grid-template-columns: 1fr !important; gap: 0.8rem; }
+            .nsu-coursework-grid { grid-template-columns: 1fr; }
             .page-title-right h1 { font-size: 1.7rem; }
             .coursework-grid { grid-template-columns: 1fr; }
             .skills-categories { grid-template-columns: 1fr; }
@@ -1778,8 +1786,12 @@
         @media (max-width: 640px) {
             .container, .container-wide, .about-content, .about-content-compact,
             .publication-card, .research-item, .achievement-item,
-            .position-card, .position-compact-item { overflow-wrap: break-word; word-break: break-word; }
+            .position-card, .position-compact-item,
+            .card, .msc-card, .future-card, .profile-info-box,
+            .profile-info, .thesis-title, .thesis-supervisor,
+            .education-content, .msc-body, .future-description { overflow-wrap: break-word; word-break: break-word; }
             .side-nav-arrow { display: none; }
+            .msc-card { padding: 1.2rem 1rem !important; }
         }
         @media (max-width: 768px) and (min-width: 641px) {
             /* Push content inward so fixed side-nav arrows don't overlap it */
@@ -2621,7 +2633,7 @@ document.addEventListener('spa:navigate',rebuildNav);
                             <div class="stat-chip"><span class="label">Total Credits:</span><span class="value">40 / 40</span></div>
                         </div>
                     </div>
-                    <div class="coursework-grid" style="grid-template-columns: repeat(3, 1fr); margin-top:1rem;">
+                    <div class="coursework-grid nsu-coursework-grid" style="margin-top:1rem;">
                         <div class="semester-card">
                             <h5 class="semester-title">Spring 2025</h5>
                             <div class="course-list">
@@ -2663,7 +2675,7 @@ document.addEventListener('spa:navigate',rebuildNav);
                 </div>
                 <div style="margin-top:1.5rem;">
                     <h4 class="section-title">Skills Acquired</h4>
-                    <div class="skills-categories" style="grid-template-columns: repeat(5, 1fr); margin-top:0.8rem;">
+                    <div class="skills-categories" style="margin-top:0.8rem;">
                         <div class="skill-category">
                             <p class="skill-category-label">Numerical &amp; Matrix Methods</p>
                             <div class="skill-tags">
