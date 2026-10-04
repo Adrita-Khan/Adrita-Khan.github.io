@@ -2986,9 +2986,6 @@ document.addEventListener('spa:navigate',rebuildNav);
                             <div style="width:3px;flex:1;min-height:2rem;background:linear-gradient(180deg,rgba(201,169,97,0.9),rgba(201,169,97,0.4));margin-top:0.5rem;border-radius:2px;box-shadow:0 0 8px rgba(201,169,97,0.4);"></div>
                         </div>
                         <div style="flex:1;padding-bottom:2rem;">
-                            <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.3);border-radius:20px;padding:0.2rem 0.75rem;margin-bottom:0.6rem;">
-                                <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;color:#c9a961;text-transform:uppercase;">Incoming</span>
-                            </div>
                             <h3 style="font-size:1.4rem;color:var(--gold-primary);margin-bottom:0.4rem;">Master of Science in Astrophysics</h3>
                             <p style="font-size:1.1rem;color:var(--text-light);margin-bottom:0.25rem;font-weight:500;">Rheinische Friedrich‑Wilhelms‑Universität Bonn</p>
                             <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1rem;">Bonn, Germany</p>
@@ -2996,7 +2993,7 @@ document.addEventListener('spa:navigate',rebuildNav);
                                 <div style="display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--gold-primary);">◆</span><span style="color:var(--text-muted);font-size:0.9rem;">Major: Astrophysics</span></div>
                                 <div style="display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--gold-primary);">◆</span><span style="color:var(--text-muted);font-size:0.9rem;">BCGS Scholarship recipient</span></div>
                             </div>
-                            <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.7;">Incoming &middot; Winter 2026</p>
+                            <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.7;">Winter 2026 &ndash; Present</p>
                         </div>
                     </div>
 
@@ -3105,6 +3102,49 @@ document.addEventListener('spa:navigate',rebuildNav);
   archivePrefix = {arXiv},
   primaryClass  = {hep-ph},
   url           = {https://arxiv.org/abs/2512.07420}
+}</pre>
+                    </div>
+                </div>
+
+                <!-- NEW: Published A&A journal article -->
+                <div class="publication-card">
+                    <div class="publication-header">
+                        <h3 class="publication-title">RGC: A radio AGN classifier based on deep learning. I. A semi-supervised multi-class model for VLA images</h3>
+                        <p class="publication-authors">M.S. Hossain, M.S.H. Shahal, K.M.B. Asad, P. Saikia, <strong>A. Khan</strong>, F. Akter, A.A. Ali, M.A. Amin, D.P. Guha, M. Hasan, M.O.B. Jihad, A. Momen, S. Sen, A.K.M.M. Rahman</p>
+                        <p class="publication-venue">Astronomy &amp; Astrophysics, Volume 714, A5 (2026)</p>
+                        <p class="publication-date">DOI: 10.1051/0004-6361/202557828 | October 2026</p>
+                    </div>
+                    <p class="publication-description">We release FIRST-2060, a four-class labelled dataset of 2060 radio AGN (straight FR I, straight FR II, wide-angle tail and narrow-angle tail sources) built from three public catalogues through multi-tier visual inspection. Alongside it, we present RGC 1.0, a semi-supervised model that combines Bootstrap Your Own Latent (BYOL) with an E(2)-equivariant steerable CNN encoder, pre-trained on 20,000 unlabelled radio sources. Benchmarked against five supervised baselines, RGC reaches a macro-F<sub>1</sub> of 0.79 ± 0.02, on par with ConvNeXT, and is the only model whose Grad-CAM attention consistently follows the lobes, jets and bends of the sources.</p>
+                    <div class="publication-links">
+                        <a href="https://www.aanda.org/articles/aa/abs/2026/10/aa57828-25/aa57828-25.html" target="_blank" class="pub-link" rel="noopener noreferrer">📘 A&amp;A</a>
+                        <a href="https://doi.org/10.1051/0004-6361/202557828" target="_blank" class="pub-link" rel="noopener noreferrer">🔗 DOI</a>
+                        <a href="https://cassa.bd/research/projects/rgc-1/" target="_blank" class="pub-link" rel="noopener noreferrer">🌐 Project Page</a>
+                        <span class="pub-tag">Journal Article</span>
+                        <span class="pub-tag">Radio Astronomy</span>
+                    </div>
+                    <button class="bibtex-toggle" onclick="toggleBibtex('bib4', this)" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" class="chevron"><path d="M19 9l-7 7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Cite (BibTeX)
+                    </button>
+                    <div class="bibtex-block" id="bib4">
+                        <div class="bibtex-header"><span class="bibtex-label">BibTeX</span><button class="copy-btn" onclick="copyBibtex('bib4-code', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                        <pre class="bibtex-code" id="bib4-code">@article{hossain2026rgc,
+  title     = {{RGC}: A radio {AGN} classifier based on deep
+               learning. {I}. A semi-supervised multi-class
+               model for {VLA} images},
+  author    = {Hossain, M.S. and Shahal, M.S.H. and
+               Asad, K.M.B. and Saikia, P. and Khan, A. and
+               Akter, F. and Ali, A.A. and Amin, M.A. and
+               Guha, D.P. and Hasan, M. and Jihad, M.O.B. and
+               Momen, A. and Sen, S. and Rahman, A.K.M.M.},
+  journal   = {Astronomy \& Astrophysics},
+  volume    = {714},
+  pages     = {A5},
+  year      = {2026},
+  month     = oct,
+  publisher = {EDP Sciences},
+  doi       = {10.1051/0004-6361/202557828},
+  url       = {https://doi.org/10.1051/0004-6361/202557828}
 }</pre>
                     </div>
                 </div>
