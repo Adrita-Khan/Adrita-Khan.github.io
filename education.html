@@ -362,8 +362,11 @@
         [data-theme="light"] .msc-card .achievement-text { color: #3d2820 !important; }
         [data-theme="light"] .msc-card .meta-badge { background: rgba(154,115,32,0.1) !important; border-color: rgba(154,115,32,0.25) !important; color: #3d2820 !important; }
 
-        /* NSU coursework: 3 cols on desktop (overrides the base 4-col rule) */
-        .nsu-coursework-grid { grid-template-columns: repeat(3, 1fr); }
+        /* NSU coursework: all courses in a single box, listed in two columns on desktop */
+        .nsu-course-box { margin-top: 1rem; padding: 1rem 1.2rem; }
+        .nsu-course-box:hover { transform: none; }
+        .nsu-course-list { display: block; column-count: 2; column-gap: 2.5rem; }
+        .nsu-course-list .course-item { break-inside: avoid; margin-bottom: 0.4rem; }
 
         footer { position: relative; z-index: 10; background: rgba(10,14,20,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(201,169,97,0.2); padding: 1.5rem 0; margin-top: 2rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
@@ -429,7 +432,7 @@
             .profile-info { font-size: 0.88rem; }
             .social-icon { width: 44px; height: 44px; }
             .msc-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-            .nsu-coursework-grid { grid-template-columns: repeat(2, 1fr); }
+            .nsu-course-list { column-count: 1; }
 
             .page-grid { grid-template-columns: 1fr; gap: 1rem; }
             .span-12, .span-6, .span-5, .span-7 { grid-column: span 1; }
@@ -475,7 +478,6 @@
             .profile-info-box { padding: 0.8rem 0.75rem; }
             .profile-info { font-size: 0.82rem; }
             .msc-meta-grid { grid-template-columns: 1fr !important; gap: 0.8rem; }
-            .nsu-coursework-grid { grid-template-columns: 1fr; }
             .page-title-right h1 { font-size: 1.7rem; }
             .coursework-grid { grid-template-columns: 1fr; }
             .skills-categories { grid-template-columns: 1fr; }
@@ -2530,7 +2532,7 @@ document.addEventListener('spa:navigate',rebuildNav);
 <div style="text-align:center;padding:0.5rem 0;">
     <div class="profile-info" style="font-size:0.78rem;opacity:0.55;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.2rem;">Postgraduate</div>
     <div class="profile-info">
-        <span>Incoming Oct 2026</span> • <span>M.Sc. Astrophysics</span> • <span>Universität Bonn</span> • <span>BCGS Scholar</span>
+        <span>2026–Present</span> • <span>M.Sc. Astrophysics</span> • <span>Universität Bonn</span> • <span>BCGS Scholar</span>
     </div>
     <div style="width:60%;height:1px;background:rgba(201,169,97,0.25);margin:0.6rem auto;"></div>
     <div class="profile-info">
@@ -2553,10 +2555,6 @@ document.addEventListener('spa:navigate',rebuildNav);
 
             <!-- 0. Current M.Sc. -->
             <div class="card span-12 msc-card">
-                <div class="msc-status">
-                    <span class="msc-status-dot"></span>
-                    <span class="msc-status-text">Incoming &middot; October 2026</span>
-                </div>
                <h3 class="msc-title">Master of Science in Astrophysics</h3>
                 <p class="msc-university">
                 <a href="https://www.uni-bonn.de/en" target="_blank" rel="noopener noreferrer"
@@ -2633,43 +2631,21 @@ document.addEventListener('spa:navigate',rebuildNav);
                             <div class="stat-chip"><span class="label">Total Credits:</span><span class="value">40 / 40</span></div>
                         </div>
                     </div>
-                    <div class="coursework-grid nsu-coursework-grid" style="margin-top:1rem;">
-                        <div class="semester-card">
-                            <h5 class="semester-title">Spring 2025</h5>
-                            <div class="course-list">
-                                <div class="course-item">Computational Fluid Dynamics</div>
-                                <div class="course-item">Research Methodology in Mathematics Education</div>
-                                <div class="course-item">Labs on Mathematical Research Tools</div>
-                            </div>
-                        </div>
-                        <div class="semester-card">
-                            <h5 class="semester-title">Summer 2025</h5>
-                            <div class="course-list">
-                                <div class="course-item">Partial Differential Equations: Modeling and Numeric</div>
-                            </div>
-                        </div>
-                        <div class="semester-card">
-                            <h5 class="semester-title">Fall 2025</h5>
-                            <div class="course-list">
-                                <div class="course-item">Numerical Analysis</div>
-                            </div>
-                        </div>
-                        <div class="semester-card">
-                            <h5 class="semester-title">Spring 2026</h5>
-                            <div class="course-list">
-                                <div class="course-item">Computational Linear Algebra</div>
-                                <div class="course-item">Computational Linear Algebra Lab</div>
-                                <div class="course-item">Advanced Numerical Methods and Computation</div>
-                                <div class="course-item">Advanced Numerical Methods and Computation Lab</div>
-                            </div>
-                        </div>
-                        <div class="semester-card">
-                            <h5 class="semester-title">Summer 2026 <span style="font-size:0.82em;color:#c9a961;font-weight:500;">(ongoing)</span></h5>
-                            <div class="course-list">
-                                <div class="course-item">High Performance Parallel Computing</div>
-                                <div class="course-item">High Performance Parallel Computing Lab</div>
-                                <div class="course-item">Mathematics for Data Science and Machine Learning</div>
-                            </div>
+                    <div class="semester-card nsu-course-box">
+                        <h5 class="semester-title">Spring 2025 – Summer 2026</h5>
+                        <div class="course-list nsu-course-list">
+                            <div class="course-item">Computational Fluid Dynamics</div>
+                            <div class="course-item">Research Methodology in Mathematics Education</div>
+                            <div class="course-item">Labs on Mathematical Research Tools</div>
+                            <div class="course-item">Partial Differential Equations: Modeling and Numeric</div>
+                            <div class="course-item">Numerical Analysis</div>
+                            <div class="course-item">Computational Linear Algebra</div>
+                            <div class="course-item">Computational Linear Algebra Lab</div>
+                            <div class="course-item">Advanced Numerical Methods and Computation</div>
+                            <div class="course-item">Advanced Numerical Methods and Computation Lab</div>
+                            <div class="course-item">High Performance Parallel Computing</div>
+                            <div class="course-item">High Performance Parallel Computing Lab</div>
+                            <div class="course-item">Mathematics for Data Science and Machine Learning</div>
                         </div>
                     </div>
                 </div>
