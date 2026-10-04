@@ -113,20 +113,6 @@ This repository hosts the source code for my academic portfolio website: **[adri
 
 ---
 
-## GitHub Activity
-
-<div align="center">
-
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=adrita-khan&theme=react-dark&hide_border=true&area=true&bg_color=1a1b27&color=D4A5A5&line=D4A5A5&point=ffffff)](https://github.com/adrita-khan)
-
-<br/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com?user=adrita-khan&theme=react&hide_border=true&background=1a1b27&ring=D4A5A5&fire=B07080&currStreakLabel=D4A5A5&sideLabels=c9d1d9&dates=c9d1d9&currStreakNum=c9d1d9&sideNums=c9d1d9" height="170" />
-
-</div>
-
----
-
 ## Contact
 
 <div align="center">
