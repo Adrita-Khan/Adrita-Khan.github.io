@@ -1812,14 +1812,14 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%230a0e14%22%2F%3E%3Cg%20transform%3D%22rotate(-32%2C14%2C14)%22%3E%3Crect%20x%3D%224%22%20y%3D%2211%22%20width%3D%2220%22%20height%3D%226%22%20rx%3D%222.5%22%20fill%3D%22%23c9a961%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%224.5%22%20height%3D%2210%22%20rx%3D%222%22%20fill%3D%22%23d4b56d%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2212%22%20width%3D%223.5%22%20height%3D%224%22%20rx%3D%221.5%22%20fill%3D%22%23b89d55%22%2F%3E%3C%2Fg%3E%3Cline%20x1%3D%2214%22%20y1%3D%2221%22%20x2%3D%227%22%20y2%3D%2229%22%20stroke%3D%22%23c9a961%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%3Cline%20x1%3D%2214%22%20y1%3D%2221%22%20x2%3D%2214%22%20y2%3D%2229%22%20stroke%3D%22%23c9a961%22%20stroke-width%3D%221.2%22%20stroke-linecap%3D%22round%22%2F%3E%3Cline%20x1%3D%2214%22%20y1%3D%2221%22%20x2%3D%2221%22%20y2%3D%2229%22%20stroke%3D%22%23c9a961%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Adrita Khan — Portfolio">
-    <meta property="og:title" content="Adrita Khan">
+    <meta property="og:title" content="Education - Adrita Khan">
     <meta property="og:description" content="Educational background and coursework of Adrita Khan, B.Sc. (Hons) in Physics with a minor in Astronomy from Universiti Sains Malaysia.">
     <meta property="og:url" content="https://adrita-khan.github.io/education.html">
     <meta property="og:image" content="https://adrita-khan.github.io/assets/og-preview.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Adrita_">
     <meta name="twitter:creator" content="@Adrita_">
-    <meta name="twitter:title" content="Adrita Khan">
+    <meta name="twitter:title" content="Education - Adrita Khan">
     <meta name="twitter:description" content="Educational background and coursework of Adrita Khan, B.Sc. (Hons) in Physics with a minor in Astronomy from Universiti Sains Malaysia.">
     <meta name="twitter:image" content="https://adrita-khan.github.io/assets/og-preview.png">
     <script>(function(){var t=sessionStorage.getItem('ak-theme-set')?sessionStorage.getItem('ak-theme'):'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
@@ -2386,6 +2386,39 @@ transition:background 0.2s,border-color 0.2s;}
   #theme-toggle-wrap{bottom:78px!important;}
 }
 </style>
+<style id="chrome-css">
+/* ═══ Shared chrome — this block is identical on every page ═══
+   Each page carries its own inline stylesheet, and the header, footer, side
+   arrows and bottom nav had drifted apart between them. Keep this block LAST
+   in <head> so it wins, and keep it byte-for-byte the same in all pages. */
+#site-header, nav.mpn, .side-nav-arrow { line-height: 1.6; }
+.side-nav-arrow { box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+/* border on the rounded, page-facing side; none on the edge the tab is attached to */
+.side-nav-left  { border-left: none;  border-right: 1px solid rgba(201,169,97,0.2); }
+.side-nav-right { border-right: none; border-left:  1px solid rgba(201,169,97,0.2); }
+.scroll-to-top { box-shadow: 0 4px 24px rgba(201,169,97,0.35); }
+footer {
+    background: rgba(10,14,20,0.8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(201,169,97,0.2);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+footer::before { content: none; }
+.footer-left p, .footer-left p:first-child {
+    color: #b8c5d0;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+}
+[data-theme="light"] .footer-left p, [data-theme="light"] .footer-left p:first-child { color: #3d2820 !important; }
+@media (max-width: 768px) {
+    footer { padding-top: 1.2rem; padding-bottom: 1.2rem; }
+}
+</style>
 <script id="mpn-js">
 (function(){
 var CL='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
@@ -2412,6 +2445,7 @@ document.addEventListener('spa:navigate',rebuildNav);
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
     
 
     <button class="scroll-to-top" id="scrollToTop" title="Back to top" aria-label="Scroll to top">
@@ -2544,6 +2578,7 @@ document.addEventListener('spa:navigate',rebuildNav);
         <span>2023 Graduate</span> • <span>B.Sc. (Hons) Physics</span> • <span>Astronomy Minor</span> • <span>Universiti Sains Malaysia</span>
     </div>
 </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2995,14 +3030,14 @@ document.addEventListener('spa:navigate',rebuildNav);
         </div>
     </footer>
 
-    <script>
+    <script data-spa-skip>
         const scrollBtn = document.getElementById('scrollToTop');
         window.addEventListener('scroll', () => {
             scrollBtn.classList.toggle('visible', window.pageYOffset > 300);
         });
         scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
-    <script>
+    <script data-spa-skip>
         (function(){
             function applyTheme(theme, save) {
                 document.documentElement.setAttribute('data-theme', theme);
@@ -3026,19 +3061,8 @@ document.addEventListener('spa:navigate',rebuildNav);
         })();
     </script>
 
-<div id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
-  <div id="search-box">
-    <div id="search-input-wrap">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="search-input" type="search" placeholder="Search across all pages…" autocomplete="off" spellcheck="false" />
-      <button id="search-close" aria-label="Close search">&#x2715;</button>
-    </div>
-    <div id="search-hint">Esc to close &nbsp;·&nbsp; ⌘K to open</div>
-    <div id="search-results" role="listbox"></div>
-  </div>
-</div>
-<script src="search-data.js"></script>
-<script>
+<script src="search-data.js" data-spa-skip></script>
+<script data-spa-skip>
 (function(){
   var idx=(window.AK_SEARCH_IDX||[]);
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
@@ -3081,6 +3105,18 @@ document.addEventListener('spa:navigate',rebuildNav);
 
 
 </main>
+<!-- Search overlay: lives outside #page-content so in-site navigation never replaces it -->
+<div id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+  <div id="search-box">
+    <div id="search-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input id="search-input" type="search" placeholder="Search across all pages…" autocomplete="off" spellcheck="false" />
+      <button id="search-close" aria-label="Close search">&#x2715;</button>
+    </div>
+    <div id="search-hint">Esc to close &nbsp;·&nbsp; ⌘K to open</div>
+    <div id="search-results" role="listbox"></div>
+  </div>
+</div>
 <div id="sound-panel">
 <div id="hz528-wrap">
   <button id="hz528-btn" type="button" aria-label="528 Hz Love Frequency" title="528 Hz">

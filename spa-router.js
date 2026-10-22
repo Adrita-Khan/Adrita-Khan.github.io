@@ -27,6 +27,11 @@
     for (var j = 0; j < links.length; j++) {
       sharedLinkHrefs[links[j].href] = true;
     }
+    /* The initial page's own <style> blocks are page-specific too. Tag them so
+       the first navigation replaces them instead of stacking the next page's
+       CSS on top of them (which leaked rules between pages). */
+    var own = document.head.querySelectorAll('style');
+    for (var k = 0; k < own.length; k++) own[k].setAttribute('data-spa', '1');
   }
 
   /* ── Swap page-specific styles: remove old injected ones, inject new ones ── */
@@ -55,6 +60,18 @@
       lel.href = href;
       lel.setAttribute('data-spa', '1');
       document.head.appendChild(lel);
+    }
+  }
+
+  /* ── Swap page-level background layers that sit outside #page-content ── */
+  var DECOR_SEL = 'body > .animated-bg, body > .cosmic-bg';
+  function updateDecor(doc) {
+    var cur = document.querySelectorAll(DECOR_SEL);
+    for (var i = 0; i < cur.length; i++) cur[i].parentNode.removeChild(cur[i]);
+    var next = doc.querySelectorAll(DECOR_SEL);
+    var anchor = document.body.firstChild;
+    for (var j = 0; j < next.length; j++) {
+      document.body.insertBefore(document.importNode(next[j], true), anchor);
     }
   }
 
@@ -126,6 +143,33 @@
     _progressHandler();
   }
 
+  /* ── Re-run the page's own inline scripts ──────────────────────────────
+     Scripts inserted through innerHTML never execute, so page features
+     (BibTeX toggles, publication search/filter, news cards, starfield ...)
+     would stay dead after an in-site navigation. We run them here with an
+     indirect eval: function declarations become globals (inline onclick
+     handlers keep working) while top-level const/let stay local to the run.
+     Scripts marked data-spa-skip are shared engines that are already active
+     (theme toggle, search, scroll-to-top) and must not run twice. */
+  var globalEval = eval;
+  function runPageScripts(container) {
+    var scripts = container.querySelectorAll('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var old = scripts[i];
+      if (old.hasAttribute('data-spa-skip')) continue;
+      if (old.src) {
+        var ext = document.createElement('script');
+        ext.src = old.src;
+        ext.async = false;
+        old.parentNode.replaceChild(ext, old);
+      } else {
+        var code = old.textContent || '';
+        try { globalEval(code); }
+        catch (err) { if (window.console) console.error('[spa-router] page script failed:', err); }
+      }
+    }
+  }
+
   /* ── Swap #page-content ── */
   function swapContent(doc, file) {
     var newMain = doc.getElementById('page-content');
@@ -137,13 +181,15 @@
       return;
     }
 
-    injectStyles(doc);
-
     /* quick cross-fade */
     curMain.style.transition = 'opacity 0.13s ease';
     curMain.style.opacity    = '0';
 
     setTimeout(function () {
+      /* swap styles and markup in the same tick so there is never a frame
+         with the old content under the new page's CSS */
+      injectStyles(doc);
+      updateDecor(doc);
       curMain.innerHTML  = newMain.innerHTML;
       document.title     = doc.title || document.title;
 
@@ -157,6 +203,7 @@
 
       reinitScrollTop();
       reinitProgress();
+      runPageScripts(curMain);
 
       /* Reconnect sound-bridge: after innerHTML swap, nav-sound buttons
          are still in the header (never swapped), and #sound-panel is also
@@ -171,10 +218,12 @@
   }
 
   /* ── Fetch + navigate ── */
+  var navToken = 0;   /* guards against an older fetch finishing after a newer click */
   function navigate(href, push) {
     var file = getFile(href);
     if (file === currentFile) return;   /* already here */
 
+    var token = ++navToken;
     if (push) history.pushState({ file: file }, '', href);
     currentFile = file;
 
@@ -192,6 +241,7 @@
         var parser = new DOMParser();
         var doc    = parser.parseFromString(html, 'text/html');
         pageCache[file] = doc;
+        if (token !== navToken) return;   /* superseded by a newer navigation */
         swapContent(doc, file);
       })
       .catch(function () {
@@ -202,11 +252,15 @@
 
   /* ── Intercept link clicks ── */
   document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;   /* open-in-new-tab etc. */
     var a = e.target.closest('a[href]');
     if (!a) return;
     var href = a.getAttribute('href') || '';
     /* only handle same-origin .html links */
     if (a.target === '_blank')           return;
+    if (a.hasAttribute('download'))      return;
+    if (href === '#') { e.preventDefault(); return; }   /* placeholder link: don't jump to the top */
     if (!href.endsWith('.html'))         return;
     if (href.indexOf('//') !== -1)       return;   /* absolute URL */
     if (href.startsWith('mailto:'))      return;
@@ -216,11 +270,8 @@
 
   /* ── Back / forward ── */
   window.addEventListener('popstate', function () {
-    var file = getFile(location.href);
-    /* reset so navigate() won't short-circuit on same-file check */
-    currentFile = '__popstate__';
+    /* navigate() already ignores a same-file target (e.g. an in-page #hash change) */
     navigate(location.href, false);
-    currentFile = file;
   });
 
   /* ── Prefetch on hover (keeps fast-nav feeling) ── */
@@ -228,10 +279,10 @@
     var file = getFile(href);
     if (pageCache[file]) return;
     fetch(href, { credentials: 'same-origin' })
-      .then(function (r) { return r.text(); })
+      .then(function (r) { return r.ok ? r.text() : ''; })
       .then(function (html) {
-        var doc = new DOMParser().parseFromString(html, 'text/html');
-        pageCache[file] = doc;
+        if (!html) return;
+        pageCache[file] = new DOMParser().parseFromString(html, 'text/html');
       })
       .catch(function () {});
   }
@@ -248,10 +299,18 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     seedStyleCache();
-    /* cache the initial page's parsed doc for back-nav */
+    /* cache a pristine copy of the initial page for back-nav (a fresh fetch, not
+       the live DOM, which page scripts have already modified) */
     try {
-      var parser = new DOMParser();
-      pageCache[currentFile] = parser.parseFromString(document.documentElement.outerHTML, 'text/html');
+      var initialFile = currentFile;
+      fetch(location.href, { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.text() : ''; })
+        .then(function (html) {
+          if (html && !pageCache[initialFile]) {
+            pageCache[initialFile] = new DOMParser().parseFromString(html, 'text/html');
+          }
+        })
+        .catch(function () {});
     } catch (e) {}
     reinitScrollTop();
     reinitProgress();
