@@ -17,7 +17,7 @@
 
 ## About
 
-I'm an incoming M.Sc. Astrophysics student at the Rheinische Friedrich-Wilhelms-Universität Bonn (BCGS Scholar) and a researcher based in Dhaka, Bangladesh. I hold my B.Sc. (Hons.) in Physics (Major) and Astronomy (Minor) from Universiti Sains Malaysia, and my research interests span large-scale structure, dark energy, gravity beyond General Relativity, and data-driven approaches to astrophysical problems.
+I'm an M.Sc. Astrophysics student at the Rheinische Friedrich-Wilhelms-Universität Bonn (BCGS Scholar). I hold my B.Sc. (Hons.) in Physics (Major) and Astronomy (Minor) from Universiti Sains Malaysia, and my research interests span large-scale structure, dark energy, gravity beyond General Relativity, and data-driven approaches to astrophysical problems.
 
 
 This repository hosts the source code for my academic portfolio website: **[adrita-khan.github.io](https://adrita-khan.github.io)**
