@@ -113,18 +113,71 @@
     }
   }
 
+  /* ── Scroll-to-top: progress ring ──────────────────────────────────────
+     The ring is drawn over the button's border. It starts filling (clockwise
+     from the top) as soon as the page begins to scroll and closes into a full
+     circle when the page reaches the bottom. The CSS is injected from here so
+     every page gets the same ring without touching each page's stylesheet. */
+  function injectRingStyles() {
+    if (document.getElementById('scroll-ring-css')) return;
+    var st = document.createElement('style');
+    st.id = 'scroll-ring-css';          /* deliberately NOT data-spa: survives page swaps */
+    st.textContent =
+      '.scroll-to-top .scroll-ring{position:absolute;inset:-1.5px;border-radius:50%;' +
+        'pointer-events:none;z-index:0;--p:0;--ring:#ecd08a;' +
+        'background:conic-gradient(var(--ring) calc(var(--p) * 360deg),transparent 0);' +
+        '-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));' +
+        'mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));}' +
+      '.scroll-to-top:hover .scroll-ring{--ring:#f6e2a8;}' +
+      '[data-theme="light"] .scroll-to-top .scroll-ring{--ring:#9a7320;}' +
+      '[data-theme="light"] .scroll-to-top:hover .scroll-ring{--ring:#7d5c10;}';
+    document.head.appendChild(st);
+  }
+
+  function ensureRing(btn) {
+    var ring = btn.querySelector('.scroll-ring');
+    if (!ring) {
+      ring = document.createElement('span');
+      ring.className = 'scroll-ring';
+      ring.setAttribute('aria-hidden', 'true');
+      btn.insertBefore(ring, btn.firstChild);
+    }
+    return ring;
+  }
+
   /* ── Scroll-to-top reinit ── */
   var _scrollHandler = null;
+  var _scrollResizeObs = null;
   function reinitScrollTop() {
     var btn = document.getElementById('scrollToTop');
     if (!btn) return;
+    injectRingStyles();
+    var ring = ensureRing(btn);
     btn.classList.remove('visible');
-    if (_scrollHandler) window.removeEventListener('scroll', _scrollHandler);
+    if (_scrollHandler) {
+      window.removeEventListener('scroll', _scrollHandler);
+      window.removeEventListener('resize', _scrollHandler);
+      window.removeEventListener('load', _scrollHandler);
+    }
+    if (_scrollResizeObs) { _scrollResizeObs.disconnect(); _scrollResizeObs = null; }
     _scrollHandler = function () {
-      var y = window.pageYOffset || document.documentElement.scrollTop;
-      btn.classList.toggle('visible', y > 300);
+      var y   = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var p   = max > 0 ? y / max : 0;
+      if (max > 0 && max - y <= 1.5) p = 1;      /* sub-pixel / zoom: treat "at bottom" as complete */
+      p = Math.max(0, Math.min(p, 1));
+      ring.style.setProperty('--p', p.toFixed(4));
+      btn.classList.toggle('visible', y > 0);    /* appears as soon as scrolling begins */
     };
     window.addEventListener('scroll', _scrollHandler, { passive: true });
+    window.addEventListener('resize', _scrollHandler);
+    window.addEventListener('load', _scrollHandler);
+    /* page height changes after load (images, embeds, expanded cards) */
+    if (window.ResizeObserver) {
+      _scrollResizeObs = new ResizeObserver(_scrollHandler);
+      _scrollResizeObs.observe(document.body);
+    }
+    _scrollHandler();
     btn.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
   }
 

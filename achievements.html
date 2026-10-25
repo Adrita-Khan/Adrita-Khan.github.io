@@ -2308,9 +2308,6 @@ document.addEventListener('spa:navigate',rebuildNav);
     <script data-spa-skip>
         // Scroll-to-top
         const scrollBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => {
-            scrollBtn.classList.toggle('visible', window.pageYOffset > 300);
-        });
         scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
     <script data-spa-skip>
