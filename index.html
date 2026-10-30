@@ -2256,6 +2256,31 @@
         .binary-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block;
             -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
                     mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%); }
+        /* ── Hero info + link pills ── */
+        .hero-meta { display: flex; flex-direction: column; align-items: center; gap: 0.7rem; margin-top: 1.6rem; }
+        .hero-pill-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+        .hero-links { gap: 0.7rem; }
+        .hero-pill { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.5rem 0.95rem; border-radius: 12px; font-size: 0.92rem; line-height: 1.2; text-decoration: none; color: var(--text-muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); }
+        .hero-pill svg { width: 18px; height: 18px; flex: none; }
+        .hero-pill svg:not([stroke]) { fill: currentColor; }
+        .hero-link { color: var(--text-light); padding: 0.6rem 1.05rem; font-size: 0.98rem; transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
+        .hero-link:hover, .hero-link:focus-visible { transform: translateY(-3px); background: rgba(201,169,97,0.14); border-color: rgba(201,169,97,0.5); color: var(--gold-primary); outline: none; }
+        [data-theme="light"] .hero-pill { background: rgba(255,255,255,0.5); border-color: rgba(60,40,32,0.15); }
+        [data-theme="light"] .hero-link:hover, [data-theme="light"] .hero-link:focus-visible { background: rgba(154,115,32,0.12); border-color: rgba(154,115,32,0.5); }
+        @media (max-width: 600px) { .hero-pill { font-size: 0.85rem; padding: 0.45rem 0.8rem; } .hero-link { font-size: 0.88rem; padding: 0.5rem 0.85rem; } .hero-links { gap: 0.5rem; } }
+        .contact-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 1.2rem; }
+        /* ── Footer: stats on one evenly spaced line, copyright centred below ── */
+        .footer-content { flex-direction: column; align-items: stretch; gap: 1.2rem; flex-wrap: nowrap; }
+        .footer-stats { width: 100%; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-evenly; gap: 0; }
+        .footer-stat-divider { flex: none; }
+        .footer-left { width: 100%; text-align: center; padding-top: 1rem; border-top: 1px solid rgba(201,169,97,0.12); }
+        .footer-left p, .footer-left p:first-child { text-align: center; margin: 0; }
+        @media (max-width: 600px) {
+            .footer-stat-item { flex-direction: column; gap: 0.15rem; text-align: center; }
+            .footer-stat-number { min-width: 0; }
+            .footer-stat-label { white-space: normal; text-align: center; line-height: 1.25; max-width: 5.5rem; }
+            .footer-stat-divider { display: none; }
+        }
 </style>
 
     <!-- SEO, social cards & favicon (added for portfolio-wide consistency) -->
@@ -2986,20 +3011,13 @@ document.addEventListener('spa:navigate',rebuildNav);
             <div class="hero-text">
                 <h1>Adrita Khan</h1>
                 <!-- <p class="subtitle">PhD Aspirant in Astrophysics &amp; Cosmology</p> -->
-                <div class="social-links">
-                    <a href="https://github.com/Adrita-Khan" target="_blank" class="social-icon" title="GitHub" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" class="social-icon" title="ResearchGate" rel="noopener noreferrer">
-                        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 32v448h448V32H0zm262.2 334.4c-6.6 3-33.2 6-50-14.2-9.2-10.6-25.3-33.3-42.2-63.6-8.9 0-14.7 0-21.4-.6v46.4c0 23.5 6 21.2 25.8 23.9v8.1c-6.9-.3-23.1-.8-35.6-.8-13.1 0-26.1.6-33.6.8v-8.1c15.5-2.9 22-1.3 22-23.9V225c0-22.6-6.4-21-22-23.9V193c25.8 1 53.1-.6 70.9-.6 31.7 0 55.9 14.4 55.9 45.6 0 21.1-16.7 42.2-39.2 47.5 13.6 24.2 30 45.6 42.2 58.9 7.2 7.8 17.2 14.7 27.2 14.7v7.3zm22.9-135c-23.3 0-32.2-15.7-32.2-32.2V167c0-12.2 8.8-30.4 34-30.4s30.4 17.9 30.4 17.9l-10.7 7.2s-5.5-12.5-19.7-12.5c-7.9 0-19.7 7.3-19.7 19.7v26.8c0 13.4 6.6 23.3 17.9 23.3 14.1 0 21.5-10.9 21.5-26.8h-17.9v-10.7h30.4c0 20.5 4.7 49.9-34 49.9zm-116.5 44.7c-9.4 0-13.6-.3-20-.8v-69.7c6.4-.6 15-.6 22.5-.6 23.3 0 37.2 12.2 37.2 34.4 0 25.1-14.2 36.7-39.7 36.7z"/></svg>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" class="social-icon" title="Google Scholar" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
-                    </a>
-                    <a href="https://orcid.org/0009-0000-9304-8895" target="_blank" class="social-icon" title="ORCID" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.525.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 4.068-1.472 4.068-3.722 0-2.016-1.247-3.722-4.068-3.722h-2.297z"/></svg>
-                    </a>
-                   
+                <div class="hero-meta">
+                    <div class="hero-pill-row hero-links">
+                        <a href="https://orcid.org/0009-0000-9304-8895" target="_blank" class="hero-pill hero-link" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.525.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 4.068-1.472 4.068-3.722 0-2.016-1.247-3.722-4.068-3.722h-2.297z"/></svg><span>ORCID</span></a>
+                        <a href="https://github.com/Adrita-Khan" target="_blank" class="hero-pill hero-link" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>GitHub</span></a>
+                        <a href="https://scholar.google.com/citations?user=by7-MiMAAAAJ" target="_blank" class="hero-pill hero-link" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg><span>Google Scholar</span></a>
+                        <a href="https://www.researchgate.net/profile/Adrita-Khan" target="_blank" class="hero-pill hero-link" rel="noopener noreferrer"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 32v448h448V32H0zm262.2 334.4c-6.6 3-33.2 6-50-14.2-9.2-10.6-25.3-33.3-42.2-63.6-8.9 0-14.7 0-21.4-.6v46.4c0 23.5 6 21.2 25.8 23.9v8.1c-6.9-.3-23.1-.8-35.6-.8-13.1 0-26.1.6-33.6.8v-8.1c15.5-2.9 22-1.3 22-23.9V225c0-22.6-6.4-21-22-23.9V193c25.8 1 53.1-.6 70.9-.6 31.7 0 55.9 14.4 55.9 45.6 0 21.1-16.7 42.2-39.2 47.5 13.6 24.2 30 45.6 42.2 58.9 7.2 7.8 17.2 14.7 27.2 14.7v7.3zm22.9-135c-23.3 0-32.2-15.7-32.2-32.2V167c0-12.2 8.8-30.4 34-30.4s30.4 17.9 30.4 17.9l-10.7 7.2s-5.5-12.5-19.7-12.5c-7.9 0-19.7 7.3-19.7 19.7v26.8c0 13.4 6.6 23.3 17.9 23.3 14.1 0 21.5-10.9 21.5-26.8h-17.9v-10.7h30.4c0 20.5 4.7 49.9-34 49.9zm-116.5 44.7c-9.4 0-13.6-.3-20-.8v-69.7c6.4-.6 15-.6 22.5-.6 23.3 0 37.2 12.2 37.2 34.4 0 25.1-14.2 36.7-39.7 36.7z"/></svg><span>ResearchGate</span></a>
+                    </div>
                 </div>
 
                 <div class="interests-section">
@@ -3628,6 +3646,11 @@ document.addEventListener('spa:navigate',rebuildNav);
             
 
 
+            <div class="contact-pills">
+                <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Bonn, Germany</span></span>
+                <a href="https://www.astro.uni-bonn.de" target="_blank" rel="noopener noreferrer" class="hero-pill hero-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5M9 11h.01M15 11h.01M12 11h.01"/></svg><span>AIfA, University of Bonn</span></a>
+            </div>
+
             <div class="contact-row">
                 <a href="mailto:adrita.khan.official@gmail.com" class="contact-item">
                     <div class="contact-item-icon">
@@ -3707,17 +3730,17 @@ document.addEventListener('spa:navigate',rebuildNav);
 
     <footer>
         <div class="footer-content">
-            <div class="footer-left">
-                <p>&copy; Adrita Khan. All rights reserved.</p>
-            </div>
             <div class="footer-stats">
-                <div class="footer-stat-item"><div class="footer-stat-number">4</div><div class="footer-stat-label">Research Centers</div></div>
+                <div class="footer-stat-item"><div class="footer-stat-number">5</div><div class="footer-stat-label">Research Centers</div></div>
                 <div class="footer-stat-divider"></div>
-                <div class="footer-stat-item"><div class="footer-stat-number">3</div><div class="footer-stat-label">Countries</div></div>
+                <div class="footer-stat-item"><div class="footer-stat-number">5</div><div class="footer-stat-label">Countries</div></div>
                 <div class="footer-stat-divider"></div>
                 <div class="footer-stat-item"><div class="footer-stat-number">∞</div><div class="footer-stat-label">Curiosity</div></div>
                 <div class="footer-stat-divider"></div>
                 <div class="footer-stat-item"><div class="footer-stat-number">1</div><div class="footer-stat-label">Universe to Explore</div></div>
+            </div>
+            <div class="footer-left">
+                <p>&copy; Adrita Khan. All rights reserved.</p>
             </div>
         </div>
     </footer>
