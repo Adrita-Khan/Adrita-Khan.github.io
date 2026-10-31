@@ -155,6 +155,8 @@
         .hero-text h1 { font-size: 3.5rem; font-weight: 700; color: var(--text-light); margin-bottom: 1rem; line-height: 1.1; position: relative; text-align: center; }
         .hero-text h1::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60%; height: 3px; background: linear-gradient(90deg, var(--gold-primary), var(--gold-light), transparent); }
         .hero-text .subtitle { font-size: 1.3rem; color: var(--gold-primary); margin-bottom: 2rem; font-weight: 500; letter-spacing: 0.5px; text-shadow: 0 0 30px rgba(201,169,97,0.3); text-align: center; }
+        .hero-text .subtitle { display: inline-block; margin-top: 0.4rem; padding: 0.45rem 1.4rem; color: var(--gold-light); border: 1px solid rgba(201,169,97,0.45); border-radius: 999px; background: linear-gradient(135deg, rgba(201,169,97,0.18), rgba(201,169,97,0.04)); box-shadow: 0 0 24px rgba(201,169,97,0.18), inset 0 0 12px rgba(201,169,97,0.06); backdrop-filter: blur(4px); }
+        [data-theme="light"] .hero-text .subtitle { color: #7a5a12; border-color: rgba(154,115,32,0.5); background: rgba(154,115,32,0.1); box-shadow: none; }
         .hero-text .bio { font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 2rem; text-align: justify; }
         .profile-image-wrapper { display: flex; justify-content: center; align-items: center; opacity: 1; }
         .profile-picture-container { position: relative; }
