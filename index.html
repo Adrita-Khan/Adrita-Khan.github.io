@@ -3007,6 +3007,167 @@ document.addEventListener('spa:navigate',rebuildNav);
     <div class="nebula"></div>
     <div class="stars"></div>
 
+    <!-- ══ Star margins: the empty side margins always show the stars; hover or touch makes them brighter ══ -->
+    <canvas class="star-reveal" aria-hidden="true"></canvas>
+    <style>
+        .star-reveal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 11; }
+        [data-theme="light"] .star-reveal { display: none !important; }
+    </style>
+    <script>
+    (function () {
+        if (window.__starRevealCleanup) { try { window.__starRevealCleanup(); } catch (e) {} }
+        var cv = document.querySelector('.star-reveal');
+        var layer = document.querySelector('.stars');
+        if (!cv || !layer || !cv.getContext) return;
+        var ctx = cv.getContext('2d');
+        var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+        var CONTENT_W = 1000;   /* width of the centred text column (matches .container) */
+        var MIN_EDGE = 20;      /* on phones the "margin" is a thin strip along each screen edge */
+        var RADIUS = 230;       /* stars within this distance of the pointer glow brighter */
+        var TAU = Math.PI * 2;
+
+        var W = 0, H = 0, DPR = 1, gutter = MIN_EDGE, edge = 14;
+        var real = [], all = [];
+        var BASE = 0.85;        /* resting brightness: the margin stars are always visible */
+        var tL = BASE, tR = BASE, lL = BASE, lR = BASE;   /* target and current brightness of the left and right margin (1 = hovered or touched) */
+        var tick = 0;
+        var px = -9999, py = -9999;
+        var raf = 0, last = 0, releaseTimer = 0, touchActive = false;
+
+        /* A fixed, seeded "deep field" of fainter stars, so each margin shows a believable patch of sky */
+        function rng(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+        var extra = (function () {
+            var r = rng(20261104), out = [];
+            for (var i = 0; i < 300; i++) out.push({ x: r(), y: r(), r: 0.65 + r() * 0.5, large: false, delay: r() * 6, dur: 3 + r() * 3, amp: 0.5 + r() * 0.4 });
+            return out;
+        })();
+
+        /* The page's own stars (created on load by createStars) are read back so the same stars appear */
+        function buildStars() {
+            var els = layer.querySelectorAll('.star');
+            real = [];
+            for (var i = 0; i < els.length; i++) {
+                var el = els[i], big = el.classList.contains('large');
+                real.push({ x: (parseFloat(el.style.left) || 0) / 100, y: (parseFloat(el.style.top) || 0) / 100,
+                            r: big ? 1.9 : 1.25, large: big, delay: parseFloat(el.style.animationDelay) || 0,
+                            dur: parseFloat(el.style.animationDuration) || 3, amp: 1 });
+            }
+            all = real.concat(extra);
+        }
+
+        /* Pre-rendered soft glow, drawn under the brighter stars */
+        var glow = document.createElement('canvas'); glow.width = glow.height = 64;
+        (function () {
+            var g = glow.getContext('2d'), gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+            gr.addColorStop(0, 'rgba(255,255,255,0.95)'); gr.addColorStop(0.25, 'rgba(255,246,225,0.35)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+            g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
+        })();
+
+        function resize() {
+            W = window.innerWidth; H = window.innerHeight;
+            DPR = Math.min(window.devicePixelRatio || 1, 2);
+            cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+            gutter = Math.max(MIN_EDGE, (W - CONTENT_W) / 2);
+            edge = Math.min(28, gutter * 0.7);
+            if (raf) return; draw(performance.now() / 1000);
+        }
+
+        function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+
+        function draw(t) {
+            ctx.clearRect(0, 0, W, H);
+            if (document.documentElement.getAttribute('data-theme') === 'light') return;
+            if (lL < 0.003 && lR < 0.003) return;
+
+            for (var i = 0; i < all.length; i++) {
+                var s = all[i], x = s.x * W, y = s.y * H, lvl, m;
+                if (x < gutter) { lvl = lL; m = clamp01((gutter - x) / edge); }
+                else if (x > W - gutter) { lvl = lR; m = clamp01((x - (W - gutter)) / edge); }
+                else continue;
+                if (lvl < 0.003 || m <= 0) continue;
+                var dx = x - px, dy = y - py, d = Math.sqrt(dx * dx + dy * dy);
+                var prox = clamp01(1 - d / RADIUS); prox *= prox;
+                var tw = reduce ? 0.85 : 0.3 + 0.7 * (0.5 - 0.5 * Math.cos(TAU * (t - s.delay) / s.dur));
+                var a = clamp01(lvl * m * tw * s.amp * (0.62 + 0.38 * prox));
+                if (a < 0.01) continue;
+                var r = s.r * (1 + 0.9 * prox);
+                if (s.large || prox > 0.15) {
+                    var gs = r * (s.large ? 7 : 5);
+                    ctx.globalAlpha = a * 0.55; ctx.drawImage(glow, x - gs, y - gs, gs * 2, gs * 2);
+                }
+                ctx.globalAlpha = a; ctx.fillStyle = '#ffffff';
+                ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+
+            /* keep the equation pop-ups and their hint buttons clean */
+            var keep = document.querySelectorAll('.eq-side.is-open .eq-pop, .eq-hint');
+            for (var k = 0; k < keep.length; k++) {
+                var b = keep[k].getBoundingClientRect();
+                if (b.width) ctx.clearRect(b.left - 6, b.top - 6, b.width + 12, b.height + 12);
+            }
+        }
+
+        function frame(now) {
+            raf = 0;
+            if (last && now - last < 30 && !reduce) { raf = requestAnimationFrame(frame); return; }   /* ~30 fps is plenty for a twinkle */
+            var dt = Math.min(0.05, (now - last) / 1000 || 0.016); last = now;
+            if (!(++tick % 30) && real.length !== layer.querySelectorAll('.star').length) buildStars();   /* pick up the page's stars once they exist */
+            var up = reduce ? 1 : 1 - Math.exp(-dt * 8), down = reduce ? 1 : 1 - Math.exp(-dt * 3.2);
+            lL += (tL - lL) * (tL > lL ? up : down); lR += (tR - lR) * (tR > lR ? up : down);
+            if (Math.abs(tL - lL) < 0.004) lL = tL;
+            if (Math.abs(tR - lR) < 0.004) lR = tR;
+            draw(now / 1000);
+            if (!reduce || lL !== tL || lR !== tR) raf = requestAnimationFrame(frame);   /* with reduced motion, only animate while fading */
+        }
+        function kick() {
+            if (real.length !== layer.querySelectorAll('.star').length) buildStars();
+            if (!raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
+        }
+
+        function setTargets(x) { tL = x < gutter ? 1 : BASE; tR = x > W - gutter ? 1 : BASE; }
+
+        function onMove(e) {
+            if (e.pointerType === 'touch') { if (!touchActive) return; }
+            px = e.clientX; py = e.clientY; setTargets(px); kick();
+        }
+        function onDown(e) {
+            if (e.pointerType !== 'touch') return;
+            clearTimeout(releaseTimer);
+            px = e.clientX; py = e.clientY;
+            touchActive = (px < gutter || px > W - gutter);
+            if (touchActive) { setTargets(px); kick(); }
+        }
+        function onUp(e) {
+            if (e.pointerType !== 'touch' || !touchActive) return;
+            touchActive = false;
+            clearTimeout(releaseTimer);
+            releaseTimer = setTimeout(function () { tL = tR = BASE; kick(); }, 1400);   /* let the extra glow linger after a tap */
+        }
+        function onLeave(e) { if (e && e.pointerType === 'touch') return; if (!touchActive) { tL = tR = BASE; kick(); } }   /* a lifted finger also fires pointerleave: ignore it so the stars can linger */
+
+        document.addEventListener('pointermove', onMove, { passive: true });
+        document.addEventListener('pointerdown', onDown, { passive: true });
+        document.addEventListener('pointerup', onUp, { passive: true });
+        document.addEventListener('pointercancel', onUp, { passive: true });
+        document.documentElement.addEventListener('pointerleave', onLeave);
+        window.addEventListener('resize', resize);
+        resize(); buildStars(); kick();
+
+        window.__starRevealCleanup = function () {
+            cancelAnimationFrame(raf); clearTimeout(releaseTimer);
+            document.removeEventListener('pointermove', onMove);
+            document.removeEventListener('pointerdown', onDown);
+            document.removeEventListener('pointerup', onUp);
+            document.removeEventListener('pointercancel', onUp);
+            document.documentElement.removeEventListener('pointerleave', onLeave);
+            window.removeEventListener('resize', resize);
+        };
+    })();
+    </script>
+
 
     <section class="hero" id="home">
         <div class="hero-content">
