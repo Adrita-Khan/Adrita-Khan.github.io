@@ -3605,7 +3605,7 @@ document.addEventListener('spa:navigate',rebuildNav);
         </div>
     </section>
 
-    <section class="research-interests-main section-alt">
+    <section class="research-interests-main section-alt eq-host">
         <div class="aurora-container">
             <div class="aurora">
                 <div class="aurora-wave aurora-wave-1"></div>
@@ -3643,6 +3643,305 @@ document.addEventListener('spa:navigate',rebuildNav);
                 </div>
             </div>
         </div>
+    
+            <!-- ══ Equation side panels: hover / click / tap the empty margins to reveal an equation ══ -->
+            <div class="eq-side eq-side-left" data-eq-set="cosmo">
+                <button type="button" class="eq-hint" aria-label="Show a cosmology equation">
+                    <span class="eq-orb" aria-hidden="true">&Lambda;</span>
+                    <span class="eq-hint-text"><b>Cosmology</b><i>hover or tap for an equation</i></span>
+                </button>
+                <div class="eq-pop" role="status" aria-live="polite"></div>
+            </div>
+            <div class="eq-side eq-side-right" data-eq-set="math">
+                <button type="button" class="eq-hint" aria-label="Show a mathematics or machine-learning equation">
+                    <span class="eq-orb" aria-hidden="true">&nabla;</span>
+                    <span class="eq-hint-text"><b>Math &amp; ML</b><i>hover or tap for an equation</i></span>
+                </button>
+                <div class="eq-pop" role="status" aria-live="polite"></div>
+            </div>
+
+            <style>
+                /* ── Equation side panels (Research Interests) ── */
+                .eq-side { position: absolute; top: 0; bottom: 0; width: calc(50% - 470px); z-index: 3; display: flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+                .eq-side-left { left: 0; }
+                .eq-side-right { right: 0; }
+                .eq-side::before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none; opacity: 0; transition: opacity 0.35s ease; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(201,169,97,0.12), transparent 70%); }
+                .eq-side.is-hover::before, .eq-side.is-open::before { opacity: 1; }
+                .eq-side::after { content: ''; position: absolute; top: 14%; bottom: 14%; width: 1px; pointer-events: none; background: linear-gradient(to bottom, transparent, rgba(201,169,97,0.38), transparent); }
+                .eq-side-left::after { right: 0; }
+                .eq-side-right::after { left: 0; }
+
+                .eq-hint { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 0.5rem; margin: 0; border: 0; border-radius: 14px; background: none; color: inherit; font: inherit; text-align: center; cursor: pointer; }
+                .eq-hint:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+                .eq-orb { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font: italic 600 1.15rem/1 'Times New Roman', Georgia, serif; color: var(--gold-light); border: 1px solid rgba(201,169,97,0.45); background: rgba(201,169,97,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; animation: eqPulse 3.6s ease-in-out infinite; }
+                @keyframes eqPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,97,0.28); } 50% { box-shadow: 0 0 0 9px rgba(201,169,97,0); } }
+                .eq-side:hover .eq-orb, .eq-side.is-open .eq-orb { transform: scale(1.1); background: rgba(201,169,97,0.16); box-shadow: 0 0 22px rgba(201,169,97,0.3); animation: none; }
+                .eq-hint-text { display: flex; flex-direction: column; gap: 0.18rem; max-width: 112px; }
+                .eq-hint-text b { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-primary); }
+                .eq-hint-text i { font-style: normal; font-size: 0.68rem; line-height: 1.35; color: var(--text-muted); opacity: 0.75; }
+
+                .eq-pop { position: absolute; z-index: 4; width: min(318px, calc(100vw - 2rem)); box-sizing: border-box; padding: 0.85rem 1rem 0.9rem; text-align: left; cursor: default; border-radius: 14px; border: 1px solid rgba(201,169,97,0.35); border-left: 3px solid var(--gold-primary); background: rgba(10,14,20,0.97); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 18px 50px rgba(0,0,0,0.45), 0 0 60px rgba(201,169,97,0.12); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(6px) scale(0.98); transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s; }
+                .eq-side-left .eq-pop { left: 12px; }
+                .eq-side-right .eq-pop { right: 64px; }
+                .eq-side.is-open .eq-pop { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+                .eq-side[data-input="touch"] .eq-pop { pointer-events: auto; }
+                .eq-pop-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; padding-right: 1.4rem; }
+                .eq-pop-set { font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-primary); }
+                .eq-pop-count { font-size: 0.64rem; color: var(--text-muted); opacity: 0.7; }
+                .eq-pop-title { margin: 0.35rem 0 0.2rem; font-size: 0.98rem; font-weight: 600; color: var(--text-light); }
+                .eq-pop-math { color: var(--text-light); font-size: 0.9rem; overflow-x: auto; overflow-y: hidden; }
+                .eq-pop-math .katex-display { margin: 0.55em 0; }
+                .eq-pop-note { font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); }
+                .eq-pop-foot { margin-top: 0.55rem; font-size: 0.64rem; letter-spacing: 0.04em; color: var(--text-muted); opacity: 0.6; }
+                .eq-pop-close { display: none; position: absolute; top: 0.45rem; right: 0.55rem; width: 26px; height: 26px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text-muted); font-size: 1.2rem; line-height: 1; cursor: pointer; }
+                .eq-side[data-input="touch"] .eq-pop-close { display: block; }
+                [data-theme="light"] .eq-pop { background: rgba(252,247,245,0.985); box-shadow: 0 18px 44px rgba(60,35,25,0.22); }
+                [data-theme="light"] .eq-orb { color: var(--gold-primary); }
+
+                /* Narrower screens have no empty margins: the two zones become small pills under the card */
+                @media (max-width: 1179px) {
+                    .eq-host { padding-bottom: 4.8rem; }
+                    .eq-side { position: static; width: auto; display: block; }
+                    .eq-side::before, .eq-side::after { display: none; }
+                    .eq-hint { position: absolute; bottom: 1rem; flex-direction: row; gap: 0.55rem; padding: 0.35rem 0.85rem 0.35rem 0.4rem; border: 1px solid rgba(201,169,97,0.3); border-radius: 999px; background: rgba(201,169,97,0.06); }
+                    .eq-side-left .eq-hint { left: 1rem; }
+                    .eq-side-right .eq-hint { right: 1rem; }
+                    .eq-orb { width: 30px; height: 30px; font-size: 0.95rem; }
+                    .eq-hint-text { max-width: none; }
+                    .eq-hint-text i { display: none; }
+                    .eq-pop { top: auto !important; bottom: 4.2rem; width: min(380px, calc(100% - 2rem)); }
+                    .eq-side-left .eq-pop { left: 1rem; }
+                    .eq-side-right .eq-pop { right: 1rem; }
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    .eq-orb { animation: none; }
+                    .eq-pop, .eq-side::before { transition: none; }
+                }
+            </style>
+
+            <script>
+            (function () {
+                if (window.__eqSidesCleanup) { try { window.__eqSidesCleanup(); } catch (e) {} }
+                var host = document.querySelector('.eq-host');
+                if (!host) return;
+                var R = String.raw;
+
+                /* t = title, m = LaTeX (rendered with the site's KaTeX), n = one-line note */
+                var SETS = {
+                    cosmo: { label: 'Cosmology', eqs: [
+                        { t: 'Friedmann equation',
+                          m: R`H^2=\frac{8\pi G}{3}\rho-\frac{kc^2}{a^2}+\frac{\Lambda c^2}{3}`,
+                          n: 'How fast a homogeneous, isotropic universe expands.' },
+                        { t: 'Cosmic acceleration',
+                          m: R`\frac{\ddot a}{a}=-\frac{4\pi G}{3}\left(\rho+\frac{3p}{c^2}\right)+\frac{\Lambda c^2}{3}`,
+                          n: 'Acceleration needs negative pressure or a cosmological constant: the dark-energy puzzle.' },
+                        { t: 'Evolving dark energy (CPL)',
+                          m: R`\begin{gathered}w(a)=w_0+w_a(1-a)\\ \rho_{\rm DE}\propto a^{-3(1+w_0+w_a)}\,e^{-3w_a(1-a)}\end{gathered}`,
+                          n: 'The two-parameter form used to test time-varying dark energy with DESI, Euclid and LSST.' },
+                        { t: 'Growth of structure',
+                          m: R`\ddot\delta+2H\dot\delta=4\pi G\,\bar\rho_m\,\delta`,
+                          n: 'Linear growth of matter perturbations. Modified gravity changes the right-hand side.' },
+                        { t: 'Modified gravity: μ and Σ',
+                          m: R`\begin{gathered}\nabla^2\Psi=4\pi G\,a^2\mu(a,k)\,\bar\rho\,\delta\\ \nabla^2(\Phi+\Psi)=8\pi G\,a^2\Sigma(a,k)\,\bar\rho\,\delta\end{gathered}`,
+                          n: 'μ rescales how matter clusters and Σ rescales lensing. General relativity: μ = Σ = 1.' },
+                        { t: 'nDGP gravity',
+                          m: R`H^2+\frac{H}{r_c}=\frac{8\pi G}{3}\rho`,
+                          n: 'Normal-branch DGP, one of the modified-gravity models in my cross-correlation forecasts.' },
+                        { t: 'f(R) gravity',
+                          m: R`S=\int d^4x\sqrt{-g}\,\frac{R+f(R)}{16\pi G}+S_m`,
+                          n: 'Adds a scalar degree of freedom that is screened in dense environments.' },
+                        { t: 'CMB lensing convergence',
+                          m: R`\begin{aligned}\kappa(\hat n)&=\frac{3H_0^2\Omega_m}{2c^2}\\ &\times\int_0^{\chi_*}\!d\chi\,\frac{\chi(\chi_*-\chi)}{\chi_*}\,\frac{\delta(\chi\hat n,\chi)}{a(\chi)}\end{aligned}`,
+                          n: 'The CMB as a backlight: lensing maps the matter along the line of sight.' },
+                        { t: 'Limber approximation',
+                          m: R`C_\ell^{\kappa g}=\int d\chi\,\frac{W_\kappa W_g}{\chi^2}\,P\!\left(k=\tfrac{\ell+1/2}{\chi},\,z\right)`,
+                          n: 'The galaxy × CMB-lensing cross-spectrum at the heart of my cross-correlation project.' },
+                        { t: 'Angular power spectrum',
+                          m: R`\begin{gathered}a_{\ell m}=\int d\Omega\,T(\hat n)\,Y^{*}_{\ell m}(\hat n)\\ C_\ell=\frac{1}{2\ell+1}\sum_{m=-\ell}^{\ell}\langle|a_{\ell m}|^2\rangle\end{gathered}`,
+                          n: 'Spherical-harmonic statistics of CMB and galaxy maps.' },
+                        { t: 'Slow-roll inflation',
+                          m: R`\mathcal P_\zeta=\frac{H^2}{8\pi^2\epsilon\,M_{\rm Pl}^2},\qquad n_s-1=2\eta_V-6\epsilon_V`,
+                          n: 'Ties the primordial spectrum (at horizon crossing) to the Hubble rate and the shape of the potential.' },
+                        { t: 'Stochastic inflation',
+                          m: R`\frac{d\phi}{dN}=-\frac{V'(\phi)}{3H^2}+\frac{H}{2\pi}\,\xi(N)`,
+                          n: 'Quantum kicks on the inflaton field: the setting of my exploratory PINN work.' },
+                        { t: 'Local non-Gaussianity',
+                          m: R`\Phi=\varphi+f_{\rm NL}\left(\varphi^2-\langle\varphi^2\rangle\right)`,
+                          n: 'f_NL measures how far primordial fluctuations stray from a Gaussian random field.' },
+                        { t: 'NFW dark-matter halo',
+                          m: R`\rho(r)=\frac{\rho_s}{(r/r_s)\,(1+r/r_s)^2}`,
+                          n: 'The universal halo density profile found in N-body simulations.' },
+                        { t: 'Hydrostatic equilibrium',
+                          m: R`\frac{dP}{dr}=-\frac{G\,m(r)\,\rho(r)}{r^2}`,
+                          n: 'A star holds itself up: pressure balances gravity at every radius.' }
+                    ] },
+                    math: { label: 'Math & ML', eqs: [
+                        { t: 'Equivariance',
+                          m: R`f(g\cdot x)=\rho(g)\,f(x)\qquad\forall\,g\in G`,
+                          n: 'Transform the input and the output transforms with it: the idea behind the E(2)-equivariant encoder in RGC.' },
+                        { t: 'Group convolution',
+                          m: R`(f\star\psi)(g)=\int_G f(h)\,\psi\!\left(g^{-1}h\right)dh`,
+                          n: 'Convolution generalised from translations to any symmetry group.' },
+                        { t: 'Lie algebra',
+                          m: R`[T_a,T_b]=i\,f_{ab}{}^{c}\,T_c`,
+                          n: 'Structure constants encode how continuous symmetries compose.' },
+                        { t: 'Chebyshev graph convolution',
+                          m: R`y=\sum_{k=0}^{K-1}\theta_k\,T_k(\tilde L)\,x,\qquad \tilde L=\frac{2L}{\lambda_{\max}}-I`,
+                          n: 'Fast spectral filters on graphs: the backbone of the Particle Chebyshev Networks in E-PCN.' },
+                        { t: 'Graph Laplacian',
+                          m: R`L=D-A=U\Lambda U^{\top}`,
+                          n: 'Its eigenvectors are the Fourier modes of a graph.' },
+                        { t: 'Spherical harmonics',
+                          m: R`\Delta_{S^2}Y_{\ell m}=-\ell(\ell+1)\,Y_{\ell m}`,
+                          n: 'Eigenfunctions of the Laplacian on the sphere: the modes behind every Cℓ.' },
+                        { t: 'Geodesic equation',
+                          m: R`\frac{d^2x^\mu}{d\tau^2}+\Gamma^{\mu}{}_{\alpha\beta}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0`,
+                          n: 'Straightest paths on a curved manifold, whether of spacetime or of data.' },
+                        { t: 'Fisher information metric',
+                          m: R`g_{ij}(\theta)=\mathbb E\!\left[\partial_i\ln p\;\partial_j\ln p\right]`,
+                          n: 'Probability models form a curved manifold, and this is its metric.' },
+                        { t: 'Wasserstein distance',
+                          m: R`W_p(\mu,\nu)=\Big(\inf_{\gamma\in\Pi(\mu,\nu)}\int d(x,y)^p\,d\gamma\Big)^{1/p}`,
+                          n: 'Optimal transport: the cheapest way to reshape one distribution into another.' },
+                        { t: 'Euler characteristic',
+                          m: R`\chi=\sum_k(-1)^k\beta_k=\beta_0-\beta_1+\beta_2`,
+                          n: 'Topology of the cosmic web: counts connected pieces, tunnels and voids.' },
+                        { t: 'Gaussian random field',
+                          m: R`\langle\delta(\mathbf k)\,\delta^{*}(\mathbf k')\rangle=(2\pi)^3\,\delta_D(\mathbf k-\mathbf k')\,P(k)`,
+                          n: 'A Gaussian field is completely described by its power spectrum.' },
+                        { t: "Bayes' theorem",
+                          m: R`P(\theta\,|\,d)=\frac{\mathcal L(d\,|\,\theta)\,\pi(\theta)}{\mathcal Z}`,
+                          n: 'The posterior that samplers such as emcee and pocoMC explore.' },
+                        { t: 'Metropolis–Hastings',
+                          m: R`\alpha=\min\!\left(1,\frac{\pi(\theta')\,q(\theta\,|\,\theta')}{\pi(\theta)\,q(\theta'\,|\,\theta)}\right)`,
+                          n: 'The accept-or-reject step at the heart of MCMC.' },
+                        { t: 'Fisher forecast',
+                          m: R`\begin{gathered}F_{ij}=-\left\langle\frac{\partial^2\ln\mathcal L}{\partial\theta_i\,\partial\theta_j}\right\rangle\\ \sigma(\theta_i)\ge\sqrt{\left(F^{-1}\right)_{ii}}\end{gathered}`,
+                          n: 'How tightly a survey can constrain a parameter before any data is taken.' },
+                        { t: 'Physics-informed loss',
+                          m: R`\mathcal L(\theta)=\mathcal L_{\rm data}+\lambda\,\frac1N\sum_{i=1}^{N}\left|\mathcal N[u_\theta](x_i)\right|^2`,
+                          n: 'The network is penalised whenever it violates the differential equation.' },
+                        { t: 'Neural ODE',
+                          m: R`\frac{d\mathbf h}{dt}=f_\theta\big(\mathbf h(t),t\big)`,
+                          n: 'A network of continuous depth: the layers become a differential equation.' },
+                        { t: 'Jet interaction features',
+                          m: R`\begin{gathered}\Delta=\sqrt{(y_a-y_b)^2+(\phi_a-\phi_b)^2}\\ k_T=\min(p_{T,a},p_{T,b})\,\Delta,\qquad z=\frac{\min(p_{T,a},p_{T,b})}{p_{T,a}+p_{T,b}}\end{gathered}`,
+                          n: 'Pairwise features that weight the particle graph in E-PCN.' }
+                    ] }
+                };
+
+                var wide = window.matchMedia ? window.matchMedia('(min-width: 1180px)') : { matches: true };
+
+                /* Shuffled deck: every hover or click shows a different equation until all have been seen */
+                function Deck(n) { this.n = n; this.q = []; this.last = -1; }
+                Deck.prototype.next = function () {
+                    if (!this.q.length) {
+                        var a = [], i, j, t;
+                        for (i = 0; i < this.n; i++) a.push(i);
+                        for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; }
+                        if (a.length > 1 && a[a.length - 1] === this.last) { t = a[0]; a[0] = a[a.length - 1]; a[a.length - 1] = t; }
+                        this.q = a;
+                    }
+                    this.last = this.q.pop();
+                    return this.last;
+                };
+
+                /* KaTeX is loaded lazily by math.js; show the plain LaTeX until it is ready */
+                function typeset(el, tex) {
+                    var tok = (el.__tok = (el.__tok || 0) + 1);
+                    function go() {
+                        try { window.katex.render(tex, el, { displayMode: true, throwOnError: false }); return true; }
+                        catch (e) { return false; }
+                    }
+                    if (window.katex && go()) return;
+                    el.textContent = tex;
+                    var tries = 0, timer = setInterval(function () {
+                        if (el.__tok !== tok) { clearInterval(timer); return; }
+                        if (window.katex) { clearInterval(timer); go(); }
+                        else if (++tries > 50) clearInterval(timer);
+                    }, 150);
+                }
+
+                var zones = [].slice.call(host.querySelectorAll('.eq-side'));
+
+                zones.forEach(function (zone) {
+                    var set = SETS[zone.getAttribute('data-eq-set')];
+                    var deck = new Deck(set.eqs.length);
+                    var pop = zone.querySelector('.eq-pop');
+                    pop.innerHTML =
+                        '<button type="button" class="eq-pop-close" aria-label="Close equation">&times;</button>' +
+                        '<div class="eq-pop-head"><span class="eq-pop-set"></span><span class="eq-pop-count"></span></div>' +
+                        '<div class="eq-pop-title"></div><div class="eq-pop-math"></div>' +
+                        '<div class="eq-pop-note"></div><div class="eq-pop-foot"></div>';
+                    function part(sel) { return pop.querySelector(sel); }
+
+                    function yOf(e) { return e.clientY - zone.getBoundingClientRect().top; }
+                    function place(y) {
+                        if (!wide.matches) { pop.style.top = ''; return; }
+                        var h = pop.offsetHeight, H = zone.clientHeight;
+                        pop.style.top = Math.max(12, Math.min(H - h - 12, y - h / 2)) + 'px';
+                    }
+                    function show(y) {
+                        var eq = set.eqs[deck.next()];
+                        part('.eq-pop-set').textContent = set.label;
+                        part('.eq-pop-count').textContent = (deck.n - deck.q.length) + ' / ' + deck.n;
+                        part('.eq-pop-title').textContent = eq.t;
+                        part('.eq-pop-note').textContent = eq.n;
+                        part('.eq-pop-foot').textContent =
+                            (zone.getAttribute('data-input') === 'touch' ? 'Tap' : 'Click') + ' for another equation';
+                        typeset(part('.eq-pop-math'), eq.m);
+                        zone.classList.add('is-open');
+                        place(typeof y === 'number' ? y : zone.clientHeight / 2);
+                    }
+                    function close() { zone.classList.remove('is-open', 'is-hover'); }
+                    zone.__eqClose = close;
+
+                    function glow(e) {
+                        var r = zone.getBoundingClientRect();
+                        zone.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                        zone.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                    }
+
+                    zone.addEventListener('pointerdown', function (e) {
+                        zone.setAttribute('data-input', e.pointerType === 'mouse' ? 'mouse' : 'touch');
+                    });
+                    zone.addEventListener('pointerenter', function (e) {
+                        if (e.pointerType !== 'mouse') return;
+                        zone.setAttribute('data-input', 'mouse');
+                        zone.classList.add('is-hover');
+                        glow(e);
+                        if (!zone.classList.contains('is-open')) show(yOf(e));
+                    });
+                    zone.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse') glow(e); });
+                    zone.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') close(); });
+                    zone.addEventListener('click', function (e) {
+                        if (e.target.closest('.eq-pop-close')) { close(); return; }
+                        show(e.detail === 0 ? undefined : yOf(e));
+                    });
+                    zone.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') zone.setAttribute('data-input', 'key');
+                    });
+                    zone.addEventListener('focusout', function () {
+                        if (zone.getAttribute('data-input') === 'key') close();
+                    });
+                });
+
+                function onKey(e) {
+                    if (e.key === 'Escape') zones.forEach(function (z) { z.__eqClose && z.__eqClose(); });
+                }
+                function onDown(e) {
+                    zones.forEach(function (z) {
+                        if (!z.contains(e.target) && z.getAttribute('data-input') !== 'mouse') z.__eqClose && z.__eqClose();
+                    });
+                }
+                document.addEventListener('keydown', onKey);
+                document.addEventListener('pointerdown', onDown, true);
+                window.__eqSidesCleanup = function () {
+                    document.removeEventListener('keydown', onKey);
+                    document.removeEventListener('pointerdown', onDown, true);
+                };
+            })();
+            </script>
     </section>
 
         <!-- ══ CONTACT SECTION (integrated from contact.html) ══ -->
